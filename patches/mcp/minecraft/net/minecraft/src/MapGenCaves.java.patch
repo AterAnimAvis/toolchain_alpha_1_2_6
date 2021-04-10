@@ -11,3 +11,40 @@
        float f = 0.0F;
        float f1 = 0.0F;
        Random random = new Random(this.field_1305_b.nextLong());
+@@ -31,9 +31,9 @@
+          double d3 = d2 * p_869_15_;
+          float f2 = MathHelper.func_1114_b(p_869_12_);
+          float f3 = MathHelper.func_1106_a(p_869_12_);
+-         p_869_4_ += (double)(MathHelper.func_1114_b(p_869_11_) * f2);
+-         p_869_6_ += (double)f3;
+-         p_869_8_ += (double)(MathHelper.func_1106_a(p_869_11_) * f2);
++         p_869_4_ += MathHelper.func_1114_b(p_869_11_) * f2;
++         p_869_6_ += f3;
++         p_869_8_ += MathHelper.func_1106_a(p_869_11_) * f2;
+          if (flag) {
+             p_869_12_ = p_869_12_ * 0.92F;
+          } else {
+@@ -55,8 +55,8 @@
+          if (flag2 || random.nextInt(4) != 0) {
+             double d4 = p_869_4_ - d0;
+             double d5 = p_869_8_ - d1;
+-            double d6 = (double)(p_869_14_ - p_869_13_);
+-            double d7 = (double)(p_869_10_ + 2.0F + 16.0F);
++            double d6 = p_869_14_ - p_869_13_;
++            double d7 = p_869_10_ + 2.0F + 16.0F;
+             if (d4 * d4 + d5 * d5 - d6 * d6 > d7 * d7) {
+                return;
+             }
+@@ -162,9 +162,9 @@
+       }
+ 
+       for(int j = 0; j < i; ++j) {
+-         double d0 = (double)(p_868_2_ * 16 + this.field_1305_b.nextInt(16));
+-         double d1 = (double)this.field_1305_b.nextInt(this.field_1305_b.nextInt(120) + 8);
+-         double d2 = (double)(p_868_3_ * 16 + this.field_1305_b.nextInt(16));
++         double d0 = p_868_2_ * 16 + this.field_1305_b.nextInt(16);
++         double d1 = this.field_1305_b.nextInt(this.field_1305_b.nextInt(120) + 8);
++         double d2 = p_868_3_ * 16 + this.field_1305_b.nextInt(16);
+          int k = 1;
+          if (this.field_1305_b.nextInt(4) == 0) {
+             this.func_870_a(p_868_4_, p_868_5_, p_868_6_, d0, d1, d2);

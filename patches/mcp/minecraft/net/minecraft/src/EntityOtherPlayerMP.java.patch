@@ -1,0 +1,13 @@
+--- a/net/minecraft/src/EntityOtherPlayerMP.java
++++ b/net/minecraft/src/EntityOtherPlayerMP.java
+@@ -32,8 +32,8 @@
+       this.field_784_bh = p_378_1_;
+       this.field_783_bi = p_378_3_;
+       this.field_782_bj = p_378_5_;
+-      this.field_780_bk = (double)p_378_7_;
+-      this.field_786_bl = (double)p_378_8_;
++      this.field_780_bk = p_378_7_;
++      this.field_786_bl = p_378_8_;
+       this.field_785_bg = p_378_9_;
+    }
+ 

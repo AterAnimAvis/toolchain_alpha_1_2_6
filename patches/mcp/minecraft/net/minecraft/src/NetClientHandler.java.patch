@@ -65,3 +65,69 @@
        }
  
     }
+@@ -256,14 +256,14 @@
+ 
+    public void func_834_a(Packet22Collect p_834_1_) {
+       Entity entity = this.func_12246_a(p_834_1_.field_581_a);
+-      Object object = (EntityLiving)this.func_12246_a(p_834_1_.field_580_b);
+-      if (object == null) {
+-         object = this.field_1212_e.field_6322_g;
++      EntityLiving entityLiving = (EntityLiving)this.func_12246_a(p_834_1_.field_580_b);
++      if (entityLiving == null) {
++         entityLiving = this.field_1212_e.field_6322_g;
+       }
+ 
+       if (entity != null) {
+          this.field_1211_f.func_623_a(entity, "random.pop", 0.2F, ((this.field_1208_b.nextFloat() - this.field_1208_b.nextFloat()) * 0.7F + 1.0F) * 2.0F);
+-         this.field_1212_e.field_6321_h.func_1192_a(new EntityPickupFX(this.field_1212_e.field_6324_e, entity, (Entity)object, -0.5F));
++         this.field_1212_e.field_6321_h.func_1192_a(new EntityPickupFX(this.field_1212_e.field_6324_e, entity, entityLiving, -0.5F));
+          this.field_1211_f.func_710_c(p_834_1_.field_581_a);
+       }
+ 
+@@ -332,7 +332,7 @@
+             }
+          } catch (Exception exception) {
+             exception.printStackTrace();
+-            this.field_1213_d.func_974_a("Internal client error: " + exception.toString());
++            this.field_1213_d.func_974_a("Internal client error: " + exception);
+          }
+       }
+ 
+@@ -405,14 +405,14 @@
+    }
+ 
+    public void func_6497_a(Packet39 p_6497_1_) {
+-      Object object = this.func_12246_a(p_6497_1_.field_6365_a);
+-      Entity entity = this.func_12246_a(p_6497_1_.field_6364_b);
++      Entity entity = this.func_12246_a(p_6497_1_.field_6365_a);
++      Entity entity1 = this.func_12246_a(p_6497_1_.field_6364_b);
+       if (p_6497_1_.field_6365_a == this.field_1212_e.field_6322_g.field_620_ab) {
+-         object = this.field_1212_e.field_6322_g;
++         entity = this.field_1212_e.field_6322_g;
+       }
+ 
+-      if (object != null) {
+-         ((Entity)object).func_6377_h(entity);
++      if (entity != null) {
++         entity.func_6377_h(entity1);
+       }
+    }
+ 
+@@ -425,7 +425,7 @@
+    }
+ 
+    private Entity func_12246_a(int p_12246_1_) {
+-      return (Entity)(p_12246_1_ == this.field_1212_e.field_6322_g.field_620_ab ? this.field_1212_e.field_6322_g : this.field_1211_f.func_709_b(p_12246_1_));
++      return p_12246_1_ == this.field_1212_e.field_6322_g.field_620_ab ? this.field_1212_e.field_6322_g : this.field_1211_f.func_709_b(p_12246_1_);
+    }
+ 
+    public void func_9446_a(Packet8 p_9446_1_) {
+@@ -437,7 +437,7 @@
+    }
+ 
+    public void func_12245_a(Packet60 p_12245_1_) {
+-      Explosion explosion = new Explosion(this.field_1212_e.field_6324_e, (Entity)null, p_12245_1_.field_12236_a, p_12245_1_.field_12235_b, p_12245_1_.field_12239_c, p_12245_1_.field_12238_d);
++      Explosion explosion = new Explosion(this.field_1212_e.field_6324_e, null, p_12245_1_.field_12236_a, p_12245_1_.field_12235_b, p_12245_1_.field_12239_c, p_12245_1_.field_12238_d);
+       explosion.field_12251_g = p_12245_1_.field_12237_e;
+       explosion.func_12247_b();
+    }

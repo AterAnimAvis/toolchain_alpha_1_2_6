@@ -1,6 +1,13 @@
 --- a/net/minecraft/src/Entity.java
 +++ b/net/minecraft/src/Entity.java
-@@ -180,7 +180,7 @@
+@@ -174,13 +174,13 @@
+             for(int i = 0; (float)i < 1.0F + this.field_644_aC * 20.0F; ++i) {
+                float f2 = (this.field_9312_bd.nextFloat() * 2.0F - 1.0F) * this.field_644_aC;
+                float f3 = (this.field_9312_bd.nextFloat() * 2.0F - 1.0F) * this.field_644_aC;
+-               this.field_615_ag.func_694_a("bubble", this.field_611_ak + (double)f2, (double)(f1 + 1.0F), this.field_609_am + (double)f3, this.field_608_an, this.field_607_ao - (double)(this.field_9312_bd.nextFloat() * 0.2F), this.field_606_ap);
++               this.field_615_ag.func_694_a("bubble", this.field_611_ak + (double)f2, f1 + 1.0F, this.field_609_am + (double)f3, this.field_608_an, this.field_607_ao - (double)(this.field_9312_bd.nextFloat() * 0.2F), this.field_606_ap);
+             }
+ 
              for(int j = 0; (float)j < 1.0F + this.field_644_aC * 20.0F; ++j) {
                 float f4 = (this.field_9312_bd.nextFloat() * 2.0F - 1.0F) * this.field_644_aC;
                 float f5 = (this.field_9312_bd.nextFloat() * 2.0F - 1.0F) * this.field_644_aC;

@@ -1,0 +1,38 @@
+--- a/net/minecraft/src/TileEntityMobSpawner.java
++++ b/net/minecraft/src/TileEntityMobSpawner.java
+@@ -18,13 +18,13 @@
+    public void func_475_b() {
+       this.field_830_d = this.field_831_c;
+       if (this.func_484_a()) {
+-         double d0 = (double)((float)this.field_823_f + this.field_824_e.field_1037_n.nextFloat());
+-         double d1 = (double)((float)this.field_822_g + this.field_824_e.field_1037_n.nextFloat());
+-         double d2 = (double)((float)this.field_821_h + this.field_824_e.field_1037_n.nextFloat());
++         double d0 = (float)this.field_823_f + this.field_824_e.field_1037_n.nextFloat();
++         double d1 = (float)this.field_822_g + this.field_824_e.field_1037_n.nextFloat();
++         double d2 = (float)this.field_821_h + this.field_824_e.field_1037_n.nextFloat();
+          this.field_824_e.func_694_a("smoke", d0, d1, d2, 0.0D, 0.0D, 0.0D);
+          this.field_824_e.func_694_a("flame", d0, d1, d2, 0.0D, 0.0D, 0.0D);
+ 
+-         for(this.field_831_c += (double)(1000.0F / ((float)this.field_829_a + 200.0F)); this.field_831_c > 360.0D; this.field_830_d -= 360.0D) {
++         for(this.field_831_c += 1000.0F / ((float)this.field_829_a + 200.0F); this.field_831_c > 360.0D; this.field_830_d -= 360.0D) {
+             this.field_831_c -= 360.0D;
+          }
+ 
+@@ -43,7 +43,7 @@
+                   return;
+                }
+ 
+-               int j = this.field_824_e.func_657_a(entityliving.getClass(), AxisAlignedBB.func_1161_b((double)this.field_823_f, (double)this.field_822_g, (double)this.field_821_h, (double)(this.field_823_f + 1), (double)(this.field_822_g + 1), (double)(this.field_821_h + 1)).func_1177_b(8.0D, 4.0D, 8.0D)).size();
++               int j = this.field_824_e.func_657_a(entityliving.getClass(), AxisAlignedBB.func_1161_b(this.field_823_f, this.field_822_g, this.field_821_h, this.field_823_f + 1, this.field_822_g + 1, this.field_821_h + 1).func_1177_b(8.0D, 4.0D, 8.0D)).size();
+                if (j >= 6) {
+                   this.func_483_c();
+                   return;
+@@ -51,7 +51,7 @@
+ 
+                if (entityliving != null) {
+                   double d3 = (double)this.field_823_f + (this.field_824_e.field_1037_n.nextDouble() - this.field_824_e.field_1037_n.nextDouble()) * 4.0D;
+-                  double d4 = (double)(this.field_822_g + this.field_824_e.field_1037_n.nextInt(3) - 1);
++                  double d4 = this.field_822_g + this.field_824_e.field_1037_n.nextInt(3) - 1;
+                   double d5 = (double)this.field_821_h + (this.field_824_e.field_1037_n.nextDouble() - this.field_824_e.field_1037_n.nextDouble()) * 4.0D;
+                   entityliving.func_365_c(d3, d4, d5, this.field_824_e.field_1037_n.nextFloat() * 360.0F, 0.0F);
+                   if (entityliving.func_433_a()) {

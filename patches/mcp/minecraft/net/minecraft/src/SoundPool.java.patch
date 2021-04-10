@@ -6,7 +6,7 @@
     private Random field_1661_c = new Random();
 -   private Map field_1660_d = new HashMap();
 -   private List field_1659_e = new ArrayList();
-+   private Map field_1660_d = new HashMap<>();
++   private Map<String, List<SoundPoolEntry>> field_1660_d = new HashMap<>();
 +   private List<SoundPoolEntry> field_1659_e = new ArrayList<>();
     public int field_1658_a = 0;
     public boolean field_1657_b = true;
@@ -17,7 +17,7 @@
           p_1117_1_ = p_1117_1_.substring(0, p_1117_1_.indexOf("."));
           if (this.field_1657_b) {
              while(Character.isDigit(p_1117_1_.charAt(p_1117_1_.length() - 1))) {
-@@ -26,10 +27,10 @@
+@@ -26,11 +27,11 @@
  
           p_1117_1_ = p_1117_1_.replaceAll("/", ".");
           if (!this.field_1660_d.containsKey(p_1117_1_)) {
@@ -26,11 +26,20 @@
           }
  
 -         SoundPoolEntry soundpoolentry = new SoundPoolEntry(p_1117_1_, p_1117_2_.toURI().toURL());
+-         ((List)this.field_1660_d.get(p_1117_1_)).add(soundpoolentry);
 +         SoundPoolEntry soundpoolentry = new SoundPoolEntry(s1, p_1117_2_.toURI().toURL());
-          ((List)this.field_1660_d.get(p_1117_1_)).add(soundpoolentry);
++         this.field_1660_d.get(p_1117_1_).add(soundpoolentry);
           this.field_1659_e.add(soundpoolentry);
           ++this.field_1658_a;
-@@ -46,6 +47,6 @@
+          return soundpoolentry;
+@@ -41,11 +42,11 @@
+    }
+ 
+    public SoundPoolEntry func_1118_a(String p_1118_1_) {
+-      List list = (List)this.field_1660_d.get(p_1118_1_);
+-      return list == null ? null : (SoundPoolEntry)list.get(this.field_1661_c.nextInt(list.size()));
++      List<SoundPoolEntry> list = this.field_1660_d.get(p_1118_1_);
++      return list == null ? null : list.get(this.field_1661_c.nextInt(list.size()));
     }
  
     public SoundPoolEntry func_1116_a() {

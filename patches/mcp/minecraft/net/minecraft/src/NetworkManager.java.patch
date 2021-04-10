@@ -31,6 +31,15 @@
                 this.field_1460_s -= packet1.func_329_a() + 1;
              }
  
+@@ -115,7 +115,7 @@
+ 
+    private void func_970_a(Exception p_970_1_) {
+       p_970_1_.printStackTrace();
+-      this.func_974_a("Internal exception: " + p_970_1_.toString());
++      this.func_974_a("Internal exception: " + p_970_1_);
+    }
+ 
+    public void func_974_a(String p_974_1_) {
 @@ -162,7 +162,7 @@
        int i = 100;
  

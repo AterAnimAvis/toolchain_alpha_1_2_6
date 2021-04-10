@@ -1,5 +1,14 @@
 --- a/net/minecraft/src/CanvasIsomPreview.java
 +++ b/net/minecraft/src/CanvasIsomPreview.java
+@@ -26,7 +26,7 @@
+    private World field_1790_d;
+    private File field_1789_e;
+    private boolean field_1788_f = true;
+-   private List field_1787_g = Collections.synchronizedList(new LinkedList());
++   private List<IsoImageBuffer> field_1787_g = Collections.synchronizedList(new LinkedList<>());
+    private IsoImageBuffer[][] field_1786_h = new IsoImageBuffer[64][64];
+    private int field_1785_i;
+    private int field_1784_j;
 @@ -41,9 +41,32 @@
        return this.field_1789_e;
     }
@@ -35,3 +44,12 @@
  
     private static EnumOS1 func_1269_e() {
        String s = System.getProperty("os.name").toLowerCase();
+@@ -189,7 +212,7 @@
+       p_1268_1_.setClip(0, 0, this.getWidth(), this.getHeight());
+       p_1268_1_.setRenderingHint(RenderingHints.KEY_INTERPOLATION, RenderingHints.VALUE_INTERPOLATION_NEAREST_NEIGHBOR);
+       p_1268_1_.translate(this.getWidth() / 2, this.getHeight() / 2);
+-      p_1268_1_.scale((double)this.field_1792_b, (double)this.field_1792_b);
++      p_1268_1_.scale(this.field_1792_b, this.field_1792_b);
+       p_1268_1_.translate(this.field_1785_i, this.field_1784_j);
+       if (this.field_1790_d != null) {
+          p_1268_1_.translate(-(this.field_1790_d.field_1036_o + this.field_1790_d.field_1034_q), -(-this.field_1790_d.field_1036_o + this.field_1790_d.field_1034_q) + 64);

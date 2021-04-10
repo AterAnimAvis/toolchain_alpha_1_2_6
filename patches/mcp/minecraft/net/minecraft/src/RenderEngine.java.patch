@@ -97,12 +97,13 @@
        if (threaddownloadimagedata != null) {
           --threaddownloadimagedata.field_1705_b;
           if (threaddownloadimagedata.field_1705_b == 0) {
-@@ -219,12 +220,12 @@
+@@ -218,25 +219,24 @@
+    }
  
     public void func_1067_a() {
-       for(int i = 0; i < this.field_1604_f.size(); ++i) {
+-      for(int i = 0; i < this.field_1604_f.size(); ++i) {
 -         TextureFX texturefx = (TextureFX)this.field_1604_f.get(i);
-+         TextureFX texturefx = this.field_1604_f.get(i);
++      for (TextureFX texturefx : this.field_1604_f) {
           texturefx.field_1131_c = this.field_1602_h.field_1578_g;
           texturefx.func_783_a();
 -         ((Buffer)this.field_1605_e).clear();
@@ -112,13 +113,31 @@
 +         this.field_1605_e.position(0).limit(texturefx.field_1127_a.length);
           texturefx.func_782_a(this);
  
-          for(int j = 0; j < texturefx.field_1129_e; ++j) {
-@@ -254,11 +255,11 @@
+-         for(int j = 0; j < texturefx.field_1129_e; ++j) {
+-            for(int k = 0; k < texturefx.field_1129_e; ++k) {
++         for (int j = 0; j < texturefx.field_1129_e; ++j) {
++            for (int k = 0; k < texturefx.field_1129_e; ++k) {
+                GL11.glTexSubImage2D(3553, 0, texturefx.field_1126_b % 16 * 16 + j * 16, texturefx.field_1126_b / 16 * 16 + k * 16, 16, 16, 6408, 5121, this.field_1605_e);
+                if (field_1609_a) {
+-                  for(int l = 1; l <= 4; ++l) {
++                  for (int l = 1; l <= 4; ++l) {
+                      int i1 = 16 >> l - 1;
+                      int j1 = 16 >> l;
+ 
+-                     for(int k1 = 0; k1 < j1; ++k1) {
+-                        for(int l1 = 0; l1 < j1; ++l1) {
++                     for (int k1 = 0; k1 < j1; ++k1) {
++                        for (int l1 = 0; l1 < j1; ++l1) {
+                            int i2 = this.field_1605_e.getInt((k1 * 2 + 0 + (l1 * 2 + 0) * i1) * 4);
+                            int j2 = this.field_1605_e.getInt((k1 * 2 + 1 + (l1 * 2 + 0) * i1) * 4);
+                            int k2 = this.field_1605_e.getInt((k1 * 2 + 1 + (l1 * 2 + 1) * i1) * 4);
+@@ -253,21 +253,20 @@
+          }
        }
  
-       for(int j3 = 0; j3 < this.field_1604_f.size(); ++j3) {
+-      for(int j3 = 0; j3 < this.field_1604_f.size(); ++j3) {
 -         TextureFX texturefx1 = (TextureFX)this.field_1604_f.get(j3);
-+         TextureFX texturefx1 = this.field_1604_f.get(j3);
++      for (TextureFX texturefx1 : this.field_1604_f) {
           if (texturefx1.field_1130_d > 0) {
 -            ((Buffer)this.field_1605_e).clear();
 +            this.field_1605_e.clear();
@@ -128,7 +147,19 @@
              GL11.glBindTexture(3553, texturefx1.field_1130_d);
              GL11.glTexSubImage2D(3553, 0, 0, 0, 16, 16, 6408, 5121, this.field_1605_e);
              if (field_1609_a) {
-@@ -314,8 +315,36 @@
+-               for(int k3 = 1; k3 <= 4; ++k3) {
++               for (int k3 = 1; k3 <= 4; ++k3) {
+                   int l3 = 16 >> k3 - 1;
+                   int i4 = 16 >> k3;
+ 
+-                  for(int j4 = 0; j4 < i4; ++j4) {
+-                     for(int k4 = 0; k4 < i4; ++k4) {
++                  for (int j4 = 0; j4 < i4; ++j4) {
++                     for (int k4 = 0; k4 < i4; ++k4) {
+                         int l4 = this.field_1605_e.getInt((j4 * 2 + 0 + (k4 * 2 + 0) * l3) * 4);
+                         int i5 = this.field_1605_e.getInt((j4 * 2 + 1 + (k4 * 2 + 0) * l3) * 4);
+                         int j5 = this.field_1605_e.getInt((j4 * 2 + 1 + (k4 * 2 + 1) * l3) * 4);
+@@ -314,8 +313,36 @@
     }
  
     public void func_1065_b() {

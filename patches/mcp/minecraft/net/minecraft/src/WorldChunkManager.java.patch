@@ -1,0 +1,35 @@
+--- a/net/minecraft/src/WorldChunkManager.java
++++ b/net/minecraft/src/WorldChunkManager.java
+@@ -29,7 +29,7 @@
+    }
+ 
+    public double func_4072_b(int p_4072_1_, int p_4072_2_) {
+-      this.field_4198_a = this.field_4194_e.func_4112_a(this.field_4198_a, (double)p_4072_1_, (double)p_4072_2_, 1, 1, (double)0.025F, (double)0.025F, 0.5D);
++      this.field_4198_a = this.field_4194_e.func_4112_a(this.field_4198_a, p_4072_1_, p_4072_2_, 1, 1, 0.025F, 0.025F, 0.5D);
+       return this.field_4198_a[0];
+    }
+ 
+@@ -43,8 +43,8 @@
+          p_4071_1_ = new double[p_4071_4_ * p_4071_5_];
+       }
+ 
+-      p_4071_1_ = this.field_4194_e.func_4112_a(p_4071_1_, (double)p_4071_2_, (double)p_4071_3_, p_4071_4_, p_4071_4_, (double)0.025F, (double)0.025F, 0.25D);
+-      this.field_4196_c = this.field_4192_g.func_4112_a(this.field_4196_c, (double)p_4071_2_, (double)p_4071_3_, p_4071_4_, p_4071_4_, 0.25D, 0.25D, 0.5882352941176471D);
++      p_4071_1_ = this.field_4194_e.func_4112_a(p_4071_1_, p_4071_2_, p_4071_3_, p_4071_4_, p_4071_4_, 0.025F, 0.025F, 0.25D);
++      this.field_4196_c = this.field_4192_g.func_4112_a(this.field_4196_c, p_4071_2_, p_4071_3_, p_4071_4_, p_4071_4_, 0.25D, 0.25D, 0.5882352941176471D);
+       int i = 0;
+ 
+       for(int j = 0; j < p_4071_4_; ++j) {
+@@ -75,9 +75,9 @@
+          p_4070_1_ = new MobSpawnerBase[p_4070_4_ * p_4070_5_];
+       }
+ 
+-      this.field_4198_a = this.field_4194_e.func_4112_a(this.field_4198_a, (double)p_4070_2_, (double)p_4070_3_, p_4070_4_, p_4070_4_, (double)0.025F, (double)0.025F, 0.25D);
+-      this.field_4197_b = this.field_4193_f.func_4112_a(this.field_4197_b, (double)p_4070_2_, (double)p_4070_3_, p_4070_4_, p_4070_4_, (double)0.05F, (double)0.05F, 0.3333333333333333D);
+-      this.field_4196_c = this.field_4192_g.func_4112_a(this.field_4196_c, (double)p_4070_2_, (double)p_4070_3_, p_4070_4_, p_4070_4_, 0.25D, 0.25D, 0.5882352941176471D);
++      this.field_4198_a = this.field_4194_e.func_4112_a(this.field_4198_a, p_4070_2_, p_4070_3_, p_4070_4_, p_4070_4_, 0.025F, 0.025F, 0.25D);
++      this.field_4197_b = this.field_4193_f.func_4112_a(this.field_4197_b, p_4070_2_, p_4070_3_, p_4070_4_, p_4070_4_, 0.05F, 0.05F, 0.3333333333333333D);
++      this.field_4196_c = this.field_4192_g.func_4112_a(this.field_4196_c, p_4070_2_, p_4070_3_, p_4070_4_, p_4070_4_, 0.25D, 0.25D, 0.5882352941176471D);
+       int i = 0;
+ 
+       for(int j = 0; j < p_4070_4_; ++j) {

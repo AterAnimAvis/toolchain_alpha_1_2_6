@@ -1,0 +1,46 @@
+--- a/net/minecraft/src/EntityPlayer.java
++++ b/net/minecraft/src/EntityPlayer.java
+@@ -79,10 +79,10 @@
+       this.field_774_f += (f - this.field_774_f) * 0.4F;
+       this.field_9328_R += (f1 - this.field_9328_R) * 0.8F;
+       if (this.field_9337_J > 0) {
+-         List list = this.field_615_ag.func_659_b(this, this.field_601_au.func_1177_b(1.0D, 0.0D, 1.0D));
++         List<Entity> list = this.field_615_ag.func_659_b(this, this.field_601_au.func_1177_b(1.0D, 0.0D, 1.0D));
+          if (list != null) {
+-            for(int i = 0; i < list.size(); ++i) {
+-               this.func_451_h((Entity)list.get(i));
++            for (Entity entity : list) {
++               this.func_451_h(entity);
+             }
+          }
+       }
+@@ -135,7 +135,7 @@
+             float f2 = this.field_9312_bd.nextFloat() * (float)Math.PI * 2.0F;
+             entityitem.field_608_an = (double)(-MathHelper.func_1106_a(f2) * f1);
+             entityitem.field_606_ap = (double)(MathHelper.func_1114_b(f2) * f1);
+-            entityitem.field_607_ao = (double)0.2F;
++            entityitem.field_607_ao = 0.2F;
+          } else {
+             f = 0.3F;
+             entityitem.field_608_an = (double)(-MathHelper.func_1106_a(this.field_605_aq / 180.0F * (float)Math.PI) * MathHelper.func_1114_b(this.field_604_ar / 180.0F * (float)Math.PI) * f);
+@@ -144,9 +144,9 @@
+             f = 0.02F;
+             float f3 = this.field_9312_bd.nextFloat() * (float)Math.PI * 2.0F;
+             f = f * this.field_9312_bd.nextFloat();
+-            entityitem.field_608_an += Math.cos((double)f3) * (double)f;
++            entityitem.field_608_an += Math.cos(f3) * (double)f;
+             entityitem.field_607_ao += (double)((this.field_9312_bd.nextFloat() - this.field_9312_bd.nextFloat()) * 0.1F);
+-            entityitem.field_606_ap += Math.sin((double)f3) * (double)f;
++            entityitem.field_606_ap += Math.sin(f3) * (double)f;
+          }
+ 
+          this.func_446_a(entityitem);
+@@ -251,7 +251,7 @@
+    }
+ 
+    public double func_388_v() {
+-      return (double)(this.field_9292_aO - 0.5F);
++      return this.field_9292_aO - 0.5F;
+    }
+ 
+    public void func_457_w() {

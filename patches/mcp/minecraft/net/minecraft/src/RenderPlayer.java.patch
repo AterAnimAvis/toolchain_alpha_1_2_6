@@ -1,0 +1,32 @@
+--- a/net/minecraft/src/RenderPlayer.java
++++ b/net/minecraft/src/RenderPlayer.java
+@@ -72,10 +72,10 @@
+             tessellator.func_977_b();
+             int i = fontrenderer.func_871_a(s) / 2;
+             tessellator.func_986_a(0.0F, 0.0F, 0.0F, 0.25F);
+-            tessellator.func_991_a((double)(-i - 1), -1.0D, 0.0D);
+-            tessellator.func_991_a((double)(-i - 1), 8.0D, 0.0D);
+-            tessellator.func_991_a((double)(i + 1), 8.0D, 0.0D);
+-            tessellator.func_991_a((double)(i + 1), -1.0D, 0.0D);
++            tessellator.func_991_a(-i - 1, -1.0D, 0.0D);
++            tessellator.func_991_a(-i - 1, 8.0D, 0.0D);
++            tessellator.func_991_a(i + 1, 8.0D, 0.0D);
++            tessellator.func_991_a(i + 1, -1.0D, 0.0D);
+             tessellator.func_982_a();
+             GL11.glEnable(3553);
+             fontrenderer.func_873_b(s, -fontrenderer.func_871_a(s) / 2, 0, 553648127);
+@@ -96,10 +96,10 @@
+             tessellator1.func_977_b();
+             int j = fontrenderer.func_871_a(s) / 2;
+             tessellator1.func_986_a(0.0F, 0.0F, 0.0F, 0.25F);
+-            tessellator1.func_991_a((double)(-j - 1), -1.0D, 0.0D);
+-            tessellator1.func_991_a((double)(-j - 1), 8.0D, 0.0D);
+-            tessellator1.func_991_a((double)(j + 1), 8.0D, 0.0D);
+-            tessellator1.func_991_a((double)(j + 1), -1.0D, 0.0D);
++            tessellator1.func_991_a(-j - 1, -1.0D, 0.0D);
++            tessellator1.func_991_a(-j - 1, 8.0D, 0.0D);
++            tessellator1.func_991_a(j + 1, 8.0D, 0.0D);
++            tessellator1.func_991_a(j + 1, -1.0D, 0.0D);
+             tessellator1.func_982_a();
+             GL11.glEnable(3553);
+             GL11.glDepthMask(true);

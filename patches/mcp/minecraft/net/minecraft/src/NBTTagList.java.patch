@@ -1,0 +1,46 @@
+--- a/net/minecraft/src/NBTTagList.java
++++ b/net/minecraft/src/NBTTagList.java
+@@ -7,12 +7,12 @@
+ import java.util.List;
+ 
+ public class NBTTagList extends NBTBase {
+-   private List field_1091_a = new ArrayList();
++   private List<NBTBase> field_1091_a = new ArrayList<>();
+    private byte field_1090_b;
+ 
+    void func_735_a(DataOutput p_735_1_) throws IOException {
+       if (this.field_1091_a.size() > 0) {
+-         this.field_1090_b = ((NBTBase)this.field_1091_a.get(0)).func_733_a();
++         this.field_1090_b = this.field_1091_a.get(0).func_733_a();
+       } else {
+          this.field_1090_b = 1;
+       }
+@@ -20,8 +20,8 @@
+       p_735_1_.writeByte(this.field_1090_b);
+       p_735_1_.writeInt(this.field_1091_a.size());
+ 
+-      for(int i = 0; i < this.field_1091_a.size(); ++i) {
+-         ((NBTBase)this.field_1091_a.get(i)).func_735_a(p_735_1_);
++      for (NBTBase nbtBase : this.field_1091_a) {
++         nbtBase.func_735_a(p_735_1_);
+       }
+ 
+    }
+@@ -29,7 +29,7 @@
+    void func_736_a(DataInput p_736_1_) throws IOException {
+       this.field_1090_b = p_736_1_.readByte();
+       int i = p_736_1_.readInt();
+-      this.field_1091_a = new ArrayList();
++      this.field_1091_a = new ArrayList<>();
+ 
+       for(int j = 0; j < i; ++j) {
+          NBTBase nbtbase = NBTBase.func_739_a(this.field_1090_b);
+@@ -53,7 +53,7 @@
+    }
+ 
+    public NBTBase func_741_a(int p_741_1_) {
+-      return (NBTBase)this.field_1091_a.get(p_741_1_);
++      return this.field_1091_a.get(p_741_1_);
+    }
+ 
+    public int func_740_c() {

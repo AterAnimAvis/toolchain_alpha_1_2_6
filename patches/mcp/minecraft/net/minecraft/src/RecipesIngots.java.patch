@@ -1,0 +1,15 @@
+--- a/net/minecraft/src/RecipesIngots.java
++++ b/net/minecraft/src/RecipesIngots.java
+@@ -4,9 +4,9 @@
+    private Object[][] field_1198_a = new Object[][]{{Block.field_413_ai, Item.field_222_n}, {Block.field_412_aj, Item.field_223_m}, {Block.field_389_ay, Item.field_224_l}};
+ 
+    public void func_810_a(CraftingManager p_810_1_) {
+-      for(int i = 0; i < this.field_1198_a.length; ++i) {
+-         Block block = (Block)this.field_1198_a[i][0];
+-         Item item = (Item)this.field_1198_a[i][1];
++      for (Object[] objects : this.field_1198_a) {
++         Block block = (Block) objects[0];
++         Item item = (Item) objects[1];
+          p_810_1_.func_1121_a(new ItemStack(block), "###", "###", "###", '#', item);
+          p_810_1_.func_1121_a(new ItemStack(item, 9), "#", '#', block);
+       }

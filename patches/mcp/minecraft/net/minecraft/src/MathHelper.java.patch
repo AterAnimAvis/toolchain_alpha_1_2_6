@@ -1,0 +1,36 @@
+--- a/net/minecraft/src/MathHelper.java
++++ b/net/minecraft/src/MathHelper.java
+@@ -3,19 +3,19 @@
+ public class MathHelper {
+    private static float[] field_1653_a = new float[65536];
+ 
+-   public static final float func_1106_a(float p_1106_0_) {
++   public static float func_1106_a(float p_1106_0_) {
+       return field_1653_a[(int)(p_1106_0_ * 10430.378F) & '\uffff'];
+    }
+ 
+-   public static final float func_1114_b(float p_1114_0_) {
++   public static float func_1114_b(float p_1114_0_) {
+       return field_1653_a[(int)(p_1114_0_ * 10430.378F + 16384.0F) & '\uffff'];
+    }
+ 
+-   public static final float func_1113_c(float p_1113_0_) {
+-      return (float)Math.sqrt((double)p_1113_0_);
++   public static float func_1113_c(float p_1113_0_) {
++      return (float)Math.sqrt(p_1113_0_);
+    }
+ 
+-   public static final float func_1109_a(double p_1109_0_) {
++   public static float func_1109_a(double p_1109_0_) {
+       return (float)Math.sqrt(p_1109_0_);
+    }
+ 
+@@ -42,7 +42,7 @@
+          p_1107_2_ = -p_1107_2_;
+       }
+ 
+-      return p_1107_0_ > p_1107_2_ ? p_1107_0_ : p_1107_2_;
++      return Math.max(p_1107_0_, p_1107_2_);
+    }
+ 
+    public static int func_1111_a(int p_1111_0_, int p_1111_1_) {

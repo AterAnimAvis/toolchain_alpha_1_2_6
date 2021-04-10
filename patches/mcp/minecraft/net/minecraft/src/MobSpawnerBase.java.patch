@@ -1,0 +1,11 @@
+--- a/net/minecraft/src/MobSpawnerBase.java
++++ b/net/minecraft/src/MobSpawnerBase.java
+@@ -96,7 +96,7 @@
+       return Color.getHSBColor(0.62222224F - p_4126_1_ * 0.05F, 0.5F + p_4126_1_ * 0.1F, 1.0F).getRGB();
+    }
+ 
+-   public Class[] func_4118_a(EnumCreatureType p_4118_1_) {
++   public Class<MobSpawnerBase>[] func_4118_a(EnumCreatureType p_4118_1_) {
+       if (p_4118_1_ == EnumCreatureType.monster) {
+          return this.field_4239_r;
+       } else {

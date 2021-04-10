@@ -21,3 +21,48 @@
     public void func_165_a(EntityItem p_165_1_, double p_165_2_, double p_165_4_, double p_165_6_, float p_165_8_, float p_165_9_) {
        this.field_200_e.setSeed(187L);
        ItemStack itemstack = p_165_1_.field_801_a;
+@@ -85,10 +90,10 @@
+             GL11.glRotatef(180.0F - this.field_191_a.field_1225_i, 0.0F, 1.0F, 0.0F);
+             tessellator.func_977_b();
+             tessellator.func_980_b(0.0F, 1.0F, 0.0F);
+-            tessellator.func_983_a((double)(0.0F - f7), (double)(0.0F - f8), 0.0D, (double)f2, (double)f5);
+-            tessellator.func_983_a((double)(f6 - f7), (double)(0.0F - f8), 0.0D, (double)f3, (double)f5);
+-            tessellator.func_983_a((double)(f6 - f7), (double)(1.0F - f8), 0.0D, (double)f3, (double)f4);
+-            tessellator.func_983_a((double)(0.0F - f7), (double)(1.0F - f8), 0.0D, (double)f2, (double)f4);
++            tessellator.func_983_a(0.0F - f7, 0.0F - f8, 0.0D, f2, f5);
++            tessellator.func_983_a(f6 - f7, 0.0F - f8, 0.0D, f3, f5);
++            tessellator.func_983_a(f6 - f7, 1.0F - f8, 0.0D, f3, f4);
++            tessellator.func_983_a(0.0F - f7, 1.0F - f8, 0.0D, f2, f4);
+             tessellator.func_982_a();
+             GL11.glPopMatrix();
+          }
+@@ -165,10 +170,10 @@
+    private void func_162_a(Tessellator p_162_1_, int p_162_2_, int p_162_3_, int p_162_4_, int p_162_5_, int p_162_6_) {
+       p_162_1_.func_977_b();
+       p_162_1_.func_990_b(p_162_6_);
+-      p_162_1_.func_991_a((double)(p_162_2_ + 0), (double)(p_162_3_ + 0), 0.0D);
+-      p_162_1_.func_991_a((double)(p_162_2_ + 0), (double)(p_162_3_ + p_162_5_), 0.0D);
+-      p_162_1_.func_991_a((double)(p_162_2_ + p_162_4_), (double)(p_162_3_ + p_162_5_), 0.0D);
+-      p_162_1_.func_991_a((double)(p_162_2_ + p_162_4_), (double)(p_162_3_ + 0), 0.0D);
++      p_162_1_.func_991_a(p_162_2_ + 0, p_162_3_ + 0, 0.0D);
++      p_162_1_.func_991_a(p_162_2_ + 0, p_162_3_ + p_162_5_, 0.0D);
++      p_162_1_.func_991_a(p_162_2_ + p_162_4_, p_162_3_ + p_162_5_, 0.0D);
++      p_162_1_.func_991_a(p_162_2_ + p_162_4_, p_162_3_ + 0, 0.0D);
+       p_162_1_.func_982_a();
+    }
+ 
+@@ -178,10 +183,10 @@
+       float f2 = 0.00390625F;
+       Tessellator tessellator = Tessellator.field_1512_a;
+       tessellator.func_977_b();
+-      tessellator.func_983_a((double)(p_163_1_ + 0), (double)(p_163_2_ + p_163_6_), (double)f, (double)((float)(p_163_3_ + 0) * f1), (double)((float)(p_163_4_ + p_163_6_) * f2));
+-      tessellator.func_983_a((double)(p_163_1_ + p_163_5_), (double)(p_163_2_ + p_163_6_), (double)f, (double)((float)(p_163_3_ + p_163_5_) * f1), (double)((float)(p_163_4_ + p_163_6_) * f2));
+-      tessellator.func_983_a((double)(p_163_1_ + p_163_5_), (double)(p_163_2_ + 0), (double)f, (double)((float)(p_163_3_ + p_163_5_) * f1), (double)((float)(p_163_4_ + 0) * f2));
+-      tessellator.func_983_a((double)(p_163_1_ + 0), (double)(p_163_2_ + 0), (double)f, (double)((float)(p_163_3_ + 0) * f1), (double)((float)(p_163_4_ + 0) * f2));
++      tessellator.func_983_a(p_163_1_ + 0, p_163_2_ + p_163_6_, f, (float)(p_163_3_ + 0) * f1, (float)(p_163_4_ + p_163_6_) * f2);
++      tessellator.func_983_a(p_163_1_ + p_163_5_, p_163_2_ + p_163_6_, f, (float)(p_163_3_ + p_163_5_) * f1, (float)(p_163_4_ + p_163_6_) * f2);
++      tessellator.func_983_a(p_163_1_ + p_163_5_, p_163_2_ + 0, f, (float)(p_163_3_ + p_163_5_) * f1, (float)(p_163_4_ + 0) * f2);
++      tessellator.func_983_a(p_163_1_ + 0, p_163_2_ + 0, f, (float)(p_163_3_ + 0) * f1, (float)(p_163_4_ + 0) * f2);
+       tessellator.func_982_a();
+    }
+ }

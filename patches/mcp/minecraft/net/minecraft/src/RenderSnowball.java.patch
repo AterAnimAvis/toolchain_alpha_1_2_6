@@ -15,3 +15,18 @@
     public void func_155_a(EntitySnowball p_155_1_, double p_155_2_, double p_155_4_, double p_155_6_, float p_155_8_, float p_155_9_) {
        GL11.glPushMatrix();
        GL11.glTranslatef((float)p_155_2_, (float)p_155_4_, (float)p_155_6_);
+@@ -22,10 +28,10 @@
+       GL11.glRotatef(-this.field_191_a.field_1224_j, 1.0F, 0.0F, 0.0F);
+       tessellator.func_977_b();
+       tessellator.func_980_b(0.0F, 1.0F, 0.0F);
+-      tessellator.func_983_a((double)(0.0F - f5), (double)(0.0F - f6), 0.0D, (double)f, (double)f3);
+-      tessellator.func_983_a((double)(f4 - f5), (double)(0.0F - f6), 0.0D, (double)f1, (double)f3);
+-      tessellator.func_983_a((double)(f4 - f5), (double)(1.0F - f6), 0.0D, (double)f1, (double)f2);
+-      tessellator.func_983_a((double)(0.0F - f5), (double)(1.0F - f6), 0.0D, (double)f, (double)f2);
++      tessellator.func_983_a(0.0F - f5, 0.0F - f6, 0.0D, f, f3);
++      tessellator.func_983_a(f4 - f5, 0.0F - f6, 0.0D, f1, f3);
++      tessellator.func_983_a(f4 - f5, 1.0F - f6, 0.0D, f1, f2);
++      tessellator.func_983_a(0.0F - f5, 1.0F - f6, 0.0D, f, f2);
+       tessellator.func_982_a();
+       GL11.glDisable(32826);
+       GL11.glPopMatrix();

@@ -1,0 +1,19 @@
+--- a/net/minecraft/src/ModelCreeper.java
++++ b/net/minecraft/src/ModelCreeper.java
+@@ -14,13 +14,13 @@
+       byte b0 = 4;
+       this.field_1271_a = new ModelRenderer(0, 0);
+       this.field_1271_a.func_923_a(-4.0F, -8.0F, -4.0F, 8, 8, 8, f);
+-      this.field_1271_a.func_925_a(0.0F, (float)b0, 0.0F);
++      this.field_1271_a.func_925_a(0.0F, b0, 0.0F);
+       this.field_1270_b = new ModelRenderer(32, 0);
+       this.field_1270_b.func_923_a(-4.0F, -8.0F, -4.0F, 8, 8, 8, f + 0.5F);
+-      this.field_1270_b.func_925_a(0.0F, (float)b0, 0.0F);
++      this.field_1270_b.func_925_a(0.0F, b0, 0.0F);
+       this.field_1276_c = new ModelRenderer(16, 16);
+       this.field_1276_c.func_923_a(-4.0F, 0.0F, -2.0F, 8, 12, 4, f);
+-      this.field_1276_c.func_925_a(0.0F, (float)b0, 0.0F);
++      this.field_1276_c.func_925_a(0.0F, b0, 0.0F);
+       this.field_1275_d = new ModelRenderer(0, 16);
+       this.field_1275_d.func_923_a(-2.0F, 0.0F, -2.0F, 4, 6, 4, f);
+       this.field_1275_d.func_925_a(-2.0F, (float)(12 + b0), 4.0F);

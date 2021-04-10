@@ -31,3 +31,12 @@
              }
           }
        }
+@@ -68,7 +68,7 @@
+       this.field_949_e.add(new GuiButton(3, this.field_951_c / 2 - 100, this.field_950_d / 4 + 96, "Mods and Texture Packs"));
+       this.field_949_e.add(new GuiButton(0, this.field_951_c / 2 - 100, this.field_950_d / 4 + 120 + 12, "Options..."));
+       if (this.field_945_b.field_6320_i == null) {
+-         ((GuiButton)this.field_949_e.get(1)).field_937_g = false;
++         this.field_949_e.get(1).field_937_g = false;
+       }
+ 
+    }

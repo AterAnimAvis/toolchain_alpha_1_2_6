@@ -1,0 +1,18 @@
+--- a/net/minecraft/src/EntityPigZombie.java
++++ b/net/minecraft/src/EntityPigZombie.java
+@@ -48,12 +48,11 @@
+ 
+    public boolean func_396_a(Entity p_396_1_, int p_396_2_) {
+       if (p_396_1_ instanceof EntityPlayer) {
+-         List list = this.field_615_ag.func_659_b(this, this.field_601_au.func_1177_b(32.0D, 32.0D, 32.0D));
++         List<Entity> list = this.field_615_ag.func_659_b(this, this.field_601_au.func_1177_b(32.0D, 32.0D, 32.0D));
+ 
+-         for(int i = 0; i < list.size(); ++i) {
+-            Entity entity = (Entity)list.get(i);
++         for (Entity entity : list) {
+             if (entity instanceof EntityPigZombie) {
+-               EntityPigZombie entitypigzombie = (EntityPigZombie)entity;
++               EntityPigZombie entitypigzombie = (EntityPigZombie) entity;
+                entitypigzombie.func_4049_h(p_396_1_);
+             }
+          }

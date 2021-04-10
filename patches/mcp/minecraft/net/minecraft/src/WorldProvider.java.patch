@@ -1,0 +1,11 @@
+--- a/net/minecraft/src/WorldProvider.java
++++ b/net/minecraft/src/WorldProvider.java
+@@ -94,7 +94,7 @@
+       f1 = f1 * (f * 0.94F + 0.06F);
+       f2 = f2 * (f * 0.94F + 0.06F);
+       f3 = f3 * (f * 0.91F + 0.09F);
+-      return Vec3D.func_1248_b((double)f1, (double)f2, (double)f3);
++      return Vec3D.func_1248_b(f1, f2, f3);
+    }
+ 
+    public boolean func_6477_d() {

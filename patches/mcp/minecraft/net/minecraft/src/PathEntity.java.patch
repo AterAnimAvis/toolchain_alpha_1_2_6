@@ -1,0 +1,11 @@
+--- a/net/minecraft/src/PathEntity.java
++++ b/net/minecraft/src/PathEntity.java
+@@ -20,7 +20,7 @@
+ 
+    public Vec3D func_1205_a(Entity p_1205_1_) {
+       double d0 = (double)this.field_1764_b[this.field_1766_c].field_1718_a + (double)((int)(p_1205_1_.field_644_aC + 1.0F)) * 0.5D;
+-      double d1 = (double)this.field_1764_b[this.field_1766_c].field_1717_b;
++      double d1 = this.field_1764_b[this.field_1766_c].field_1717_b;
+       double d2 = (double)this.field_1764_b[this.field_1766_c].field_1716_c + (double)((int)(p_1205_1_.field_644_aC + 1.0F)) * 0.5D;
+       return Vec3D.func_1248_b(d0, d1, d2);
+    }

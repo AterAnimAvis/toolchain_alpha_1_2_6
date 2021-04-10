@@ -1,0 +1,48 @@
+--- a/net/minecraft/src/EntityFallingSand.java
++++ b/net/minecraft/src/EntityFallingSand.java
+@@ -14,14 +14,14 @@
+       this.field_618_ad = true;
+       this.func_371_a(0.98F, 0.98F);
+       this.field_9292_aO = this.field_643_aD / 2.0F;
+-      this.func_347_a((double)p_i125_2_, (double)p_i125_3_, (double)p_i125_4_);
++      this.func_347_a(p_i125_2_, p_i125_3_, p_i125_4_);
+       this.field_608_an = 0.0D;
+       this.field_607_ao = 0.0D;
+       this.field_606_ap = 0.0D;
+       this.field_9289_aT = false;
+-      this.field_9285_at = (double)p_i125_2_;
+-      this.field_9284_au = (double)p_i125_3_;
+-      this.field_9283_av = (double)p_i125_4_;
++      this.field_9285_at = p_i125_2_;
++      this.field_9284_au = p_i125_3_;
++      this.field_9283_av = p_i125_4_;
+    }
+ 
+    public boolean func_401_c_() {
+@@ -36,11 +36,11 @@
+          this.field_9284_au = this.field_610_al;
+          this.field_9283_av = this.field_609_am;
+          ++this.field_798_b;
+-         this.field_607_ao -= (double)0.04F;
++         this.field_607_ao -= 0.04F;
+          this.func_349_c(this.field_608_an, this.field_607_ao, this.field_606_ap);
+-         this.field_608_an *= (double)0.98F;
+-         this.field_607_ao *= (double)0.98F;
+-         this.field_606_ap *= (double)0.98F;
++         this.field_608_an *= 0.98F;
++         this.field_607_ao *= 0.98F;
++         this.field_606_ap *= 0.98F;
+          int i = MathHelper.func_1108_b(this.field_611_ak);
+          int j = MathHelper.func_1108_b(this.field_610_al);
+          int k = MathHelper.func_1108_b(this.field_609_am);
+@@ -49,8 +49,8 @@
+          }
+ 
+          if (this.field_9298_aH) {
+-            this.field_608_an *= (double)0.7F;
+-            this.field_606_ap *= (double)0.7F;
++            this.field_608_an *= 0.7F;
++            this.field_606_ap *= 0.7F;
+             this.field_607_ao *= -0.5D;
+             this.func_395_F();
+             if (!this.field_615_ag.func_695_a(this.field_799_a, i, j, k, true) || !this.field_615_ag.func_690_d(i, j, k, this.field_799_a)) {

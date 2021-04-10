@@ -1,6 +1,13 @@
 --- a/net/minecraft/src/ClippingHelperImplementation.java
 +++ b/net/minecraft/src/ClippingHelperImplementation.java
-@@ -24,14 +24,14 @@
+@@ -1,6 +1,5 @@
+ package net.minecraft.src;
+ 
+-import java.nio.Buffer;
+ import java.nio.FloatBuffer;
+ import org.lwjgl.opengl.GL11;
+ 
+@@ -24,14 +23,14 @@
     }
  
     private void func_1153_b() {

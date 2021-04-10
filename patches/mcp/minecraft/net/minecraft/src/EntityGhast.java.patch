@@ -1,0 +1,11 @@
+--- a/net/minecraft/src/EntityGhast.java
++++ b/net/minecraft/src/EntityGhast.java
+@@ -26,7 +26,7 @@
+       double d0 = this.field_4120_b - this.field_611_ak;
+       double d1 = this.field_4127_c - this.field_610_al;
+       double d2 = this.field_4126_d - this.field_609_am;
+-      double d3 = (double)MathHelper.func_1109_a(d0 * d0 + d1 * d1 + d2 * d2);
++      double d3 = MathHelper.func_1109_a(d0 * d0 + d1 * d1 + d2 * d2);
+       if (d3 < 1.0D || d3 > 60.0D) {
+          this.field_4120_b = this.field_611_ak + (double)((this.field_9312_bd.nextFloat() * 2.0F - 1.0F) * 16.0F);
+          this.field_4127_c = this.field_610_al + (double)((this.field_9312_bd.nextFloat() * 2.0F - 1.0F) * 16.0F);

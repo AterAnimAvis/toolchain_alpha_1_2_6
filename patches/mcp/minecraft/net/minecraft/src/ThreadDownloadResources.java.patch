@@ -1,0 +1,22 @@
+--- a/net/minecraft/src/ThreadDownloadResources.java
++++ b/net/minecraft/src/ThreadDownloadResources.java
+@@ -67,14 +67,14 @@
+    private void func_1209_a(File p_1209_1_, String p_1209_2_) {
+       File[] afile = p_1209_1_.listFiles();
+ 
+-      for(int i = 0; i < afile.length; ++i) {
+-         if (afile[i].isDirectory()) {
+-            this.func_1209_a(afile[i], p_1209_2_ + afile[i].getName() + "/");
++      for (File file : afile) {
++         if (file.isDirectory()) {
++            this.func_1209_a(file, p_1209_2_ + file.getName() + "/");
+          } else {
+             try {
+-               this.field_1767_b.func_6268_a(p_1209_2_ + afile[i].getName(), afile[i]);
++               this.field_1767_b.func_6268_a(p_1209_2_ + file.getName(), file);
+             } catch (Exception exception) {
+-               System.out.println("Failed to add " + p_1209_2_ + afile[i].getName());
++               System.out.println("Failed to add " + p_1209_2_ + file.getName());
+             }
+          }
+       }
