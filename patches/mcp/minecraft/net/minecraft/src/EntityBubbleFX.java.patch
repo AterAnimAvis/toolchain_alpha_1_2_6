@@ -1,0 +1,15 @@
+--- a/net/minecraft/src/EntityBubbleFX.java
++++ b/net/minecraft/src/EntityBubbleFX.java
+@@ -21,9 +21,9 @@
+       this.field_9283_av = this.field_609_am;
+       this.field_607_ao += 0.002D;
+       this.func_349_c(this.field_608_an, this.field_607_ao, this.field_606_ap);
+-      this.field_608_an *= (double)0.85F;
+-      this.field_607_ao *= (double)0.85F;
+-      this.field_606_ap *= (double)0.85F;
++      this.field_608_an *= 0.85F;
++      this.field_607_ao *= 0.85F;
++      this.field_606_ap *= 0.85F;
+       if (this.field_615_ag.func_599_f(MathHelper.func_1108_b(this.field_611_ak), MathHelper.func_1108_b(this.field_610_al), MathHelper.func_1108_b(this.field_609_am)) != Material.field_1332_f) {
+          this.func_395_F();
+       }

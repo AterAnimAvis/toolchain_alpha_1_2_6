@@ -9,7 +9,33 @@
  
     public static final CraftingManager func_1120_a() {
        return field_6541_a;
-@@ -88,8 +88,8 @@
+@@ -66,30 +66,29 @@
+    }
+ 
+    void func_1121_a(ItemStack p_1121_1_, Object... p_1121_2_) {
+-      String s = "";
++      StringBuilder s = new StringBuilder();
+       int i = 0;
+       int j = 0;
+       int k = 0;
+       if (p_1121_2_[i] instanceof String[]) {
+          String[] astring = (String[])p_1121_2_[i++];
+ 
+-         for(int l = 0; l < astring.length; ++l) {
+-            String s2 = astring[l];
++         for (String s2 : astring) {
+             ++k;
+             j = s2.length();
+-            s = s + s2;
++            s.append(s2);
+          }
+       } else {
+          while(p_1121_2_[i] instanceof String) {
+             String s1 = (String)p_1121_2_[i++];
+             ++k;
+             j = s1.length();
+-            s = s + s1;
++            s.append(s1);
           }
        }
  
@@ -20,12 +46,25 @@
           Character character = (Character)p_1121_2_[i];
           int i1 = 0;
           if (p_1121_2_[i + 1] instanceof Item) {
-@@ -117,7 +117,7 @@
+@@ -105,19 +104,14 @@
+ 
+       for(int j1 = 0; j1 < j * k; ++j1) {
+          char c0 = s.charAt(j1);
+-         if (hashmap.containsKey(c0)) {
+-            aint[j1] = hashmap.get(c0);
+-         } else {
+-            aint[j1] = -1;
++         aint[j1] = hashmap.getOrDefault(c0, -1);
+          }
+-      }
+ 
+       this.field_1662_b.add(new CraftingRecipe(j, k, aint, p_1121_1_));
+    }
  
     public ItemStack func_1119_a(int[] p_1119_1_) {
-       for(int i = 0; i < this.field_1662_b.size(); ++i) {
+-      for(int i = 0; i < this.field_1662_b.size(); ++i) {
 -         CraftingRecipe craftingrecipe = (CraftingRecipe)this.field_1662_b.get(i);
-+         CraftingRecipe craftingrecipe = this.field_1662_b.get(i);
++      for (CraftingRecipe craftingrecipe : this.field_1662_b) {
           if (craftingrecipe.func_1182_a(p_1119_1_)) {
              return craftingrecipe.func_1183_b(p_1119_1_);
           }

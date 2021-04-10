@@ -1,5 +1,99 @@
 --- a/net/minecraft/src/Entity.java
 +++ b/net/minecraft/src/Entity.java
+@@ -180,7 +180,7 @@
+             for(int j = 0; (float)j < 1.0F + this.field_644_aC * 20.0F; ++j) {
+                float f4 = (this.field_9312_bd.nextFloat() * 2.0F - 1.0F) * this.field_644_aC;
+                float f5 = (this.field_9312_bd.nextFloat() * 2.0F - 1.0F) * this.field_644_aC;
+-               this.field_615_ag.func_694_a("splash", this.field_611_ak + (double)f4, (double)(f1 + 1.0F), this.field_609_am + (double)f5, this.field_608_an, this.field_607_ao, this.field_606_ap);
++               this.field_615_ag.func_694_a("splash", this.field_611_ak + (double)f4, (f1 + 1.0F), this.field_609_am + (double)f5, this.field_608_an, this.field_607_ao, this.field_606_ap);
+             }
+          }
+ 
+@@ -233,7 +233,7 @@
+ 
+    public boolean func_403_b(double p_403_1_, double p_403_3_, double p_403_5_) {
+       AxisAlignedBB axisalignedbb = this.field_601_au.func_1166_c(p_403_1_, p_403_3_, p_403_5_);
+-      List list = this.field_615_ag.func_697_a(this, axisalignedbb);
++      List<AxisAlignedBB> list = this.field_615_ag.func_697_a(this, axisalignedbb);
+       if (list.size() > 0) {
+          return false;
+       } else {
+@@ -278,10 +278,10 @@
+             }
+          }
+ 
+-         List list = this.field_615_ag.func_697_a(this, this.field_601_au.func_1170_a(p_349_1_, p_349_3_, p_349_5_));
++         List<AxisAlignedBB> list = this.field_615_ag.func_697_a(this, this.field_601_au.func_1170_a(p_349_1_, p_349_3_, p_349_5_));
+ 
+-         for(int i = 0; i < list.size(); ++i) {
+-            p_349_3_ = ((AxisAlignedBB)list.get(i)).func_1172_b(this.field_601_au, p_349_3_);
++         for (AxisAlignedBB axisAlignedBB : list) {
++            p_349_3_ = axisAlignedBB.func_1172_b(this.field_601_au, p_349_3_);
+          }
+ 
+          this.field_601_au.func_1174_d(0.0D, p_349_3_, 0.0D);
+@@ -293,8 +293,8 @@
+ 
+          boolean flag1 = this.field_9298_aH || d3 != p_349_3_ && d3 < 0.0D;
+ 
+-         for(int j = 0; j < list.size(); ++j) {
+-            p_349_1_ = ((AxisAlignedBB)list.get(j)).func_1163_a(this.field_601_au, p_349_1_);
++         for (AxisAlignedBB axisAlignedBB : list) {
++            p_349_1_ = axisAlignedBB.func_1163_a(this.field_601_au, p_349_1_);
+          }
+ 
+          this.field_601_au.func_1174_d(p_349_1_, 0.0D, 0.0D);
+@@ -304,8 +304,8 @@
+             p_349_1_ = 0.0D;
+          }
+ 
+-         for(int j2 = 0; j2 < list.size(); ++j2) {
+-            p_349_5_ = ((AxisAlignedBB)list.get(j2)).func_1162_c(this.field_601_au, p_349_5_);
++         for (AxisAlignedBB axisAlignedBB : list) {
++            p_349_5_ = axisAlignedBB.func_1162_c(this.field_601_au, p_349_5_);
+          }
+ 
+          this.field_601_au.func_1174_d(0.0D, 0.0D, p_349_5_);
+@@ -320,14 +320,14 @@
+             double d6 = p_349_3_;
+             double d7 = p_349_5_;
+             p_349_1_ = d2;
+-            p_349_3_ = (double)this.field_9286_aZ;
++            p_349_3_ = this.field_9286_aZ;
+             p_349_5_ = d4;
+             AxisAlignedBB axisalignedbb1 = this.field_601_au.func_1160_c();
+             this.field_601_au.func_1171_b(axisalignedbb);
+             list = this.field_615_ag.func_697_a(this, this.field_601_au.func_1170_a(d2, p_349_3_, d4));
+ 
+-            for(int l = 0; l < list.size(); ++l) {
+-               p_349_3_ = ((AxisAlignedBB)list.get(l)).func_1172_b(this.field_601_au, p_349_3_);
++            for (AxisAlignedBB axisAlignedBB : list) {
++               p_349_3_ = axisAlignedBB.func_1172_b(this.field_601_au, p_349_3_);
+             }
+ 
+             this.field_601_au.func_1174_d(0.0D, p_349_3_, 0.0D);
+@@ -337,8 +337,8 @@
+                p_349_1_ = 0.0D;
+             }
+ 
+-            for(int l3 = 0; l3 < list.size(); ++l3) {
+-               p_349_1_ = ((AxisAlignedBB)list.get(l3)).func_1163_a(this.field_601_au, p_349_1_);
++            for (AxisAlignedBB axisAlignedBB : list) {
++               p_349_1_ = axisAlignedBB.func_1163_a(this.field_601_au, p_349_1_);
+             }
+ 
+             this.field_601_au.func_1174_d(p_349_1_, 0.0D, 0.0D);
+@@ -348,8 +348,8 @@
+                p_349_1_ = 0.0D;
+             }
+ 
+-            for(int i4 = 0; i4 < list.size(); ++i4) {
+-               p_349_5_ = ((AxisAlignedBB)list.get(i4)).func_1162_c(this.field_601_au, p_349_5_);
++            for (AxisAlignedBB axisAlignedBB : list) {
++               p_349_5_ = axisAlignedBB.func_1162_c(this.field_601_au, p_349_5_);
+             }
+ 
+             this.field_601_au.func_1174_d(0.0D, 0.0D, p_349_5_);
 @@ -430,10 +430,10 @@
           }
  
@@ -22,3 +116,93 @@
              this.field_615_ag.func_623_a(this, "random.fizz", 0.7F, 1.6F + (this.field_9312_bd.nextFloat() - this.field_9312_bd.nextFloat()) * 0.4F);
              this.field_9309_bg = -this.field_9310_bf;
           }
+@@ -482,7 +482,7 @@
+    }
+ 
+    public boolean func_397_g_() {
+-      return this.field_615_ag.func_682_a(this.field_601_au.func_1177_b(0.0D, (double)-0.4F, 0.0D), Material.field_1332_f, this);
++      return this.field_615_ag.func_682_a(this.field_601_au.func_1177_b(0.0D, -0.4F, 0.0D), Material.field_1332_f, this);
+    }
+ 
+    public boolean func_393_a(Material p_393_1_) {
+@@ -505,7 +505,7 @@
+    }
+ 
+    public boolean func_359_G() {
+-      return this.field_615_ag.func_689_a(this.field_601_au.func_1177_b(0.0D, (double)-0.4F, 0.0D), Material.field_1331_g);
++      return this.field_615_ag.func_689_a(this.field_601_au.func_1177_b(0.0D, -0.4F, 0.0D), Material.field_1331_g);
+    }
+ 
+    public void func_351_a(float p_351_1_, float p_351_2_, float p_351_3_) {
+@@ -544,7 +544,7 @@
+       this.field_603_as = this.field_605_aq = p_399_7_;
+       this.field_602_at = this.field_604_ar = p_399_8_;
+       this.field_9287_aY = 0.0F;
+-      double d0 = (double)(this.field_603_as - p_399_7_);
++      double d0 = this.field_603_as - p_399_7_;
+       if (d0 < -180.0D) {
+          this.field_603_as += 360.0F;
+       }
+@@ -584,7 +584,7 @@
+       double d0 = this.field_611_ak - p_361_1_;
+       double d1 = this.field_610_al - p_361_3_;
+       double d2 = this.field_609_am - p_361_5_;
+-      return (double)MathHelper.func_1109_a(d0 * d0 + d1 * d1 + d2 * d2);
++      return MathHelper.func_1109_a(d0 * d0 + d1 * d1 + d2 * d2);
+    }
+ 
+    public double func_387_e(Entity p_387_1_) {
+@@ -603,7 +603,7 @@
+          double d1 = p_380_1_.field_609_am - this.field_609_am;
+          double d2 = MathHelper.func_1107_a(d0, d1);
+          if (d2 >= (double)0.01F) {
+-            d2 = (double)MathHelper.func_1109_a(d2);
++            d2 = MathHelper.func_1109_a(d2);
+             d0 = d0 / d2;
+             d1 = d1 / d2;
+             double d3 = 1.0D / d2;
+@@ -782,9 +782,9 @@
+          this.field_606_ap = 0.0D;
+          this.func_370_e_();
+          this.field_616_af.func_366_i_();
+-         this.field_667_e += (double)(this.field_616_af.field_605_aq - this.field_616_af.field_603_as);
++         this.field_667_e += (this.field_616_af.field_605_aq - this.field_616_af.field_603_as);
+ 
+-         for(this.field_861_d += (double)(this.field_616_af.field_604_ar - this.field_616_af.field_602_at); this.field_667_e >= 180.0D; this.field_667_e -= 360.0D) {
++         for(this.field_861_d += (this.field_616_af.field_604_ar - this.field_616_af.field_602_at); this.field_667_e >= 180.0D; this.field_667_e -= 360.0D) {
+          }
+ 
+          while(this.field_667_e < -180.0D) {
+@@ -803,19 +803,19 @@
+          double d1 = this.field_861_d * 0.5D;
+          float f = 10.0F;
+          if (d0 > (double)f) {
+-            d0 = (double)f;
++            d0 = f;
+          }
+ 
+          if (d0 < (double)(-f)) {
+-            d0 = (double)(-f);
++            d0 = -f;
+          }
+ 
+          if (d1 > (double)f) {
+-            d1 = (double)f;
++            d1 = f;
+          }
+ 
+          if (d1 < (double)(-f)) {
+-            d1 = (double)(-f);
++            d1 = -f;
+          }
+ 
+          this.field_667_e -= d0;
+@@ -830,7 +830,7 @@
+    }
+ 
+    public double func_388_v() {
+-      return (double)this.field_9292_aO;
++      return this.field_9292_aO;
+    }
+ 
+    public double func_402_h() {

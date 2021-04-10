@@ -1,0 +1,20 @@
+--- a/net/minecraft/src/AxisAlignedBB.java
++++ b/net/minecraft/src/AxisAlignedBB.java
+@@ -4,7 +4,7 @@
+ import java.util.List;
+ 
+ public class AxisAlignedBB {
+-   private static List field_1700_g = new ArrayList();
++   private static List<AxisAlignedBB> field_1700_g = new ArrayList<>();
+    private static int field_1699_h = 0;
+    public double field_1698_a;
+    public double field_1697_b;
+@@ -26,7 +26,7 @@
+          field_1700_g.add(func_1168_a(0.0D, 0.0D, 0.0D, 0.0D, 0.0D, 0.0D));
+       }
+ 
+-      return ((AxisAlignedBB)field_1700_g.get(field_1699_h++)).func_1165_c(p_1161_0_, p_1161_2_, p_1161_4_, p_1161_6_, p_1161_8_, p_1161_10_);
++      return field_1700_g.get(field_1699_h++).func_1165_c(p_1161_0_, p_1161_2_, p_1161_4_, p_1161_6_, p_1161_8_, p_1161_10_);
+    }
+ 
+    private AxisAlignedBB(double p_i50_1_, double p_i50_3_, double p_i50_5_, double p_i50_7_, double p_i50_9_, double p_i50_11_) {

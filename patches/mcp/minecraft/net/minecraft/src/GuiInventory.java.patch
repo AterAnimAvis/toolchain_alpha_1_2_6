@@ -1,0 +1,17 @@
+--- a/net/minecraft/src/GuiInventory.java
++++ b/net/minecraft/src/GuiInventory.java
+@@ -66,10 +66,10 @@
+       GL11.glRotatef(135.0F, 0.0F, 1.0F, 0.0F);
+       RenderHelper.func_1158_b();
+       GL11.glRotatef(-135.0F, 0.0F, 1.0F, 0.0F);
+-      GL11.glRotatef(-((float)Math.atan((double)(f5 / 40.0F))) * 20.0F, 1.0F, 0.0F, 0.0F);
+-      this.field_945_b.field_6322_g.field_735_n = (float)Math.atan((double)(f4 / 40.0F)) * 20.0F;
+-      this.field_945_b.field_6322_g.field_605_aq = (float)Math.atan((double)(f4 / 40.0F)) * 40.0F;
+-      this.field_945_b.field_6322_g.field_604_ar = -((float)Math.atan((double)(f5 / 40.0F))) * 20.0F;
++      GL11.glRotatef(-((float)Math.atan(f5 / 40.0F)) * 20.0F, 1.0F, 0.0F, 0.0F);
++      this.field_945_b.field_6322_g.field_735_n = (float)Math.atan(f4 / 40.0F) * 20.0F;
++      this.field_945_b.field_6322_g.field_605_aq = (float)Math.atan(f4 / 40.0F) * 40.0F;
++      this.field_945_b.field_6322_g.field_604_ar = -((float)Math.atan(f5 / 40.0F)) * 20.0F;
+       GL11.glTranslatef(0.0F, this.field_945_b.field_6322_g.field_9292_aO, 0.0F);
+       RenderManager.field_1233_a.func_853_a(this.field_945_b.field_6322_g, 0.0D, 0.0D, 0.0D, 0.0F, 1.0F);
+       this.field_945_b.field_6322_g.field_735_n = f1;

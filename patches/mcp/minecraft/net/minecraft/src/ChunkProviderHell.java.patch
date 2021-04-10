@@ -1,0 +1,52 @@
+--- a/net/minecraft/src/ChunkProviderHell.java
++++ b/net/minecraft/src/ChunkProviderHell.java
+@@ -103,9 +103,9 @@
+    public void func_4058_b(int p_4058_1_, int p_4058_2_, byte[] p_4058_3_) {
+       byte b0 = 64;
+       double d0 = 0.03125D;
+-      this.field_4162_p = this.field_4166_l.func_807_a(this.field_4162_p, (double)(p_4058_1_ * 16), (double)(p_4058_2_ * 16), 0.0D, 16, 16, 1, d0, d0, 1.0D);
+-      this.field_4161_q = this.field_4166_l.func_807_a(this.field_4161_q, (double)(p_4058_2_ * 16), 109.0134D, (double)(p_4058_1_ * 16), 16, 1, 16, d0, 1.0D, d0);
+-      this.field_4160_r = this.field_4165_m.func_807_a(this.field_4160_r, (double)(p_4058_1_ * 16), (double)(p_4058_2_ * 16), 0.0D, 16, 16, 1, d0 * 2.0D, d0 * 2.0D, d0 * 2.0D);
++      this.field_4162_p = this.field_4166_l.func_807_a(this.field_4162_p, (p_4058_1_ * 16), (p_4058_2_ * 16), 0.0D, 16, 16, 1, d0, d0, 1.0D);
++      this.field_4161_q = this.field_4166_l.func_807_a(this.field_4161_q, (p_4058_2_ * 16), 109.0134D, (p_4058_1_ * 16), 16, 1, 16, d0, 1.0D, d0);
++      this.field_4160_r = this.field_4165_m.func_807_a(this.field_4160_r, (p_4058_1_ * 16), (p_4058_2_ * 16), 0.0D, 16, 16, 1, d0 * 2.0D, d0 * 2.0D, d0 * 2.0D);
+ 
+       for(int i = 0; i < 16; ++i) {
+          for(int j = 0; j < 16; ++j) {
+@@ -192,20 +192,20 @@
+ 
+       double d0 = 684.412D;
+       double d1 = 2053.236D;
+-      this.field_4172_f = this.field_4177_a.func_807_a(this.field_4172_f, (double)p_4057_2_, (double)p_4057_3_, (double)p_4057_4_, p_4057_5_, 1, p_4057_7_, 1.0D, 0.0D, 1.0D);
+-      this.field_4171_g = this.field_4176_b.func_807_a(this.field_4171_g, (double)p_4057_2_, (double)p_4057_3_, (double)p_4057_4_, p_4057_5_, 1, p_4057_7_, 100.0D, 0.0D, 100.0D);
+-      this.field_4175_c = this.field_4167_k.func_807_a(this.field_4175_c, (double)p_4057_2_, (double)p_4057_3_, (double)p_4057_4_, p_4057_5_, p_4057_6_, p_4057_7_, d0 / 80.0D, d1 / 60.0D, d0 / 80.0D);
+-      this.field_4174_d = this.field_4169_i.func_807_a(this.field_4174_d, (double)p_4057_2_, (double)p_4057_3_, (double)p_4057_4_, p_4057_5_, p_4057_6_, p_4057_7_, d0, d1, d0);
+-      this.field_4173_e = this.field_4168_j.func_807_a(this.field_4173_e, (double)p_4057_2_, (double)p_4057_3_, (double)p_4057_4_, p_4057_5_, p_4057_6_, p_4057_7_, d0, d1, d0);
++      this.field_4172_f = this.field_4177_a.func_807_a(this.field_4172_f, p_4057_2_, p_4057_3_, p_4057_4_, p_4057_5_, 1, p_4057_7_, 1.0D, 0.0D, 1.0D);
++      this.field_4171_g = this.field_4176_b.func_807_a(this.field_4171_g, p_4057_2_, p_4057_3_, p_4057_4_, p_4057_5_, 1, p_4057_7_, 100.0D, 0.0D, 100.0D);
++      this.field_4175_c = this.field_4167_k.func_807_a(this.field_4175_c, p_4057_2_, p_4057_3_, p_4057_4_, p_4057_5_, p_4057_6_, p_4057_7_, d0 / 80.0D, d1 / 60.0D, d0 / 80.0D);
++      this.field_4174_d = this.field_4169_i.func_807_a(this.field_4174_d, p_4057_2_, p_4057_3_, p_4057_4_, p_4057_5_, p_4057_6_, p_4057_7_, d0, d1, d0);
++      this.field_4173_e = this.field_4168_j.func_807_a(this.field_4173_e, p_4057_2_, p_4057_3_, p_4057_4_, p_4057_5_, p_4057_6_, p_4057_7_, d0, d1, d0);
+       int i = 0;
+       int j = 0;
+       double[] adouble = new double[p_4057_6_];
+ 
+       for(int k = 0; k < p_4057_6_; ++k) {
+          adouble[k] = Math.cos((double)k * Math.PI * 6.0D / (double)p_4057_6_) * 2.0D;
+-         double d2 = (double)k;
++         double d2 = k;
+          if (k > p_4057_6_ / 2) {
+-            d2 = (double)(p_4057_6_ - 1 - k);
++            d2 = (p_4057_6_ - 1 - k);
+          }
+ 
+          if (d2 < 4.0D) {
+@@ -265,7 +265,7 @@
+ 
+                d6 = d6 - d7;
+                if (l > p_4057_6_ - 4) {
+-                  double d11 = (double)((float)(l - (p_4057_6_ - 4)) / 3.0F);
++                  double d11 = ((float)(l - (p_4057_6_ - 4)) / 3.0F);
+                   d6 = d6 * (1.0D - d11) + -10.0D * d11;
+                }
+ 

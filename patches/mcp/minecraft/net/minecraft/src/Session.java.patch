@@ -1,0 +1,11 @@
+--- a/net/minecraft/src/Session.java
++++ b/net/minecraft/src/Session.java
+@@ -4,7 +4,7 @@
+ import java.util.List;
+ 
+ public class Session {
+-   public static List field_1667_a = new ArrayList();
++   public static List<Block> field_1667_a = new ArrayList<>();
+    public String field_1666_b;
+    public String field_6543_c;
+    public String field_6542_d;

@@ -1,0 +1,11 @@
+--- a/net/minecraft/src/CraftingInventoryCB.java
++++ b/net/minecraft/src/CraftingInventoryCB.java
+@@ -4,7 +4,7 @@
+ import java.util.List;
+ 
+ public class CraftingInventoryCB {
+-   protected List field_1618_c = new ArrayList();
++   protected List field_1618_c = new ArrayList<>();
+ 
+    public void func_1104_a(EntityPlayer p_1104_1_) {
+       InventoryPlayer inventoryplayer = p_1104_1_.field_778_b;

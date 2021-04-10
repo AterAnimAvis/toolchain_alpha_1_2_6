@@ -1,0 +1,30 @@
+--- a/net/minecraft/src/CompressedStreamTools.java
++++ b/net/minecraft/src/CompressedStreamTools.java
+@@ -27,12 +27,9 @@
+    }
+ 
+    public static void func_1143_a(NBTTagCompound p_1143_0_, OutputStream p_1143_1_) throws IOException {
+-      DataOutputStream dataoutputstream = new DataOutputStream(new GZIPOutputStream(p_1143_1_));
+ 
+-      try {
++      try (DataOutputStream dataoutputstream = new DataOutputStream(new GZIPOutputStream(p_1143_1_))) {
+          func_1139_a(p_1143_0_, dataoutputstream);
+-      } finally {
+-         dataoutputstream.close();
+       }
+ 
+    }
+@@ -52,12 +49,9 @@
+ 
+    public static byte[] func_1142_a(NBTTagCompound p_1142_0_) throws IOException {
+       ByteArrayOutputStream bytearrayoutputstream = new ByteArrayOutputStream();
+-      DataOutputStream dataoutputstream = new DataOutputStream(new GZIPOutputStream(bytearrayoutputstream));
+ 
+-      try {
++      try (DataOutputStream dataoutputstream = new DataOutputStream(new GZIPOutputStream(bytearrayoutputstream))) {
+          func_1139_a(p_1142_0_, dataoutputstream);
+-      } finally {
+-         dataoutputstream.close();
+       }
+ 
+       return bytearrayoutputstream.toByteArray();

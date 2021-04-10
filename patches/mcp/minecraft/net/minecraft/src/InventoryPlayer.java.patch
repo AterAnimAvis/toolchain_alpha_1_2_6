@@ -1,0 +1,35 @@
+--- a/net/minecraft/src/InventoryPlayer.java
++++ b/net/minecraft/src/InventoryPlayer.java
+@@ -106,9 +106,9 @@
+    }
+ 
+    public void func_511_b() {
+-      for(int i = 0; i < this.field_843_a.length; ++i) {
+-         if (this.field_843_a[i] != null && this.field_843_a[i].field_1614_b > 0) {
+-            --this.field_843_a[i].field_1614_b;
++      for (ItemStack itemStack : this.field_843_a) {
++         if (itemStack != null && itemStack.field_1614_b > 0) {
++            --itemStack.field_1614_b;
+          }
+       }
+ 
+@@ -298,14 +298,14 @@
+       int j = 0;
+       int k = 0;
+ 
+-      for(int l = 0; l < this.field_842_b.length; ++l) {
+-         if (this.field_842_b[l] != null && this.field_842_b[l].func_1091_a() instanceof ItemArmor) {
+-            int i1 = this.field_842_b[l].func_1094_d();
+-            int j1 = this.field_842_b[l].field_1616_d;
++      for (ItemStack itemStack : this.field_842_b) {
++         if (itemStack != null && itemStack.func_1091_a() instanceof ItemArmor) {
++            int i1 = itemStack.func_1094_d();
++            int j1 = itemStack.field_1616_d;
+             int k1 = i1 - j1;
+             j += k1;
+             k += i1;
+-            int l1 = ((ItemArmor)this.field_842_b[l].func_1091_a()).field_312_aY;
++            int l1 = ((ItemArmor) itemStack.func_1091_a()).field_312_aY;
+             i += l1;
+          }
+       }

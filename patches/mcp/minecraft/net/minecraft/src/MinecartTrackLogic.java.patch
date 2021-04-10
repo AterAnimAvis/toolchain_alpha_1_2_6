@@ -1,0 +1,67 @@
+--- a/net/minecraft/src/MinecartTrackLogic.java
++++ b/net/minecraft/src/MinecartTrackLogic.java
+@@ -9,13 +9,13 @@
+    private int field_1164_d;
+    private int field_1163_e;
+    private int field_1162_f;
+-   private List field_1161_g;
++   private List<ChunkPosition> field_1161_g;
+    // $FF: synthetic field
+    final BlockMinecartTrack field_1160_a;
+ 
+    public MinecartTrackLogic(BlockMinecartTrack p_i282_1_, World p_i282_2_, int p_i282_3_, int p_i282_4_, int p_i282_5_) {
+       this.field_1160_a = p_i282_1_;
+-      this.field_1161_g = new ArrayList();
++      this.field_1161_g = new ArrayList<>();
+       this.field_1159_b = p_i282_2_;
+       this.field_1165_c = p_i282_3_;
+       this.field_1164_d = p_i282_4_;
+@@ -62,7 +62,7 @@
+ 
+    private void func_785_b() {
+       for(int i = 0; i < this.field_1161_g.size(); ++i) {
+-         MinecartTrackLogic minecarttracklogic = this.func_795_a((ChunkPosition)this.field_1161_g.get(i));
++         MinecartTrackLogic minecarttracklogic = this.func_795_a(this.field_1161_g.get(i));
+          if (minecarttracklogic != null && minecarttracklogic.func_793_b(this)) {
+             this.field_1161_g.set(i, new ChunkPosition(minecarttracklogic.field_1165_c, minecarttracklogic.field_1164_d, minecarttracklogic.field_1163_e));
+          } else {
+@@ -93,8 +93,7 @@
+    }
+ 
+    private boolean func_793_b(MinecartTrackLogic p_793_1_) {
+-      for(int i = 0; i < this.field_1161_g.size(); ++i) {
+-         ChunkPosition chunkposition = (ChunkPosition)this.field_1161_g.get(i);
++      for (ChunkPosition chunkposition : this.field_1161_g) {
+          if (chunkposition.field_1111_a == p_793_1_.field_1165_c && chunkposition.field_1112_c == p_793_1_.field_1163_e) {
+             return true;
+          }
+@@ -104,8 +103,7 @@
+    }
+ 
+    private boolean func_794_b(int p_794_1_, int p_794_2_, int p_794_3_) {
+-      for(int i = 0; i < this.field_1161_g.size(); ++i) {
+-         ChunkPosition chunkposition = (ChunkPosition)this.field_1161_g.get(i);
++      for (ChunkPosition chunkposition : this.field_1161_g) {
+          if (chunkposition.field_1111_a == p_794_1_ && chunkposition.field_1112_c == p_794_3_) {
+             return true;
+          }
+@@ -143,7 +141,7 @@
+       } else if (this.field_1161_g.size() == 0) {
+          return true;
+       } else {
+-         ChunkPosition chunkposition = (ChunkPosition)this.field_1161_g.get(0);
++         ChunkPosition chunkposition = this.field_1161_g.get(0);
+          return p_787_1_.field_1164_d == this.field_1164_d && chunkposition.field_1110_b == this.field_1164_d ? true : true;
+       }
+    }
+@@ -318,8 +316,8 @@
+       this.func_789_a();
+       this.field_1159_b.func_691_b(this.field_1165_c, this.field_1164_d, this.field_1163_e, b0);
+ 
+-      for(int i = 0; i < this.field_1161_g.size(); ++i) {
+-         MinecartTrackLogic minecarttracklogic = this.func_795_a((ChunkPosition)this.field_1161_g.get(i));
++      for (ChunkPosition chunkPosition : this.field_1161_g) {
++         MinecartTrackLogic minecarttracklogic = this.func_795_a(chunkPosition);
+          if (minecarttracklogic != null) {
+             minecarttracklogic.func_785_b();
+             if (minecarttracklogic.func_787_c(this)) {

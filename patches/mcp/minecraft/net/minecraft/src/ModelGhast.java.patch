@@ -1,0 +1,13 @@
+--- a/net/minecraft/src/ModelGhast.java
++++ b/net/minecraft/src/ModelGhast.java
+@@ -37,8 +37,8 @@
+       this.func_863_a(p_864_1_, p_864_2_, p_864_3_, p_864_4_, p_864_5_, p_864_6_);
+       this.field_4258_a.func_922_a(p_864_6_);
+ 
+-      for(int i = 0; i < this.field_4257_b.length; ++i) {
+-         this.field_4257_b[i].func_922_a(p_864_6_);
++      for (ModelRenderer modelRenderer : this.field_4257_b) {
++         modelRenderer.func_922_a(p_864_6_);
+       }
+ 
+    }

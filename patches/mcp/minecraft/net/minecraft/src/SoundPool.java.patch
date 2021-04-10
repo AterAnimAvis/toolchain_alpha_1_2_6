@@ -1,6 +1,15 @@
 --- a/net/minecraft/src/SoundPool.java
 +++ b/net/minecraft/src/SoundPool.java
-@@ -17,6 +17,7 @@
+@@ -10,13 +10,14 @@
+ 
+ public class SoundPool {
+    private Random field_1661_c = new Random();
+-   private Map field_1660_d = new HashMap();
+-   private List field_1659_e = new ArrayList();
++   private Map field_1660_d = new HashMap<>();
++   private List<SoundPoolEntry> field_1659_e = new ArrayList<>();
+    public int field_1658_a = 0;
+    public boolean field_1657_b = true;
  
     public SoundPoolEntry func_1117_a(String p_1117_1_, File p_1117_2_) {
        try {
@@ -8,8 +17,12 @@
           p_1117_1_ = p_1117_1_.substring(0, p_1117_1_.indexOf("."));
           if (this.field_1657_b) {
              while(Character.isDigit(p_1117_1_.charAt(p_1117_1_.length() - 1))) {
-@@ -29,7 +30,7 @@
-             this.field_1660_d.put(p_1117_1_, new ArrayList());
+@@ -26,10 +27,10 @@
+ 
+          p_1117_1_ = p_1117_1_.replaceAll("/", ".");
+          if (!this.field_1660_d.containsKey(p_1117_1_)) {
+-            this.field_1660_d.put(p_1117_1_, new ArrayList());
++            this.field_1660_d.put(p_1117_1_, new ArrayList<>());
           }
  
 -         SoundPoolEntry soundpoolentry = new SoundPoolEntry(p_1117_1_, p_1117_2_.toURI().toURL());
@@ -17,3 +30,11 @@
           ((List)this.field_1660_d.get(p_1117_1_)).add(soundpoolentry);
           this.field_1659_e.add(soundpoolentry);
           ++this.field_1658_a;
+@@ -46,6 +47,6 @@
+    }
+ 
+    public SoundPoolEntry func_1116_a() {
+-      return this.field_1659_e.size() == 0 ? null : (SoundPoolEntry)this.field_1659_e.get(this.field_1661_c.nextInt(this.field_1659_e.size()));
++      return this.field_1659_e.size() == 0 ? null : this.field_1659_e.get(this.field_1661_c.nextInt(this.field_1659_e.size()));
+    }
+ }

@@ -1,0 +1,11 @@
+--- a/net/minecraft/src/GuiIngameMenu.java
++++ b/net/minecraft/src/GuiIngameMenu.java
+@@ -9,7 +9,7 @@
+       this.field_949_e.clear();
+       this.field_949_e.add(new GuiButton(1, this.field_951_c / 2 - 100, this.field_950_d / 4 + 48, "Save and quit to title"));
+       if (this.field_945_b.func_6260_j()) {
+-         ((GuiButton)this.field_949_e.get(0)).field_939_e = "Disconnect";
++         this.field_949_e.get(0).field_939_e = "Disconnect";
+       }
+ 
+       this.field_949_e.add(new GuiButton(4, this.field_951_c / 2 - 100, this.field_950_d / 4 + 24, "Back to game"));

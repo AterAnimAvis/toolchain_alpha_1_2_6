@@ -1,0 +1,36 @@
+--- a/net/minecraft/src/ChunkProviderLoadOrGenerate.java
++++ b/net/minecraft/src/ChunkProviderLoadOrGenerate.java
+@@ -142,8 +142,8 @@
+       int i = 0;
+       int j = 0;
+       if (p_535_2_ != null) {
+-         for(int k = 0; k < this.field_894_f.length; ++k) {
+-            if (this.field_894_f[k] != null && this.field_894_f[k].func_1012_a(p_535_1_)) {
++         for (Chunk chunk : this.field_894_f) {
++            if (chunk != null && chunk.func_1012_a(p_535_1_)) {
+                ++j;
+             }
+          }
+@@ -151,15 +151,15 @@
+ 
+       int i1 = 0;
+ 
+-      for(int l = 0; l < this.field_894_f.length; ++l) {
+-         if (this.field_894_f[l] != null) {
+-            if (p_535_1_ && !this.field_894_f[l].field_1525_p) {
+-               this.func_541_a(this.field_894_f[l]);
++      for (Chunk chunk : this.field_894_f) {
++         if (chunk != null) {
++            if (p_535_1_ && !chunk.field_1525_p) {
++               this.func_541_a(chunk);
+             }
+ 
+-            if (this.field_894_f[l].func_1012_a(p_535_1_)) {
+-               this.func_540_b(this.field_894_f[l]);
+-               this.field_894_f[l].field_1526_o = false;
++            if (chunk.func_1012_a(p_535_1_)) {
++               this.func_540_b(chunk);
++               chunk.field_1526_o = false;
+                ++i;
+                if (i == 2 && !p_535_1_) {
+                   return false;

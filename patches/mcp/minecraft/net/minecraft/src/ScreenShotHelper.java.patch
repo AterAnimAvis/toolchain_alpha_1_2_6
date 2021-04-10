@@ -1,0 +1,14 @@
+--- a/net/minecraft/src/ScreenShotHelper.java
++++ b/net/minecraft/src/ScreenShotHelper.java
+@@ -29,9 +29,9 @@
+ 
+          GL11.glPixelStorei(3333, 1);
+          GL11.glPixelStorei(3317, 1);
+-         ((Buffer)field_4286_b).clear();
++         field_4286_b.clear();
+          GL11.glReadPixels(0, 0, p_4148_1_, p_4148_2_, 6407, 5121, field_4286_b);
+-         ((Buffer)field_4286_b).clear();
++         field_4286_b.clear();
+          String s = "" + field_4287_a.format(new Date());
+ 
+          File file2;

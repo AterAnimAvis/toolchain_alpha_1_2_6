@@ -1,0 +1,13 @@
+--- a/net/minecraft/src/ItemTool.java
++++ b/net/minecraft/src/ItemTool.java
+@@ -21,8 +21,8 @@
+    }
+ 
+    public float func_204_a(ItemStack p_204_1_, Block p_204_2_) {
+-      for(int i = 0; i < this.field_325_aX.length; ++i) {
+-         if (this.field_325_aX[i] == p_204_2_) {
++      for (Block field325AX : this.field_325_aX) {
++         if (field325AX == p_204_2_) {
+             return this.field_324_aY;
+          }
+       }

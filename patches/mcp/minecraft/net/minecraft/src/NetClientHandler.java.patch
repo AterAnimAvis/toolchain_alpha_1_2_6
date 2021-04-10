@@ -1,0 +1,67 @@
+--- a/net/minecraft/src/NetClientHandler.java
++++ b/net/minecraft/src/NetClientHandler.java
+@@ -58,47 +58,47 @@
+       double d0 = (double)p_835_1_.field_499_b / 32.0D;
+       double d1 = (double)p_835_1_.field_503_c / 32.0D;
+       double d2 = (double)p_835_1_.field_502_d / 32.0D;
+-      Object object = null;
++      Entity entity = null;
+       if (p_835_1_.field_501_e == 10) {
+-         object = new EntityMinecart(this.field_1211_f, d0, d1, d2, 0);
++         entity = new EntityMinecart(this.field_1211_f, d0, d1, d2, 0);
+       }
+ 
+       if (p_835_1_.field_501_e == 11) {
+-         object = new EntityMinecart(this.field_1211_f, d0, d1, d2, 1);
++         entity = new EntityMinecart(this.field_1211_f, d0, d1, d2, 1);
+       }
+ 
+       if (p_835_1_.field_501_e == 12) {
+-         object = new EntityMinecart(this.field_1211_f, d0, d1, d2, 2);
++         entity = new EntityMinecart(this.field_1211_f, d0, d1, d2, 2);
+       }
+ 
+       if (p_835_1_.field_501_e == 90) {
+-         object = new EntityFish(this.field_1211_f, d0, d1, d2);
++         entity = new EntityFish(this.field_1211_f, d0, d1, d2);
+       }
+ 
+       if (p_835_1_.field_501_e == 60) {
+-         object = new EntityArrow(this.field_1211_f, d0, d1, d2);
++         entity = new EntityArrow(this.field_1211_f, d0, d1, d2);
+       }
+ 
+       if (p_835_1_.field_501_e == 61) {
+-         object = new EntitySnowball(this.field_1211_f, d0, d1, d2);
++         entity = new EntitySnowball(this.field_1211_f, d0, d1, d2);
+       }
+ 
+       if (p_835_1_.field_501_e == 1) {
+-         object = new EntityBoat(this.field_1211_f, d0, d1, d2);
++         entity = new EntityBoat(this.field_1211_f, d0, d1, d2);
+       }
+ 
+       if (p_835_1_.field_501_e == 50) {
+-         object = new EntityTNTPrimed(this.field_1211_f, d0, d1, d2);
++         entity = new EntityTNTPrimed(this.field_1211_f, d0, d1, d2);
+       }
+ 
+-      if (object != null) {
+-         ((Entity)object).field_9303_br = p_835_1_.field_499_b;
+-         ((Entity)object).field_9302_bs = p_835_1_.field_503_c;
+-         ((Entity)object).field_9301_bt = p_835_1_.field_502_d;
+-         ((Entity)object).field_605_aq = 0.0F;
+-         ((Entity)object).field_604_ar = 0.0F;
+-         ((Entity)object).field_620_ab = p_835_1_.field_500_a;
+-         this.field_1211_f.func_712_a(p_835_1_.field_500_a, (Entity)object);
++      if (entity != null) {
++         entity.field_9303_br = p_835_1_.field_499_b;
++         entity.field_9302_bs = p_835_1_.field_503_c;
++         entity.field_9301_bt = p_835_1_.field_502_d;
++         entity.field_605_aq = 0.0F;
++         entity.field_604_ar = 0.0F;
++         entity.field_620_ab = p_835_1_.field_500_a;
++         this.field_1211_f.func_712_a(p_835_1_.field_500_a, entity);
+       }
+ 
+    }

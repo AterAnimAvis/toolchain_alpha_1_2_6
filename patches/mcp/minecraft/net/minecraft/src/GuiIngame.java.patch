@@ -1,0 +1,92 @@
+--- a/net/minecraft/src/GuiIngame.java
++++ b/net/minecraft/src/GuiIngame.java
+@@ -10,7 +10,7 @@
+ 
+ public class GuiIngame extends Gui {
+    private static RenderItem field_930_d = new RenderItem();
+-   private List field_929_e = new ArrayList();
++   private List<ChatLine> field_929_e = new ArrayList<>();
+    private Random field_9423_f = new Random();
+    private Minecraft field_9422_g;
+    public String field_933_a = null;
+@@ -63,7 +63,7 @@
+ 
+       int k = this.field_9422_g.field_6322_g.field_9337_J;
+       int l = this.field_9422_g.field_6322_g.field_9335_K;
+-      this.field_9423_f.setSeed((long)(this.field_9421_h * 312871));
++      this.field_9423_f.setSeed((long)this.field_9421_h * 312871);
+       if (this.field_9422_g.field_6327_b.func_6469_d()) {
+          int i1 = this.field_9422_g.field_6322_g.func_6419_n();
+ 
+@@ -196,8 +196,8 @@
+       GL11.glTranslatef(0.0F, (float)(j - 48), 0.0F);
+ 
+       for(int j5 = 0; j5 < this.field_929_e.size() && j5 < b0; ++j5) {
+-         if (((ChatLine)this.field_929_e.get(j5)).field_1296_b < 200 || flag1) {
+-            double d0 = (double)((ChatLine)this.field_929_e.get(j5)).field_1296_b / 200.0D;
++         if (this.field_929_e.get(j5).field_1296_b < 200 || flag1) {
++            double d0 = (double)this.field_929_e.get(j5).field_1296_b / 200.0D;
+             d0 = 1.0D - d0;
+             d0 = d0 * 10.0D;
+             if (d0 < 0.0D) {
+@@ -217,7 +217,7 @@
+             if (j2 > 0) {
+                byte b2 = 2;
+                int l2 = -j5 * 9;
+-               String s1 = ((ChatLine)this.field_929_e.get(j5)).field_1297_a;
++               String s1 = this.field_929_e.get(j5).field_1297_a;
+                this.func_551_a(b2, l2 - 1, b2 + 320, l2 + 8, j2 / 2 << 24);
+                GL11.glEnable(3042);
+                fontrenderer.func_874_a(s1, b2, l2, 16777215 + (j2 << 24));
+@@ -239,9 +239,9 @@
+       GL11.glBindTexture(3553, this.field_9422_g.field_6315_n.func_1070_a("%blur%/misc/pumpkinblur.png"));
+       Tessellator tessellator = Tessellator.field_1512_a;
+       tessellator.func_977_b();
+-      tessellator.func_983_a(0.0D, (double)p_4063_2_, -90.0D, 0.0D, 1.0D);
+-      tessellator.func_983_a((double)p_4063_1_, (double)p_4063_2_, -90.0D, 1.0D, 1.0D);
+-      tessellator.func_983_a((double)p_4063_1_, 0.0D, -90.0D, 1.0D, 0.0D);
++      tessellator.func_983_a(0.0D, p_4063_2_, -90.0D, 0.0D, 1.0D);
++      tessellator.func_983_a(p_4063_1_, p_4063_2_, -90.0D, 1.0D, 1.0D);
++      tessellator.func_983_a(p_4063_1_, 0.0D, -90.0D, 1.0D, 0.0D);
+       tessellator.func_983_a(0.0D, 0.0D, -90.0D, 0.0D, 0.0D);
+       tessellator.func_982_a();
+       GL11.glDepthMask(true);
+@@ -268,9 +268,9 @@
+       GL11.glBindTexture(3553, this.field_9422_g.field_6315_n.func_1070_a("%blur%/misc/vignette.png"));
+       Tessellator tessellator = Tessellator.field_1512_a;
+       tessellator.func_977_b();
+-      tessellator.func_983_a(0.0D, (double)p_4064_3_, -90.0D, 0.0D, 1.0D);
+-      tessellator.func_983_a((double)p_4064_2_, (double)p_4064_3_, -90.0D, 1.0D, 1.0D);
+-      tessellator.func_983_a((double)p_4064_2_, 0.0D, -90.0D, 1.0D, 0.0D);
++      tessellator.func_983_a(0.0D, p_4064_3_, -90.0D, 0.0D, 1.0D);
++      tessellator.func_983_a(p_4064_2_, p_4064_3_, -90.0D, 1.0D, 1.0D);
++      tessellator.func_983_a(p_4064_2_, 0.0D, -90.0D, 1.0D, 0.0D);
+       tessellator.func_983_a(0.0D, 0.0D, -90.0D, 0.0D, 0.0D);
+       tessellator.func_982_a();
+       GL11.glDepthMask(true);
+@@ -295,10 +295,10 @@
+       float f3 = (float)(Block.field_4047_bf.field_378_bb / 16 + 1) / 16.0F;
+       Tessellator tessellator = Tessellator.field_1512_a;
+       tessellator.func_977_b();
+-      tessellator.func_983_a(0.0D, (double)p_4065_3_, -90.0D, (double)f, (double)f3);
+-      tessellator.func_983_a((double)p_4065_2_, (double)p_4065_3_, -90.0D, (double)f2, (double)f3);
+-      tessellator.func_983_a((double)p_4065_2_, 0.0D, -90.0D, (double)f2, (double)f1);
+-      tessellator.func_983_a(0.0D, 0.0D, -90.0D, (double)f, (double)f1);
++      tessellator.func_983_a(0.0D, p_4065_3_, -90.0D, f, f3);
++      tessellator.func_983_a(p_4065_2_, p_4065_3_, -90.0D, f2, f3);
++      tessellator.func_983_a(p_4065_2_, 0.0D, -90.0D, f2, f1);
++      tessellator.func_983_a(0.0D, 0.0D, -90.0D, f, f1);
+       tessellator.func_982_a();
+       GL11.glDepthMask(true);
+       GL11.glEnable(2929);
+@@ -334,8 +334,8 @@
+ 
+       ++this.field_9421_h;
+ 
+-      for(int i = 0; i < this.field_929_e.size(); ++i) {
+-         ++((ChatLine)this.field_929_e.get(i)).field_1296_b;
++      for (ChatLine chatLine : this.field_929_e) {
++         ++chatLine.field_1296_b;
+       }
+ 
+    }
