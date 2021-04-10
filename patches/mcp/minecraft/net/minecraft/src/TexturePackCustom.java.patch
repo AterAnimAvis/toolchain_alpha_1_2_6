@@ -1,0 +1,85 @@
+--- a/net/minecraft/src/TexturePackCustom.java
++++ b/net/minecraft/src/TexturePackCustom.java
+@@ -31,47 +31,24 @@
+    }
+ 
+    public void func_6485_a(Minecraft p_6485_1_) {
+-      ZipFile zipfile = null;
+-      InputStream inputstream = null;
+-
+-      try {
+-         zipfile = new ZipFile(this.field_6493_h);
+-
+-         try {
+-            inputstream = zipfile.getInputStream(zipfile.getEntry("pack.txt"));
+-            BufferedReader bufferedreader = new BufferedReader(new InputStreamReader(inputstream));
++      try (ZipFile zipfile = new ZipFile(this.field_6493_h)) {
++         try (BufferedReader bufferedreader = new BufferedReader(new InputStreamReader(zipfile.getInputStream(zipfile.getEntry("pack.txt"))))) {
+             this.field_6486_b = this.func_6492_b(bufferedreader.readLine());
+             this.field_6489_c = this.func_6492_b(bufferedreader.readLine());
+-            bufferedreader.close();
+-            inputstream.close();
+-         } catch (Exception exception3) {
++         } catch (Exception exception) {
++            exception.printStackTrace();
+          }
+ 
+-         try {
+-            inputstream = zipfile.getInputStream(zipfile.getEntry("pack.png"));
++         try (InputStream inputstream = zipfile.getInputStream(zipfile.getEntry("pack.png"))) {
+             this.field_6494_g = ImageIO.read(inputstream);
+-            inputstream.close();
+-         } catch (Exception exception2) {
++         } catch (Exception exception) {
++            exception.printStackTrace();
+          }
+-
+-         zipfile.close();
+-      } catch (Exception exception4) {
+-         exception4.printStackTrace();
+-      } finally {
+-         try {
+-            inputstream.close();
+-         } catch (Exception exception1) {
+-         }
+-
+-         try {
+-            zipfile.close();
+          } catch (Exception exception) {
++         exception.printStackTrace();
+          }
+-
+       }
+ 
+-   }
+-
+    public void func_6484_b(Minecraft p_6484_1_) {
+       if (this.field_6494_g != null) {
+          p_6484_1_.field_6315_n.func_1078_a(this.field_6495_f);
+@@ -96,7 +73,7 @@
+    public void func_6482_a() {
+       try {
+          this.field_6496_e = new ZipFile(this.field_6493_h);
+-      } catch (Exception exception) {
++      } catch (Exception ignored) {
+       }
+ 
+    }
+@@ -104,7 +81,7 @@
+    public void func_6480_b() {
+       try {
+          this.field_6496_e.close();
+-      } catch (Exception exception) {
++      } catch (Exception ignored) {
+       }
+ 
+       this.field_6496_e = null;
+@@ -116,7 +93,7 @@
+          if (zipentry != null) {
+             return this.field_6496_e.getInputStream(zipentry);
+          }
+-      } catch (Exception exception) {
++      } catch (Exception ignored) {
+       }
+ 
+       return TexturePackBase.class.getResourceAsStream(p_6481_1_);

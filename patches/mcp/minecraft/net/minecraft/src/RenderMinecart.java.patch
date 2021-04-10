@@ -1,0 +1,23 @@
+--- a/net/minecraft/src/RenderMinecart.java
++++ b/net/minecraft/src/RenderMinecart.java
+@@ -2,7 +2,7 @@
+ 
+ import org.lwjgl.opengl.GL11;
+ 
+-public class RenderMinecart extends Render {
++public class RenderMinecart extends Render<EntityMinecart> {
+    protected ModelBase field_195_d;
+ 
+    public RenderMinecart() {
+@@ -10,6 +10,11 @@
+       this.field_195_d = new ModelMinecart();
+    }
+ 
++   @Override
++   public void func_147_a(EntityMinecart p_147_1_, double p_147_2_, double p_147_4_, double p_147_6_, float p_147_8_, float p_147_9_) {
++      func_152_a(p_147_1_, p_147_2_, p_147_4_, p_147_6_, p_147_8_, p_147_9_);
++   }
++
+    public void func_152_a(EntityMinecart p_152_1_, double p_152_2_, double p_152_4_, double p_152_6_, float p_152_8_, float p_152_9_) {
+       GL11.glPushMatrix();
+       double d0 = p_152_1_.field_638_aI + (p_152_1_.field_611_ak - p_152_1_.field_638_aI) * (double)p_152_9_;

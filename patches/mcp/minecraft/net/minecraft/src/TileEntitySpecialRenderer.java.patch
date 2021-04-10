@@ -1,0 +1,14 @@
+--- a/net/minecraft/src/TileEntitySpecialRenderer.java
++++ b/net/minecraft/src/TileEntitySpecialRenderer.java
+@@ -1,9 +1,9 @@
+ package net.minecraft.src;
+ 
+-public abstract class TileEntitySpecialRenderer {
++public abstract class TileEntitySpecialRenderer<T extends TileEntity> {
+    protected TileEntityRenderer field_6509_a;
+ 
+-   public abstract void func_930_a(TileEntity p_930_1_, double p_930_2_, double p_930_4_, double p_930_6_, float p_930_8_);
++   public abstract void func_930_a(T p_930_1_, double p_930_2_, double p_930_4_, double p_930_6_, float p_930_8_);
+ 
+    protected void func_6507_a(String p_6507_1_) {
+       RenderEngine renderengine = this.field_6509_a.field_1550_e;

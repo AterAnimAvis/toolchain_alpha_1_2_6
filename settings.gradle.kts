@@ -1,0 +1,1 @@
+rootProject.name = "alpha_1_2_6"

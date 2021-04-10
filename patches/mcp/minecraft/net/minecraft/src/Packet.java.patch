@@ -1,0 +1,28 @@
+--- a/net/minecraft/src/Packet.java
++++ b/net/minecraft/src/Packet.java
+@@ -7,11 +7,11 @@
+ import java.util.Map;
+ 
+ public abstract class Packet {
+-   private static Map field_471_a = new HashMap();
+-   private static Map field_470_b = new HashMap();
++   private static Map<Integer, Class<? extends Packet>> field_471_a = new HashMap<>();
++   private static Map<Class<? extends Packet>, Integer> field_470_b = new HashMap<>();
+    public boolean field_472_j = false;
+ 
+-   static void func_321_a(int p_321_0_, Class p_321_1_) {
++   static void func_321_a(int p_321_0_, Class<? extends Packet> p_321_1_) {
+       if (field_471_a.containsKey(p_321_0_)) {
+          throw new IllegalArgumentException("Duplicate packet id:" + p_321_0_);
+       } else if (field_470_b.containsKey(p_321_1_)) {
+@@ -24,8 +24,8 @@
+ 
+    public static Packet func_325_a(int p_325_0_) {
+       try {
+-         Class oclass = (Class)field_471_a.get(p_325_0_);
+-         return oclass == null ? null : (Packet)oclass.newInstance();
++         Class<? extends Packet> oclass = field_471_a.get(p_325_0_);
++         return oclass == null ? null : oclass.newInstance();
+       } catch (Exception exception) {
+          exception.printStackTrace();
+          System.out.println("Skipping packet with id " + p_325_0_);

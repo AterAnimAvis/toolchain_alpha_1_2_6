@@ -1,0 +1,16 @@
+--- a/net/minecraft/src/RenderArrow.java
++++ b/net/minecraft/src/RenderArrow.java
+@@ -2,7 +2,12 @@
+ 
+ import org.lwjgl.opengl.GL11;
+ 
+-public class RenderArrow extends Render {
++public class RenderArrow extends Render<EntityArrow> {
++   @Override
++   public void func_147_a(EntityArrow p_147_1_, double p_147_2_, double p_147_4_, double p_147_6_, float p_147_8_, float p_147_9_) {
++      func_154_a(p_147_1_, p_147_2_, p_147_4_, p_147_6_, p_147_8_, p_147_9_);
++   }
++
+    public void func_154_a(EntityArrow p_154_1_, double p_154_2_, double p_154_4_, double p_154_6_, float p_154_8_, float p_154_9_) {
+       this.func_151_a("/item/arrows.png");
+       GL11.glPushMatrix();

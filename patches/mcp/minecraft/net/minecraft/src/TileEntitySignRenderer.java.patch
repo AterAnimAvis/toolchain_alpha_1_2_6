@@ -1,0 +1,18 @@
+--- a/net/minecraft/src/TileEntitySignRenderer.java
++++ b/net/minecraft/src/TileEntitySignRenderer.java
+@@ -2,9 +2,14 @@
+ 
+ import org.lwjgl.opengl.GL11;
+ 
+-public class TileEntitySignRenderer extends TileEntitySpecialRenderer {
++public class TileEntitySignRenderer extends TileEntitySpecialRenderer<TileEntitySign> {
+    private SignModel field_1413_b = new SignModel();
+ 
++   @Override
++   public void func_930_a(TileEntitySign p_930_1_, double p_930_2_, double p_930_4_, double p_930_6_, float p_930_8_) {
++      func_932_a(p_930_1_, p_930_2_, p_930_4_, p_930_6_, p_930_8_);
++   }
++
+    public void func_932_a(TileEntitySign p_932_1_, double p_932_2_, double p_932_4_, double p_932_6_, float p_932_8_) {
+       Block block = p_932_1_.func_478_g();
+       GL11.glPushMatrix();

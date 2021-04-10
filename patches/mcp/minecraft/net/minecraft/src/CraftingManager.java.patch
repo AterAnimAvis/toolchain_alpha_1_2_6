@@ -1,0 +1,31 @@
+--- a/net/minecraft/src/CraftingManager.java
++++ b/net/minecraft/src/CraftingManager.java
+@@ -7,7 +7,7 @@
+ 
+ public class CraftingManager {
+    private static final CraftingManager field_6541_a = new CraftingManager();
+-   private List field_1662_b = new ArrayList();
++   private List<CraftingRecipe> field_1662_b = new ArrayList<>();
+ 
+    public static final CraftingManager func_1120_a() {
+       return field_6541_a;
+@@ -88,8 +88,8 @@
+          }
+       }
+ 
+-      HashMap hashmap;
+-      for(hashmap = new HashMap(); i < p_1121_2_.length; i += 2) {
++      HashMap<Character, Integer> hashmap;
++      for(hashmap = new HashMap<>(); i < p_1121_2_.length; i += 2) {
+          Character character = (Character)p_1121_2_[i];
+          int i1 = 0;
+          if (p_1121_2_[i + 1] instanceof Item) {
+@@ -117,7 +117,7 @@
+ 
+    public ItemStack func_1119_a(int[] p_1119_1_) {
+       for(int i = 0; i < this.field_1662_b.size(); ++i) {
+-         CraftingRecipe craftingrecipe = (CraftingRecipe)this.field_1662_b.get(i);
++         CraftingRecipe craftingrecipe = this.field_1662_b.get(i);
+          if (craftingrecipe.func_1182_a(p_1119_1_)) {
+             return craftingrecipe.func_1183_b(p_1119_1_);
+          }

@@ -1,0 +1,17 @@
+--- a/net/minecraft/src/RenderFireball.java
++++ b/net/minecraft/src/RenderFireball.java
+@@ -2,7 +2,13 @@
+ 
+ import org.lwjgl.opengl.GL11;
+ 
+-public class RenderFireball extends Render {
++public class RenderFireball extends Render<EntityFireball> {
++
++   @Override
++   public void func_147_a(EntityFireball p_147_1_, double p_147_2_, double p_147_4_, double p_147_6_, float p_147_8_, float p_147_9_) {
++      func_4012_a(p_147_1_, p_147_2_, p_147_4_, p_147_6_, p_147_8_, p_147_9_);
++   }
++
+    public void func_4012_a(EntityFireball p_4012_1_, double p_4012_2_, double p_4012_4_, double p_4012_6_, float p_4012_8_, float p_4012_9_) {
+       GL11.glPushMatrix();
+       GL11.glTranslatef((float)p_4012_2_, (float)p_4012_4_, (float)p_4012_6_);

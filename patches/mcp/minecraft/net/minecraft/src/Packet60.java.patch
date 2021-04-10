@@ -1,0 +1,47 @@
+--- a/net/minecraft/src/Packet60.java
++++ b/net/minecraft/src/Packet60.java
+@@ -11,7 +11,7 @@
+    public double field_12235_b;
+    public double field_12239_c;
+    public float field_12238_d;
+-   public Set field_12237_e;
++   public Set<ChunkPosition> field_12237_e;
+ 
+    public void func_327_a(DataInputStream p_327_1_) throws IOException {
+       this.field_12236_a = p_327_1_.readDouble();
+@@ -19,7 +19,7 @@
+       this.field_12239_c = p_327_1_.readDouble();
+       this.field_12238_d = p_327_1_.readFloat();
+       int i = p_327_1_.readInt();
+-      this.field_12237_e = new HashSet();
++      this.field_12237_e = new HashSet<>();
+       int j = (int)this.field_12236_a;
+       int k = (int)this.field_12235_b;
+       int l = (int)this.field_12239_c;
+@@ -33,9 +33,24 @@
+ 
+    }
+ 
+-   public void func_322_a(DataOutputStream var1) throws IOException {
+-      // $FF: Couldn't be decompiled
++   public void func_322_a(DataOutputStream p_322_1_) throws IOException {
++      p_322_1_.writeDouble(this.field_12236_a);
++      p_322_1_.writeDouble(this.field_12235_b);
++      p_322_1_.writeDouble(this.field_12239_c);
++      p_322_1_.writeFloat(this.field_12238_d);
++      p_322_1_.writeInt(this.field_12237_e.size());
++      int i = (int)this.field_12236_a;
++      int j = (int)this.field_12235_b;
++      int k = (int)this.field_12239_c;
++      for (ChunkPosition chunkPosition : this.field_12237_e) {
++         int m = chunkPosition.field_1111_a - i;
++         int n = chunkPosition.field_1110_b - j;
++         int i1 = chunkPosition.field_1112_c - k;
++         p_322_1_.writeByte(m);
++         p_322_1_.writeByte(n);
++         p_322_1_.writeByte(i1);
+    }
++   }
+ 
+    public void func_323_a(NetHandler p_323_1_) {
+       p_323_1_.func_12245_a(this);

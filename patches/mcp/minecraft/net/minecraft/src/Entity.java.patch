@@ -1,0 +1,24 @@
+--- a/net/minecraft/src/Entity.java
++++ b/net/minecraft/src/Entity.java
+@@ -430,10 +430,10 @@
+          }
+ 
+          this.field_9287_aY *= 0.4F;
+-         l2 = this.func_397_g_();
++         boolean l3 = this.func_397_g_();
+          if (this.field_615_ag.func_605_c(this.field_601_au)) {
+             this.func_355_a(1);
+-            if (!l2) {
++            if (!l3) {
+                ++this.field_9309_bg;
+                if (this.field_9309_bg == 0) {
+                   this.field_9309_bg = 300;
+@@ -443,7 +443,7 @@
+             this.field_9309_bg = -this.field_9310_bf;
+          }
+ 
+-         if (l2 && this.field_9309_bg > 0) {
++         if (l3 && this.field_9309_bg > 0) {
+             this.field_615_ag.func_623_a(this, "random.fizz", 0.7F, 1.6F + (this.field_9312_bd.nextFloat() - this.field_9312_bd.nextFloat()) * 0.4F);
+             this.field_9309_bg = -this.field_9310_bf;
+          }

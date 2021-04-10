@@ -1,0 +1,11 @@
+--- a/net/minecraft/src/Block.java
++++ b/net/minecraft/src/Block.java
+@@ -238,7 +238,7 @@
+       return AxisAlignedBB.func_1161_b((double)p_246_2_ + this.field_370_bf, (double)p_246_3_ + this.field_368_bg, (double)p_246_4_ + this.field_366_bh, (double)p_246_2_ + this.field_364_bi, (double)p_246_3_ + this.field_362_bj, (double)p_246_4_ + this.field_360_bk);
+    }
+ 
+-   public void func_230_a(World p_230_1_, int p_230_2_, int p_230_3_, int p_230_4_, AxisAlignedBB p_230_5_, ArrayList p_230_6_) {
++   public void func_230_a(World p_230_1_, int p_230_2_, int p_230_3_, int p_230_4_, AxisAlignedBB p_230_5_, ArrayList<AxisAlignedBB> p_230_6_) {
+       AxisAlignedBB axisalignedbb = this.func_221_d(p_230_1_, p_230_2_, p_230_3_, p_230_4_);
+       if (axisalignedbb != null && p_230_5_.func_1178_a(axisalignedbb)) {
+          p_230_6_.add(axisalignedbb);

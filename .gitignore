@@ -1,0 +1,21 @@
+# Intellij
+/.idea/*
+*.iml
+
+# Workspace Hidden Folder
+/hidden/*
+
+# Jars
+/.gradle/*
+/buildSrc/.gradle/*
+/build/*
+/buildSrc/build/*
+
+# MCP Files
+/jars/*
+/temp/*
+/conf/*
+
+# Minecraft Sources
+/src/client/*
+/src/server/*

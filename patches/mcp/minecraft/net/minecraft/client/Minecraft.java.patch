@@ -1,0 +1,36 @@
+--- a/net/minecraft/client/Minecraft.java
++++ b/net/minecraft/client/Minecraft.java
+@@ -1148,9 +1148,31 @@
+       this.field_6287_N = 0L;
+    }
+ 
+-   private void func_6255_d(String param1) {
+-      // $FF: Couldn't be decompiled
++   private void func_6255_d(String p_6255_1_) {
++      this.field_6312_q.func_596_a(p_6255_1_);
++      this.field_6312_q.func_595_d("Building terrain");
++      int c1 = '\u0080';
++      byte b = 0;
++      int i = c1 * 2 / 16 + 1;
++      i *= i;
++      for (int c2 = -c1; c2 <= c1; c2 += '\020') {
++         int j = this.field_6324_e.field_1036_o;
++         int k = this.field_6324_e.field_1034_q;
++         if (this.field_6322_g != null) {
++            j = (int)this.field_6322_g.field_611_ak;
++            k = (int)this.field_6322_g.field_609_am;
+    }
++         for (int c = -c1; c <= c1; c += '\020') {
++            this.field_6312_q.func_593_a(b++ * 100 / i);
++            this.field_6324_e.func_600_a(j + c2, 64, k + c);
++            while (true) {
++               if (!this.field_6324_e.func_6465_g()) break;
++            }
++         }
++      }
++      this.field_6312_q.func_595_d("Simulating world for a bit");
++      this.field_6324_e.func_656_j();
++   }
+ 
+    public void func_6268_a(String p_6268_1_, File p_6268_2_) {
+       int i = p_6268_1_.indexOf("/");

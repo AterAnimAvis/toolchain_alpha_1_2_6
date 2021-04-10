@@ -1,0 +1,19 @@
+--- a/net/minecraft/src/NextTickListEntry.java
++++ b/net/minecraft/src/NextTickListEntry.java
+@@ -1,6 +1,6 @@
+ package net.minecraft.src;
+ 
+-public class NextTickListEntry implements Comparable {
++public class NextTickListEntry implements Comparable<NextTickListEntry> {
+    private static long field_1363_f = 0L;
+    public int field_1361_a;
+    public int field_1360_b;
+@@ -34,7 +34,7 @@
+       return this;
+    }
+ 
+-   public int func_899_a(NextTickListEntry p_899_1_) {
++   public int compareTo(NextTickListEntry p_899_1_) {
+       if (this.field_1364_e < p_899_1_.field_1364_e) {
+          return -1;
+       } else if (this.field_1364_e > p_899_1_.field_1364_e) {

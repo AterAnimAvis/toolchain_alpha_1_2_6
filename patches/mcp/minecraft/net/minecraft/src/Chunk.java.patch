@@ -1,0 +1,91 @@
+--- a/net/minecraft/src/Chunk.java
++++ b/net/minecraft/src/Chunk.java
+@@ -18,8 +18,8 @@
+    public int field_1532_i;
+    public final int field_1531_j;
+    public final int field_1530_k;
+-   public Map field_1529_l = new HashMap();
+-   public List[] field_1528_m = new List[8];
++   public Map<ChunkPosition, TileEntity> field_1529_l = new HashMap<>();
++   public List<Entity>[] field_1528_m = new List[8];
+    public boolean field_1527_n = false;
+    public boolean field_1526_o = false;
+    public boolean field_1525_p;
+@@ -34,7 +34,7 @@
+       this.field_1533_h = new byte[256];
+ 
+       for(int i = 0; i < this.field_1528_m.length; ++i) {
+-         this.field_1528_m[i] = new ArrayList();
++         this.field_1528_m[i] = new ArrayList<>();
+       }
+ 
+    }
+@@ -409,7 +409,7 @@
+ 
+    public TileEntity func_1002_d(int p_1002_1_, int p_1002_2_, int p_1002_3_) {
+       ChunkPosition chunkposition = new ChunkPosition(p_1002_1_, p_1002_2_, p_1002_3_);
+-      TileEntity tileentity = (TileEntity)this.field_1529_l.get(chunkposition);
++      TileEntity tileentity = this.field_1529_l.get(chunkposition);
+       if (tileentity == null) {
+          int i = this.func_1008_a(p_1002_1_, p_1002_2_, p_1002_3_);
+          if (!Block.field_342_q[i]) {
+@@ -418,7 +418,7 @@
+ 
+          BlockContainer blockcontainer = (BlockContainer)Block.field_345_n[i];
+          blockcontainer.func_235_e(this.field_1537_d, this.field_1531_j * 16 + p_1002_1_, p_1002_2_, this.field_1530_k * 16 + p_1002_3_);
+-         tileentity = (TileEntity)this.field_1529_l.get(chunkposition);
++         tileentity = this.field_1529_l.get(chunkposition);
+       }
+ 
+       return tileentity;
+@@ -484,7 +484,7 @@
+       this.field_1526_o = true;
+    }
+ 
+-   public void func_994_a(Entity p_994_1_, AxisAlignedBB p_994_2_, List p_994_3_) {
++   public void func_994_a(Entity p_994_1_, AxisAlignedBB p_994_2_, List<Entity> p_994_3_) {
+       int i = MathHelper.func_1108_b((p_994_2_.field_1697_b - 2.0D) / 16.0D);
+       int j = MathHelper.func_1108_b((p_994_2_.field_1702_e + 2.0D) / 16.0D);
+       if (i < 0) {
+@@ -496,10 +496,9 @@
+       }
+ 
+       for(int k = i; k <= j; ++k) {
+-         List list = this.field_1528_m[k];
++         List<Entity> list = this.field_1528_m[k];
+ 
+-         for(int l = 0; l < list.size(); ++l) {
+-            Entity entity = (Entity)list.get(l);
++         for (Entity entity : list) {
+             if (entity != p_994_1_ && entity.field_601_au.func_1178_a(p_994_2_)) {
+                p_994_3_.add(entity);
+             }
+@@ -508,7 +507,7 @@
+ 
+    }
+ 
+-   public void func_1013_a(Class p_1013_1_, AxisAlignedBB p_1013_2_, List p_1013_3_) {
++   public <T extends Entity> void func_1013_a(Class<T> p_1013_1_, AxisAlignedBB p_1013_2_, List<T> p_1013_3_) {
+       int i = MathHelper.func_1108_b((p_1013_2_.field_1697_b - 2.0D) / 16.0D);
+       int j = MathHelper.func_1108_b((p_1013_2_.field_1702_e + 2.0D) / 16.0D);
+       if (i < 0) {
+@@ -520,16 +519,14 @@
+       }
+ 
+       for(int k = i; k <= j; ++k) {
+-         List list = this.field_1528_m[k];
++         List<Entity> list = this.field_1528_m[k];
+ 
+-         for(int l = 0; l < list.size(); ++l) {
+-            Entity entity = (Entity)list.get(l);
++         for (Entity entity : list) {
+             if (p_1013_1_.isAssignableFrom(entity.getClass()) && entity.field_601_au.func_1178_a(p_1013_2_)) {
+-               p_1013_3_.add(entity);
++               p_1013_3_.add((T) entity);
+             }
+          }
+       }
+-
+    }
+ 
+    public boolean func_1012_a(boolean p_1012_1_) {

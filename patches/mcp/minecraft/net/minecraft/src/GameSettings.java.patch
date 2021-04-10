@@ -1,0 +1,12 @@
+--- a/net/minecraft/src/GameSettings.java
++++ b/net/minecraft/src/GameSettings.java
+@@ -167,6 +167,9 @@
+ 
+          while((s = bufferedreader.readLine()) != null) {
+             String[] astring = s.split(":");
++
++            if (astring.length < 2) continue;
++
+             if (astring[0].equals("music")) {
+                this.field_1584_a = this.func_1050_a(astring[1]);
+             }

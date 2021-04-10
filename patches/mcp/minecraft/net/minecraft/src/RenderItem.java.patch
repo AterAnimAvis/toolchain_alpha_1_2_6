@@ -1,0 +1,23 @@
+--- a/net/minecraft/src/RenderItem.java
++++ b/net/minecraft/src/RenderItem.java
+@@ -3,7 +3,7 @@
+ import java.util.Random;
+ import org.lwjgl.opengl.GL11;
+ 
+-public class RenderItem extends Render {
++public class RenderItem extends Render<EntityItem> {
+    private RenderBlocks field_201_d = new RenderBlocks();
+    private Random field_200_e = new Random();
+ 
+@@ -12,6 +12,11 @@
+       this.field_194_c = 0.75F;
+    }
+ 
++   @Override
++   public void func_147_a(EntityItem p_147_1_, double p_147_2_, double p_147_4_, double p_147_6_, float p_147_8_, float p_147_9_) {
++      func_165_a(p_147_1_, p_147_2_, p_147_4_, p_147_6_, p_147_8_, p_147_9_);
++   }
++
+    public void func_165_a(EntityItem p_165_1_, double p_165_2_, double p_165_4_, double p_165_6_, float p_165_8_, float p_165_9_) {
+       this.field_200_e.setSeed(187L);
+       ItemStack itemstack = p_165_1_.field_801_a;

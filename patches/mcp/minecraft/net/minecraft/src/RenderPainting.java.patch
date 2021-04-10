@@ -1,0 +1,18 @@
+--- a/net/minecraft/src/RenderPainting.java
++++ b/net/minecraft/src/RenderPainting.java
+@@ -3,9 +3,14 @@
+ import java.util.Random;
+ import org.lwjgl.opengl.GL11;
+ 
+-public class RenderPainting extends Render {
++public class RenderPainting extends Render<EntityPainting> {
+    private Random field_199_d = new Random();
+ 
++   @Override
++   public void func_147_a(EntityPainting p_147_1_, double p_147_2_, double p_147_4_, double p_147_6_, float p_147_8_, float p_147_9_) {
++      func_158_a(p_147_1_, p_147_2_, p_147_4_, p_147_6_, p_147_8_, p_147_9_);
++   }
++
+    public void func_158_a(EntityPainting p_158_1_, double p_158_2_, double p_158_4_, double p_158_6_, float p_158_8_, float p_158_9_) {
+       this.field_199_d.setSeed(187L);
+       GL11.glPushMatrix();

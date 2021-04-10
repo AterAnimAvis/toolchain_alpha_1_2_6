@@ -1,0 +1,23 @@
+--- a/net/minecraft/src/RenderLiving.java
++++ b/net/minecraft/src/RenderLiving.java
+@@ -2,7 +2,7 @@
+ 
+ import org.lwjgl.opengl.GL11;
+ 
+-public class RenderLiving extends Render {
++public class RenderLiving extends Render<EntityLiving> {
+    protected ModelBase field_203_d;
+    protected ModelBase field_6332_f;
+ 
+@@ -11,6 +11,11 @@
+       this.field_9246_c = p_i84_2_;
+    }
+ 
++   @Override
++   public void func_147_a(EntityLiving p_147_1_, double p_147_2_, double p_147_4_, double p_147_6_, float p_147_8_, float p_147_9_) {
++      func_171_a(p_147_1_, p_147_2_, p_147_4_, p_147_6_, p_147_8_, p_147_9_);
++   }
++
+    public void func_4013_a(ModelBase p_4013_1_) {
+       this.field_6332_f = p_4013_1_;
+    }

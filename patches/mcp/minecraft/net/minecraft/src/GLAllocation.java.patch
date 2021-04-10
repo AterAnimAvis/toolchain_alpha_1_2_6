@@ -1,0 +1,32 @@
+--- a/net/minecraft/src/GLAllocation.java
++++ b/net/minecraft/src/GLAllocation.java
+@@ -9,8 +9,8 @@
+ import org.lwjgl.opengl.GL11;
+ 
+ public class GLAllocation {
+-   private static List field_1671_a = new ArrayList();
+-   private static List field_1670_b = new ArrayList();
++   private static List<Integer> field_1671_a = new ArrayList<>();
++   private static List<Integer> field_1670_b = new ArrayList<>();
+ 
+    public static synchronized int func_1124_a(int p_1124_0_) {
+       int i = GL11.glGenLists(p_1124_0_);
+@@ -29,7 +29,17 @@
+    }
+ 
+    public static synchronized void func_1126_a() {
+-      // $FF: Couldn't be decompiled
++      for (byte b1 = 0; b1 < field_1671_a.size(); b1 += 2)
++         GL11.glDeleteLists(field_1671_a.get(b1), field_1671_a.get(b1 + 1));
++      IntBuffer intBuffer = func_1125_c(field_1670_b.size());
++      intBuffer.flip();
++      GL11.glDeleteTextures(intBuffer);
++      for (Integer i : field_1670_b)
++         intBuffer.put(i);
++      intBuffer.flip();
++      GL11.glDeleteTextures(intBuffer);
++      field_1671_a.clear();
++      field_1670_b.clear();
+    }
+ 
+    public static synchronized ByteBuffer func_1127_b(int p_1127_0_) {

@@ -1,0 +1,168 @@
+--- a/net/minecraft/src/RenderEngine.java
++++ b/net/minecraft/src/RenderEngine.java
+@@ -10,6 +10,7 @@
+ import java.nio.IntBuffer;
+ import java.util.ArrayList;
+ import java.util.HashMap;
++import java.util.Iterator;
+ import java.util.List;
+ import java.util.Map;
+ import javax.imageio.ImageIO;
+@@ -17,12 +18,12 @@
+ 
+ public class RenderEngine {
+    public static boolean field_1609_a = false;
+-   private HashMap field_6528_b = new HashMap();
+-   private HashMap field_1607_c = new HashMap();
++   private HashMap<String, Integer> field_6528_b = new HashMap<>();
++   private HashMap<Integer, BufferedImage> field_1607_c = new HashMap<>();
+    private IntBuffer field_1606_d = GLAllocation.func_1125_c(1);
+    private ByteBuffer field_1605_e = GLAllocation.func_1127_b(1048576);
+-   private List field_1604_f = new ArrayList();
+-   private Map field_1603_g = new HashMap();
++   private List<TextureFX> field_1604_f = new ArrayList<>();
++   private Map<String, ThreadDownloadImageData> field_1603_g = new HashMap<>();
+    private GameSettings field_1602_h;
+    private boolean field_4281_i = false;
+    private boolean field_4280_j = false;
+@@ -35,12 +36,12 @@
+ 
+    public int func_1070_a(String p_1070_1_) {
+       TexturePackBase texturepackbase = this.field_6527_k.field_6534_a;
+-      Integer integer = (Integer)this.field_6528_b.get(p_1070_1_);
++      Integer integer = this.field_6528_b.get(p_1070_1_);
+       if (integer != null) {
+          return integer;
+       } else {
+          try {
+-            ((Buffer)this.field_1606_d).clear();
++            this.field_1606_d.clear();
+             GLAllocation.func_1128_a(this.field_1606_d);
+             int i = this.field_1606_d.get(0);
+             if (p_1070_1_.startsWith("##")) {
+@@ -79,7 +80,7 @@
+    }
+ 
+    public int func_1074_a(BufferedImage p_1074_1_) {
+-      ((Buffer)this.field_1606_d).clear();
++      this.field_1606_d.clear();
+       GLAllocation.func_1128_a(this.field_1606_d);
+       int i = this.field_1606_d.get(0);
+       this.func_1068_a(p_1074_1_, i);
+@@ -136,9 +137,9 @@
+          abyte[k * 4 + 3] = (byte)l;
+       }
+ 
+-      ((Buffer)this.field_1605_e).clear();
++      this.field_1605_e.clear();
+       this.field_1605_e.put(abyte);
+-      ((Buffer)this.field_1605_e).position(0).limit(abyte.length);
++      this.field_1605_e.position(0).limit(abyte.length);
+       GL11.glTexImage2D(3553, 0, 6408, i, j, 0, 6408, 5121, this.field_1605_e);
+       if (field_1609_a) {
+          for(int j3 = 1; j3 <= 4; ++j3) {
+@@ -165,14 +166,14 @@
+ 
+    public void func_1078_a(int p_1078_1_) {
+       this.field_1607_c.remove(p_1078_1_);
+-      ((Buffer)this.field_1606_d).clear();
++      this.field_1606_d.clear();
+       this.field_1606_d.put(p_1078_1_);
+-      ((Buffer)this.field_1606_d).flip();
++      this.field_1606_d.flip();
+       GL11.glDeleteTextures(this.field_1606_d);
+    }
+ 
+    public int func_1071_a(String p_1071_1_, String p_1071_2_) {
+-      ThreadDownloadImageData threaddownloadimagedata = (ThreadDownloadImageData)this.field_1603_g.get(p_1071_1_);
++      ThreadDownloadImageData threaddownloadimagedata = this.field_1603_g.get(p_1071_1_);
+       if (threaddownloadimagedata != null && threaddownloadimagedata.field_1706_a != null && !threaddownloadimagedata.field_1707_d) {
+          if (threaddownloadimagedata.field_1708_c < 0) {
+             threaddownloadimagedata.field_1708_c = this.func_1074_a(threaddownloadimagedata.field_1706_a);
+@@ -187,7 +188,7 @@
+    }
+ 
+    public ThreadDownloadImageData func_1075_a(String p_1075_1_, ImageBuffer p_1075_2_) {
+-      ThreadDownloadImageData threaddownloadimagedata = (ThreadDownloadImageData)this.field_1603_g.get(p_1075_1_);
++      ThreadDownloadImageData threaddownloadimagedata = this.field_1603_g.get(p_1075_1_);
+       if (threaddownloadimagedata == null) {
+          this.field_1603_g.put(p_1075_1_, new ThreadDownloadImageData(p_1075_1_, p_1075_2_));
+       } else {
+@@ -198,7 +199,7 @@
+    }
+ 
+    public void func_1073_b(String p_1073_1_) {
+-      ThreadDownloadImageData threaddownloadimagedata = (ThreadDownloadImageData)this.field_1603_g.get(p_1073_1_);
++      ThreadDownloadImageData threaddownloadimagedata = this.field_1603_g.get(p_1073_1_);
+       if (threaddownloadimagedata != null) {
+          --threaddownloadimagedata.field_1705_b;
+          if (threaddownloadimagedata.field_1705_b == 0) {
+@@ -219,12 +220,12 @@
+ 
+    public void func_1067_a() {
+       for(int i = 0; i < this.field_1604_f.size(); ++i) {
+-         TextureFX texturefx = (TextureFX)this.field_1604_f.get(i);
++         TextureFX texturefx = this.field_1604_f.get(i);
+          texturefx.field_1131_c = this.field_1602_h.field_1578_g;
+          texturefx.func_783_a();
+-         ((Buffer)this.field_1605_e).clear();
++         this.field_1605_e.clear();
+          this.field_1605_e.put(texturefx.field_1127_a);
+-         ((Buffer)this.field_1605_e).position(0).limit(texturefx.field_1127_a.length);
++         this.field_1605_e.position(0).limit(texturefx.field_1127_a.length);
+          texturefx.func_782_a(this);
+ 
+          for(int j = 0; j < texturefx.field_1129_e; ++j) {
+@@ -254,11 +255,11 @@
+       }
+ 
+       for(int j3 = 0; j3 < this.field_1604_f.size(); ++j3) {
+-         TextureFX texturefx1 = (TextureFX)this.field_1604_f.get(j3);
++         TextureFX texturefx1 = this.field_1604_f.get(j3);
+          if (texturefx1.field_1130_d > 0) {
+-            ((Buffer)this.field_1605_e).clear();
++            this.field_1605_e.clear();
+             this.field_1605_e.put(texturefx1.field_1127_a);
+-            ((Buffer)this.field_1605_e).position(0).limit(texturefx1.field_1127_a.length);
++            this.field_1605_e.position(0).limit(texturefx1.field_1127_a.length);
+             GL11.glBindTexture(3553, texturefx1.field_1130_d);
+             GL11.glTexSubImage2D(3553, 0, 0, 0, 16, 16, 6408, 5121, this.field_1605_e);
+             if (field_1609_a) {
+@@ -314,8 +315,36 @@
+    }
+ 
+    public void func_1065_b() {
+-      // $FF: Couldn't be decompiled
++      TexturePackBase texturePackBase = this.field_6527_k.field_6534_a;
++      for (int i : this.field_1607_c.keySet()) {
++         BufferedImage bufferedImage = this.field_1607_c.get(i);
++         func_1068_a(bufferedImage, i);
+    }
++      for (ThreadDownloadImageData threadDownloadImageData : this.field_1603_g.values())
++         threadDownloadImageData.field_1707_d = false;
++      for (String str : this.field_6528_b.keySet()) {
++         try {
++            BufferedImage bufferedImage;
++            if (str.startsWith("##")) {
++               bufferedImage = func_1069_b(func_6526_a(texturePackBase.func_6481_a(str.substring(2))));
++            } else if (str.startsWith("%clamp%")) {
++               this.field_4281_i = true;
++               bufferedImage = func_6526_a(texturePackBase.func_6481_a(str.substring(7)));
++            } else if (str.startsWith("%blur%")) {
++               this.field_4280_j = true;
++               bufferedImage = func_6526_a(texturePackBase.func_6481_a(str.substring(6)));
++            } else {
++               bufferedImage = func_6526_a(texturePackBase.func_6481_a(str));
++            }
++            int i = this.field_6528_b.get(str);
++            func_1068_a(bufferedImage, i);
++            this.field_4280_j = false;
++            this.field_4281_i = false;
++         } catch (IOException iOException) {
++            iOException.printStackTrace();
++         }
++      }
++   }
+ 
+    private BufferedImage func_6526_a(InputStream p_6526_1_) throws IOException {
+       BufferedImage bufferedimage = ImageIO.read(p_6526_1_);

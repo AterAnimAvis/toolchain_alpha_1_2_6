@@ -1,0 +1,20 @@
+--- a/net/minecraft/src/RecipeSorter.java
++++ b/net/minecraft/src/RecipeSorter.java
+@@ -2,7 +2,7 @@
+ 
+ import java.util.Comparator;
+ 
+-class RecipeSorter implements Comparator {
++class RecipeSorter implements Comparator<CraftingRecipe> {
+    // $FF: synthetic field
+    final CraftingManager field_1557_a;
+ 
+@@ -10,7 +10,7 @@
+       this.field_1557_a = p_i135_1_;
+    }
+ 
+-   public int func_1040_a(CraftingRecipe p_1040_1_, CraftingRecipe p_1040_2_) {
++   public int compare(CraftingRecipe p_1040_1_, CraftingRecipe p_1040_2_) {
+       if (p_1040_2_.func_1184_a() < p_1040_1_.func_1184_a()) {
+          return -1;
+       } else {

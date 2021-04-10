@@ -1,0 +1,19 @@
+--- a/net/minecraft/src/SoundPool.java
++++ b/net/minecraft/src/SoundPool.java
+@@ -17,6 +17,7 @@
+ 
+    public SoundPoolEntry func_1117_a(String p_1117_1_, File p_1117_2_) {
+       try {
++         String s1 = p_1117_1_;
+          p_1117_1_ = p_1117_1_.substring(0, p_1117_1_.indexOf("."));
+          if (this.field_1657_b) {
+             while(Character.isDigit(p_1117_1_.charAt(p_1117_1_.length() - 1))) {
+@@ -29,7 +30,7 @@
+             this.field_1660_d.put(p_1117_1_, new ArrayList());
+          }
+ 
+-         SoundPoolEntry soundpoolentry = new SoundPoolEntry(p_1117_1_, p_1117_2_.toURI().toURL());
++         SoundPoolEntry soundpoolentry = new SoundPoolEntry(s1, p_1117_2_.toURI().toURL());
+          ((List)this.field_1660_d.get(p_1117_1_)).add(soundpoolentry);
+          this.field_1659_e.add(soundpoolentry);
+          ++this.field_1658_a;

@@ -1,0 +1,11 @@
+--- a/net/minecraft/src/BlockStairs.java
++++ b/net/minecraft/src/BlockStairs.java
+@@ -38,7 +38,7 @@
+       return super.func_260_c(p_260_1_, p_260_2_, p_260_3_, p_260_4_, p_260_5_);
+    }
+ 
+-   public void func_230_a(World p_230_1_, int p_230_2_, int p_230_3_, int p_230_4_, AxisAlignedBB p_230_5_, ArrayList p_230_6_) {
++   public void func_230_a(World p_230_1_, int p_230_2_, int p_230_3_, int p_230_4_, AxisAlignedBB p_230_5_, ArrayList<AxisAlignedBB> p_230_6_) {
+       int i = p_230_1_.func_602_e(p_230_2_, p_230_3_, p_230_4_);
+       if (i == 0) {
+          this.func_213_a(0.0F, 0.0F, 0.0F, 0.5F, 0.5F, 1.0F);

@@ -1,0 +1,60 @@
+--- a/net/minecraft/src/TileEntityRenderer.java
++++ b/net/minecraft/src/TileEntityRenderer.java
+@@ -1,10 +1,11 @@
+ package net.minecraft.src;
+ 
++import java.util.HashMap;
+ import java.util.Map;
+ import org.lwjgl.opengl.GL11;
+ 
+ public class TileEntityRenderer {
+-   private Map field_6517_m;
++   private Map<Class<?>, TileEntitySpecialRenderer<?>> field_6517_m = new HashMap<>();
+    public static TileEntityRenderer field_1554_a = new TileEntityRenderer();
+    private FontRenderer field_1541_n;
+    public static double field_1553_b;
+@@ -20,11 +21,14 @@
+    public double field_1543_l;
+ 
+    private TileEntityRenderer() {
+-      // $FF: Couldn't be decompiled
++      this.field_6517_m.put(TileEntitySign.class, new TileEntitySignRenderer());
++      this.field_6517_m.put(TileEntityMobSpawner.class, new TileEntityMobSpawnerRenderer());
++      for (TileEntitySpecialRenderer<?> tileEntitySpecialRenderer : this.field_6517_m.values())
++         tileEntitySpecialRenderer.func_928_a(this);
+    }
+ 
+-   public TileEntitySpecialRenderer func_4144_a(Class p_4144_1_) {
+-      TileEntitySpecialRenderer tileentityspecialrenderer = (TileEntitySpecialRenderer)this.field_6517_m.get(p_4144_1_);
++   public TileEntitySpecialRenderer<?> func_4144_a(Class<?> p_4144_1_) {
++      TileEntitySpecialRenderer<?> tileentityspecialrenderer = this.field_6517_m.get(p_4144_1_);
+       if (tileentityspecialrenderer == null && p_4144_1_ != TileEntity.class) {
+          tileentityspecialrenderer = this.func_4144_a(p_4144_1_.getSuperclass());
+          this.field_6517_m.put(p_4144_1_, tileentityspecialrenderer);
+@@ -37,8 +41,9 @@
+       return this.func_1031_b(p_1028_1_) != null;
+    }
+ 
+-   public TileEntitySpecialRenderer func_1031_b(TileEntity p_1031_1_) {
+-      return p_1031_1_ == null ? null : this.func_4144_a(p_1031_1_.getClass());
++   @SuppressWarnings("unchecked")
++   public <T extends TileEntity, E extends T> TileEntitySpecialRenderer<T> func_1031_b(E p_1031_1_) {
++      return p_1031_1_ == null ? null : (TileEntitySpecialRenderer<T>) this.func_4144_a(p_1031_1_.getClass());
+    }
+ 
+    public void func_1026_a(World p_1026_1_, RenderEngine p_1026_2_, FontRenderer p_1026_3_, EntityPlayer p_1026_4_, float p_1026_5_) {
+@@ -62,12 +67,11 @@
+ 
+    }
+ 
+-   public void func_1032_a(TileEntity p_1032_1_, double p_1032_2_, double p_1032_4_, double p_1032_6_, float p_1032_8_) {
+-      TileEntitySpecialRenderer tileentityspecialrenderer = this.func_1031_b(p_1032_1_);
++   public <T extends TileEntity> void func_1032_a(T p_1032_1_, double p_1032_2_, double p_1032_4_, double p_1032_6_, float p_1032_8_) {
++      TileEntitySpecialRenderer<T> tileentityspecialrenderer = this.func_1031_b(p_1032_1_);
+       if (tileentityspecialrenderer != null) {
+          tileentityspecialrenderer.func_930_a(p_1032_1_, p_1032_2_, p_1032_4_, p_1032_6_, p_1032_8_);
+       }
+-
+    }
+ 
+    public FontRenderer func_6516_a() {

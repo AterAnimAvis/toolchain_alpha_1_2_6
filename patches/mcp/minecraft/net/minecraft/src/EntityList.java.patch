@@ -1,0 +1,56 @@
+--- a/net/minecraft/src/EntityList.java
++++ b/net/minecraft/src/EntityList.java
+@@ -4,12 +4,12 @@
+ import java.util.Map;
+ 
+ public class EntityList {
+-   private static Map field_1611_a = new HashMap();
+-   private static Map field_1610_b = new HashMap();
+-   private static Map field_1613_c = new HashMap();
+-   private static Map field_1612_d = new HashMap();
++   private static Map<String, Class<? extends Entity>> field_1611_a = new HashMap<>();
++   private static Map<Class<? extends Entity>, String> field_1610_b = new HashMap<>();
++   private static Map<Integer, Class<? extends Entity>> field_1613_c = new HashMap<>();
++   private static Map<Class<? extends Entity>, Integer> field_1612_d = new HashMap<>();
+ 
+-   private static void func_1080_a(Class p_1080_0_, String p_1080_1_, int p_1080_2_) {
++   private static void func_1080_a(Class<? extends Entity> p_1080_0_, String p_1080_1_, int p_1080_2_) {
+       field_1611_a.put(p_1080_1_, p_1080_0_);
+       field_1610_b.put(p_1080_0_, p_1080_1_);
+       field_1613_c.put(p_1080_2_, p_1080_0_);
+@@ -20,9 +20,9 @@
+       Entity entity = null;
+ 
+       try {
+-         Class oclass = (Class)field_1611_a.get(p_1079_0_);
++         Class<? extends Entity> oclass = field_1611_a.get(p_1079_0_);
+          if (oclass != null) {
+-            entity = (Entity)oclass.getConstructor(World.class).newInstance(p_1079_1_);
++            entity = oclass.getConstructor(World.class).newInstance(p_1079_1_);
+          }
+       } catch (Exception exception) {
+          exception.printStackTrace();
+@@ -35,9 +35,9 @@
+       Entity entity = null;
+ 
+       try {
+-         Class oclass = (Class)field_1611_a.get(p_1081_0_.func_755_i("id"));
++         Class<? extends Entity> oclass = field_1611_a.get(p_1081_0_.func_755_i("id"));
+          if (oclass != null) {
+-            entity = (Entity)oclass.getConstructor(World.class).newInstance(p_1081_1_);
++            entity = oclass.getConstructor(World.class).newInstance(p_1081_1_);
+          }
+       } catch (Exception exception) {
+          exception.printStackTrace();
+@@ -56,9 +56,9 @@
+       Entity entity = null;
+ 
+       try {
+-         Class oclass = (Class)field_1613_c.get(p_1084_0_);
++         Class<? extends Entity> oclass = field_1613_c.get(p_1084_0_);
+          if (oclass != null) {
+-            entity = (Entity)oclass.getConstructor(World.class).newInstance(p_1084_1_);
++            entity = oclass.getConstructor(World.class).newInstance(p_1084_1_);
+          }
+       } catch (Exception exception) {
+          exception.printStackTrace();

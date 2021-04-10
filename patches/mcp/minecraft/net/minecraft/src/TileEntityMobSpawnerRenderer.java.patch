@@ -1,0 +1,18 @@
+--- a/net/minecraft/src/TileEntityMobSpawnerRenderer.java
++++ b/net/minecraft/src/TileEntityMobSpawnerRenderer.java
+@@ -4,9 +4,14 @@
+ import java.util.Map;
+ import org.lwjgl.opengl.GL11;
+ 
+-public class TileEntityMobSpawnerRenderer extends TileEntitySpecialRenderer {
++public class TileEntityMobSpawnerRenderer extends TileEntitySpecialRenderer<TileEntityMobSpawner> {
+    private Map field_1412_b = new HashMap();
+ 
++   @Override
++   public void func_930_a(TileEntityMobSpawner p_930_1_, double p_930_2_, double p_930_4_, double p_930_6_, float p_930_8_) {
++      func_931_a(p_930_1_, p_930_2_, p_930_4_, p_930_6_, p_930_8_);
++   }
++
+    public void func_931_a(TileEntityMobSpawner p_931_1_, double p_931_2_, double p_931_4_, double p_931_6_, float p_931_8_) {
+       GL11.glPushMatrix();
+       GL11.glTranslatef((float)p_931_2_ + 0.5F, (float)p_931_4_, (float)p_931_6_ + 0.5F);

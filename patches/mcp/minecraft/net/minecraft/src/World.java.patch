@@ -1,0 +1,517 @@
+--- a/net/minecraft/src/World.java
++++ b/net/minecraft/src/World.java
+@@ -15,13 +15,13 @@
+ 
+ public class World implements IBlockAccess {
+    public boolean field_4214_a = false;
+-   private List field_1051_z = new ArrayList();
+-   public List field_1050_a = new ArrayList();
+-   private List field_1024_A = new ArrayList();
+-   private TreeSet field_1058_B = new TreeSet();
+-   private Set field_1056_C = new HashSet();
+-   public List field_1049_b = new ArrayList();
+-   public List field_1040_k = new ArrayList();
++   private List<MetadataChunkBlock> field_1051_z = new ArrayList<>();
++   public List<Entity> field_1050_a = new ArrayList<>();
++   private List<Entity> field_1024_A = new ArrayList<>();
++   private TreeSet<NextTickListEntry> field_1058_B = new TreeSet<>();
++   private Set<NextTickListEntry> field_1056_C = new HashSet<>();
++   public List<TileEntity> field_1049_b = new ArrayList<>();
++   public List<EntityPlayer> field_1040_k = new ArrayList<>();
+    public long field_1048_c = 0L;
+    private long field_1019_F = 16777215L;
+    public int field_1046_e = 0;
+@@ -37,7 +37,7 @@
+    public int field_1034_q;
+    public boolean field_1033_r = false;
+    public final WorldProvider field_4209_q;
+-   protected List field_9434_r = new ArrayList();
++   protected List<IWorldAccess> field_9434_r = new ArrayList<>();
+    private IChunkProvider field_1017_H;
+    public File field_9433_s;
+    public File field_9432_t;
+@@ -46,12 +46,12 @@
+    public long field_1029_v = 0L;
+    public final String field_9431_w;
+    public boolean field_9430_x;
+-   private ArrayList field_9428_I = new ArrayList();
++   private ArrayList<AxisAlignedBB> field_9428_I = new ArrayList<>();
+    private int field_4204_J = 0;
+    static int field_9429_y = 0;
+-   private Set field_9427_K = new HashSet();
++   private Set<ChunkCoordIntPair> field_9427_K = new HashSet<>();
+    private int field_9426_L = this.field_1037_n.nextInt(12000);
+-   private List field_1012_M = new ArrayList();
++   private List<Entity> field_1012_M = new ArrayList<>();
+    public boolean field_1026_y = false;
+ 
+    public static NBTTagCompound func_629_a(File p_629_0_, String p_629_1_) {
+@@ -141,19 +141,16 @@
+ 
+       try {
+          File file1 = new File(this.field_9432_t, "session.lock");
+-         DataOutputStream dataoutputstream = new DataOutputStream(new FileOutputStream(file1));
+ 
+-         try {
++         try (DataOutputStream dataoutputstream = new DataOutputStream(new FileOutputStream(file1))) {
+             dataoutputstream.writeLong(this.field_1054_E);
+-         } finally {
+-            dataoutputstream.close();
+          }
+       } catch (IOException ioexception) {
+          ioexception.printStackTrace();
+          throw new RuntimeException("Failed to check session lock, aborting");
+       }
+ 
+-      Object object = new WorldProvider();
++      WorldProvider object = new WorldProvider();
+       File file2 = new File(this.field_9432_t, "level.dat");
+       this.field_1033_r = !file2.exists();
+       if (file2.exists()) {
+@@ -188,7 +185,7 @@
+          flag = true;
+       }
+ 
+-      this.field_4209_q = (WorldProvider)object;
++      this.field_4209_q = object;
+       this.field_4209_q.func_4095_a(this);
+       this.field_1017_H = this.func_4081_a(this.field_9432_t);
+       if (flag) {
+@@ -274,7 +271,7 @@
+       nbttagcompound.func_750_a("LastPlayed", System.currentTimeMillis());
+       EntityPlayer entityplayer = null;
+       if (this.field_1040_k.size() > 0) {
+-         entityplayer = (EntityPlayer)this.field_1040_k.get(0);
++         entityplayer = this.field_1040_k.get(0);
+       }
+ 
+       if (entityplayer != null) {
+@@ -318,7 +315,7 @@
+             this.func_669_m();
+          }
+ 
+-         return this.field_1017_H.func_535_a(false, (IProgressUpdate)null);
++         return this.field_1017_H.func_535_a(false, null);
+       }
+    }
+ 
+@@ -469,8 +466,8 @@
+    }
+ 
+    public void func_665_h(int p_665_1_, int p_665_2_, int p_665_3_) {
+-      for(int i = 0; i < this.field_9434_r.size(); ++i) {
+-         ((IWorldAccess)this.field_9434_r.get(i)).func_934_a(p_665_1_, p_665_2_, p_665_3_);
++      for (IWorldAccess iWorldAccess : this.field_9434_r) {
++         iWorldAccess.func_934_a(p_665_1_, p_665_2_, p_665_3_);
+       }
+ 
+    }
+@@ -491,8 +488,8 @@
+    }
+ 
+    public void func_701_b(int p_701_1_, int p_701_2_, int p_701_3_, int p_701_4_, int p_701_5_, int p_701_6_) {
+-      for(int i = 0; i < this.field_9434_r.size(); ++i) {
+-         ((IWorldAccess)this.field_9434_r.get(i)).func_937_b(p_701_1_, p_701_2_, p_701_3_, p_701_4_, p_701_5_, p_701_6_);
++      for (IWorldAccess iWorldAccess : this.field_9434_r) {
++         iWorldAccess.func_937_b(p_701_1_, p_701_2_, p_701_3_, p_701_4_, p_701_5_, p_701_6_);
+       }
+ 
+    }
+@@ -651,8 +648,8 @@
+                   Chunk chunk = this.func_704_b(p_664_2_ >> 4, p_664_4_ >> 4);
+                   chunk.func_1011_a(p_664_1_, p_664_2_ & 15, p_664_3_, p_664_4_ & 15, p_664_5_);
+ 
+-                  for(int i = 0; i < this.field_9434_r.size(); ++i) {
+-                     ((IWorldAccess)this.field_9434_r.get(i)).func_934_a(p_664_2_, p_664_3_, p_664_4_);
++                  for (IWorldAccess iWorldAccess : this.field_9434_r) {
++                     iWorldAccess.func_934_a(p_664_2_, p_664_3_, p_664_4_);
+                   }
+ 
+                }
+@@ -811,29 +808,29 @@
+    }
+ 
+    public void func_623_a(Entity p_623_1_, String p_623_2_, float p_623_3_, float p_623_4_) {
+-      for(int i = 0; i < this.field_9434_r.size(); ++i) {
+-         ((IWorldAccess)this.field_9434_r.get(i)).func_940_a(p_623_2_, p_623_1_.field_611_ak, p_623_1_.field_610_al - (double)p_623_1_.field_9292_aO, p_623_1_.field_609_am, p_623_3_, p_623_4_);
++      for (IWorldAccess iWorldAccess : this.field_9434_r) {
++         iWorldAccess.func_940_a(p_623_2_, p_623_1_.field_611_ak, p_623_1_.field_610_al - (double) p_623_1_.field_9292_aO, p_623_1_.field_609_am, p_623_3_, p_623_4_);
+       }
+ 
+    }
+ 
+    public void func_684_a(double p_684_1_, double p_684_3_, double p_684_5_, String p_684_7_, float p_684_8_, float p_684_9_) {
+-      for(int i = 0; i < this.field_9434_r.size(); ++i) {
+-         ((IWorldAccess)this.field_9434_r.get(i)).func_940_a(p_684_7_, p_684_1_, p_684_3_, p_684_5_, p_684_8_, p_684_9_);
++      for (IWorldAccess iWorldAccess : this.field_9434_r) {
++         iWorldAccess.func_940_a(p_684_7_, p_684_1_, p_684_3_, p_684_5_, p_684_8_, p_684_9_);
+       }
+ 
+    }
+ 
+    public void func_670_a(String p_670_1_, int p_670_2_, int p_670_3_, int p_670_4_) {
+-      for(int i = 0; i < this.field_9434_r.size(); ++i) {
+-         ((IWorldAccess)this.field_9434_r.get(i)).func_933_a(p_670_1_, p_670_2_, p_670_3_, p_670_4_);
++      for (IWorldAccess iWorldAccess : this.field_9434_r) {
++         iWorldAccess.func_933_a(p_670_1_, p_670_2_, p_670_3_, p_670_4_);
+       }
+ 
+    }
+ 
+    public void func_694_a(String p_694_1_, double p_694_2_, double p_694_4_, double p_694_6_, double p_694_8_, double p_694_10_, double p_694_12_) {
+-      for(int i = 0; i < this.field_9434_r.size(); ++i) {
+-         ((IWorldAccess)this.field_9434_r.get(i)).func_939_a(p_694_1_, p_694_2_, p_694_4_, p_694_6_, p_694_8_, p_694_10_, p_694_12_);
++      for (IWorldAccess iWorldAccess : this.field_9434_r) {
++         iWorldAccess.func_939_a(p_694_1_, p_694_2_, p_694_4_, p_694_6_, p_694_8_, p_694_10_, p_694_12_);
+       }
+ 
+    }
+@@ -862,15 +859,15 @@
+    }
+ 
+    protected void func_606_b(Entity p_606_1_) {
+-      for(int i = 0; i < this.field_9434_r.size(); ++i) {
+-         ((IWorldAccess)this.field_9434_r.get(i)).func_941_a(p_606_1_);
++      for (IWorldAccess iWorldAccess : this.field_9434_r) {
++         iWorldAccess.func_941_a(p_606_1_);
+       }
+ 
+    }
+ 
+    protected void func_678_c(Entity p_678_1_) {
+-      for(int i = 0; i < this.field_9434_r.size(); ++i) {
+-         ((IWorldAccess)this.field_9434_r.get(i)).func_938_b(p_678_1_);
++      for (IWorldAccess iWorldAccess : this.field_9434_r) {
++         iWorldAccess.func_938_b(p_678_1_);
+       }
+ 
+    }
+@@ -878,7 +875,7 @@
+    public void func_607_d(Entity p_607_1_) {
+       p_607_1_.func_395_F();
+       if (p_607_1_ instanceof EntityPlayer) {
+-         this.field_1040_k.remove((EntityPlayer)p_607_1_);
++         this.field_1040_k.remove(p_607_1_);
+       }
+ 
+    }
+@@ -891,7 +888,7 @@
+       this.field_9434_r.remove(p_672_1_);
+    }
+ 
+-   public List func_697_a(Entity p_697_1_, AxisAlignedBB p_697_2_) {
++   public List<AxisAlignedBB> func_697_a(Entity p_697_1_, AxisAlignedBB p_697_2_) {
+       this.field_9428_I.clear();
+       int i = MathHelper.func_1108_b(p_697_2_.field_1698_a);
+       int j = MathHelper.func_1108_b(p_697_2_.field_1703_d + 1.0D);
+@@ -914,15 +911,15 @@
+       }
+ 
+       double d0 = 0.25D;
+-      List list = this.func_659_b(p_697_1_, p_697_2_.func_1177_b(d0, d0, d0));
++      List<Entity> list = this.func_659_b(p_697_1_, p_697_2_.func_1177_b(d0, d0, d0));
+ 
+-      for(int j2 = 0; j2 < list.size(); ++j2) {
+-         AxisAlignedBB axisalignedbb = ((Entity)list.get(j2)).func_372_f_();
++      for (Entity entity : list) {
++         AxisAlignedBB axisalignedbb = entity.func_372_f_();
+          if (axisalignedbb != null && axisalignedbb.func_1178_a(p_697_2_)) {
+             this.field_9428_I.add(axisalignedbb);
+          }
+ 
+-         axisalignedbb = p_697_1_.func_383_b_((Entity)list.get(j2));
++         axisalignedbb = p_697_1_.func_383_b_(entity);
+          if (axisalignedbb != null && axisalignedbb.func_1178_a(p_697_2_)) {
+             this.field_9428_I.add(axisalignedbb);
+          }
+@@ -1064,8 +1061,7 @@
+    public void func_633_c() {
+       this.field_1050_a.removeAll(this.field_1024_A);
+ 
+-      for(int i = 0; i < this.field_1024_A.size(); ++i) {
+-         Entity entity = (Entity)this.field_1024_A.get(i);
++      for (Entity entity : this.field_1024_A) {
+          int j = entity.field_657_ba;
+          int k = entity.field_654_bc;
+          if (entity.field_621_aZ && this.func_620_h(j, k)) {
+@@ -1073,14 +1069,14 @@
+          }
+       }
+ 
+-      for(int l = 0; l < this.field_1024_A.size(); ++l) {
+-         this.func_678_c((Entity)this.field_1024_A.get(l));
++      for (Entity entity : this.field_1024_A) {
++         this.func_678_c(entity);
+       }
+ 
+       this.field_1024_A.clear();
+ 
+       for(int i1 = 0; i1 < this.field_1050_a.size(); ++i1) {
+-         Entity entity1 = (Entity)this.field_1050_a.get(i1);
++         Entity entity1 = this.field_1050_a.get(i1);
+          if (entity1.field_616_af != null) {
+             if (!entity1.field_616_af.field_646_aA && entity1.field_616_af.field_617_ae == entity1) {
+                continue;
+@@ -1106,8 +1102,7 @@
+          }
+       }
+ 
+-      for(int j1 = 0; j1 < this.field_1049_b.size(); ++j1) {
+-         TileEntity tileentity = (TileEntity)this.field_1049_b.get(j1);
++      for (TileEntity tileentity : this.field_1049_b) {
+          tileentity.func_475_b();
+       }
+ 
+@@ -1184,10 +1179,9 @@
+    }
+ 
+    public boolean func_604_a(AxisAlignedBB p_604_1_) {
+-      List list = this.func_659_b((Entity)null, p_604_1_);
++      List<Entity> list = this.func_659_b(null, p_604_1_);
+ 
+-      for(int i = 0; i < list.size(); ++i) {
+-         Entity entity = (Entity)list.get(i);
++      for (Entity entity : list) {
+          if (!entity.field_646_aA && entity.field_618_ad) {
+             return false;
+          }
+@@ -1461,7 +1455,7 @@
+                   return true;
+                }
+ 
+-               ((MetadataChunkBlock)this.field_1051_z.remove(this.field_1051_z.size() - 1)).func_4127_a(this);
++               this.field_1051_z.remove(this.field_1051_z.size() - 1).func_4127_a(this);
+             }
+ 
+             return false;
+@@ -1494,7 +1488,7 @@
+                   }
+ 
+                   for(int i1 = 0; i1 < l; ++i1) {
+-                     MetadataChunkBlock metadatachunkblock = (MetadataChunkBlock)this.field_1051_z.get(this.field_1051_z.size() - i1 - 1);
++                     MetadataChunkBlock metadatachunkblock = this.field_1051_z.get(this.field_1051_z.size() - i1 - 1);
+                      if (metadatachunkblock.field_1299_a == p_627_1_ && metadatachunkblock.func_866_a(p_627_2_, p_627_3_, p_627_4_, p_627_5_, p_627_6_, p_627_7_)) {
+                         --field_9429_y;
+                         return;
+@@ -1528,14 +1522,14 @@
+       if (i != this.field_1046_e) {
+          this.field_1046_e = i;
+ 
+-         for(int j = 0; j < this.field_9434_r.size(); ++j) {
+-            ((IWorldAccess)this.field_9434_r.get(j)).func_936_e();
++         for (IWorldAccess iWorldAccess : this.field_9434_r) {
++            iWorldAccess.func_936_e();
+          }
+       }
+ 
+       ++this.field_1048_c;
+       if (this.field_1048_c % (long)this.field_9435_j == 0L) {
+-         this.func_639_a(false, (IProgressUpdate)null);
++         this.func_639_a(false, null);
+       }
+ 
+       this.func_700_a(false);
+@@ -1543,8 +1537,51 @@
+    }
+ 
+    protected void func_4080_j() {
+-      // $FF: Couldn't be decompiled
++      this.field_9427_K.clear();
++      for (EntityPlayer entityPlayer : this.field_1040_k) {
++         int i = MathHelper.func_1108_b(entityPlayer.field_611_ak / 16.0D);
++         int j = MathHelper.func_1108_b(entityPlayer.field_609_am / 16.0D);
++         byte b1 = 9;
++         for (int b2 = -b1; b2 <= b1; b2++) {
++            for (int b3 = -b1; b3 <= b1; b3++)
++               this.field_9427_K.add(new ChunkCoordIntPair(b2 + i, b3 + j));
+    }
++      }
++      if (this.field_9426_L > 0)
++         this.field_9426_L--;
++      for (ChunkCoordIntPair chunkCoordIntPair : this.field_9427_K) {
++         int i = chunkCoordIntPair.field_189_a * 16;
++         int j = chunkCoordIntPair.field_188_b * 16;
++         Chunk chunk = func_704_b(chunkCoordIntPair.field_189_a, chunkCoordIntPair.field_188_b);
++         if (this.field_9426_L == 0) {
++            this.field_9437_g = this.field_9437_g * 3 + this.field_9436_h;
++            int k = this.field_9437_g >> 2;
++            int m = k & 0xF;
++            int n = k >> 8 & 0xF;
++            int i1 = k >> 16 & 0x7F;
++            int i2 = chunk.func_1008_a(m, i1, n);
++            m += i;
++            n += j;
++            if (i2 == 0 && func_618_j(m, i1, n) <= this.field_1037_n.nextInt(8) && func_641_a(EnumSkyBlock.Sky, m, i1, n) <= 0) {
++               EntityPlayer entityPlayer = func_683_a(m + 0.5D, i1 + 0.5D, n + 0.5D, 8.0D);
++               if (entityPlayer != null && entityPlayer.func_360_d(m + 0.5D, i1 + 0.5D, n + 0.5D) > 4.0D) {
++                  func_684_a(m + 0.5D, i1 + 0.5D, n + 0.5D, "ambient.cave.cave", 0.7F, 0.8F + this.field_1037_n.nextFloat() * 0.2F);
++                  this.field_9426_L = this.field_1037_n.nextInt(12000) + 6000;
++               }
++            }
++         }
++         for (byte b1 = 0; b1 < 80; b1++) {
++            this.field_9437_g = this.field_9437_g * 3 + this.field_9436_h;
++            int k = this.field_9437_g >> 2;
++            int m = k & 0xF;
++            int n = k >> 8 & 0xF;
++            int i1 = k >> 16 & 0x7F;
++            byte b2 = chunk.field_1539_b[m << 11 | n << 7 | i1];
++            if (Block.field_344_o[b2])
++               Block.field_345_n[b2].func_208_a(this, m + i, i1, n + j, this.field_1037_n);
++         }
++      }
++   }
+ 
+    public boolean func_700_a(boolean p_700_1_) {
+       int i = this.field_1058_B.size();
+@@ -1556,7 +1593,7 @@
+          }
+ 
+          for(int j = 0; j < i; ++j) {
+-            NextTickListEntry nextticklistentry = (NextTickListEntry)this.field_1058_B.first();
++            NextTickListEntry nextticklistentry = this.field_1058_B.first();
+             if (!p_700_1_ && nextticklistentry.field_1364_e > this.field_1048_c) {
+                break;
+             }
+@@ -1592,7 +1629,7 @@
+ 
+    }
+ 
+-   public List func_659_b(Entity p_659_1_, AxisAlignedBB p_659_2_) {
++   public List<Entity> func_659_b(Entity p_659_1_, AxisAlignedBB p_659_2_) {
+       this.field_1012_M.clear();
+       int i = MathHelper.func_1108_b((p_659_2_.field_1698_a - 2.0D) / 16.0D);
+       int j = MathHelper.func_1108_b((p_659_2_.field_1703_d + 2.0D) / 16.0D);
+@@ -1610,12 +1647,12 @@
+       return this.field_1012_M;
+    }
+ 
+-   public List func_657_a(Class p_657_1_, AxisAlignedBB p_657_2_) {
++   public <T extends Entity> List<T> func_657_a(Class<T> p_657_1_, AxisAlignedBB p_657_2_) {
+       int i = MathHelper.func_1108_b((p_657_2_.field_1698_a - 2.0D) / 16.0D);
+       int j = MathHelper.func_1108_b((p_657_2_.field_1703_d + 2.0D) / 16.0D);
+       int k = MathHelper.func_1108_b((p_657_2_.field_1704_c - 2.0D) / 16.0D);
+       int l = MathHelper.func_1108_b((p_657_2_.field_1701_f + 2.0D) / 16.0D);
+-      ArrayList arraylist = new ArrayList();
++      ArrayList<T> arraylist = new ArrayList<>();
+ 
+       for(int i1 = i; i1 <= j; ++i1) {
+          for(int j1 = k; j1 <= l; ++j1) {
+@@ -1628,7 +1665,7 @@
+       return arraylist;
+    }
+ 
+-   public List func_658_i() {
++   public List<Entity> func_658_i() {
+       return this.field_1050_a;
+    }
+ 
+@@ -1637,17 +1674,15 @@
+          this.func_673_a(p_698_1_, p_698_3_).func_1006_f();
+       }
+ 
+-      for(int i = 0; i < this.field_9434_r.size(); ++i) {
+-         ((IWorldAccess)this.field_9434_r.get(i)).func_935_a(p_698_1_, p_698_2_, p_698_3_, p_698_4_);
++      for (IWorldAccess iWorldAccess : this.field_9434_r) {
++         iWorldAccess.func_935_a(p_698_1_, p_698_2_, p_698_3_, p_698_4_);
+       }
+-
+    }
+ 
+-   public int func_621_b(Class p_621_1_) {
++   public int func_621_b(Class<? extends Entity> p_621_1_) {
+       int i = 0;
+ 
+-      for(int j = 0; j < this.field_1050_a.size(); ++j) {
+-         Entity entity = (Entity)this.field_1050_a.get(j);
++      for (Entity entity : this.field_1050_a) {
+          if (p_621_1_.isAssignableFrom(entity.getClass())) {
+             ++i;
+          }
+@@ -1656,21 +1691,21 @@
+       return i;
+    }
+ 
+-   public void func_636_a(List p_636_1_) {
++   public void func_636_a(List<Entity> p_636_1_) {
+       this.field_1050_a.addAll(p_636_1_);
+ 
+-      for(int i = 0; i < p_636_1_.size(); ++i) {
+-         this.func_606_b((Entity)p_636_1_.get(i));
++      for (Entity entity : p_636_1_) {
++         this.func_606_b(entity);
+       }
+-
+    }
+ 
+-   public void func_632_b(List p_632_1_) {
++   public void func_632_b(List<Entity> p_632_1_) {
+       this.field_1024_A.addAll(p_632_1_);
+    }
+ 
+    public void func_656_j() {
+-      while(this.field_1017_H.func_532_a()) {
++      while(true) {
++         if (!this.field_1017_H.func_532_a()) break;
+       }
+ 
+    }
+@@ -1777,12 +1812,11 @@
+       double d0 = -1.0D;
+       EntityPlayer entityplayer = null;
+ 
+-      for(int i = 0; i < this.field_1040_k.size(); ++i) {
+-         EntityPlayer entityplayer1 = (EntityPlayer)this.field_1040_k.get(i);
+-         double d1 = entityplayer1.func_360_d(p_683_1_, p_683_3_, p_683_5_);
++      for (EntityPlayer entityPlayer : this.field_1040_k) {
++         double d1 = entityPlayer.func_360_d(p_683_1_, p_683_3_, p_683_5_);
+          if ((p_683_7_ < 0.0D || d1 < p_683_7_ * p_683_7_) && (d0 == -1.0D || d1 < d0)) {
+             d0 = d1;
+-            entityplayer = entityplayer1;
++            entityplayer = entityPlayer;
+          }
+       }
+ 
+@@ -1840,16 +1874,12 @@
+    public void func_663_l() {
+       try {
+          File file1 = new File(this.field_9432_t, "session.lock");
+-         DataInputStream datainputstream = new DataInputStream(new FileInputStream(file1));
+ 
+-         try {
++         try (DataInputStream datainputstream = new DataInputStream(new FileInputStream(file1))) {
+             if (datainputstream.readLong() != this.field_1054_E) {
+                throw new MinecraftException("The save is being accessed from another location, aborting");
+             }
+-         } finally {
+-            datainputstream.close();
+          }
+-
+       } catch (IOException ioexception) {
+          throw new MinecraftException("Failed to check session lock, aborting");
+       }
+@@ -1887,7 +1917,7 @@
+       this.field_1050_a.removeAll(this.field_1024_A);
+ 
+       for(int i = 0; i < this.field_1024_A.size(); ++i) {
+-         Entity entity = (Entity)this.field_1024_A.get(i);
++         Entity entity = this.field_1024_A.get(i);
+          int j = entity.field_657_ba;
+          int k = entity.field_654_bc;
+          if (entity.field_621_aZ && this.func_620_h(j, k)) {
+@@ -1896,13 +1926,13 @@
+       }
+ 
+       for(int l = 0; l < this.field_1024_A.size(); ++l) {
+-         this.func_678_c((Entity)this.field_1024_A.get(l));
++         this.func_678_c(this.field_1024_A.get(l));
+       }
+ 
+       this.field_1024_A.clear();
+ 
+       for(int i1 = 0; i1 < this.field_1050_a.size(); ++i1) {
+-         Entity entity1 = (Entity)this.field_1050_a.get(i1);
++         Entity entity1 = this.field_1050_a.get(i1);
+          if (entity1.field_616_af != null) {
+             if (!entity1.field_616_af.field_646_aA && entity1.field_616_af.field_617_ae == entity1) {
+                continue;

@@ -1,0 +1,28 @@
+--- a/net/minecraft/src/Render.java
++++ b/net/minecraft/src/Render.java
+@@ -2,14 +2,14 @@
+ 
+ import org.lwjgl.opengl.GL11;
+ 
+-public abstract class Render {
++public abstract class Render<T extends Entity> {
+    protected RenderManager field_191_a;
+    private ModelBase field_195_d = new ModelBiped();
+    private RenderBlocks field_203_d = new RenderBlocks();
+    protected float field_9246_c = 0.0F;
+    protected float field_194_c = 1.0F;
+ 
+-   public abstract void func_147_a(Entity p_147_1_, double p_147_2_, double p_147_4_, double p_147_6_, float p_147_8_, float p_147_9_);
++   public abstract void func_147_a(T p_147_1_, double p_147_2_, double p_147_4_, double p_147_6_, float p_147_8_, float p_147_9_);
+ 
+    protected void func_151_a(String p_151_1_) {
+       RenderEngine renderengine = this.field_191_a.field_1229_e;
+@@ -207,7 +207,7 @@
+       this.field_191_a = p_4009_1_;
+    }
+ 
+-   public void func_141_b(Entity p_141_1_, double p_141_2_, double p_141_4_, double p_141_6_, float p_141_8_, float p_141_9_) {
++   public void func_141_b(T p_141_1_, double p_141_2_, double p_141_4_, double p_141_6_, float p_141_8_, float p_141_9_) {
+       if (this.field_191_a.field_1223_k.field_1576_i && this.field_9246_c > 0.0F) {
+          double d0 = this.field_191_a.func_851_a(p_141_1_.field_611_ak, p_141_1_.field_610_al, p_141_1_.field_609_am);
+          float f = (float)((1.0D - d0 / 256.0D) * (double)this.field_194_c);

@@ -1,0 +1,17 @@
+--- a/net/minecraft/src/RenderSnowball.java
++++ b/net/minecraft/src/RenderSnowball.java
+@@ -2,7 +2,13 @@
+ 
+ import org.lwjgl.opengl.GL11;
+ 
+-public class RenderSnowball extends Render {
++public class RenderSnowball extends Render<EntitySnowball> {
++
++   @Override
++   public void func_147_a(EntitySnowball p_147_1_, double p_147_2_, double p_147_4_, double p_147_6_, float p_147_8_, float p_147_9_) {
++      func_155_a(p_147_1_, p_147_2_, p_147_4_, p_147_6_, p_147_8_, p_147_9_);
++   }
++
+    public void func_155_a(EntitySnowball p_155_1_, double p_155_2_, double p_155_4_, double p_155_6_, float p_155_8_, float p_155_9_) {
+       GL11.glPushMatrix();
+       GL11.glTranslatef((float)p_155_2_, (float)p_155_4_, (float)p_155_6_);

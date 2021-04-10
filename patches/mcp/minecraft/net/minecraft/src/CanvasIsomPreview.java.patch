@@ -1,0 +1,37 @@
+--- a/net/minecraft/src/CanvasIsomPreview.java
++++ b/net/minecraft/src/CanvasIsomPreview.java
+@@ -41,9 +41,32 @@
+       return this.field_1789_e;
+    }
+ 
+-   public File func_1264_a(String param1) {
+-      // $FF: Couldn't be decompiled
++   public File func_1264_a(String param1) {File file;
++      String str2, str1 = System.getProperty("user.home", ".");
++      switch (OsMap.field_1193_a[func_1269_e().ordinal()]) {
++         case 1:
++         case 2:
++            file = new File(str1, '.' + param1 + '/');
++            break;
++         case 3:
++            str2 = System.getenv("APPDATA");
++            if (str2 != null) {
++               file = new File(str2, "." + param1 + '/');
++               break;
+    }
++            file = new File(str1, '.' + param1 + '/');
++            break;
++         case 4:
++            file = new File(str1, "Library/Application Support/" + param1);
++            break;
++         default:
++            file = new File(str1, param1 + '/');
++            break;
++      }
++      if (!file.exists() && !file.mkdirs())
++         throw new RuntimeException("The working directory could not be created: " + file);
++      return file;
++   }
+ 
+    private static EnumOS1 func_1269_e() {
+       String s = System.getProperty("os.name").toLowerCase();

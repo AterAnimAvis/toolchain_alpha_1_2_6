@@ -1,0 +1,243 @@
+# Minecraft
+net/minecraft/client/Minecraft/func_6257_q ()V org/lwjgl/LWJGLException
+net/minecraft/client/Minecraft/func_6271_a ()V org/lwjgl/LWJGLException
+
+# CompressedStreamTools
+net/minecraft/src/CompressedStreamTools/func_1138_a (Ljava/io/InputStream;)Lnet/minecraft/src/NBTTagCompound; java/io/IOException
+net/minecraft/src/CompressedStreamTools/func_1143_a (Lnet/minecraft/src/NBTTagCompound;Ljava/io/OutputStream;)V java/io/IOException
+net/minecraft/src/CompressedStreamTools/func_1140_a ([B)Lnet/minecraft/src/NBTTagCompound; java/io/IOException
+net/minecraft/src/CompressedStreamTools/func_1142_a (Lnet/minecraft/src/NBTTagCompound;)[B java/io/IOException
+net/minecraft/src/CompressedStreamTools/func_1141_a (Ljava/io/DataInput;)Lnet/minecraft/src/NBTTagCompound; java/io/IOException
+net/minecraft/src/CompressedStreamTools/func_1139_a (Lnet/minecraft/src/NBTTagCompound;Ljava/io/DataOutput;)V java/io/IOException
+
+# RenderEngine
+net/minecraft/src/RenderEngine/func_6526_a (Ljava/io/InputStream;)Ljava/awt/image/BufferedImage; java/io/IOException
+
+# ThreadDownloadResources
+net/minecraft/src/ThreadDownloadResources/func_1212_a (Ljava/net/URL;Ljava/io/File;J)V java/io/IOException
+
+# IChunkLoader
+net/minecraft/src/IChunkLoader/func_813_a (Lnet/minecraft/src/World;II)Lnet/minecraft/src/Chunk; java/io/IOException
+net/minecraft/src/IChunkLoader/func_812_a (Lnet/minecraft/src/World;Lnet/minecraft/src/Chunk;)V java/io/IOException
+
+# NetClientHandler
+net/minecraft/src/NetClientHandler/<init> (Lnet/minecraft/client/Minecraft;Ljava/lang/String;I)V java/io/IOException
+
+# NetworkManager
+net/minecraft/src/NetworkManager/<init> (Ljava/net/Socket;Ljava/lang/String;Lnet/minecraft/src/NetHandler;)V java/io/IOException
+
+# MusInputStream
+net/minecraft/src/MusInputStream/read ()I java/io/IOException
+net/minecraft/src/MusInputStream/read ([BII)I java/io/IOException
+
+# NBTBase
+net/minecraft/src/NBTBase/func_735_a (Ljava/io/DataOutput;)V java/io/IOException
+net/minecraft/src/NBTBase/func_736_a (Ljava/io/DataInput;)V java/io/IOException
+net/minecraft/src/NBTBase/func_734_b (Ljava/io/DataInput;)Lnet/minecraft/src/NBTBase; java/io/IOException
+net/minecraft/src/NBTBase/func_738_a (Lnet/minecraft/src/NBTBase;Ljava/io/DataOutput;)V java/io/IOException
+
+# NBTTagCompound
+net/minecraft/src/NBTTagCompound/func_735_a (Ljava/io/DataOutput;)V java/io/IOException
+net/minecraft/src/NBTTagCompound/func_736_a (Ljava/io/DataInput;)V java/io/IOException
+
+# NBTTagList
+net/minecraft/src/NBTTagList/func_735_a (Ljava/io/DataOutput;)V java/io/IOException
+net/minecraft/src/NBTTagList/func_736_a (Ljava/io/DataInput;)V java/io/IOException
+
+# NBTTagByte
+net/minecraft/src/NBTTagByte/func_735_a (Ljava/io/DataOutput;)V java/io/IOException
+net/minecraft/src/NBTTagByte/func_736_a (Ljava/io/DataInput;)V java/io/IOException
+
+# NBTTagByteArray
+net/minecraft/src/NBTTagByteArray/func_735_a (Ljava/io/DataOutput;)V java/io/IOException
+net/minecraft/src/NBTTagByteArray/func_736_a (Ljava/io/DataInput;)V java/io/IOException
+
+# NBTTagDouble
+net/minecraft/src/NBTTagDouble/func_735_a (Ljava/io/DataOutput;)V java/io/IOException
+net/minecraft/src/NBTTagDouble/func_736_a (Ljava/io/DataInput;)V java/io/IOException
+
+# NBTTagFloat
+net/minecraft/src/NBTTagFloat/func_735_a (Ljava/io/DataOutput;)V java/io/IOException
+net/minecraft/src/NBTTagFloat/func_736_a (Ljava/io/DataInput;)V java/io/IOException
+
+# NBTTagInt
+net/minecraft/src/NBTTagInt/func_735_a (Ljava/io/DataOutput;)V java/io/IOException
+net/minecraft/src/NBTTagInt/func_736_a (Ljava/io/DataInput;)V java/io/IOException
+
+# NBTTagLong
+net/minecraft/src/NBTTagLong/func_735_a (Ljava/io/DataOutput;)V java/io/IOException
+net/minecraft/src/NBTTagLong/func_736_a (Ljava/io/DataInput;)V java/io/IOException
+
+# NBTTagShort
+net/minecraft/src/NBTTagShort/func_735_a (Ljava/io/DataOutput;)V java/io/IOException
+net/minecraft/src/NBTTagShort/func_736_a (Ljava/io/DataInput;)V java/io/IOException
+
+# NBTTagString
+net/minecraft/src/NBTTagString/func_735_a (Ljava/io/DataOutput;)V java/io/IOException
+net/minecraft/src/NBTTagString/func_736_a (Ljava/io/DataInput;)V java/io/IOException
+
+# Packet
+net/minecraft/src/Packet/func_324_b (Ljava/io/DataInputStream;)Lnet/minecraft/src/Packet; java/io/IOException
+net/minecraft/src/Packet/func_328_a (Lnet/minecraft/src/Packet;Ljava/io/DataOutputStream;)V java/io/IOException
+net/minecraft/src/Packet/func_327_a (Ljava/io/DataInputStream;)V java/io/IOException
+net/minecraft/src/Packet/func_322_a (Ljava/io/DataOutputStream;)V java/io/IOException
+
+# Packet0KeepAlive
+net/minecraft/src/Packet0KeepAlive/func_327_a (Ljava/io/DataInputStream;)V java/io/IOException
+net/minecraft/src/Packet0KeepAlive/func_322_a (Ljava/io/DataOutputStream;)V java/io/IOException
+
+# Packet10Flying
+net/minecraft/src/Packet10Flying/func_327_a (Ljava/io/DataInputStream;)V java/io/IOException
+net/minecraft/src/Packet10Flying/func_322_a (Ljava/io/DataOutputStream;)V java/io/IOException
+
+# Packet11PlayerPosition
+net/minecraft/src/Packet11PlayerPosition/func_327_a (Ljava/io/DataInputStream;)V java/io/IOException
+net/minecraft/src/Packet11PlayerPosition/func_322_a (Ljava/io/DataOutputStream;)V java/io/IOException
+
+# Packet12PlayerLook
+net/minecraft/src/Packet12PlayerLook/func_327_a (Ljava/io/DataInputStream;)V java/io/IOException
+net/minecraft/src/Packet12PlayerLook/func_322_a (Ljava/io/DataOutputStream;)V java/io/IOException
+
+# Packet13PlayerLookMove
+net/minecraft/src/Packet13PlayerLookMove/func_327_a (Ljava/io/DataInputStream;)V java/io/IOException
+net/minecraft/src/Packet13PlayerLookMove/func_322_a (Ljava/io/DataOutputStream;)V java/io/IOException
+
+# Packet14BlockDig
+net/minecraft/src/Packet14BlockDig/func_327_a (Ljava/io/DataInputStream;)V java/io/IOException
+net/minecraft/src/Packet14BlockDig/func_322_a (Ljava/io/DataOutputStream;)V java/io/IOException
+
+# Packet15Place
+net/minecraft/src/Packet15Place/func_327_a (Ljava/io/DataInputStream;)V java/io/IOException
+net/minecraft/src/Packet15Place/func_322_a (Ljava/io/DataOutputStream;)V java/io/IOException
+
+# Packet16BlockItemSwitch
+net/minecraft/src/Packet16BlockItemSwitch/func_327_a (Ljava/io/DataInputStream;)V java/io/IOException
+net/minecraft/src/Packet16BlockItemSwitch/func_322_a (Ljava/io/DataOutputStream;)V java/io/IOException
+
+# Packet17AddToInventory
+net/minecraft/src/Packet17AddToInventory/func_327_a (Ljava/io/DataInputStream;)V java/io/IOException
+net/minecraft/src/Packet17AddToInventory/func_322_a (Ljava/io/DataOutputStream;)V java/io/IOException
+
+# Packet18ArmAnimation
+net/minecraft/src/Packet18ArmAnimation/func_327_a (Ljava/io/DataInputStream;)V java/io/IOException
+net/minecraft/src/Packet18ArmAnimation/func_322_a (Ljava/io/DataOutputStream;)V java/io/IOException
+
+# Packet1Login
+net/minecraft/src/Packet1Login/func_327_a (Ljava/io/DataInputStream;)V java/io/IOException
+net/minecraft/src/Packet1Login/func_322_a (Ljava/io/DataOutputStream;)V java/io/IOException
+
+# Packet20NamedEntitySpawn
+net/minecraft/src/Packet20NamedEntitySpawn/func_327_a (Ljava/io/DataInputStream;)V java/io/IOException
+net/minecraft/src/Packet20NamedEntitySpawn/func_322_a (Ljava/io/DataOutputStream;)V java/io/IOException
+
+# Packet21PickupSpawn
+net/minecraft/src/Packet21PickupSpawn/func_327_a (Ljava/io/DataInputStream;)V java/io/IOException
+net/minecraft/src/Packet21PickupSpawn/func_322_a (Ljava/io/DataOutputStream;)V java/io/IOException
+
+# Packet22Collect
+net/minecraft/src/Packet22Collect/func_327_a (Ljava/io/DataInputStream;)V java/io/IOException
+net/minecraft/src/Packet22Collect/func_322_a (Ljava/io/DataOutputStream;)V java/io/IOException
+
+# Packet23VehicleSpawn
+net/minecraft/src/Packet23VehicleSpawn/func_327_a (Ljava/io/DataInputStream;)V java/io/IOException
+net/minecraft/src/Packet23VehicleSpawn/func_322_a (Ljava/io/DataOutputStream;)V java/io/IOException
+
+# Packet24MobSpawn
+net/minecraft/src/Packet24MobSpawn/func_327_a (Ljava/io/DataInputStream;)V java/io/IOException
+net/minecraft/src/Packet24MobSpawn/func_322_a (Ljava/io/DataOutputStream;)V java/io/IOException
+
+# Packet255KickDisconnect
+net/minecraft/src/Packet255KickDisconnect/func_327_a (Ljava/io/DataInputStream;)V java/io/IOException
+net/minecraft/src/Packet255KickDisconnect/func_322_a (Ljava/io/DataOutputStream;)V java/io/IOException
+
+# Packet28
+net/minecraft/src/Packet28/func_327_a (Ljava/io/DataInputStream;)V java/io/IOException
+net/minecraft/src/Packet28/func_322_a (Ljava/io/DataOutputStream;)V java/io/IOException
+
+# Packet29DestroyEntity
+net/minecraft/src/Packet29DestroyEntity/func_327_a (Ljava/io/DataInputStream;)V java/io/IOException
+net/minecraft/src/Packet29DestroyEntity/func_322_a (Ljava/io/DataOutputStream;)V java/io/IOException
+
+# Packet2Handshake
+net/minecraft/src/Packet2Handshake/func_327_a (Ljava/io/DataInputStream;)V java/io/IOException
+net/minecraft/src/Packet2Handshake/func_322_a (Ljava/io/DataOutputStream;)V java/io/IOException
+
+# Packet30Entity
+net/minecraft/src/Packet30Entity/func_327_a (Ljava/io/DataInputStream;)V java/io/IOException
+net/minecraft/src/Packet30Entity/func_322_a (Ljava/io/DataOutputStream;)V java/io/IOException
+
+# Packet31RelEntityMove
+net/minecraft/src/Packet31RelEntityMove/func_327_a (Ljava/io/DataInputStream;)V java/io/IOException
+net/minecraft/src/Packet31RelEntityMove/func_322_a (Ljava/io/DataOutputStream;)V java/io/IOException
+
+# Packet32EntityLook
+net/minecraft/src/Packet32EntityLook/func_327_a (Ljava/io/DataInputStream;)V java/io/IOException
+net/minecraft/src/Packet32EntityLook/func_322_a (Ljava/io/DataOutputStream;)V java/io/IOException
+
+# Packet33RelEntityMoveLook
+net/minecraft/src/Packet33RelEntityMoveLook/func_327_a (Ljava/io/DataInputStream;)V java/io/IOException
+net/minecraft/src/Packet33RelEntityMoveLook/func_322_a (Ljava/io/DataOutputStream;)V java/io/IOException
+
+# Packet34EntityTeleport
+net/minecraft/src/Packet34EntityTeleport/func_327_a (Ljava/io/DataInputStream;)V java/io/IOException
+net/minecraft/src/Packet34EntityTeleport/func_322_a (Ljava/io/DataOutputStream;)V java/io/IOException
+
+# Packet38
+net/minecraft/src/Packet38/func_327_a (Ljava/io/DataInputStream;)V java/io/IOException
+net/minecraft/src/Packet38/func_322_a (Ljava/io/DataOutputStream;)V java/io/IOException
+
+# Packet39
+net/minecraft/src/Packet39/func_327_a (Ljava/io/DataInputStream;)V java/io/IOException
+net/minecraft/src/Packet39/func_322_a (Ljava/io/DataOutputStream;)V java/io/IOException
+
+# Packet3Chat
+net/minecraft/src/Packet3Chat/func_327_a (Ljava/io/DataInputStream;)V java/io/IOException
+net/minecraft/src/Packet3Chat/func_322_a (Ljava/io/DataOutputStream;)V java/io/IOException
+
+# Packet4UpdateTime
+net/minecraft/src/Packet4UpdateTime/func_327_a (Ljava/io/DataInputStream;)V java/io/IOException
+net/minecraft/src/Packet4UpdateTime/func_322_a (Ljava/io/DataOutputStream;)V java/io/IOException
+
+# Packet50PreChunk
+net/minecraft/src/Packet50PreChunk/func_327_a (Ljava/io/DataInputStream;)V java/io/IOException
+net/minecraft/src/Packet50PreChunk/func_322_a (Ljava/io/DataOutputStream;)V java/io/IOException
+
+# Packet51MapChunk
+net/minecraft/src/Packet51MapChunk/func_327_a (Ljava/io/DataInputStream;)V java/io/IOException
+net/minecraft/src/Packet51MapChunk/func_322_a (Ljava/io/DataOutputStream;)V java/io/IOException
+
+# Packet52MultiBlockChange
+net/minecraft/src/Packet52MultiBlockChange/func_327_a (Ljava/io/DataInputStream;)V java/io/IOException
+net/minecraft/src/Packet52MultiBlockChange/func_322_a (Ljava/io/DataOutputStream;)V java/io/IOException
+
+# Packet53BlockChange
+net/minecraft/src/Packet53BlockChange/func_327_a (Ljava/io/DataInputStream;)V java/io/IOException
+net/minecraft/src/Packet53BlockChange/func_322_a (Ljava/io/DataOutputStream;)V java/io/IOException
+
+# Packet59ComplexEntity
+net/minecraft/src/Packet59ComplexEntity/func_327_a (Ljava/io/DataInputStream;)V java/io/IOException
+net/minecraft/src/Packet59ComplexEntity/func_322_a (Ljava/io/DataOutputStream;)V java/io/IOException
+
+# Packet5PlayerInventory
+net/minecraft/src/Packet5PlayerInventory/func_327_a (Ljava/io/DataInputStream;)V java/io/IOException
+net/minecraft/src/Packet5PlayerInventory/func_322_a (Ljava/io/DataOutputStream;)V java/io/IOException
+
+# Packet60
+net/minecraft/src/Packet60/func_327_a (Ljava/io/DataInputStream;)V java/io/IOException
+net/minecraft/src/Packet60/func_322_a (Ljava/io/DataOutputStream;)V java/io/IOException
+
+# Packet6SpawnPosition
+net/minecraft/src/Packet6SpawnPosition/func_327_a (Ljava/io/DataInputStream;)V java/io/IOException
+net/minecraft/src/Packet6SpawnPosition/func_322_a (Ljava/io/DataOutputStream;)V java/io/IOException
+
+# Packet7
+net/minecraft/src/Packet7/func_327_a (Ljava/io/DataInputStream;)V java/io/IOException
+net/minecraft/src/Packet7/func_322_a (Ljava/io/DataOutputStream;)V java/io/IOException
+
+# Packet8
+net/minecraft/src/Packet8/func_327_a (Ljava/io/DataInputStream;)V java/io/IOException
+net/minecraft/src/Packet8/func_322_a (Ljava/io/DataOutputStream;)V java/io/IOException
+
+# Packet9
+net/minecraft/src/Packet9/func_327_a (Ljava/io/DataInputStream;)V java/io/IOException
+net/minecraft/src/Packet9/func_322_a (Ljava/io/DataOutputStream;)V java/io/IOException

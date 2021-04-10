@@ -1,0 +1,41 @@
+--- a/net/minecraft/src/ChunkLoader.java
++++ b/net/minecraft/src/ChunkLoader.java
+@@ -100,9 +100,36 @@
+ 
+    }
+ 
+-   public void func_818_a(Chunk var1, World var2, NBTTagCompound var3) {
+-      // $FF: Couldn't be decompiled
++   public void func_818_a(Chunk p_818_1_, World p_818_2_, NBTTagCompound p_818_3_) {
++      p_818_2_.func_663_l();
++      p_818_3_.func_758_a("xPos", p_818_1_.field_1531_j);
++      p_818_3_.func_758_a("zPos", p_818_1_.field_1530_k);
++      p_818_3_.func_750_a("LastUpdate", p_818_2_.field_1048_c);
++      p_818_3_.func_747_a("Blocks", p_818_1_.field_1539_b);
++      p_818_3_.func_747_a("Data", p_818_1_.field_1536_e.field_1109_a);
++      p_818_3_.func_747_a("SkyLight", p_818_1_.field_1535_f.field_1109_a);
++      p_818_3_.func_747_a("BlockLight", p_818_1_.field_1534_g.field_1109_a);
++      p_818_3_.func_747_a("HeightMap", p_818_1_.field_1533_h);
++      p_818_3_.func_748_a("TerrainPopulated", p_818_1_.field_1527_n);
++      p_818_1_.field_1523_r = false;
++      NBTTagList nBTTagList1 = new NBTTagList();
++      for (byte b = 0; b < p_818_1_.field_1528_m.length; b++) {
++         for (Entity entity : p_818_1_.field_1528_m[b]) {
++            p_818_1_.field_1523_r = true;
++            NBTTagCompound nBTTagCompound = new NBTTagCompound();
++            if (entity.func_358_c(nBTTagCompound))
++               nBTTagList1.func_742_a(nBTTagCompound);
+    }
++      }
++      p_818_3_.func_762_a("Entities", nBTTagList1);
++      NBTTagList nBTTagList2 = new NBTTagList();
++      for (TileEntity tileEntity : p_818_1_.field_1529_l.values()) {
++         NBTTagCompound nBTTagCompound = new NBTTagCompound();
++         tileEntity.func_481_b(nBTTagCompound);
++         nBTTagList2.func_742_a(nBTTagCompound);
++      }
++      p_818_3_.func_762_a("TileEntities", nBTTagList2);
++   }
+ 
+    public static Chunk func_816_a(World p_816_0_, NBTTagCompound p_816_1_) {
+       int i = p_816_1_.func_756_e("xPos");
