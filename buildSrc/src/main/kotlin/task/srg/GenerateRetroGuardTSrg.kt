@@ -27,7 +27,10 @@ open class GenerateRetroGuardTSrg : DefaultTask() {
                 if (it.startsWith(".class_map")) {
                     val parts = it.split(" ")
                     val a = parts[1]
-                    val b = if (a.contains("/")) a else "net/minecraft/src/${parts[2]}"
+                    var b = if (a.contains("/")) a else "net/minecraft/src/${parts[2]}"
+
+                    // Fix: Unfortunate Naming
+                    if (b.contains("ModelQuadraped")) b = b.replace("ModelQuadraped", "ModelQuadruped")
 
                     currentClass = a
 
