@@ -1,0 +1,29 @@
+--- a/net/minecraft/src/GuiMultiplayer.java
++++ b/net/minecraft/src/GuiMultiplayer.java
+@@ -18,7 +18,7 @@
+       this.field_949_e.add(new GuiButton(0, this.field_951_c / 2 - 100, this.field_950_d / 4 + 96 + 12, "Connect"));
+       this.field_949_e.add(new GuiButton(1, this.field_951_c / 2 - 100, this.field_950_d / 4 + 120 + 12, "Cancel"));
+       this.field_969_i = this.field_945_b.field_6304_y.field_12259_z.replaceAll("_", ":");
+-      ((GuiButton)this.field_949_e.get(0)).field_937_g = this.field_969_i.length() > 0;
++      this.field_949_e.get(0).field_937_g = this.field_969_i.length() > 0;
+    }
+ 
+    protected void func_572_a(GuiButton p_572_1_) {
+@@ -61,7 +61,7 @@
+       }
+ 
+       if (p_580_1_ == '\r') {
+-         this.func_572_a((GuiButton)this.field_949_e.get(0));
++         this.func_572_a(this.field_949_e.get(0));
+       }
+ 
+       if (p_580_2_ == 14 && this.field_969_i.length() > 0) {
+@@ -72,7 +72,7 @@
+          this.field_969_i = this.field_969_i + p_580_1_;
+       }
+ 
+-      ((GuiButton)this.field_949_e.get(0)).field_937_g = this.field_969_i.length() > 0;
++      (this.field_949_e.get(0)).field_937_g = this.field_969_i.length() > 0;
+    }
+ 
+    public void func_571_a(int p_571_1_, int p_571_2_, float p_571_3_) {

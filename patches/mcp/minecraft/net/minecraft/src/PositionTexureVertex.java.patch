@@ -1,0 +1,11 @@
+--- a/net/minecraft/src/PositionTexureVertex.java
++++ b/net/minecraft/src/PositionTexureVertex.java
+@@ -6,7 +6,7 @@
+    public float field_1656_c;
+ 
+    public PositionTexureVertex(float p_i97_1_, float p_i97_2_, float p_i97_3_, float p_i97_4_, float p_i97_5_) {
+-      this(Vec3D.func_1260_a((double)p_i97_1_, (double)p_i97_2_, (double)p_i97_3_), p_i97_4_, p_i97_5_);
++      this(Vec3D.func_1260_a(p_i97_1_, p_i97_2_, p_i97_3_), p_i97_4_, p_i97_5_);
+    }
+ 
+    public PositionTexureVertex func_1115_a(float p_1115_1_, float p_1115_2_) {

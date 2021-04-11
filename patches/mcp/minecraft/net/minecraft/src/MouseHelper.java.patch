@@ -1,0 +1,11 @@
+--- a/net/minecraft/src/MouseHelper.java
++++ b/net/minecraft/src/MouseHelper.java
+@@ -18,7 +18,7 @@
+       this.field_1117_c = p_i287_1_;
+       IntBuffer intbuffer = GLAllocation.func_1125_c(1);
+       intbuffer.put(0);
+-      ((Buffer)intbuffer).flip();
++      intbuffer.flip();
+       IntBuffer intbuffer1 = GLAllocation.func_1125_c(1024);
+ 
+       try {

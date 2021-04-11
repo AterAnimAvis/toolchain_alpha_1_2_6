@@ -1,0 +1,47 @@
+--- a/net/minecraft/src/GuiScreen.java
++++ b/net/minecraft/src/GuiScreen.java
+@@ -14,15 +14,14 @@
+    protected Minecraft field_945_b;
+    public int field_951_c;
+    public int field_950_d;
+-   protected List field_949_e = new ArrayList();
++   protected List<GuiButton> field_949_e = new ArrayList<>();
+    public boolean field_948_f = false;
+    protected FontRenderer field_6451_g;
+    private GuiButton field_946_a = null;
+ 
+    public void func_571_a(int p_571_1_, int p_571_2_, float p_571_3_) {
+-      for(int i = 0; i < this.field_949_e.size(); ++i) {
+-         GuiButton guibutton = (GuiButton)this.field_949_e.get(i);
+-         guibutton.func_561_a(this.field_945_b, p_571_1_, p_571_2_);
++      for (GuiButton guiButton : this.field_949_e) {
++         guiButton.func_561_a(this.field_945_b, p_571_1_, p_571_2_);
+       }
+ 
+    }
+@@ -49,8 +48,8 @@
+ 
+    protected void func_565_a(int p_565_1_, int p_565_2_, int p_565_3_) {
+       if (p_565_3_ == 0) {
+-         for(int i = 0; i < this.field_949_e.size(); ++i) {
+-            GuiButton guibutton = (GuiButton)this.field_949_e.get(i);
++         for (GuiButton guiButton : this.field_949_e) {
++            GuiButton guibutton = guiButton;
+             if (guibutton.func_562_c(this.field_945_b, p_565_1_, p_565_2_)) {
+                this.field_946_a = guibutton;
+                this.field_945_b.field_6301_A.func_337_a("random.click", 1.0F, 1.0F);
+@@ -148,10 +147,10 @@
+       float f = 32.0F;
+       tessellator.func_977_b();
+       tessellator.func_990_b(4210752);
+-      tessellator.func_983_a(0.0D, (double)this.field_950_d, 0.0D, 0.0D, (double)((float)this.field_950_d / f + (float)p_579_1_));
+-      tessellator.func_983_a((double)this.field_951_c, (double)this.field_950_d, 0.0D, (double)((float)this.field_951_c / f), (double)((float)this.field_950_d / f + (float)p_579_1_));
+-      tessellator.func_983_a((double)this.field_951_c, 0.0D, 0.0D, (double)((float)this.field_951_c / f), (double)(0 + p_579_1_));
+-      tessellator.func_983_a(0.0D, 0.0D, 0.0D, 0.0D, (double)(0 + p_579_1_));
++      tessellator.func_983_a(0.0D, this.field_950_d, 0.0D, 0.0D, (float)this.field_950_d / f + (float)p_579_1_);
++      tessellator.func_983_a(this.field_951_c, this.field_950_d, 0.0D, (float)this.field_951_c / f, (float)this.field_950_d / f + (float)p_579_1_);
++      tessellator.func_983_a(this.field_951_c, 0.0D, 0.0D, (float)this.field_951_c / f, 0 + p_579_1_);
++      tessellator.func_983_a(0.0D, 0.0D, 0.0D, 0.0D, 0 + p_579_1_);
+       tessellator.func_982_a();
+    }
+ 

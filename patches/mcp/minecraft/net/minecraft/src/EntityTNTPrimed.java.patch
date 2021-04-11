@@ -1,0 +1,32 @@
+--- a/net/minecraft/src/EntityTNTPrimed.java
++++ b/net/minecraft/src/EntityTNTPrimed.java
+@@ -15,7 +15,7 @@
+       this.func_347_a(p_i217_2_, p_i217_4_, p_i217_6_);
+       float f = (float)(Math.random() * (double)(float)Math.PI * 2.0D);
+       this.field_608_an = (double)(-MathHelper.func_1106_a(f * (float)Math.PI / 180.0F) * 0.02F);
+-      this.field_607_ao = (double)0.2F;
++      this.field_607_ao = 0.2F;
+       this.field_606_ap = (double)(-MathHelper.func_1114_b(f * (float)Math.PI / 180.0F) * 0.02F);
+       this.field_9289_aT = false;
+       this.field_689_a = 80;
+@@ -32,14 +32,14 @@
+       this.field_9285_at = this.field_611_ak;
+       this.field_9284_au = this.field_610_al;
+       this.field_9283_av = this.field_609_am;
+-      this.field_607_ao -= (double)0.04F;
++      this.field_607_ao -= 0.04F;
+       this.func_349_c(this.field_608_an, this.field_607_ao, this.field_606_ap);
+-      this.field_608_an *= (double)0.98F;
+-      this.field_607_ao *= (double)0.98F;
+-      this.field_606_ap *= (double)0.98F;
++      this.field_608_an *= 0.98F;
++      this.field_607_ao *= 0.98F;
++      this.field_606_ap *= 0.98F;
+       if (this.field_9298_aH) {
+-         this.field_608_an *= (double)0.7F;
+-         this.field_606_ap *= (double)0.7F;
++         this.field_608_an *= 0.7F;
++         this.field_606_ap *= 0.7F;
+          this.field_607_ao *= -0.5D;
+       }
+ 

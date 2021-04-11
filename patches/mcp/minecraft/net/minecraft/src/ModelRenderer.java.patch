@@ -1,0 +1,24 @@
+--- a/net/minecraft/src/ModelRenderer.java
++++ b/net/minecraft/src/ModelRenderer.java
+@@ -69,8 +69,8 @@
+       this.field_1400_k[4] = new TexturedQuad(new PositionTexureVertex[]{positiontexurevertex, positiontexurevertex7, positiontexurevertex2, positiontexurevertex1}, this.field_1399_l + p_923_6_, this.field_1398_m + p_923_6_, this.field_1399_l + p_923_6_ + p_923_4_, this.field_1398_m + p_923_6_ + p_923_5_);
+       this.field_1400_k[5] = new TexturedQuad(new PositionTexureVertex[]{positiontexurevertex3, positiontexurevertex4, positiontexurevertex5, positiontexurevertex6}, this.field_1399_l + p_923_6_ + p_923_4_ + p_923_6_, this.field_1398_m + p_923_6_, this.field_1399_l + p_923_6_ + p_923_4_ + p_923_6_ + p_923_4_, this.field_1398_m + p_923_6_ + p_923_5_);
+       if (this.field_1404_g) {
+-         for(int i = 0; i < this.field_1400_k.length; ++i) {
+-            this.field_1400_k[i].func_809_a();
++         for (TexturedQuad texturedQuad : this.field_1400_k) {
++            texturedQuad.func_809_a();
+          }
+       }
+ 
+@@ -155,8 +155,8 @@
+       GL11.glNewList(this.field_1396_o, 4864);
+       Tessellator tessellator = Tessellator.field_1512_a;
+ 
+-      for(int i = 0; i < this.field_1400_k.length; ++i) {
+-         this.field_1400_k[i].func_808_a(tessellator, p_924_1_);
++      for (TexturedQuad texturedQuad : this.field_1400_k) {
++         texturedQuad.func_808_a(tessellator, p_924_1_);
+       }
+ 
+       GL11.glEndList();

@@ -1,0 +1,99 @@
+--- a/net/minecraft/src/Explosion.java
++++ b/net/minecraft/src/Explosion.java
+@@ -15,7 +15,7 @@
+    public double field_12254_d;
+    public Entity field_12253_e;
+    public float field_12252_f;
+-   public Set field_12251_g = new HashSet();
++   public Set<ChunkPosition> field_12251_g = new HashSet<>();
+ 
+    public Explosion(World p_i218_1_, Entity p_i218_2_, double p_i218_3_, double p_i218_5_, double p_i218_7_, float p_i218_9_) {
+       this.field_12249_i = p_i218_1_;
+@@ -34,9 +34,9 @@
+          for(int j = 0; j < b0; ++j) {
+             for(int k = 0; k < b0; ++k) {
+                if (i == 0 || i == b0 - 1 || j == 0 || j == b0 - 1 || k == 0 || k == b0 - 1) {
+-                  double d0 = (double)((float)i / ((float)b0 - 1.0F) * 2.0F - 1.0F);
+-                  double d1 = (double)((float)j / ((float)b0 - 1.0F) * 2.0F - 1.0F);
+-                  double d2 = (double)((float)k / ((float)b0 - 1.0F) * 2.0F - 1.0F);
++                  double d0 = (float)i / ((float)b0 - 1.0F) * 2.0F - 1.0F;
++                  double d1 = (float)j / ((float)b0 - 1.0F) * 2.0F - 1.0F;
++                  double d2 = (float)k / ((float)b0 - 1.0F) * 2.0F - 1.0F;
+                   double d3 = Math.sqrt(d0 * d0 + d1 * d1 + d2 * d2);
+                   d0 = d0 / d3;
+                   d1 = d1 / d3;
+@@ -75,23 +75,22 @@
+       int k3 = MathHelper.func_1108_b(this.field_12255_c + (double)this.field_12252_f + 1.0D);
+       int l = MathHelper.func_1108_b(this.field_12254_d - (double)this.field_12252_f - 1.0D);
+       int l3 = MathHelper.func_1108_b(this.field_12254_d + (double)this.field_12252_f + 1.0D);
+-      List list = this.field_12249_i.func_659_b(this.field_12253_e, AxisAlignedBB.func_1161_b((double)l2, (double)j3, (double)l, (double)i3, (double)k3, (double)l3));
++      List<Entity> list = this.field_12249_i.func_659_b(this.field_12253_e, AxisAlignedBB.func_1161_b(l2, j3, l, i3, k3, l3));
+       Vec3D vec3d = Vec3D.func_1248_b(this.field_12256_b, this.field_12255_c, this.field_12254_d);
+ 
+-      for(int i1 = 0; i1 < list.size(); ++i1) {
+-         Entity entity = (Entity)list.get(i1);
+-         double d4 = entity.func_361_e(this.field_12256_b, this.field_12255_c, this.field_12254_d) / (double)this.field_12252_f;
++      for (Entity entity : list) {
++         double d4 = entity.func_361_e(this.field_12256_b, this.field_12255_c, this.field_12254_d) / (double) this.field_12252_f;
+          if (d4 <= 1.0D) {
+             double d8 = entity.field_611_ak - this.field_12256_b;
+             double d9 = entity.field_610_al - this.field_12255_c;
+             double d10 = entity.field_609_am - this.field_12254_d;
+-            double d11 = (double)MathHelper.func_1109_a(d8 * d8 + d9 * d9 + d10 * d10);
++            double d11 = MathHelper.func_1109_a(d8 * d8 + d9 * d9 + d10 * d10);
+             d8 = d8 / d11;
+             d9 = d9 / d11;
+             d10 = d10 / d11;
+-            double d12 = (double)this.field_12249_i.func_675_a(vec3d, entity.field_601_au);
++            double d12 = this.field_12249_i.func_675_a(vec3d, entity.field_601_au);
+             double d13 = (1.0D - d4) * d12;
+-            entity.func_396_a(this.field_12253_e, (int)((d13 * d13 + d13) / 2.0D * 8.0D * (double)this.field_12252_f + 1.0D));
++            entity.func_396_a(this.field_12253_e, (int) ((d13 * d13 + d13) / 2.0D * 8.0D * (double) this.field_12252_f + 1.0D));
+             entity.field_608_an += d8 * d13;
+             entity.field_607_ao += d9 * d13;
+             entity.field_606_ap += d10 * d13;
+@@ -99,11 +98,10 @@
+       }
+ 
+       this.field_12252_f = f;
+-      ArrayList arraylist = new ArrayList();
+-      arraylist.addAll(this.field_12251_g);
++      ArrayList<ChunkPosition> arraylist = new ArrayList<>(this.field_12251_g);
+       if (this.field_12257_a) {
+          for(int i4 = arraylist.size() - 1; i4 >= 0; --i4) {
+-            ChunkPosition chunkposition = (ChunkPosition)arraylist.get(i4);
++            ChunkPosition chunkposition = arraylist.get(i4);
+             int j4 = chunkposition.field_1111_a;
+             int k4 = chunkposition.field_1110_b;
+             int j1 = chunkposition.field_1112_c;
+@@ -119,24 +117,23 @@
+ 
+    public void func_12247_b() {
+       this.field_12249_i.func_684_a(this.field_12256_b, this.field_12255_c, this.field_12254_d, "random.explode", 4.0F, (1.0F + (this.field_12249_i.field_1037_n.nextFloat() - this.field_12249_i.field_1037_n.nextFloat()) * 0.2F) * 0.7F);
+-      ArrayList arraylist = new ArrayList();
+-      arraylist.addAll(this.field_12251_g);
++      ArrayList<ChunkPosition> arraylist = new ArrayList<>(this.field_12251_g);
+ 
+       for(int i = arraylist.size() - 1; i >= 0; --i) {
+-         ChunkPosition chunkposition = (ChunkPosition)arraylist.get(i);
++         ChunkPosition chunkposition = arraylist.get(i);
+          int j = chunkposition.field_1111_a;
+          int k = chunkposition.field_1110_b;
+          int l = chunkposition.field_1112_c;
+          int i1 = this.field_12249_i.func_600_a(j, k, l);
+ 
+          for(int j1 = 0; j1 < 1; ++j1) {
+-            double d0 = (double)((float)j + this.field_12249_i.field_1037_n.nextFloat());
+-            double d1 = (double)((float)k + this.field_12249_i.field_1037_n.nextFloat());
+-            double d2 = (double)((float)l + this.field_12249_i.field_1037_n.nextFloat());
++            double d0 = (float)j + this.field_12249_i.field_1037_n.nextFloat();
++            double d1 = (float)k + this.field_12249_i.field_1037_n.nextFloat();
++            double d2 = (float)l + this.field_12249_i.field_1037_n.nextFloat();
+             double d3 = d0 - this.field_12256_b;
+             double d4 = d1 - this.field_12255_c;
+             double d5 = d2 - this.field_12254_d;
+-            double d6 = (double)MathHelper.func_1109_a(d3 * d3 + d4 * d4 + d5 * d5);
++            double d6 = MathHelper.func_1109_a(d3 * d3 + d4 * d4 + d5 * d5);
+             d3 = d3 / d6;
+             d4 = d4 / d6;
+             d5 = d5 / d6;

@@ -1,0 +1,51 @@
+--- a/net/minecraft/src/NetworkManager.java
++++ b/net/minecraft/src/NetworkManager.java
+@@ -19,9 +19,9 @@
+    private DataInputStream field_1473_f;
+    private DataOutputStream field_1472_g;
+    private boolean field_1471_h = true;
+-   private List field_1470_i = Collections.synchronizedList(new ArrayList());
+-   private List field_1469_j = Collections.synchronizedList(new ArrayList());
+-   private List field_1468_k = Collections.synchronizedList(new ArrayList());
++   private List<Packet> field_1470_i = Collections.synchronizedList(new ArrayList<>());
++   private List<Packet> field_1469_j = Collections.synchronizedList(new ArrayList<>());
++   private List<Packet> field_1468_k = Collections.synchronizedList(new ArrayList<>());
+    private NetHandler field_1467_l;
+    private boolean field_1466_m = false;
+    private Thread field_1465_n;
+@@ -66,7 +66,7 @@
+             flag = false;
+             Packet packet;
+             synchronized(this.field_1475_d) {
+-               packet = (Packet)this.field_1469_j.remove(0);
++               packet = this.field_1469_j.remove(0);
+                this.field_1460_s -= packet.func_329_a() + 1;
+             }
+ 
+@@ -77,7 +77,7 @@
+             flag = false;
+             Packet packet1;
+             synchronized(this.field_1475_d) {
+-               packet1 = (Packet)this.field_1468_k.remove(0);
++               packet1 = this.field_1468_k.remove(0);
+                this.field_1460_s -= packet1.func_329_a() + 1;
+             }
+ 
+@@ -115,7 +115,7 @@
+ 
+    private void func_970_a(Exception p_970_1_) {
+       p_970_1_.printStackTrace();
+-      this.func_974_a("Internal exception: " + p_970_1_.toString());
++      this.func_974_a("Internal exception: " + p_970_1_);
+    }
+ 
+    public void func_974_a(String p_974_1_) {
+@@ -162,7 +162,7 @@
+       int i = 100;
+ 
+       while(!this.field_1470_i.isEmpty() && i-- >= 0) {
+-         Packet packet = (Packet)this.field_1470_i.remove(0);
++         Packet packet = this.field_1470_i.remove(0);
+          packet.func_323_a(this.field_1467_l);
+       }
+ 

@@ -1,0 +1,122 @@
+--- a/net/minecraft/src/GuiTexturePacks.java
++++ b/net/minecraft/src/GuiTexturePacks.java
+@@ -61,14 +61,14 @@
+          this.field_6454_o += 20;
+       }
+ 
+-      List list = this.field_945_b.field_6298_C.func_6530_b();
++      List<TexturePackBase> list = this.field_945_b.field_6298_C.func_6530_b();
+       if (Mouse.isButtonDown(0)) {
+          if (this.field_6455_n == -1) {
+             if (p_571_2_ >= this.field_6459_i && p_571_2_ <= this.field_6458_j) {
+                int i = this.field_951_c / 2 - 110;
+                int j = this.field_951_c / 2 + 110;
+                int k = (p_571_2_ - this.field_6459_i + this.field_6460_h - 2) / 36;
+-               if (p_571_1_ >= i && p_571_1_ <= j && k >= 0 && k < list.size() && this.field_945_b.field_6298_C.func_6531_a((TexturePackBase)list.get(k))) {
++               if (p_571_1_ >= i && p_571_1_ <= j && k >= 0 && k < list.size() && this.field_945_b.field_6298_C.func_6531_a(list.get(k))) {
+                   this.field_945_b.field_6315_n.func_1065_b();
+                }
+ 
+@@ -108,14 +108,14 @@
+       float f = 32.0F;
+       tessellator.func_977_b();
+       tessellator.func_990_b(2105376);
+-      tessellator.func_983_a((double)this.field_6457_l, (double)this.field_6458_j, 0.0D, (double)((float)this.field_6457_l / f), (double)((float)(this.field_6458_j + this.field_6460_h) / f));
+-      tessellator.func_983_a((double)this.field_6456_m, (double)this.field_6458_j, 0.0D, (double)((float)this.field_6456_m / f), (double)((float)(this.field_6458_j + this.field_6460_h) / f));
+-      tessellator.func_983_a((double)this.field_6456_m, (double)this.field_6459_i, 0.0D, (double)((float)this.field_6456_m / f), (double)((float)(this.field_6459_i + this.field_6460_h) / f));
+-      tessellator.func_983_a((double)this.field_6457_l, (double)this.field_6459_i, 0.0D, (double)((float)this.field_6457_l / f), (double)((float)(this.field_6459_i + this.field_6460_h) / f));
++      tessellator.func_983_a(this.field_6457_l, this.field_6458_j, 0.0D, (float)this.field_6457_l / f, this.field_6458_j + this.field_6460_h / f);
++      tessellator.func_983_a(this.field_6456_m, this.field_6458_j, 0.0D, (float)this.field_6456_m / f, this.field_6458_j + this.field_6460_h / f);
++      tessellator.func_983_a(this.field_6456_m, this.field_6459_i, 0.0D, (float)this.field_6456_m / f, this.field_6459_i + this.field_6460_h / f);
++      tessellator.func_983_a(this.field_6457_l, this.field_6459_i, 0.0D, (float)this.field_6457_l / f, this.field_6459_i + this.field_6460_h / f);
+       tessellator.func_982_a();
+ 
+       for(int l = 0; l < list.size(); ++l) {
+-         TexturePackBase texturepackbase = (TexturePackBase)list.get(l);
++         TexturePackBase texturepackbase = list.get(l);
+          int i1 = this.field_951_c / 2 - 92 - 16;
+          int j1 = 36 + l * 36 - this.field_6460_h;
+          byte b0 = 32;
+@@ -127,15 +127,15 @@
+             GL11.glDisable(3553);
+             tessellator.func_977_b();
+             tessellator.func_990_b(8421504);
+-            tessellator.func_983_a((double)k1, (double)(j1 + b0 + 2), 0.0D, 0.0D, 1.0D);
+-            tessellator.func_983_a((double)l1, (double)(j1 + b0 + 2), 0.0D, 1.0D, 1.0D);
+-            tessellator.func_983_a((double)l1, (double)(j1 - 2), 0.0D, 1.0D, 0.0D);
+-            tessellator.func_983_a((double)k1, (double)(j1 - 2), 0.0D, 0.0D, 0.0D);
++            tessellator.func_983_a(k1, j1 + b0 + 2, 0.0D, 0.0D, 1.0D);
++            tessellator.func_983_a(l1, j1 + b0 + 2, 0.0D, 1.0D, 1.0D);
++            tessellator.func_983_a(l1, j1 - 2, 0.0D, 1.0D, 0.0D);
++            tessellator.func_983_a(k1, j1 - 2, 0.0D, 0.0D, 0.0D);
+             tessellator.func_990_b(0);
+-            tessellator.func_983_a((double)(k1 + 1), (double)(j1 + b0 + 1), 0.0D, 0.0D, 1.0D);
+-            tessellator.func_983_a((double)(l1 - 1), (double)(j1 + b0 + 1), 0.0D, 1.0D, 1.0D);
+-            tessellator.func_983_a((double)(l1 - 1), (double)(j1 - 1), 0.0D, 1.0D, 0.0D);
+-            tessellator.func_983_a((double)(k1 + 1), (double)(j1 - 1), 0.0D, 0.0D, 0.0D);
++            tessellator.func_983_a(k1 + 1, j1 + b0 + 1, 0.0D, 0.0D, 1.0D);
++            tessellator.func_983_a(l1 - 1, j1 + b0 + 1, 0.0D, 1.0D, 1.0D);
++            tessellator.func_983_a(l1 - 1, j1 - 1, 0.0D, 1.0D, 0.0D);
++            tessellator.func_983_a(k1 + 1, j1 - 1, 0.0D, 0.0D, 0.0D);
+             tessellator.func_982_a();
+             GL11.glEnable(3553);
+          }
+@@ -144,10 +144,10 @@
+          GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
+          tessellator.func_977_b();
+          tessellator.func_990_b(16777215);
+-         tessellator.func_983_a((double)i1, (double)(j1 + b0), 0.0D, 0.0D, 1.0D);
+-         tessellator.func_983_a((double)(i1 + b1), (double)(j1 + b0), 0.0D, 1.0D, 1.0D);
+-         tessellator.func_983_a((double)(i1 + b1), (double)j1, 0.0D, 1.0D, 0.0D);
+-         tessellator.func_983_a((double)i1, (double)j1, 0.0D, 0.0D, 0.0D);
++         tessellator.func_983_a(i1, j1 + b0, 0.0D, 0.0D, 1.0D);
++         tessellator.func_983_a(i1 + b1, j1 + b0, 0.0D, 1.0D, 1.0D);
++         tessellator.func_983_a(i1 + b1, j1, 0.0D, 1.0D, 0.0D);
++         tessellator.func_983_a(i1, j1, 0.0D, 0.0D, 0.0D);
+          tessellator.func_982_a();
+          this.func_547_b(this.field_6451_g, texturepackbase.field_6487_a, i1 + b1 + 2, j1 + 1, 16777215);
+          this.func_547_b(this.field_6451_g, texturepackbase.field_6486_b, i1 + b1 + 2, j1 + 12, 8421504);
+@@ -164,19 +164,19 @@
+       GL11.glDisable(3553);
+       tessellator.func_977_b();
+       tessellator.func_6513_a(0, 0);
+-      tessellator.func_983_a((double)this.field_6457_l, (double)(this.field_6459_i + b2), 0.0D, 0.0D, 1.0D);
+-      tessellator.func_983_a((double)this.field_6456_m, (double)(this.field_6459_i + b2), 0.0D, 1.0D, 1.0D);
++      tessellator.func_983_a(this.field_6457_l, this.field_6459_i + b2, 0.0D, 0.0D, 1.0D);
++      tessellator.func_983_a(this.field_6456_m, this.field_6459_i + b2, 0.0D, 1.0D, 1.0D);
+       tessellator.func_6513_a(0, 255);
+-      tessellator.func_983_a((double)this.field_6456_m, (double)this.field_6459_i, 0.0D, 1.0D, 0.0D);
+-      tessellator.func_983_a((double)this.field_6457_l, (double)this.field_6459_i, 0.0D, 0.0D, 0.0D);
++      tessellator.func_983_a(this.field_6456_m, this.field_6459_i, 0.0D, 1.0D, 0.0D);
++      tessellator.func_983_a(this.field_6457_l, this.field_6459_i, 0.0D, 0.0D, 0.0D);
+       tessellator.func_982_a();
+       tessellator.func_977_b();
+       tessellator.func_6513_a(0, 255);
+-      tessellator.func_983_a((double)this.field_6457_l, (double)this.field_6458_j, 0.0D, 0.0D, 1.0D);
+-      tessellator.func_983_a((double)this.field_6456_m, (double)this.field_6458_j, 0.0D, 1.0D, 1.0D);
++      tessellator.func_983_a(this.field_6457_l, this.field_6458_j, 0.0D, 0.0D, 1.0D);
++      tessellator.func_983_a(this.field_6456_m, this.field_6458_j, 0.0D, 1.0D, 1.0D);
+       tessellator.func_6513_a(0, 0);
+-      tessellator.func_983_a((double)this.field_6456_m, (double)(this.field_6458_j - b2), 0.0D, 1.0D, 0.0D);
+-      tessellator.func_983_a((double)this.field_6457_l, (double)(this.field_6458_j - b2), 0.0D, 0.0D, 0.0D);
++      tessellator.func_983_a(this.field_6456_m, this.field_6458_j - b2, 0.0D, 1.0D, 0.0D);
++      tessellator.func_983_a(this.field_6457_l, this.field_6458_j - b2, 0.0D, 0.0D, 0.0D);
+       tessellator.func_982_a();
+       GL11.glEnable(3553);
+       GL11.glShadeModel(7424);
+@@ -199,11 +199,11 @@
+       float f = 32.0F;
+       tessellator.func_977_b();
+       tessellator.func_6513_a(4210752, p_6452_4_);
+-      tessellator.func_983_a(0.0D, (double)p_6452_2_, 0.0D, 0.0D, (double)((float)p_6452_2_ / f));
+-      tessellator.func_983_a((double)this.field_951_c, (double)p_6452_2_, 0.0D, (double)((float)this.field_951_c / f), (double)((float)p_6452_2_ / f));
++      tessellator.func_983_a(0.0D, p_6452_2_, 0.0D, 0.0D, (float)p_6452_2_ / f);
++      tessellator.func_983_a(this.field_951_c, p_6452_2_, 0.0D, (float)this.field_951_c / f, (float)p_6452_2_ / f);
+       tessellator.func_6513_a(4210752, p_6452_3_);
+-      tessellator.func_983_a((double)this.field_951_c, (double)p_6452_1_, 0.0D, (double)((float)this.field_951_c / f), (double)((float)p_6452_1_ / f));
+-      tessellator.func_983_a(0.0D, (double)p_6452_1_, 0.0D, 0.0D, (double)((float)p_6452_1_ / f));
++      tessellator.func_983_a(this.field_951_c, p_6452_1_, 0.0D, (float)this.field_951_c / f, (float)p_6452_1_ / f);
++      tessellator.func_983_a(0.0D, p_6452_1_, 0.0D, 0.0D, (float)p_6452_1_ / f);
+       tessellator.func_982_a();
+    }
+ }

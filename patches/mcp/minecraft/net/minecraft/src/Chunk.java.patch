@@ -20,7 +20,19 @@
        }
  
     }
-@@ -409,7 +409,7 @@
+@@ -167,10 +167,7 @@
+ 
+    private void func_1003_g(int p_1003_1_, int p_1003_2_, int p_1003_3_) {
+       int i = this.field_1533_h[p_1003_3_ << 4 | p_1003_1_] & 255;
+-      int j = i;
+-      if (p_1003_2_ > i) {
+-         j = p_1003_2_;
+-      }
++      int j = Math.max(p_1003_2_, i);
+ 
+       for(int k = p_1003_1_ << 11 | p_1003_3_ << 7; j > 0 && Block.field_341_r[this.field_1539_b[k + j - 1]] == 0; --j) {
+       }
+@@ -409,7 +406,7 @@
  
     public TileEntity func_1002_d(int p_1002_1_, int p_1002_2_, int p_1002_3_) {
        ChunkPosition chunkposition = new ChunkPosition(p_1002_1_, p_1002_2_, p_1002_3_);
@@ -29,7 +41,7 @@
        if (tileentity == null) {
           int i = this.func_1008_a(p_1002_1_, p_1002_2_, p_1002_3_);
           if (!Block.field_342_q[i]) {
-@@ -418,7 +418,7 @@
+@@ -418,7 +415,7 @@
  
           BlockContainer blockcontainer = (BlockContainer)Block.field_345_n[i];
           blockcontainer.func_235_e(this.field_1537_d, this.field_1531_j * 16 + p_1002_1_, p_1002_2_, this.field_1530_k * 16 + p_1002_3_);
@@ -38,7 +50,29 @@
        }
  
        return tileentity;
-@@ -484,7 +484,7 @@
+@@ -464,8 +461,8 @@
+       this.field_1538_c = true;
+       this.field_1537_d.field_1049_b.addAll(this.field_1529_l.values());
+ 
+-      for(int i = 0; i < this.field_1528_m.length; ++i) {
+-         this.field_1537_d.func_636_a(this.field_1528_m[i]);
++      for (List<Entity> entities : this.field_1528_m) {
++         this.field_1537_d.func_636_a(entities);
+       }
+ 
+    }
+@@ -474,8 +471,8 @@
+       this.field_1538_c = false;
+       this.field_1537_d.field_1049_b.removeAll(this.field_1529_l.values());
+ 
+-      for(int i = 0; i < this.field_1528_m.length; ++i) {
+-         this.field_1537_d.func_632_b(this.field_1528_m[i]);
++      for (List<Entity> entities : this.field_1528_m) {
++         this.field_1537_d.func_632_b(entities);
+       }
+ 
+    }
+@@ -484,7 +481,7 @@
        this.field_1526_o = true;
     }
  
@@ -47,7 +81,7 @@
        int i = MathHelper.func_1108_b((p_994_2_.field_1697_b - 2.0D) / 16.0D);
        int j = MathHelper.func_1108_b((p_994_2_.field_1702_e + 2.0D) / 16.0D);
        if (i < 0) {
-@@ -496,10 +496,9 @@
+@@ -496,10 +493,9 @@
        }
  
        for(int k = i; k <= j; ++k) {
@@ -60,7 +94,7 @@
              if (entity != p_994_1_ && entity.field_601_au.func_1178_a(p_994_2_)) {
                 p_994_3_.add(entity);
              }
-@@ -508,7 +507,7 @@
+@@ -508,7 +504,7 @@
  
     }
  
@@ -69,7 +103,7 @@
        int i = MathHelper.func_1108_b((p_1013_2_.field_1697_b - 2.0D) / 16.0D);
        int j = MathHelper.func_1108_b((p_1013_2_.field_1702_e + 2.0D) / 16.0D);
        if (i < 0) {
-@@ -520,16 +519,14 @@
+@@ -520,16 +516,14 @@
        }
  
        for(int k = i; k <= j; ++k) {

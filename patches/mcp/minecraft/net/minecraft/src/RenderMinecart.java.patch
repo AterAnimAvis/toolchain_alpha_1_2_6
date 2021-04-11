@@ -9,7 +9,7 @@
     protected ModelBase field_195_d;
  
     public RenderMinecart() {
-@@ -10,6 +10,11 @@
+@@ -10,12 +10,17 @@
        this.field_195_d = new ModelMinecart();
     }
  
@@ -21,3 +21,10 @@
     public void func_152_a(EntityMinecart p_152_1_, double p_152_2_, double p_152_4_, double p_152_6_, float p_152_8_, float p_152_9_) {
        GL11.glPushMatrix();
        double d0 = p_152_1_.field_638_aI + (p_152_1_.field_611_ak - p_152_1_.field_638_aI) * (double)p_152_9_;
+       double d1 = p_152_1_.field_637_aJ + (p_152_1_.field_610_al - p_152_1_.field_637_aJ) * (double)p_152_9_;
+       double d2 = p_152_1_.field_636_aK + (p_152_1_.field_609_am - p_152_1_.field_636_aK) * (double)p_152_9_;
+-      double d3 = (double)0.3F;
++      double d3 = 0.3F;
+       Vec3D vec3d = p_152_1_.func_514_g(d0, d1, d2);
+       float f = p_152_1_.field_602_at + (p_152_1_.field_604_ar - p_152_1_.field_602_at) * p_152_9_;
+       if (vec3d != null) {

@@ -1,0 +1,11 @@
+--- a/net/minecraft/src/PlayerControllerTest.java
++++ b/net/minecraft/src/PlayerControllerTest.java
+@@ -11,7 +11,7 @@
+    public void func_6473_b(EntityPlayer p_6473_1_) {
+       for(int i = 0; i < 9; ++i) {
+          if (p_6473_1_.field_778_b.field_843_a[i] == null) {
+-            this.field_1065_a.field_6322_g.field_778_b.field_843_a[i] = new ItemStack(((Block)Session.field_1667_a.get(i)).field_376_bc);
++            this.field_1065_a.field_6322_g.field_778_b.field_843_a[i] = new ItemStack(Session.field_1667_a.get(i).field_376_bc);
+          } else {
+             this.field_1065_a.field_6322_g.field_778_b.field_843_a[i].field_1615_a = 1;
+          }

@@ -1,0 +1,20 @@
+--- a/net/minecraft/src/WorldGenBigTree.java
++++ b/net/minecraft/src/WorldGenBigTree.java
+@@ -57,7 +57,7 @@
+                int[] aint2 = new int[]{k1, j + this.field_869_n, l1};
+                if (this.func_524_a(aint1, aint2) == -1) {
+                   int[] aint3 = new int[]{this.field_879_d[0], this.field_879_d[1], this.field_879_d[2]};
+-                  double d3 = Math.sqrt(Math.pow((double)Math.abs(this.field_879_d[0] - aint1[0]), 2.0D) + Math.pow((double)Math.abs(this.field_879_d[2] - aint1[2]), 2.0D));
++                  double d3 = Math.sqrt(Math.pow(Math.abs(this.field_879_d[0] - aint1[0]), 2.0D) + Math.pow(Math.abs(this.field_879_d[2] - aint1[2]), 2.0D));
+                   double d4 = d3 * this.field_874_i;
+                   if ((double)aint1[1] - d4 > (double)l) {
+                      aint3[1] = l;
+@@ -128,7 +128,7 @@
+          } else if (Math.abs(f1) >= f) {
+             f2 = 0.0F;
+          } else {
+-            f2 = (float)Math.sqrt(Math.pow((double)Math.abs(f), 2.0D) - Math.pow((double)Math.abs(f1), 2.0D));
++            f2 = (float)Math.sqrt(Math.pow(Math.abs(f), 2.0D) - Math.pow(Math.abs(f1), 2.0D));
+          }
+ 
+          return f2 * 0.5F;

@@ -1,0 +1,62 @@
+--- a/net/minecraft/src/EntityPainting.java
++++ b/net/minecraft/src/EntityPainting.java
+@@ -22,18 +22,18 @@
+       this.field_9322_d = p_i214_2_;
+       this.field_9321_e = p_i214_3_;
+       this.field_9320_f = p_i214_4_;
+-      ArrayList arraylist = new ArrayList();
++      ArrayList<EnumArt> arraylist = new ArrayList<>();
+ 
+-      for(Object object : EnumArt.values()) {
+-         this.field_690_b = (EnumArt)object;
++      for(EnumArt enumArt : EnumArt.values()) {
++         this.field_690_b = enumArt;
+          this.func_412_b(p_i214_5_);
+          if (this.func_410_i()) {
+-            arraylist.add(object);
++            arraylist.add(enumArt);
+          }
+       }
+ 
+       if (arraylist.size() > 0) {
+-         this.field_690_b = (EnumArt)arraylist.get(this.field_9312_bd.nextInt(arraylist.size()));
++         this.field_690_b = arraylist.get(this.field_9312_bd.nextInt(arraylist.size()));
+       }
+ 
+       this.func_412_b(p_i214_5_);
+@@ -91,7 +91,7 @@
+       }
+ 
+       f4 = f4 + this.func_411_c(this.field_690_b.field_1636_A);
+-      this.func_347_a((double)f3, (double)f4, (double)f5);
++      this.func_347_a(f3, f4, f5);
+       float f7 = -0.00625F;
+       this.field_601_au.func_1165_c((double)(f3 - f - f7), (double)(f4 - f1 - f7), (double)(f5 - f2 - f7), (double)(f3 + f + f7), (double)(f4 + f1 + f7), (double)(f5 + f2 + f7));
+    }
+@@ -155,10 +155,10 @@
+             }
+          }
+ 
+-         List list = this.field_615_ag.func_659_b(this, this.field_601_au);
++         List<Entity> list = this.field_615_ag.func_659_b(this, this.field_601_au);
+ 
+-         for(int l1 = 0; l1 < list.size(); ++l1) {
+-            if (list.get(l1) instanceof EntityPainting) {
++         for (Entity entity : list) {
++            if (entity instanceof EntityPainting) {
+                return false;
+             }
+          }
+@@ -193,9 +193,9 @@
+       this.field_9320_f = p_357_1_.func_756_e("TileZ");
+       String s = p_357_1_.func_755_i("Motive");
+ 
+-      for(Object object : EnumArt.values()) {
+-         if (((EnumArt)object).field_1624_y.equals(s)) {
+-            this.field_690_b = (EnumArt)object;
++      for(EnumArt enumArt : EnumArt.values()) {
++         if (enumArt.field_1624_y.equals(s)) {
++            this.field_690_b = enumArt;
+          }
+       }
+ 

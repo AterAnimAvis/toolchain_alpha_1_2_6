@@ -1,0 +1,47 @@
+--- a/net/minecraft/src/EffectRenderer.java
++++ b/net/minecraft/src/EffectRenderer.java
+@@ -7,7 +7,7 @@
+ 
+ public class EffectRenderer {
+    protected World field_1729_a;
+-   private List[] field_1728_b = new List[4];
++   private List<EntityFX>[] field_1728_b = new List[4];
+    private RenderEngine field_1731_c;
+    private Random field_1730_d = new Random();
+ 
+@@ -19,7 +19,7 @@
+       this.field_1731_c = p_i40_2_;
+ 
+       for(int i = 0; i < 4; ++i) {
+-         this.field_1728_b[i] = new ArrayList();
++         this.field_1728_b[i] = new ArrayList<>();
+       }
+ 
+    }
+@@ -32,7 +32,7 @@
+    public void func_1193_a() {
+       for(int i = 0; i < 4; ++i) {
+          for(int j = 0; j < this.field_1728_b[i].size(); ++j) {
+-            EntityFX entityfx = (EntityFX)this.field_1728_b[i].get(j);
++            EntityFX entityfx = this.field_1728_b[i].get(j);
+             entityfx.func_370_e_();
+             if (entityfx.field_646_aA) {
+                this.field_1728_b[i].remove(j--);
+@@ -72,7 +72,7 @@
+             tessellator.func_977_b();
+ 
+             for(int k = 0; k < this.field_1728_b[i].size(); ++k) {
+-               EntityFX entityfx = (EntityFX)this.field_1728_b[i].get(k);
++               EntityFX entityfx = this.field_1728_b[i].get(k);
+                entityfx.func_406_a(tessellator, p_1189_2_, f, f4, f1, f2, f3);
+             }
+ 
+@@ -88,7 +88,7 @@
+          Tessellator tessellator = Tessellator.field_1512_a;
+ 
+          for(int i = 0; i < this.field_1728_b[b0].size(); ++i) {
+-            EntityFX entityfx = (EntityFX)this.field_1728_b[b0].get(i);
++            EntityFX entityfx = this.field_1728_b[b0].get(i);
+             entityfx.func_406_a(tessellator, p_1187_2_, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F);
+          }
+ 

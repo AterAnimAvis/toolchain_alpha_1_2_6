@@ -1,0 +1,11 @@
+--- a/net/minecraft/src/ModelSpider.java
++++ b/net/minecraft/src/ModelSpider.java
+@@ -21,7 +21,7 @@
+       this.field_1255_a.func_925_a(0.0F, (float)(0 + b0), -3.0F);
+       this.field_1254_b = new ModelRenderer(0, 0);
+       this.field_1254_b.func_923_a(-3.0F, -3.0F, -3.0F, 6, 6, 6, f);
+-      this.field_1254_b.func_925_a(0.0F, (float)b0, 0.0F);
++      this.field_1254_b.func_925_a(0.0F, b0, 0.0F);
+       this.field_1253_c = new ModelRenderer(0, 12);
+       this.field_1253_c.func_923_a(-5.0F, -4.0F, -6.0F, 10, 8, 12, f);
+       this.field_1253_c.func_925_a(0.0F, (float)(0 + b0), 9.0F);

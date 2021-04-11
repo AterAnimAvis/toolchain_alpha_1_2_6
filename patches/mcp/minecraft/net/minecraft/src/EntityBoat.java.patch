@@ -1,0 +1,71 @@
+--- a/net/minecraft/src/EntityBoat.java
++++ b/net/minecraft/src/EntityBoat.java
+@@ -89,8 +89,8 @@
+       this.field_9393_e = p_378_1_;
+       this.field_9392_f = p_378_3_;
+       this.field_9391_g = p_378_5_;
+-      this.field_9390_h = (double)p_378_7_;
+-      this.field_9389_i = (double)p_378_8_;
++      this.field_9390_h = p_378_7_;
++      this.field_9389_i = p_378_8_;
+       this.field_9394_d = p_378_9_ + 4;
+       this.field_608_an = this.field_9388_j;
+       this.field_607_ao = this.field_9387_k;
+@@ -158,9 +158,9 @@
+                this.field_606_ap *= 0.5D;
+             }
+ 
+-            this.field_608_an *= (double)0.99F;
+-            this.field_607_ao *= (double)0.95F;
+-            this.field_606_ap *= (double)0.99F;
++            this.field_608_an *= 0.99F;
++            this.field_607_ao *= 0.95F;
++            this.field_606_ap *= 0.99F;
+          }
+ 
+       } else {
+@@ -201,7 +201,7 @@
+             double d6 = Math.sin((double)this.field_605_aq * Math.PI / 180.0D);
+ 
+             for(int j = 0; (double)j < 1.0D + d4 * 60.0D; ++j) {
+-               double d7 = (double)(this.field_9312_bd.nextFloat() * 2.0F - 1.0F);
++               double d7 = (this.field_9312_bd.nextFloat() * 2.0F - 1.0F);
+                double d9 = (double)(this.field_9312_bd.nextInt(2) * 2 - 1) * 0.7D;
+                if (this.field_9312_bd.nextBoolean()) {
+                   double d10 = this.field_611_ak - d5 * d7 * 0.8D + d6 * d9;
+@@ -228,17 +228,17 @@
+                }
+             }
+          } else {
+-            this.field_608_an *= (double)0.99F;
+-            this.field_607_ao *= (double)0.95F;
+-            this.field_606_ap *= (double)0.99F;
++            this.field_608_an *= 0.99F;
++            this.field_607_ao *= 0.95F;
++            this.field_606_ap *= 0.99F;
+          }
+ 
+          this.field_604_ar = 0.0F;
+-         double d19 = (double)this.field_605_aq;
++         double d19 = this.field_605_aq;
+          double d21 = this.field_9285_at - this.field_611_ak;
+          double d22 = this.field_9283_av - this.field_609_am;
+          if (d21 * d21 + d22 * d22 > 0.001D) {
+-            d19 = (double)((float)(Math.atan2(d22, d21) * 180.0D / Math.PI));
++            d19 = (float)(Math.atan2(d22, d21) * 180.0D / Math.PI);
+          }
+ 
+          double d8;
+@@ -259,10 +259,9 @@
+ 
+          this.field_605_aq = (float)((double)this.field_605_aq + d8);
+          this.func_376_c(this.field_605_aq, this.field_604_ar);
+-         List list = this.field_615_ag.func_659_b(this, this.field_601_au.func_1177_b((double)0.2F, 0.0D, (double)0.2F));
++         List<Entity> list = this.field_615_ag.func_659_b(this, this.field_601_au.func_1177_b(0.2F, 0.0D, 0.2F));
+          if (list != null && list.size() > 0) {
+-            for(int i1 = 0; i1 < list.size(); ++i1) {
+-               Entity entity = (Entity)list.get(i1);
++            for (Entity entity : list) {
+                if (entity != this.field_617_ae && entity.func_385_d_() && entity instanceof EntityBoat) {
+                   entity.func_380_f(this);
+                }

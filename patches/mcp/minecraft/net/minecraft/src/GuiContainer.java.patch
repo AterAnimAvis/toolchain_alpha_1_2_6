@@ -1,0 +1,35 @@
+--- a/net/minecraft/src/GuiContainer.java
++++ b/net/minecraft/src/GuiContainer.java
+@@ -8,7 +8,7 @@
+    private static RenderItem field_972_j = new RenderItem();
+    protected int field_971_a = 176;
+    protected int field_974_h = 166;
+-   protected List field_973_i = new ArrayList();
++   protected List<SlotInventory> field_973_i = new ArrayList<>();
+ 
+    public void func_571_a(int p_571_1_, int p_571_2_, float p_571_3_) {
+       this.func_578_i();
+@@ -24,8 +24,7 @@
+       GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
+       GL11.glEnable(32826);
+ 
+-      for(int k = 0; k < this.field_973_i.size(); ++k) {
+-         SlotInventory slotinventory = (SlotInventory)this.field_973_i.get(k);
++      for (SlotInventory slotinventory : this.field_973_i) {
+          this.func_590_a(slotinventory);
+          if (slotinventory.func_781_a(p_571_1_, p_571_2_)) {
+             GL11.glDisable(2896);
+@@ -82,10 +81,9 @@
+    }
+ 
+    private Slot func_588_a(int p_588_1_, int p_588_2_) {
+-      for(int i = 0; i < this.field_973_i.size(); ++i) {
+-         SlotInventory slotinventory = (SlotInventory)this.field_973_i.get(i);
+-         if (slotinventory.func_781_a(p_588_1_, p_588_2_)) {
+-            return slotinventory;
++      for (SlotInventory slotInventory : this.field_973_i) {
++         if (slotInventory.func_781_a(p_588_1_, p_588_2_)) {
++            return slotInventory;
+          }
+       }
+ 

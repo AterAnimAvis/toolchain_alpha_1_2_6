@@ -1,0 +1,13 @@
+--- a/net/minecraft/src/EntityClientPlayerMP.java
++++ b/net/minecraft/src/EntityClientPlayerMP.java
+@@ -59,8 +59,8 @@
+       double d1 = this.field_601_au.field_1697_b - this.field_9378_bz;
+       double d2 = this.field_610_al - this.field_9377_bA;
+       double d3 = this.field_609_am - this.field_9376_bB;
+-      double d4 = (double)(this.field_605_aq - this.field_9385_bC);
+-      double d5 = (double)(this.field_604_ar - this.field_9384_bD);
++      double d4 = this.field_605_aq - this.field_9385_bC;
++      double d5 = this.field_604_ar - this.field_9384_bD;
+       boolean flag1 = d1 != 0.0D || d2 != 0.0D || d0 != 0.0D || d3 != 0.0D;
+       boolean flag2 = d4 != 0.0D || d5 != 0.0D;
+       if (this.field_616_af != null) {

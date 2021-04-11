@@ -1,0 +1,32 @@
+--- a/net/minecraft/src/BlockRedstoneTorch.java
++++ b/net/minecraft/src/BlockRedstoneTorch.java
+@@ -6,7 +6,7 @@
+ 
+ public class BlockRedstoneTorch extends BlockTorch {
+    private boolean field_451_a = false;
+-   private static List field_450_b = new ArrayList();
++   private static List<RedstoneUpdateInfo> field_450_b = new ArrayList<>();
+ 
+    public int func_232_a(int p_232_1_, int p_232_2_) {
+       return p_232_1_ == 1 ? Block.field_394_aw.func_232_a(p_232_1_, p_232_2_) : super.func_232_a(p_232_1_, p_232_2_);
+@@ -19,8 +19,7 @@
+ 
+       int i = 0;
+ 
+-      for(int j = 0; j < field_450_b.size(); ++j) {
+-         RedstoneUpdateInfo redstoneupdateinfo = (RedstoneUpdateInfo)field_450_b.get(j);
++      for (RedstoneUpdateInfo redstoneupdateinfo : field_450_b) {
+          if (redstoneupdateinfo.field_1009_a == p_273_2_ && redstoneupdateinfo.field_1008_b == p_273_3_ && redstoneupdateinfo.field_1011_c == p_273_4_) {
+             ++i;
+             if (i >= 8) {
+@@ -154,8 +153,8 @@
+          double d0 = (double)((float)p_247_2_ + 0.5F) + (double)(p_247_5_.nextFloat() - 0.5F) * 0.2D;
+          double d1 = (double)((float)p_247_3_ + 0.7F) + (double)(p_247_5_.nextFloat() - 0.5F) * 0.2D;
+          double d2 = (double)((float)p_247_4_ + 0.5F) + (double)(p_247_5_.nextFloat() - 0.5F) * 0.2D;
+-         double d3 = (double)0.22F;
+-         double d4 = (double)0.27F;
++         double d3 = 0.22F;
++         double d4 = 0.27F;
+          if (i == 1) {
+             p_247_1_.func_694_a("reddust", d0 - d4, d1 + d3, d2, 0.0D, 0.0D, 0.0D);
+          } else if (i == 2) {

@@ -10,3 +10,27 @@
              if (astring[0].equals("music")) {
                 this.field_1584_a = this.func_1050_a(astring[1]);
              }
+@@ -215,9 +218,9 @@
+                this.field_12259_z = astring[1];
+             }
+ 
+-            for(int i = 0; i < this.field_1564_t.length; ++i) {
+-               if (astring[0].equals("key_" + this.field_1564_t[i].field_1371_a)) {
+-                  this.field_1564_t[i].field_1370_b = Integer.parseInt(astring[1]);
++            for (KeyBinding keyBinding : this.field_1564_t) {
++               if (astring[0].equals("key_" + keyBinding.field_1371_a)) {
++                  keyBinding.field_1370_b = Integer.parseInt(astring[1]);
+                }
+             }
+          }
+@@ -254,8 +257,8 @@
+          printwriter.println("skin:" + this.field_6524_j);
+          printwriter.println("lastServer:" + this.field_12259_z);
+ 
+-         for(int i = 0; i < this.field_1564_t.length; ++i) {
+-            printwriter.println("key_" + this.field_1564_t[i].field_1371_a + ":" + this.field_1564_t[i].field_1370_b);
++         for (KeyBinding keyBinding : this.field_1564_t) {
++            printwriter.println("key_" + keyBinding.field_1371_a + ":" + keyBinding.field_1370_b);
+          }
+ 
+          printwriter.close();

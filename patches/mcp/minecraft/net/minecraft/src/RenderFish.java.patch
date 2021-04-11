@@ -15,3 +15,40 @@
     public void func_4011_a(EntityFish p_4011_1_, double p_4011_2_, double p_4011_4_, double p_4011_6_, float p_4011_8_, float p_4011_9_) {
        GL11.glPushMatrix();
        GL11.glTranslatef((float)p_4011_2_, (float)p_4011_4_, (float)p_4011_6_);
+@@ -33,17 +39,17 @@
+       if (p_4011_1_.field_4097_b != null) {
+          float f7 = (p_4011_1_.field_4097_b.field_603_as + (p_4011_1_.field_4097_b.field_605_aq - p_4011_1_.field_4097_b.field_603_as) * p_4011_9_) * (float)Math.PI / 180.0F;
+          float f8 = (p_4011_1_.field_4097_b.field_602_at + (p_4011_1_.field_4097_b.field_604_ar - p_4011_1_.field_4097_b.field_602_at) * p_4011_9_) * (float)Math.PI / 180.0F;
+-         double d0 = (double)MathHelper.func_1106_a(f7);
+-         double d1 = (double)MathHelper.func_1114_b(f7);
+-         double d2 = (double)MathHelper.func_1106_a(f8);
+-         double d3 = (double)MathHelper.func_1114_b(f8);
++         double d0 = MathHelper.func_1106_a(f7);
++         double d1 = MathHelper.func_1114_b(f7);
++         double d2 = MathHelper.func_1106_a(f8);
++         double d3 = MathHelper.func_1114_b(f8);
+          double d4 = p_4011_1_.field_4097_b.field_9285_at + (p_4011_1_.field_4097_b.field_611_ak - p_4011_1_.field_4097_b.field_9285_at) * (double)p_4011_9_ - d1 * 0.7D - d0 * 0.5D * d3;
+          double d5 = p_4011_1_.field_4097_b.field_9284_au + (p_4011_1_.field_4097_b.field_610_al - p_4011_1_.field_4097_b.field_9284_au) * (double)p_4011_9_ - d2 * 0.5D;
+          double d6 = p_4011_1_.field_4097_b.field_9283_av + (p_4011_1_.field_4097_b.field_609_am - p_4011_1_.field_4097_b.field_9283_av) * (double)p_4011_9_ - d0 * 0.7D + d1 * 0.5D * d3;
+          if (this.field_191_a.field_1223_k.field_1560_x) {
+             f7 = (p_4011_1_.field_4097_b.field_734_o + (p_4011_1_.field_4097_b.field_735_n - p_4011_1_.field_4097_b.field_734_o) * p_4011_9_) * (float)Math.PI / 180.0F;
+-            d0 = (double)MathHelper.func_1106_a(f7);
+-            d1 = (double)MathHelper.func_1114_b(f7);
++            d0 = MathHelper.func_1106_a(f7);
++            d1 = MathHelper.func_1114_b(f7);
+             d4 = p_4011_1_.field_4097_b.field_9285_at + (p_4011_1_.field_4097_b.field_611_ak - p_4011_1_.field_4097_b.field_9285_at) * (double)p_4011_9_ - d1 * 0.35D - d0 * 0.85D;
+             d5 = p_4011_1_.field_4097_b.field_9284_au + (p_4011_1_.field_4097_b.field_610_al - p_4011_1_.field_4097_b.field_9284_au) * (double)p_4011_9_ - 0.45D;
+             d6 = p_4011_1_.field_4097_b.field_9283_av + (p_4011_1_.field_4097_b.field_609_am - p_4011_1_.field_4097_b.field_9283_av) * (double)p_4011_9_ - d0 * 0.35D + d1 * 0.85D;
+@@ -52,9 +58,9 @@
+          double d7 = p_4011_1_.field_9285_at + (p_4011_1_.field_611_ak - p_4011_1_.field_9285_at) * (double)p_4011_9_;
+          double d8 = p_4011_1_.field_9284_au + (p_4011_1_.field_610_al - p_4011_1_.field_9284_au) * (double)p_4011_9_ + 0.25D;
+          double d9 = p_4011_1_.field_9283_av + (p_4011_1_.field_609_am - p_4011_1_.field_9283_av) * (double)p_4011_9_;
+-         double d10 = (double)((float)(d4 - d7));
+-         double d11 = (double)((float)(d5 - d8));
+-         double d12 = (double)((float)(d6 - d9));
++         double d10 = (float)(d4 - d7);
++         double d11 = (float)(d5 - d8);
++         double d12 = (float)(d6 - d9);
+          GL11.glDisable(3553);
+          GL11.glDisable(2896);
+          tessellator.func_992_a(3);

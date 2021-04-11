@@ -1,0 +1,11 @@
+--- a/net/minecraft/src/TexturedQuad.java
++++ b/net/minecraft/src/TexturedQuad.java
+@@ -43,7 +43,7 @@
+ 
+       for(int i = 0; i < 4; ++i) {
+          PositionTexureVertex positiontexurevertex = this.field_1195_a[i];
+-         p_808_1_.func_983_a((double)((float)positiontexurevertex.field_1655_a.field_1776_a * p_808_2_), (double)((float)positiontexurevertex.field_1655_a.field_1775_b * p_808_2_), (double)((float)positiontexurevertex.field_1655_a.field_1779_c * p_808_2_), (double)positiontexurevertex.field_1654_b, (double)positiontexurevertex.field_1656_c);
++         p_808_1_.func_983_a((float)positiontexurevertex.field_1655_a.field_1776_a * p_808_2_, (float)positiontexurevertex.field_1655_a.field_1775_b * p_808_2_, (float)positiontexurevertex.field_1655_a.field_1779_c * p_808_2_, positiontexurevertex.field_1654_b, positiontexurevertex.field_1656_c);
+       }
+ 
+       p_808_1_.func_982_a();

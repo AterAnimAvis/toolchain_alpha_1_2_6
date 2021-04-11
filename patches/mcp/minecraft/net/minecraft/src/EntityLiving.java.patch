@@ -1,0 +1,42 @@
+--- a/net/minecraft/src/EntityLiving.java
++++ b/net/minecraft/src/EntityLiving.java
+@@ -584,10 +584,9 @@
+       this.field_9340_ai *= 0.98F;
+       this.field_9338_aj *= 0.9F;
+       this.func_435_b(this.field_9342_ah, this.field_9340_ai);
+-      List list = this.field_615_ag.func_659_b(this, this.field_601_au.func_1177_b((double)0.2F, 0.0D, (double)0.2F));
++      List<Entity> list = this.field_615_ag.func_659_b(this, this.field_601_au.func_1177_b((double)0.2F, 0.0D, (double)0.2F));
+       if (list != null && list.size() > 0) {
+-         for(int i = 0; i < list.size(); ++i) {
+-            Entity entity = (Entity)list.get(i);
++         for (Entity entity : list) {
+             if (entity.func_385_d_()) {
+                entity.func_380_f(this);
+             }
+@@ -667,7 +666,7 @@
+          d1 = (p_426_1_.field_601_au.field_1697_b + p_426_1_.field_601_au.field_1702_e) / 2.0D - (this.field_610_al + (double)this.func_373_s());
+       }
+ 
+-      double d3 = (double)MathHelper.func_1109_a(d0 * d0 + d2 * d2);
++      double d3 = MathHelper.func_1109_a(d0 * d0 + d2 * d2);
+       float f = (float)(Math.atan2(d2, d0) * 180.0D / (double)(float)Math.PI) - 90.0F;
+       float f1 = (float)(Math.atan2(d1, d3) * 180.0D / (double)(float)Math.PI);
+       this.field_604_ar = -this.func_417_b(this.field_604_ar, f1, p_426_2_);
+@@ -735,7 +734,7 @@
+          float f7 = MathHelper.func_1106_a(-this.field_605_aq * ((float)Math.PI / 180F) - (float)Math.PI);
+          float f8 = -MathHelper.func_1114_b(-this.field_604_ar * ((float)Math.PI / 180F));
+          float f9 = MathHelper.func_1106_a(-this.field_604_ar * ((float)Math.PI / 180F));
+-         return Vec3D.func_1248_b((double)(f7 * f8), (double)f9, (double)(f6 * f8));
++         return Vec3D.func_1248_b((double)(f7 * f8), f9, (double)(f6 * f8));
+       } else {
+          float f = this.field_602_at + (this.field_604_ar - this.field_602_at) * p_430_1_;
+          float f1 = this.field_603_as + (this.field_605_aq - this.field_603_as) * p_430_1_;
+@@ -743,7 +742,7 @@
+          float f3 = MathHelper.func_1106_a(-f1 * ((float)Math.PI / 180F) - (float)Math.PI);
+          float f4 = -MathHelper.func_1114_b(-f * ((float)Math.PI / 180F));
+          float f5 = MathHelper.func_1106_a(-f * ((float)Math.PI / 180F));
+-         return Vec3D.func_1248_b((double)(f3 * f4), (double)f5, (double)(f2 * f4));
++         return Vec3D.func_1248_b((double)(f3 * f4), f5, (double)(f2 * f4));
+       }
+    }
+ 

@@ -1,0 +1,17 @@
+--- a/net/minecraft/src/NBTTagCompound.java
++++ b/net/minecraft/src/NBTTagCompound.java
+@@ -7,11 +7,11 @@
+ import java.util.Map;
+ 
+ public class NBTTagCompound extends NBTBase {
+-   private Map field_1094_a = new HashMap();
++   private Map<String, NBTBase> field_1094_a = new HashMap<>();
+ 
+    void func_735_a(DataOutput p_735_1_) throws IOException {
+-      for(Object object : this.field_1094_a.values()) {
+-         NBTBase.func_738_a((NBTBase)object, p_735_1_);
++      for(NBTBase nbtBase : this.field_1094_a.values()) {
++         NBTBase.func_738_a(nbtBase, p_735_1_);
+       }
+ 
+       p_735_1_.writeByte(0);

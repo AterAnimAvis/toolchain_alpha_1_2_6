@@ -1,0 +1,11 @@
+--- a/net/minecraft/src/EntityCreature.java
++++ b/net/minecraft/src/EntityCreature.java
+@@ -62,7 +62,7 @@
+       this.field_604_ar = 0.0F;
+       if (this.field_749_a != null && this.field_9312_bd.nextInt(100) != 0) {
+          Vec3D vec3d = this.field_749_a.func_1205_a(this);
+-         double d3 = (double)(this.field_644_aC * 2.0F);
++         double d3 = this.field_644_aC * 2.0F;
+ 
+          while(vec3d != null && vec3d.func_1255_d(this.field_611_ak, vec3d.field_1775_b, this.field_609_am) < d3 * d3) {
+             this.field_749_a.func_1206_a();

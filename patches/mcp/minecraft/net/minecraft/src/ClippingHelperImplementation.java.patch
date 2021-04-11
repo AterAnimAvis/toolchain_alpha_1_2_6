@@ -1,0 +1,29 @@
+--- a/net/minecraft/src/ClippingHelperImplementation.java
++++ b/net/minecraft/src/ClippingHelperImplementation.java
+@@ -1,6 +1,5 @@
+ package net.minecraft.src;
+ 
+-import java.nio.Buffer;
+ import java.nio.FloatBuffer;
+ import org.lwjgl.opengl.GL11;
+ 
+@@ -24,14 +23,14 @@
+    }
+ 
+    private void func_1153_b() {
+-      ((Buffer)this.field_1693_f).clear();
+-      ((Buffer)this.field_1692_g).clear();
+-      ((Buffer)this.field_1691_h).clear();
++      this.field_1693_f.clear();
++      (this.field_1692_g).clear();
++      (this.field_1691_h).clear();
+       GL11.glGetFloat(2983, this.field_1693_f);
+       GL11.glGetFloat(2982, this.field_1692_g);
+-      ((Buffer)this.field_1693_f).flip().limit(16);
++      (this.field_1693_f).flip().limit(16);
+       this.field_1693_f.get(this.field_1687_b);
+-      ((Buffer)this.field_1692_g).flip().limit(16);
++      (this.field_1692_g).flip().limit(16);
+       this.field_1692_g.get(this.field_1690_c);
+       this.field_1689_d[0] = this.field_1690_c[0] * this.field_1687_b[0] + this.field_1690_c[1] * this.field_1687_b[4] + this.field_1690_c[2] * this.field_1687_b[8] + this.field_1690_c[3] * this.field_1687_b[12];
+       this.field_1689_d[1] = this.field_1690_c[0] * this.field_1687_b[1] + this.field_1690_c[1] * this.field_1687_b[5] + this.field_1690_c[2] * this.field_1687_b[9] + this.field_1690_c[3] * this.field_1687_b[13];

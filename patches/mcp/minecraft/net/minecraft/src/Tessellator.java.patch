@@ -1,0 +1,73 @@
+--- a/net/minecraft/src/Tessellator.java
++++ b/net/minecraft/src/Tessellator.java
+@@ -58,10 +58,10 @@
+       } else {
+          this.field_1488_w = false;
+          if (this.field_1505_h > 0) {
+-            ((Buffer)this.field_1508_e).clear();
++            this.field_1508_e.clear();
+             this.field_1508_e.put(this.field_1506_g, 0, this.field_1498_o);
+-            ((Buffer)this.field_1509_d).position(0);
+-            ((Buffer)this.field_1509_d).limit(this.field_1498_o * 4);
++            this.field_1509_d.position(0);
++            this.field_1509_d.limit(this.field_1498_o * 4);
+             if (this.field_1487_x) {
+                this.field_1485_z = (this.field_1485_z + 1) % this.field_1496_A;
+                ARBVertexBufferObject.glBindBufferARB(34962, this.field_1486_y.get(this.field_1485_z));
+@@ -72,7 +72,7 @@
+                if (this.field_1487_x) {
+                   GL11.glTexCoordPointer(2, 5126, 32, 12L);
+                } else {
+-                  ((Buffer)this.field_1507_f).position(3);
++                  this.field_1507_f.position(3);
+                   GL11.glTexCoordPointer(2, 32, this.field_1507_f);
+                }
+ 
+@@ -83,7 +83,7 @@
+                if (this.field_1487_x) {
+                   GL11.glColorPointer(4, 5121, 32, 20L);
+                } else {
+-                  ((Buffer)this.field_1509_d).position(20);
++                  this.field_1509_d.position(20);
+                   GL11.glColorPointer(4, true, 32, this.field_1509_d);
+                }
+ 
+@@ -94,7 +94,7 @@
+                if (this.field_1487_x) {
+                   GL11.glNormalPointer(5120, 32, 24L);
+                } else {
+-                  ((Buffer)this.field_1509_d).position(24);
++                  this.field_1509_d.position(24);
+                   GL11.glNormalPointer(32, this.field_1509_d);
+                }
+ 
+@@ -104,7 +104,7 @@
+             if (this.field_1487_x) {
+                GL11.glVertexPointer(3, 5126, 32, 0L);
+             } else {
+-               ((Buffer)this.field_1507_f).position(0);
++               this.field_1507_f.position(0);
+                GL11.glVertexPointer(3, 32, this.field_1507_f);
+             }
+ 
+@@ -135,7 +135,7 @@
+ 
+    private void func_985_d() {
+       this.field_1505_h = 0;
+-      ((Buffer)this.field_1509_d).clear();
++      this.field_1509_d.clear();
+       this.field_1498_o = 0;
+       this.field_1497_p = 0;
+    }
+@@ -304,8 +304,8 @@
+    }
+ 
+    public void func_988_c(float p_988_1_, float p_988_2_, float p_988_3_) {
+-      this.field_1492_s += (double)p_988_1_;
+-      this.field_1491_t += (double)p_988_2_;
+-      this.field_1490_u += (double)p_988_3_;
++      this.field_1492_s += p_988_1_;
++      this.field_1491_t += p_988_2_;
++      this.field_1490_u += p_988_3_;
+    }
+ }

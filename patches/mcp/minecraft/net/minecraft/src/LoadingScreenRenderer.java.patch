@@ -1,0 +1,54 @@
+--- a/net/minecraft/src/LoadingScreenRenderer.java
++++ b/net/minecraft/src/LoadingScreenRenderer.java
+@@ -38,7 +38,7 @@
+          GL11.glClear(256);
+          GL11.glMatrixMode(5889);
+          GL11.glLoadIdentity();
+-         GL11.glOrtho(0.0D, (double)i, (double)j, 0.0D, 100.0D, 300.0D);
++         GL11.glOrtho(0.0D, i, j, 0.0D, 100.0D, 300.0D);
+          GL11.glMatrixMode(5888);
+          GL11.glLoadIdentity();
+          GL11.glTranslatef(0.0F, 0.0F, -200.0F);
+@@ -73,7 +73,7 @@
+             GL11.glClear(256);
+             GL11.glMatrixMode(5889);
+             GL11.glLoadIdentity();
+-            GL11.glOrtho(0.0D, (double)j, (double)k, 0.0D, 100.0D, 300.0D);
++            GL11.glOrtho(0.0D, j, k, 0.0D, 100.0D, 300.0D);
+             GL11.glMatrixMode(5888);
+             GL11.glLoadIdentity();
+             GL11.glTranslatef(0.0F, 0.0F, -200.0F);
+@@ -84,9 +84,9 @@
+             float f = 32.0F;
+             tessellator.func_977_b();
+             tessellator.func_990_b(4210752);
+-            tessellator.func_983_a(0.0D, (double)k, 0.0D, 0.0D, (double)((float)k / f));
+-            tessellator.func_983_a((double)j, (double)k, 0.0D, (double)((float)j / f), (double)((float)k / f));
+-            tessellator.func_983_a((double)j, 0.0D, 0.0D, (double)((float)j / f), 0.0D);
++            tessellator.func_983_a(0.0D, k, 0.0D, 0.0D, (double)((float)k / f));
++            tessellator.func_983_a(j, k, 0.0D, (double)((float)j / f), (double)((float)k / f));
++            tessellator.func_983_a(j, 0.0D, 0.0D, (double)((float)j / f), 0.0D);
+             tessellator.func_983_a(0.0D, 0.0D, 0.0D, 0.0D, 0.0D);
+             tessellator.func_982_a();
+             if (p_593_1_ >= 0) {
+@@ -97,15 +97,15 @@
+                GL11.glDisable(3553);
+                tessellator.func_977_b();
+                tessellator.func_990_b(8421504);
+-               tessellator.func_991_a((double)i1, (double)j1, 0.0D);
+-               tessellator.func_991_a((double)i1, (double)(j1 + b1), 0.0D);
++               tessellator.func_991_a(i1, j1, 0.0D);
++               tessellator.func_991_a(i1, (double)(j1 + b1), 0.0D);
+                tessellator.func_991_a((double)(i1 + b0), (double)(j1 + b1), 0.0D);
+                tessellator.func_991_a((double)(i1 + b0), (double)j1, 0.0D);
+                tessellator.func_990_b(8454016);
+-               tessellator.func_991_a((double)i1, (double)j1, 0.0D);
+-               tessellator.func_991_a((double)i1, (double)(j1 + b1), 0.0D);
++               tessellator.func_991_a(i1, j1, 0.0D);
++               tessellator.func_991_a(i1, (double)(j1 + b1), 0.0D);
+                tessellator.func_991_a((double)(i1 + p_593_1_), (double)(j1 + b1), 0.0D);
+-               tessellator.func_991_a((double)(i1 + p_593_1_), (double)j1, 0.0D);
++               tessellator.func_991_a((double)(i1 + p_593_1_), j1, 0.0D);
+                tessellator.func_982_a();
+                GL11.glEnable(3553);
+             }

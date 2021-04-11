@@ -1,0 +1,40 @@
+--- a/net/minecraft/src/FontRenderer.java
++++ b/net/minecraft/src/FontRenderer.java
+@@ -135,7 +135,7 @@
+          }
+ 
+          GL11.glColor4f(f3, f, f1, f2);
+-         ((Buffer)this.field_1309_d).clear();
++         this.field_1309_d.clear();
+          GL11.glPushMatrix();
+          GL11.glTranslatef((float)p_872_2_, (float)p_872_3_, 0.0F);
+ 
+@@ -148,9 +148,9 @@
+ 
+                this.field_1309_d.put(this.field_1310_c + 256 + k + (p_872_5_ ? 16 : 0));
+                if (this.field_1309_d.remaining() == 0) {
+-                  ((Buffer)this.field_1309_d).flip();
++                  this.field_1309_d.flip();
+                   GL11.glCallLists(this.field_1309_d);
+-                  ((Buffer)this.field_1309_d).clear();
++                  this.field_1309_d.clear();
+                }
+             }
+ 
+@@ -160,13 +160,13 @@
+             }
+ 
+             if (this.field_1309_d.remaining() == 0) {
+-               ((Buffer)this.field_1309_d).flip();
++               this.field_1309_d.flip();
+                GL11.glCallLists(this.field_1309_d);
+-               ((Buffer)this.field_1309_d).clear();
++               this.field_1309_d.clear();
+             }
+          }
+ 
+-         ((Buffer)this.field_1309_d).flip();
++         this.field_1309_d.flip();
+          GL11.glCallLists(this.field_1309_d);
+          GL11.glPopMatrix();
+       }

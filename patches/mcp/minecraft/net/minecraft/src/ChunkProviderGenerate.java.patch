@@ -1,0 +1,48 @@
+--- a/net/minecraft/src/ChunkProviderGenerate.java
++++ b/net/minecraft/src/ChunkProviderGenerate.java
+@@ -113,9 +113,9 @@
+    public void func_4062_a(int p_4062_1_, int p_4062_2_, byte[] p_4062_3_, MobSpawnerBase[] p_4062_4_) {
+       byte b0 = 64;
+       double d0 = 0.03125D;
+-      this.field_905_r = this.field_909_n.func_807_a(this.field_905_r, (double)(p_4062_1_ * 16), (double)(p_4062_2_ * 16), 0.0D, 16, 16, 1, d0, d0, 1.0D);
+-      this.field_904_s = this.field_909_n.func_807_a(this.field_904_s, (double)(p_4062_2_ * 16), 109.0134D, (double)(p_4062_1_ * 16), 16, 1, 16, d0, 1.0D, d0);
+-      this.field_903_t = this.field_908_o.func_807_a(this.field_903_t, (double)(p_4062_1_ * 16), (double)(p_4062_2_ * 16), 0.0D, 16, 16, 1, d0 * 2.0D, d0 * 2.0D, d0 * 2.0D);
++      this.field_905_r = this.field_909_n.func_807_a(this.field_905_r, (p_4062_1_ * 16), (p_4062_2_ * 16), 0.0D, 16, 16, 1, d0, d0, 1.0D);
++      this.field_904_s = this.field_909_n.func_807_a(this.field_904_s, (p_4062_2_ * 16), 109.0134D, (p_4062_1_ * 16), 16, 1, 16, d0, 1.0D, d0);
++      this.field_903_t = this.field_908_o.func_807_a(this.field_903_t, (p_4062_1_ * 16), (p_4062_2_ * 16), 0.0D, 16, 16, 1, d0 * 2.0D, d0 * 2.0D, d0 * 2.0D);
+ 
+       for(int i = 0; i < 16; ++i) {
+          for(int j = 0; j < 16; ++j) {
+@@ -206,9 +206,9 @@
+       double[] adouble1 = this.field_907_p.func_4075_a().field_4197_b;
+       this.field_4182_g = this.field_922_a.func_4109_a(this.field_4182_g, p_4061_2_, p_4061_4_, p_4061_5_, p_4061_7_, 1.121D, 1.121D, 0.5D);
+       this.field_4181_h = this.field_921_b.func_4109_a(this.field_4181_h, p_4061_2_, p_4061_4_, p_4061_5_, p_4061_7_, 200.0D, 200.0D, 0.5D);
+-      this.field_4185_d = this.field_910_m.func_807_a(this.field_4185_d, (double)p_4061_2_, (double)p_4061_3_, (double)p_4061_4_, p_4061_5_, p_4061_6_, p_4061_7_, d0 / 80.0D, d1 / 160.0D, d0 / 80.0D);
+-      this.field_4184_e = this.field_912_k.func_807_a(this.field_4184_e, (double)p_4061_2_, (double)p_4061_3_, (double)p_4061_4_, p_4061_5_, p_4061_6_, p_4061_7_, d0, d1, d0);
+-      this.field_4183_f = this.field_911_l.func_807_a(this.field_4183_f, (double)p_4061_2_, (double)p_4061_3_, (double)p_4061_4_, p_4061_5_, p_4061_6_, p_4061_7_, d0, d1, d0);
++      this.field_4185_d = this.field_910_m.func_807_a(this.field_4185_d, p_4061_2_, p_4061_3_, p_4061_4_, p_4061_5_, p_4061_6_, p_4061_7_, d0 / 80.0D, d1 / 160.0D, d0 / 80.0D);
++      this.field_4184_e = this.field_912_k.func_807_a(this.field_4184_e, p_4061_2_, p_4061_3_, p_4061_4_, p_4061_5_, p_4061_6_, p_4061_7_, d0, d1, d0);
++      this.field_4183_f = this.field_911_l.func_807_a(this.field_4183_f, p_4061_2_, p_4061_3_, p_4061_4_, p_4061_5_, p_4061_6_, p_4061_7_, d0, d1, d0);
+       int i = 0;
+       int j = 0;
+       int k = 16 / p_4061_5_;
+@@ -423,7 +423,7 @@
+          k8 -= 20;
+       }
+ 
+-      Object object = new WorldGenTrees();
++      WorldGenerator object = new WorldGenTrees();
+       if (this.field_913_j.nextInt(10) == 0) {
+          object = new WorldGenBigTree();
+       }
+@@ -435,8 +435,8 @@
+       for(int j13 = 0; j13 < k8; ++j13) {
+          int i2 = i + this.field_913_j.nextInt(16) + 8;
+          int j2 = j + this.field_913_j.nextInt(16) + 8;
+-         ((WorldGenerator)object).func_517_a(1.0D, 1.0D, 1.0D);
+-         ((WorldGenerator)object).func_516_a(this.field_907_p, this.field_913_j, i2, this.field_907_p.func_666_c(i2, j2), j2);
++         object.func_517_a(1.0D, 1.0D, 1.0D);
++         object.func_516_a(this.field_907_p, this.field_913_j, i2, this.field_907_p.func_666_c(i2, j2), j2);
+       }
+ 
+       for(int k13 = 0; k13 < 2; ++k13) {

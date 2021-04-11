@@ -1,0 +1,20 @@
+--- a/net/minecraft/src/BlockRedstoneWire.java
++++ b/net/minecraft/src/BlockRedstoneWire.java
+@@ -223,7 +223,7 @@
+          return p_281_5_;
+       } else {
+          int i = p_281_1_.func_602_e(p_281_2_, p_281_3_, p_281_4_);
+-         return i > p_281_5_ ? i : p_281_5_;
++         return Math.max(i, p_281_5_);
+       }
+    }
+ 
+@@ -301,7 +301,7 @@
+    public void func_247_b(World p_247_1_, int p_247_2_, int p_247_3_, int p_247_4_, Random p_247_5_) {
+       if (p_247_1_.func_602_e(p_247_2_, p_247_3_, p_247_4_) > 0) {
+          double d0 = (double)p_247_2_ + 0.5D + ((double)p_247_5_.nextFloat() - 0.5D) * 0.2D;
+-         double d1 = (double)((float)p_247_3_ + 0.0625F);
++         double d1 = (float)p_247_3_ + 0.0625F;
+          double d2 = (double)p_247_4_ + 0.5D + ((double)p_247_5_.nextFloat() - 0.5D) * 0.2D;
+          p_247_1_.func_694_a("reddust", d0, d1, d2, 0.0D, 0.0D, 0.0D);
+       }

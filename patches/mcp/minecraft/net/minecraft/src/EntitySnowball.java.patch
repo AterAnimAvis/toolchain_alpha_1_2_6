@@ -1,0 +1,71 @@
+--- a/net/minecraft/src/EntitySnowball.java
++++ b/net/minecraft/src/EntitySnowball.java
+@@ -30,7 +30,7 @@
+       this.func_371_a(0.25F, 0.25F);
+       this.func_365_c(p_i16_2_.field_611_ak, p_i16_2_.field_610_al + (double)p_i16_2_.func_373_s(), p_i16_2_.field_609_am, p_i16_2_.field_605_aq, p_i16_2_.field_604_ar);
+       this.field_611_ak -= (double)(MathHelper.func_1114_b(this.field_605_aq / 180.0F * (float)Math.PI) * 0.16F);
+-      this.field_610_al -= (double)0.1F;
++      this.field_610_al -= 0.1F;
+       this.field_609_am -= (double)(MathHelper.func_1106_a(this.field_605_aq / 180.0F * (float)Math.PI) * 0.16F);
+       this.func_347_a(this.field_611_ak, this.field_610_al, this.field_609_am);
+       this.field_9292_aO = 0.0F;
+@@ -65,7 +65,7 @@
+       this.field_606_ap = p_467_5_;
+       float f1 = MathHelper.func_1109_a(p_467_1_ * p_467_1_ + p_467_5_ * p_467_5_);
+       this.field_603_as = this.field_605_aq = (float)(Math.atan2(p_467_1_, p_467_5_) * 180.0D / (double)(float)Math.PI);
+-      this.field_602_at = this.field_604_ar = (float)(Math.atan2(p_467_3_, (double)f1) * 180.0D / (double)(float)Math.PI);
++      this.field_602_at = this.field_604_ar = (float)(Math.atan2(p_467_3_, f1) * 180.0D / (double)(float)Math.PI);
+       this.field_810_h = 0;
+    }
+ 
+@@ -76,7 +76,7 @@
+       if (this.field_602_at == 0.0F && this.field_603_as == 0.0F) {
+          float f = MathHelper.func_1109_a(p_6375_1_ * p_6375_1_ + p_6375_5_ * p_6375_5_);
+          this.field_603_as = this.field_605_aq = (float)(Math.atan2(p_6375_1_, p_6375_5_) * 180.0D / (double)(float)Math.PI);
+-         this.field_602_at = this.field_604_ar = (float)(Math.atan2(p_6375_3_, (double)f) * 180.0D / (double)(float)Math.PI);
++         this.field_602_at = this.field_604_ar = (float)(Math.atan2(p_6375_3_, f) * 180.0D / (double)(float)Math.PI);
+       }
+ 
+    }
+@@ -122,14 +122,13 @@
+ 
+       if (!this.field_615_ag.field_1026_y) {
+          Entity entity = null;
+-         List list = this.field_615_ag.func_659_b(this, this.field_601_au.func_1170_a(this.field_608_an, this.field_607_ao, this.field_606_ap).func_1177_b(1.0D, 1.0D, 1.0D));
++         List<Entity> list = this.field_615_ag.func_659_b(this, this.field_601_au.func_1170_a(this.field_608_an, this.field_607_ao, this.field_606_ap).func_1177_b(1.0D, 1.0D, 1.0D));
+          double d0 = 0.0D;
+ 
+-         for(int k = 0; k < list.size(); ++k) {
+-            Entity entity1 = (Entity)list.get(k);
++         for (Entity entity1 : list) {
+             if (entity1.func_401_c_() && (entity1 != this.field_811_g || this.field_809_i >= 5)) {
+                float f = 0.3F;
+-               AxisAlignedBB axisalignedbb = entity1.field_601_au.func_1177_b((double)f, (double)f, (double)f);
++               AxisAlignedBB axisalignedbb = entity1.field_601_au.func_1177_b( f,  f,  f);
+                MovingObjectPosition movingobjectposition1 = axisalignedbb.func_1169_a(vec3d1, vec3d);
+                if (movingobjectposition1 != null) {
+                   double d1 = vec3d1.func_1251_c(movingobjectposition1.field_1169_f);
+@@ -163,7 +162,7 @@
+       float f1 = MathHelper.func_1109_a(this.field_608_an * this.field_608_an + this.field_606_ap * this.field_606_ap);
+       this.field_605_aq = (float)(Math.atan2(this.field_608_an, this.field_606_ap) * 180.0D / (double)(float)Math.PI);
+ 
+-      for(this.field_604_ar = (float)(Math.atan2(this.field_607_ao, (double)f1) * 180.0D / (double)(float)Math.PI); this.field_604_ar - this.field_602_at < -180.0F; this.field_602_at -= 360.0F) {
++      for(this.field_604_ar = (float)(Math.atan2(this.field_607_ao, f1) * 180.0D / (double)(float)Math.PI); this.field_604_ar - this.field_602_at < -180.0F; this.field_602_at -= 360.0F) {
+       }
+ 
+       while(this.field_604_ar - this.field_602_at >= 180.0F) {
+@@ -191,10 +190,10 @@
+          f2 = 0.8F;
+       }
+ 
+-      this.field_608_an *= (double)f2;
+-      this.field_607_ao *= (double)f2;
+-      this.field_606_ap *= (double)f2;
+-      this.field_607_ao -= (double)f3;
++      this.field_608_an *= f2;
++      this.field_607_ao *= f2;
++      this.field_606_ap *= f2;
++      this.field_607_ao -= f3;
+       this.func_347_a(this.field_611_ak, this.field_610_al, this.field_609_am);
+    }
+ 

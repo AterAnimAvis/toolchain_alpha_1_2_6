@@ -1,5 +1,24 @@
 --- a/net/minecraft/src/Block.java
 +++ b/net/minecraft/src/Block.java
+@@ -192,12 +192,12 @@
+    }
+ 
+    public void func_213_a(float p_213_1_, float p_213_2_, float p_213_3_, float p_213_4_, float p_213_5_, float p_213_6_) {
+-      this.field_370_bf = (double)p_213_1_;
+-      this.field_368_bg = (double)p_213_2_;
+-      this.field_366_bh = (double)p_213_3_;
+-      this.field_364_bi = (double)p_213_4_;
+-      this.field_362_bj = (double)p_213_5_;
+-      this.field_360_bk = (double)p_213_6_;
++      this.field_370_bf = p_213_1_;
++      this.field_368_bg = p_213_2_;
++      this.field_366_bh = p_213_3_;
++      this.field_364_bi = p_213_4_;
++      this.field_362_bj = p_213_5_;
++      this.field_360_bk = p_213_6_;
+    }
+ 
+    public float func_241_c(IBlockAccess p_241_1_, int p_241_2_, int p_241_3_, int p_241_4_) {
 @@ -238,7 +238,7 @@
        return AxisAlignedBB.func_1161_b((double)p_246_2_ + this.field_370_bf, (double)p_246_3_ + this.field_368_bg, (double)p_246_4_ + this.field_366_bh, (double)p_246_2_ + this.field_364_bi, (double)p_246_3_ + this.field_362_bj, (double)p_246_4_ + this.field_360_bk);
     }
@@ -9,3 +28,23 @@
        AxisAlignedBB axisalignedbb = this.func_221_d(p_230_1_, p_230_2_, p_230_3_, p_230_4_);
        if (axisalignedbb != null && p_230_5_.func_1178_a(axisalignedbb)) {
           p_230_6_.add(axisalignedbb);
+@@ -332,8 +332,8 @@
+ 
+    public MovingObjectPosition func_255_a(World p_255_1_, int p_255_2_, int p_255_3_, int p_255_4_, Vec3D p_255_5_, Vec3D p_255_6_) {
+       this.func_238_a(p_255_1_, p_255_2_, p_255_3_, p_255_4_);
+-      p_255_5_ = p_255_5_.func_1257_c((double)(-p_255_2_), (double)(-p_255_3_), (double)(-p_255_4_));
+-      p_255_6_ = p_255_6_.func_1257_c((double)(-p_255_2_), (double)(-p_255_3_), (double)(-p_255_4_));
++      p_255_5_ = p_255_5_.func_1257_c(-p_255_2_, -p_255_3_, -p_255_4_);
++      p_255_6_ = p_255_6_.func_1257_c(-p_255_2_, -p_255_3_, -p_255_4_);
+       Vec3D vec3d = p_255_5_.func_1247_a(p_255_6_, this.field_370_bf);
+       Vec3D vec3d1 = p_255_5_.func_1247_a(p_255_6_, this.field_364_bi);
+       Vec3D vec3d2 = p_255_5_.func_1250_b(p_255_6_, this.field_368_bg);
+@@ -417,7 +417,7 @@
+             b0 = 3;
+          }
+ 
+-         return new MovingObjectPosition(p_255_2_, p_255_3_, p_255_4_, b0, vec3d6.func_1257_c((double)p_255_2_, (double)p_255_3_, (double)p_255_4_));
++         return new MovingObjectPosition(p_255_2_, p_255_3_, p_255_4_, b0, vec3d6.func_1257_c(p_255_2_, p_255_3_, p_255_4_));
+       }
+    }
+ 

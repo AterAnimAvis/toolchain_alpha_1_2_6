@@ -1,12 +1,13 @@
 --- a/net/minecraft/src/TileEntityMobSpawnerRenderer.java
 +++ b/net/minecraft/src/TileEntityMobSpawnerRenderer.java
-@@ -4,9 +4,14 @@
+@@ -4,13 +4,18 @@
  import java.util.Map;
  import org.lwjgl.opengl.GL11;
  
 -public class TileEntityMobSpawnerRenderer extends TileEntitySpecialRenderer {
+-   private Map field_1412_b = new HashMap();
 +public class TileEntityMobSpawnerRenderer extends TileEntitySpecialRenderer<TileEntityMobSpawner> {
-    private Map field_1412_b = new HashMap();
++   private Map<String, Entity> field_1412_b = new HashMap<>();
  
 +   @Override
 +   public void func_930_a(TileEntityMobSpawner p_930_1_, double p_930_2_, double p_930_4_, double p_930_6_, float p_930_8_) {
@@ -16,3 +17,8 @@
     public void func_931_a(TileEntityMobSpawner p_931_1_, double p_931_2_, double p_931_4_, double p_931_6_, float p_931_8_) {
        GL11.glPushMatrix();
        GL11.glTranslatef((float)p_931_2_ + 0.5F, (float)p_931_4_, (float)p_931_6_ + 0.5F);
+-      Entity entity = (Entity)this.field_1412_b.get(p_931_1_.field_828_b);
++      Entity entity = this.field_1412_b.get(p_931_1_.field_828_b);
+       if (entity == null) {
+          entity = EntityList.func_1079_a(p_931_1_.field_828_b, (World)null);
+          this.field_1412_b.put(p_931_1_.field_828_b, entity);

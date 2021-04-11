@@ -1,0 +1,21 @@
+--- a/net/minecraft/src/Packet5PlayerInventory.java
++++ b/net/minecraft/src/Packet5PlayerInventory.java
+@@ -41,13 +41,13 @@
+       p_322_1_.writeInt(this.field_571_a);
+       p_322_1_.writeShort(this.field_570_b.length);
+ 
+-      for(int i = 0; i < this.field_570_b.length; ++i) {
+-         if (this.field_570_b[i] == null) {
++      for (ItemStack itemStack : this.field_570_b) {
++         if (itemStack == null) {
+             p_322_1_.writeShort(-1);
+          } else {
+-            p_322_1_.writeShort((short)this.field_570_b[i].field_1617_c);
+-            p_322_1_.writeByte((byte)this.field_570_b[i].field_1615_a);
+-            p_322_1_.writeShort((short)this.field_570_b[i].field_1616_d);
++            p_322_1_.writeShort((short) itemStack.field_1617_c);
++            p_322_1_.writeByte((byte) itemStack.field_1615_a);
++            p_322_1_.writeShort((short) itemStack.field_1616_d);
+          }
+       }
+ 

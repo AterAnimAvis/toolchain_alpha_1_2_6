@@ -1,0 +1,57 @@
+--- a/net/minecraft/src/WorldRenderer.java
++++ b/net/minecraft/src/WorldRenderer.java
+@@ -36,10 +36,10 @@
+    public int field_1732_z;
+    public boolean field_1747_A;
+    private boolean field_1739_E = false;
+-   public List field_1745_B = new ArrayList();
+-   private List field_1737_F;
++   public List<TileEntity> field_1745_B = new ArrayList<>();
++   private List<TileEntity> field_1737_F;
+ 
+-   public WorldRenderer(World p_i37_1_, List p_i37_2_, int p_i37_3_, int p_i37_4_, int p_i37_5_, int p_i37_6_, int p_i37_7_) {
++   public WorldRenderer(World p_i37_1_, List<TileEntity> p_i37_2_, int p_i37_3_, int p_i37_4_, int p_i37_5_, int p_i37_6_, int p_i37_7_) {
+       this.field_1763_a = p_i37_1_;
+       this.field_1737_F = p_i37_2_;
+       this.field_1758_f = this.field_1757_g = this.field_1756_h = p_i37_6_;
+@@ -66,9 +66,9 @@
+          this.field_1754_j = p_1197_2_ - this.field_1751_m;
+          this.field_1753_k = p_1197_3_ - this.field_1750_n;
+          float f = 2.0F;
+-         this.field_1736_v = AxisAlignedBB.func_1168_a((double)((float)p_1197_1_ - f), (double)((float)p_1197_2_ - f), (double)((float)p_1197_3_ - f), (double)((float)(p_1197_1_ + this.field_1758_f) + f), (double)((float)(p_1197_2_ + this.field_1757_g) + f), (double)((float)(p_1197_3_ + this.field_1756_h) + f));
++         this.field_1736_v = AxisAlignedBB.func_1168_a((float)p_1197_1_ - f, (float)p_1197_2_ - f, (float)p_1197_3_ - f, (float)(p_1197_1_ + this.field_1758_f) + f, (float)(p_1197_2_ + this.field_1757_g) + f, (float)(p_1197_3_ + this.field_1756_h) + f);
+          GL11.glNewList(this.field_1744_C + 2, 4864);
+-         RenderItem.func_142_a(AxisAlignedBB.func_1161_b((double)((float)this.field_1752_l - f), (double)((float)this.field_1751_m - f), (double)((float)this.field_1750_n - f), (double)((float)(this.field_1752_l + this.field_1758_f) + f), (double)((float)(this.field_1751_m + this.field_1757_g) + f), (double)((float)(this.field_1750_n + this.field_1756_h) + f)));
++         RenderItem.func_142_a(AxisAlignedBB.func_1161_b((float)this.field_1752_l - f, (float)this.field_1751_m - f, (float)this.field_1750_n - f, (float)(this.field_1752_l + this.field_1758_f) + f, (float)(this.field_1751_m + this.field_1757_g) + f, (float)(this.field_1750_n + this.field_1756_h) + f));
+          GL11.glEndList();
+          this.func_1194_f();
+       }
+@@ -93,8 +93,7 @@
+          }
+ 
+          Chunk.field_1540_a = false;
+-         HashSet hashset = new HashSet();
+-         hashset.addAll(this.field_1745_B);
++         HashSet<TileEntity> hashset = new HashSet<>(this.field_1745_B);
+          this.field_1745_B.clear();
+          byte b0 = 1;
+          ChunkCache chunkcache = new ChunkCache(this.field_1763_a, i - b0, j - b0, k - b0, l + b0, i1 + b0, j1 + b0);
+@@ -120,7 +119,7 @@
+                            GL11.glScalef(f, f, f);
+                            GL11.glTranslatef((float)this.field_1756_h / 2.0F, (float)this.field_1757_g / 2.0F, (float)this.field_1756_h / 2.0F);
+                            field_1742_D.func_977_b();
+-                           field_1742_D.func_984_b((double)(-this.field_1761_c), (double)(-this.field_1760_d), (double)(-this.field_1759_e));
++                           field_1742_D.func_984_b(-this.field_1761_c, -this.field_1760_d, -this.field_1759_e);
+                         }
+ 
+                         if (l1 == 0 && Block.field_342_q[l2]) {
+@@ -160,8 +159,7 @@
+             }
+          }
+ 
+-         HashSet hashset1 = new HashSet();
+-         hashset1.addAll(this.field_1745_B);
++         HashSet<TileEntity> hashset1 = new HashSet<>(this.field_1745_B);
+          hashset1.removeAll(hashset);
+          this.field_1737_F.addAll(hashset1);
+          hashset.removeAll(this.field_1745_B);

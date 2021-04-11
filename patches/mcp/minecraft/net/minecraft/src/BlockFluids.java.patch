@@ -1,0 +1,11 @@
+--- a/net/minecraft/src/BlockFluids.java
++++ b/net/minecraft/src/BlockFluids.java
+@@ -177,7 +177,7 @@
+    public float func_241_c(IBlockAccess p_241_1_, int p_241_2_, int p_241_3_, int p_241_4_) {
+       float f = p_241_1_.func_598_c(p_241_2_, p_241_3_, p_241_4_);
+       float f1 = p_241_1_.func_598_c(p_241_2_, p_241_3_ + 1, p_241_4_);
+-      return f > f1 ? f : f1;
++      return Math.max(f, f1);
+    }
+ 
+    public void func_208_a(World p_208_1_, int p_208_2_, int p_208_3_, int p_208_4_, Random p_208_5_) {

@@ -128,6 +128,29 @@
                    }
  
                 }
+@@ -772,19 +769,19 @@
+                }
+ 
+                Vec3D vec3d = Vec3D.func_1248_b(p_642_1_.field_1776_a, p_642_1_.field_1775_b, p_642_1_.field_1779_c);
+-               l = (int)(vec3d.field_1776_a = (double)MathHelper.func_1108_b(p_642_1_.field_1776_a));
++               l = (int)(vec3d.field_1776_a = MathHelper.func_1108_b(p_642_1_.field_1776_a));
+                if (b0 == 5) {
+                   --l;
+                   ++vec3d.field_1776_a;
+                }
+ 
+-               i1 = (int)(vec3d.field_1775_b = (double)MathHelper.func_1108_b(p_642_1_.field_1775_b));
++               i1 = (int)(vec3d.field_1775_b = MathHelper.func_1108_b(p_642_1_.field_1775_b));
+                if (b0 == 1) {
+                   --i1;
+                   ++vec3d.field_1775_b;
+                }
+ 
+-               j1 = (int)(vec3d.field_1779_c = (double)MathHelper.func_1108_b(p_642_1_.field_1779_c));
++               j1 = (int)(vec3d.field_1779_c = MathHelper.func_1108_b(p_642_1_.field_1779_c));
+                if (b0 == 3) {
+                   --j1;
+                   ++vec3d.field_1779_c;
 @@ -811,29 +808,29 @@
     }
  
@@ -224,6 +247,24 @@
           if (axisalignedbb != null && axisalignedbb.func_1178_a(p_697_2_)) {
              this.field_9428_I.add(axisalignedbb);
           }
+@@ -966,7 +963,7 @@
+       f3 = f3 * f1;
+       f4 = f4 * f1;
+       f5 = f5 * f1;
+-      return Vec3D.func_1248_b((double)f3, (double)f4, (double)f5);
++      return Vec3D.func_1248_b(f3, f4, f5);
+    }
+ 
+    public float func_619_c(float p_619_1_) {
+@@ -990,7 +987,7 @@
+       f2 = f2 * (f1 * 0.9F + 0.1F);
+       f3 = f3 * (f1 * 0.9F + 0.1F);
+       f4 = f4 * (f1 * 0.85F + 0.15F);
+-      return Vec3D.func_1248_b((double)f2, (double)f3, (double)f4);
++      return Vec3D.func_1248_b(f2, f3, f4);
+    }
+ 
+    public Vec3D func_4082_d(float p_4082_1_) {
 @@ -1064,8 +1061,7 @@
     public void func_633_c() {
        this.field_1050_a.removeAll(this.field_1024_A);
@@ -262,6 +303,20 @@
           tileentity.func_475_b();
        }
  
+@@ -1147,11 +1142,11 @@
+             p_4084_1_.field_609_am = p_4084_1_.field_636_aK;
+          }
+ 
+-         if (Double.isNaN((double)p_4084_1_.field_604_ar) || Double.isInfinite((double)p_4084_1_.field_604_ar)) {
++         if (Double.isNaN(p_4084_1_.field_604_ar) || Double.isInfinite(p_4084_1_.field_604_ar)) {
+             p_4084_1_.field_604_ar = p_4084_1_.field_602_at;
+          }
+ 
+-         if (Double.isNaN((double)p_4084_1_.field_605_aq) || Double.isInfinite((double)p_4084_1_.field_605_aq)) {
++         if (Double.isNaN(p_4084_1_.field_605_aq) || Double.isInfinite(p_4084_1_.field_605_aq)) {
+             p_4084_1_.field_605_aq = p_4084_1_.field_603_as;
+          }
+ 
 @@ -1184,10 +1179,9 @@
     }
  
@@ -275,6 +330,24 @@
           if (!entity.field_646_aA && entity.field_618_ad) {
              return false;
           }
+@@ -1323,7 +1317,7 @@
+                Block block = Block.field_345_n[this.func_600_a(k1, l1, i2)];
+                if (block != null && block.field_356_bn == p_707_2_) {
+                   int j2 = this.func_602_e(k1, l1, i2);
+-                  double d0 = (double)(l1 + 1);
++                  double d0 = l1 + 1;
+                   if (j2 < 8) {
+                      d0 = (double)(l1 + 1) - (double)j2 / 8.0D;
+                   }
+@@ -1402,7 +1396,7 @@
+       }
+ 
+       if (this.func_600_a(p_612_1_, p_612_2_, p_612_3_) == Block.field_402_as.field_376_bc) {
+-         this.func_684_a((double)((float)p_612_1_ + 0.5F), (double)((float)p_612_2_ + 0.5F), (double)((float)p_612_3_ + 0.5F), "random.fizz", 0.5F, 2.6F + (this.field_1037_n.nextFloat() - this.field_1037_n.nextFloat()) * 0.8F);
++         this.func_684_a((float)p_612_1_ + 0.5F, (float)p_612_2_ + 0.5F, (float)p_612_3_ + 0.5F, "random.fizz", 0.5F, 2.6F + (this.field_1037_n.nextFloat() - this.field_1037_n.nextFloat()) * 0.8F);
+          this.func_690_d(p_612_1_, p_612_2_, p_612_3_, 0);
+       }
+ 
 @@ -1461,7 +1455,7 @@
                    return true;
                 }
@@ -490,21 +563,24 @@
        } catch (IOException ioexception) {
           throw new MinecraftException("Failed to check session lock, aborting");
        }
-@@ -1887,7 +1917,7 @@
+@@ -1886,8 +1916,7 @@
+    public void func_9424_o() {
        this.field_1050_a.removeAll(this.field_1024_A);
  
-       for(int i = 0; i < this.field_1024_A.size(); ++i) {
+-      for(int i = 0; i < this.field_1024_A.size(); ++i) {
 -         Entity entity = (Entity)this.field_1024_A.get(i);
-+         Entity entity = this.field_1024_A.get(i);
++      for (Entity entity : this.field_1024_A) {
           int j = entity.field_657_ba;
           int k = entity.field_654_bc;
           if (entity.field_621_aZ && this.func_620_h(j, k)) {
-@@ -1896,13 +1926,13 @@
+@@ -1895,14 +1924,14 @@
+          }
        }
  
-       for(int l = 0; l < this.field_1024_A.size(); ++l) {
+-      for(int l = 0; l < this.field_1024_A.size(); ++l) {
 -         this.func_678_c((Entity)this.field_1024_A.get(l));
-+         this.func_678_c(this.field_1024_A.get(l));
++      for (Entity entity : this.field_1024_A) {
++         this.func_678_c(entity);
        }
  
        this.field_1024_A.clear();
