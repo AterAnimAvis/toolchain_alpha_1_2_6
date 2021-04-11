@@ -26,7 +26,6 @@ class MCPPlugin : Plugin<Project> {
             }
         }
 
-
     }
 
     private fun RepositoryHandler.maybeDeclare(name: String, configure: MavenArtifactRepository.() -> Unit) {

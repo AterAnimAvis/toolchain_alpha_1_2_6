@@ -9,16 +9,16 @@
 /.gradle/*
 /buildSrc/.gradle/*
 /build/*
-/buildSrc/build/*
+*/build/*
 
 # MCP Files
 /jars/*
 /temp/*
+*/temp/*
 /conf/*
 
 # Minecraft Sources
-/src/client/*
-/src/server/*
+/client/src/main/*
 
 # ModLauncher
 /logs/*

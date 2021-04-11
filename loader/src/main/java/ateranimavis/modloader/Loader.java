@@ -31,7 +31,7 @@ public class Loader {
             LogManager.getLogger().info("ModLoader Initializing");
 
             try {
-                // Dirty hack - move to IModLocator System?
+                // TODO: Fix Dirty hack - move to IModLocator System?
                 readFromClassPath(new File(ClientDevLauncher.class.getProtectionDomain().getCodeSource().getLocation().toURI()));
             } catch (Exception e) {
                 throw new RuntimeException("ModLoader has failed to initialize.", e);
