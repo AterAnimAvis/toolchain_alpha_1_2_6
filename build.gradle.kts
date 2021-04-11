@@ -35,6 +35,7 @@ val obf2srg                  = file("build/temp/obf_to_srg.tsrg")
 val srg2srg                  = file("build/temp/srg_to_srg.tsrg")
 val srg2mcp                  = file("build/temp/srg_to_mcp.tsrg")
 val mcp2srg                  = file("build/temp/mcp_to_srg.tsrg")
+val mcp2obf                  = file("build/temp/mcp_to_obf.tsrg")
 val rangeMap                 = file("build/temp/range_map.map")
 
 //----------------------------------------------------------------------------------------------------------------------
@@ -69,11 +70,23 @@ val generateSrg2Mcp by tasks.creating(task.srg.GenerateMappedSrg::class) {
 
 val generateMcp2Srg by tasks.creating(task.srg.TransformSrg::class) {
     group = "srg"
-    dependsOn(generateSrg2Srg)
+    dependsOn(generateSrg2Mcp)
 
     input = generateSrg2Mcp.output
     output = mcp2srg
     transformer = { srg2mcp -> srg2mcp.reverse() }
+}
+
+val generateMcp2Obf by tasks.creating(task.srg.GenerateRemappingSrg::class) {
+    group = "srg"
+    dependsOn(generateSrg2Mcp, generateObf2Srg)
+
+    inputA = generateSrg2Mcp.output
+    inputB = generateObf2Srg.output
+    output = mcp2obf
+    transformer = { srg2mcp, obf2srg ->
+        obf2srg.chain(srg2mcp).reverse()
+    }
 }
 
 //----------------------------------------------------------------------------------------------------------------------
@@ -191,6 +204,21 @@ val makeMCPPatches by tasks.creating(uk.jamierocks.propatcher.task.MakePatchesTa
     target  = clientSource
     patches = clientPatches
 }
+
+val jar by tasks.getting(Jar::class) {
+
+}
+
+val reobfJar by tasks.creating(task.ApplySpecialSourceInPlace::class) {
+    group = "mcp"
+    dependsOn(generateMcp2Obf)
+
+    input = jar.archiveFile.get().asFile
+    output = jar.archiveFile.get().asFile
+    mappings = generateMcp2Obf.output
+}
+
+jar.finalizedBy(reobfJar)
 
 //----------------------------------------------------------------------------------------------------------------------
 // Dependencies

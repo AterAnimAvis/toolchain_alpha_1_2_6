@@ -31,7 +31,7 @@ abstract class AbstractJarExec : DefaultTask() {
 
     @TaskAction
     @Throws(IOException::class)
-    fun apply() {
+    open fun apply() {
         val jar = getJar()
         val mainClass = mainClass ?: jar.mainClass
         val workDir = project.file("build/$name").ensureExists()
