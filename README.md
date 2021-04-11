@@ -20,7 +20,7 @@ Steps:
     - IntelliJ:
       - JDK 8
       - Classpath: `.main`
-      - Main Class: `net.minecraft.client.Minecraft`
+      - Main Class: `ateranimavis.launcher.ClientDevLauncher`
       - VM Arguments: `-Djava.library.path=build/natives/${windows|linux|osx}`
     
 ## How do I use this to make a mod?

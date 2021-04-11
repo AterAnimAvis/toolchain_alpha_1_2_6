@@ -19,3 +19,9 @@
 # Minecraft Sources
 /src/client/*
 /src/server/*
+
+# ModLauncher
+/logs/*
+
+# Mixin
+/.mixin.out/*

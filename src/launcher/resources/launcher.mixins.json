@@ -1,0 +1,22 @@
+{
+  "required": true,
+  "package": "ateranimavis.modloader.mixin",
+  "compatibilityLevel": "JAVA_8",
+  "mixins": [
+    "loader.MinecraftInstanceMixin",
+    "recipe.FuelMixin",
+    "recipe.SmeltingMixin",
+    "registration.BlockRegistrationMixin",
+    "registration.EntityRegistrationMixin",
+    "registration.RecipeRegistrationMixin",
+    "registration.RendererRegistrationMixin",
+    "registration.TextureRegistrationMixin",
+    "registration.TileEntityRegistrationMixin",
+    "render.RenderGameOverlayMixin",
+    "worldgen.ChunkPopulationHookMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "minVersion": "0.8"
+}

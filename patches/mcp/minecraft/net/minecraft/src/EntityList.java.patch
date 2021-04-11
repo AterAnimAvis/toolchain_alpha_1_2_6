@@ -13,8 +13,8 @@
 +   private static Map<Integer, Class<? extends Entity>> field_1613_c = new HashMap<>();
 +   private static Map<Class<? extends Entity>, Integer> field_1612_d = new HashMap<>();
  
--   private static void func_1080_a(Class p_1080_0_, String p_1080_1_, int p_1080_2_) {
-+   private static void func_1080_a(Class<? extends Entity> p_1080_0_, String p_1080_1_, int p_1080_2_) {
+-   public static void func_1080_a(Class p_1080_0_, String p_1080_1_, int p_1080_2_) {
++   public static void func_1080_a(Class<? extends Entity> p_1080_0_, String p_1080_1_, int p_1080_2_) {
        field_1611_a.put(p_1080_1_, p_1080_0_);
        field_1610_b.put(p_1080_0_, p_1080_1_);
        field_1613_c.put(p_1080_2_, p_1080_0_);

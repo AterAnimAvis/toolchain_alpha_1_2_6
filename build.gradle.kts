@@ -34,20 +34,12 @@ val mappingsMethodsCsv       = mutableSetOf(file("conf/methods.csv"), file("mcp-
 val obf2srg                  = file("build/temp/obf_to_srg.tsrg")
 val srg2srg                  = file("build/temp/srg_to_srg.tsrg")
 val srg2mcp                  = file("build/temp/srg_to_mcp.tsrg")
+val mcp2srg                  = file("build/temp/mcp_to_srg.tsrg")
 val rangeMap                 = file("build/temp/range_map.map")
 
 //----------------------------------------------------------------------------------------------------------------------
-// MCP
+// Mappings
 //----------------------------------------------------------------------------------------------------------------------
-
-val main : SourceSet by sourceSets.getting {
-    java {
-        srcDir("src/client/java")
-    }
-    resources {
-        srcDir("src/client/resources")
-    }
-}
 
 val generateObf2Srg by tasks.creating(task.srg.GenerateRetroGuardTSrg::class) {
     group = "srg"
@@ -73,6 +65,30 @@ val generateSrg2Mcp by tasks.creating(task.srg.GenerateMappedSrg::class) {
     output = srg2mcp
     fields = mappingsFieldsCsv
     methods = mappingsMethodsCsv
+}
+
+val generateMcp2Srg by tasks.creating(task.srg.TransformSrg::class) {
+    group = "srg"
+    dependsOn(generateSrg2Srg)
+
+    input = generateSrg2Mcp.output
+    output = mcp2srg
+    transformer = { srg2mcp -> srg2mcp.reverse() }
+}
+
+//----------------------------------------------------------------------------------------------------------------------
+// MCP
+//----------------------------------------------------------------------------------------------------------------------
+
+val main : SourceSet by sourceSets.getting {
+    java {
+        srcDir("src/client/java")
+        srcDir("src/launcher/java")
+    }
+    resources {
+        srcDir("src/client/resources")
+        srcDir("src/launcher/resources")
+    }
 }
 
 val deobfuscateMC by tasks.creating(task.ApplySpecialSource::class) {
@@ -182,9 +198,15 @@ val makeMCPPatches by tasks.creating(uk.jamierocks.propatcher.task.MakePatchesTa
 
 repositories {
     // Maven Central + Mojang Maven are both provided by mcp-plugin
+
+    maven { url = uri("https://repo.spongepowered.org/repository/maven-public/") }
 }
 
 dependencies {
+    //------------------------------------------------------------------------------------------------------------------
+    // Minecraft
+    //------------------------------------------------------------------------------------------------------------------
+
     implementation(group = "org.lwjgl.lwjgl", name = "lwjgl", version = "2.9.1")
     implementation(group = "org.lwjgl.lwjgl", name = "lwjgl_util", version = "2.9.1")
 
@@ -196,6 +218,32 @@ dependencies {
     implementation(group = "com.paulscode", name = "soundsystem", version = "20120107")
     implementation(group = "com.paulscode", name = "libraryjavasound", version = "20101123")
     implementation(group = "com.paulscode", name = "librarylwjglopenal", version = "20100824")
+
+    //------------------------------------------------------------------------------------------------------------------
+    // Common Dev
+    //------------------------------------------------------------------------------------------------------------------
+
+    implementation(group = "org.jetbrains", name = "annotations", version = "20.1.0")
+
+    implementation(group = "org.apache.logging.log4j", name = "log4j-api", version = "2.11.2")
+    runtimeOnly(group = "org.apache.logging.log4j", name = "log4j-core", version = "2.11.2")
+
+    //------------------------------------------------------------------------------------------------------------------
+    // Launcher Implementation
+    //------------------------------------------------------------------------------------------------------------------
+
+    implementation(group = "cpw.mods", name = "modlauncher", version = "8.0.9")
+    implementation(group = "cpw.mods", name = "grossjava9hacks", version = "1.3.3")
+    implementation(group = "net.sf.jopt-simple", name = "jopt-simple", version = "5.0.4")
+    runtimeOnly(group = "com.google.guava", name = "guava", version = "30.1.1-jre")
+    runtimeOnly(group = "com.google.code.gson", name = "gson", version = "2.2.4")
+    runtimeOnly(group = "org.ow2.asm", name = "asm-analysis", version = "7.2")
+    runtimeOnly(group = "org.ow2.asm", name = "asm-commons", version = "7.2")
+    runtimeOnly(group = "org.ow2.asm", name = "asm-tree", version = "7.2")
+    runtimeOnly(group = "org.ow2.asm", name = "asm-util", version = "7.2")
+
+    implementation(group = "org.spongepowered", name = "mixin", version = "0.8.1")
+    annotationProcessor(group = "org.spongepowered", name = "mixin", version = "0.8.1", classifier = "processor")
 }
 
 //----------------------------------------------------------------------------------------------------------------------
@@ -244,4 +292,20 @@ val setupUserdev by tasks.creating(DefaultTask::class) {
 val setupMCPdev by tasks.creating(DefaultTask::class) {
     group = "setup-tasks"
     dependsOn(applyMCPPatches, extractResources, copyNatives)
+}
+
+//----------------------------------------------------------------------------------------------------------------------
+// Mixins
+//----------------------------------------------------------------------------------------------------------------------
+
+val compileJava by tasks.getting(JavaCompile::class) {
+    dependsOn(generateMcp2Srg)
+
+    //TODO: refmap -> into Jar
+    options.compilerArgs.addAll(listOf(
+        "-AreobfTsrgFile=${generateMcp2Srg.output!!.canonicalPath}",
+        "-AoutTsrgFile=${file("$temporaryDir/$name-mappings.tsrg").canonicalPath}",
+        "-AoutRefMapFile=${file("build/temp/refmap.json").canonicalPath}", // ${file("$temporaryDir/$name-refmap.json").canonicalPath}",
+        "-AmappingTypes=tsrg"
+    ))
 }
