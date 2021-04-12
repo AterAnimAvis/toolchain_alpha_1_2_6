@@ -3,6 +3,7 @@ package ateranimavis.modloader;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
@@ -12,16 +13,15 @@ import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 
 import org.apache.logging.log4j.LogManager;
-import ateranimavis.launcher.ClientDevLauncher;
 import net.minecraft.src.BaseMod;
-import net.minecraft.src.modloader.BaseModExt;
 import net.minecraft.src.Block;
 import net.minecraft.src.Item;
 import net.minecraft.src.ItemBlock;
+import net.minecraft.src.modloader.BaseModExt;
 
 public class Loader {
 
-    private static AtomicBoolean isLoaded = new AtomicBoolean(false);
+    private static final AtomicBoolean isLoaded = new AtomicBoolean(false);
 
     private static final Map<String, BaseMod> loadedMods = new HashMap<>();
     private static final Map<String, BaseModExt> loadedExtMods = new HashMap<>();
@@ -30,12 +30,19 @@ public class Loader {
         if (isLoaded.compareAndSet(false, true)) {
             LogManager.getLogger().info("ModLoader Initializing");
 
-            try {
-                // TODO: Fix Dirty hack - move to IModLocator System?
-                readFromClassPath(new File(ClientDevLauncher.class.getProtectionDomain().getCodeSource().getLocation().toURI()));
-            } catch (Exception e) {
-                throw new RuntimeException("ModLoader has failed to initialize.", e);
-            }
+            String classpath = System.getProperty("java.class.path");
+            String[] classpathEntries = classpath.split(File.pathSeparator);
+
+            // TODO: Fix Dirty hack - move to IModLocator System?
+            Arrays.stream(classpathEntries)
+                .filter(it -> it.replace("\\", "/").contains("/build/classes/"))
+                .forEach(source -> {
+                    try {
+                        readFromClassPath(new File(source));
+                    } catch (Exception e) {
+                        throw new RuntimeException("ModLoader has failed to initialize on " + source + ".", e);
+                    }
+                });
 
             // Copy Block Items into the Item List
             for (int j = 0; j < 256; j++) {
@@ -90,7 +97,7 @@ public class Loader {
 
             if (instclass.getSuperclass() != BaseMod.class) return;
 
-            loadedMods.putIfAbsent(modName, (BaseMod)instclass.newInstance());
+            loadedMods.putIfAbsent(modName, (BaseMod) instclass.newInstance());
 
             LogManager.getLogger().info("Mod Loaded: " + modName);
         } catch (Exception e) {

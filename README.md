@@ -20,7 +20,7 @@ Steps:
     - IntelliJ:
       - JDK 8
       - Classpath: `$project.mod.main`
-      - Main Class: `ateranimavis.launcher.ClientDevLauncher`
+      - Main Class: `intellij.Launch`
       - VM Arguments: `-Djava.library.path=build/natives/${windows|linux|osx}`
       - Working Directory: `$projectDir`
     

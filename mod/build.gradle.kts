@@ -81,12 +81,14 @@ val jar by tasks.getting(Jar::class) {
 
 }
 
-val reobfJar by tasks.creating(task.ApplySpecialSourceInPlace::class) {
+val reobfJar by tasks.creating(task.ApplySpecialSource::class) {
     group = "mcp"
     dependsOn(generateMcp2Obf)
 
-    input = jar.archiveFile.get().asFile
-    output = jar.archiveFile.get().asFile
+    val jarFile = jar.archiveFile.get().asFile
+
+    input = jarFile
+    output = file(jarFile.toPath().resolveSibling("${jarFile.nameWithoutExtension}-reobf.jar"))
     mappings = generateMcp2Obf.output
 }
 

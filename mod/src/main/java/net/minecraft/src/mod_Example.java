@@ -9,15 +9,22 @@ import static net.minecraft.src.Block.soundStoneFootstep;
 
 public class mod_Example extends BaseMod implements BaseModExt {
 
-    private static final Block burnt_stone = new Block(100, Material.rock).setHardness(1.5F).getCanBlockGrass(10.0F).setStepSound(soundStoneFootstep);
+    private static final Block burnt_stone
+        = new Block(100, Material.rock).setHardness(1.5F).getCanBlockGrass(10.0F).setStepSound(soundStoneFootstep);
 
     static {
         burnt_stone.blockIndexInTexture = ModLoader.getUniqueSpriteIndex(SpriteHandler.TERRAIN);
     }
 
     @Override
+    public void AddRecipes(CraftingManager recipes) {
+        recipes.addRecipe(new ItemStack(burnt_stone), "#", '#', Block.dirt);
+    }
+
+    @Override
     public int AddSmelting(int id) {
         if (id == Block.stone.blockID) return burnt_stone.blockID;
+        if (id == Block.dirt.blockID) return burnt_stone.blockID;
 
         return -1;
     }
