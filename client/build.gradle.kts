@@ -19,11 +19,11 @@ val clientSrg2Source         = file("build/temp/minecraft_s2s.jar")
 
 val clientSource             = file("src/main/java")
 val clientResources          = file("src/main/resources")
-val clientPatches            = rootProject.file("patches/mcp/minecraft")
+val clientPatches            = file("patches/mcp/minecraft")
 
-val clientAccesses           = rootProject.file("mcp-extra/access.txt")
-val clientConstructors       = rootProject.file("mcp-extra/constructors.txt")
-val clientExceptions         = rootProject.file("mcp-extra/exceptions.txt")
+val clientAccesses           = file("mcp-extra/access.txt")
+val clientConstructors       = file("mcp-extra/constructors.txt")
+val clientExceptions         = file("mcp-extra/exceptions.txt")
 
 val rangeMap                 = file("build/temp/range_map.map")
 

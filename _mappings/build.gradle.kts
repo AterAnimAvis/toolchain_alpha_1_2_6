@@ -13,8 +13,8 @@ version = "1.0-SNAPSHOT"
 
 val clientRetroGuard         = rootProject.file("conf/minecraft.rgs")
 
-val mappingsFieldsCsv        = mutableSetOf(rootProject.file("conf/fields.csv"), rootProject.file("mcp-extra/fields.csv"))
-val mappingsMethodsCsv       = mutableSetOf(rootProject.file("conf/methods.csv"), rootProject.file("mcp-extra/methods.csv"))
+val mappingsFieldsCsv        = mutableSetOf(rootProject.file("conf/fields.csv"), file("mcp-extra/fields.csv"))
+val mappingsMethodsCsv       = mutableSetOf(rootProject.file("conf/methods.csv"), file("mcp-extra/methods.csv"))
 
 val obf2srg                  = file("build/temp/obf_to_srg.tsrg")
 val srg2srg                  = file("build/temp/srg_to_srg.tsrg")

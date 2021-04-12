@@ -1,7 +1,7 @@
 Unless noted below, and all parts herein are licensed under the terms of the MIT License.
 
 - `buildSrc` is Licensed under LGPL due it's usage of code from ForgeGradle
-- `mcp-extra` is Licensed under MCP Data
+- `*\mcp-extra` is Licensed under MCP Data
 - Files from SpongeForge Launcher
 
 +++
