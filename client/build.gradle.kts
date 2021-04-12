@@ -25,43 +25,14 @@ val clientAccesses           = rootProject.file("mcp-extra/access.txt")
 val clientConstructors       = rootProject.file("mcp-extra/constructors.txt")
 val clientExceptions         = rootProject.file("mcp-extra/exceptions.txt")
 
-val mappingsFieldsCsv        = mutableSetOf(rootProject.file("conf/fields.csv"), rootProject.file("mcp-extra/fields.csv"))
-val mappingsMethodsCsv       = mutableSetOf(rootProject.file("conf/methods.csv"), rootProject.file("mcp-extra/methods.csv"))
-
-val obf2srg                  = file("build/temp/obf_to_srg.tsrg")
-val srg2srg                  = file("build/temp/srg_to_srg.tsrg")
-val srg2mcp                  = file("build/temp/srg_to_mcp.tsrg")
 val rangeMap                 = file("build/temp/range_map.map")
 
 //----------------------------------------------------------------------------------------------------------------------
 // Mappings
 //----------------------------------------------------------------------------------------------------------------------
 
-val generateObf2Srg by tasks.creating(task.srg.GenerateRetroGuardTSrg::class) {
-    group = "srg"
-
-    input = clientRetroGuard
-    output = obf2srg
-}
-
-val generateSrg2Srg by tasks.creating(task.srg.TransformSrg::class) {
-    group = "srg"
-    dependsOn(generateObf2Srg)
-
-    input = obf2srg
-    output = srg2srg
-    transformer = { obf2srg -> obf2srg.reverse().chain(obf2srg) }
-}
-
-val generateSrg2Mcp by tasks.creating(task.srg.GenerateMappedSrg::class) {
-    group = "srg"
-    dependsOn(generateSrg2Srg)
-
-    input = generateSrg2Srg.output
-    output = srg2mcp
-    fields = mappingsFieldsCsv
-    methods = mappingsMethodsCsv
-}
+val generateObf2Srg by project(":_mappings").tasks.getting(task.srg.GenerateRetroGuardTSrg::class)
+val generateSrg2Mcp by project(":_mappings").tasks.getting(task.srg.GenerateMappedSrg::class)
 
 //----------------------------------------------------------------------------------------------------------------------
 // MCP
