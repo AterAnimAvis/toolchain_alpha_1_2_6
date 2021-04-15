@@ -1,6 +1,6 @@
 {
   "required": true,
-  "package": "ateranimavis.modloader.mixin",
+  "package": "com.github.ateranimavis.modloader.mixin",
   "compatibilityLevel": "JAVA_8",
   "mixins": [
     "loader.MinecraftInstanceMixin",

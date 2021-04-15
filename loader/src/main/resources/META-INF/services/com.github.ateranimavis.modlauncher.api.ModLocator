@@ -1,0 +1,2 @@
+com.github.ateranimavis.modlauncher.api.locator.DirectoryModLocator
+com.github.ateranimavis.modlauncher.api.locator.ClasspathDevLocator

@@ -1,6 +1,6 @@
 package net.minecraft.src.modloader;
 
-import ateranimavis.modloader.Loader;
+import com.github.ateranimavis.modloader.Loader;
 import net.minecraft.client.Minecraft;
 import net.minecraft.src.EntityPlayerSP;
 import net.minecraft.src.GuiScreen;
@@ -8,8 +8,7 @@ import net.minecraft.src.ItemStack;
 import net.minecraft.src.ModLoader;
 
 /**
- * Extended API for ModLoader <br>
- * Note: Relying on this Class will make your mod dependent on this custom loader
+ * Extended API for ModLoader <br> Note: Relying on this Class will make your mod dependent on this custom loader
  */
 public abstract class ModLoaderExt {
 
@@ -17,6 +16,7 @@ public abstract class ModLoaderExt {
 
     /**
      * TODO: Implement this on EntityPlayerSP somehow which makes older mods compatible
+     *
      * @param instance - context object
      * @see EntityPlayerSP#openModGUI(Object)
      */
@@ -28,6 +28,7 @@ public abstract class ModLoaderExt {
 
     /**
      * TODO: Implement this on EntityPlayerSP somehow which makes older mods compatible
+     *
      * @param gui - TODO:
      * @see EntityPlayerSP#openModGUI(Object)
      */
@@ -41,6 +42,7 @@ public abstract class ModLoaderExt {
 
     /**
      * Used for adding new sources of fuel to the furnace.
+     *
      * @param stack the item stack to use as fuel.
      * @return Duration of fuel provided
      * @see ModLoader#AddAllFuel(int)
@@ -61,5 +63,4 @@ public abstract class ModLoaderExt {
     public static void setInstance(Minecraft minecraft) {
         ModLoaderExt.minecraft = minecraft;
     }
-
 }

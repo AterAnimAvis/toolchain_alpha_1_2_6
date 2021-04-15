@@ -11,15 +11,14 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Random;
-
 import javax.imageio.ImageIO;
 
+import com.github.ateranimavis.modloader.Loader;
+import com.github.ateranimavis.util.Pair;
 import org.apache.logging.log4j.LogManager;
 import org.lwjgl.BufferUtils;
 import org.lwjgl.opengl.GL11;
 import org.lwjgl.opengl.GL12;
-import ateranimavis.launcher.util.Pair;
-import ateranimavis.modloader.Loader;
 import net.minecraft.client.Minecraft;
 import net.minecraft.src.modloader.ModLoaderExt;
 import net.minecraft.src.modloader.SpriteHandler;
@@ -38,6 +37,7 @@ public abstract class ModLoader {
 
     /**
      * Place holder for calling the function that adds entity IDs, which are used for SMP, MobSpawner, and saving.
+     *
      * @see BaseMod#AddEntityID()
      */
     public static void AddAllEntityIDs() {
@@ -46,6 +46,7 @@ public abstract class ModLoader {
 
     /**
      * Used for adding new sources of fuel to the furnace.
+     *
      * @param id ItemID for the item to use as fuel.
      * @return Duration of fuel provided
      * @see BaseMod#AddFuel(int)
@@ -55,7 +56,8 @@ public abstract class ModLoader {
     }
 
     /**
-     * Used to add recipes from all the mods. 
+     * Used to add recipes from all the mods.
+     *
      * @param recipes Recipe instance to add to.
      * @see BaseMod#AddRecipes(CraftingManager)
      */
@@ -64,7 +66,8 @@ public abstract class ModLoader {
     }
 
     /**
-     * Used to add all mod entity renderers. 
+     * Used to add all mod entity renderers.
+     *
      * @param renderers HashMap of the renderers. key is an entity class, value is the renderer.
      * @see BaseMod#AddRenderer(Map)
      */
@@ -74,6 +77,7 @@ public abstract class ModLoader {
 
     /**
      * Used for adding new options to the furnace for item creation.
+     *
      * @param id ItemID of the input item.
      * @return ItemID of the output item.
      * @see BaseMod#AddSmelting(int)
@@ -84,9 +88,10 @@ public abstract class ModLoader {
 
     /**
      * Registers one texture override to be done.
-     * @param path Path to the texture file to modify.
+     *
+     * @param path        Path to the texture file to modify.
      * @param overlayPath Path to the texture file which is to be overlaid.
-     * @param index Sprite index into the texture to be modified.
+     * @param index       Sprite index into the texture to be modified.
      */
     public static void addOverride(String path, String overlayPath, int index) {
         overrides.putIfAbsent(path, new ArrayList<>());
@@ -95,6 +100,7 @@ public abstract class ModLoader {
 
     /**
      * Register one animation instance.
+     *
      * @param anim instance of animation handler
      */
     public static void addAnimation(TextureFX anim) {
@@ -103,11 +109,12 @@ public abstract class ModLoader {
 
     /**
      * Used for getting value of private fields.
-     * @param instance Object to get private field from.
+     *
+     * @param instance   Object to get private field from.
      * @param fieldindex Name of the field.
-     * @param <T> Return type.
+     * @param <T>        Return type.
      * @return Value of private field.
-     * @throws SecurityException if the thread is not allowed to access field.
+     * @throws SecurityException    if the thread is not allowed to access field.
      * @throws NoSuchFieldException if field does not exist.
      */
     public static <T> T getPrivateValue(Object instance, int fieldindex) throws SecurityException, NoSuchFieldException {
@@ -116,11 +123,12 @@ public abstract class ModLoader {
 
     /**
      * Used for getting value of private fields.
+     *
      * @param instance Object to get private field from.
-     * @param field Name of the field.
-     * @param <T> Return type.
+     * @param field    Name of the field.
+     * @param <T>      Return type.
      * @return Value of private field.
-     * @throws SecurityException if the thread is not allowed to access field.
+     * @throws SecurityException    if the thread is not allowed to access field.
      * @throws NoSuchFieldException if field does not exist.
      */
     public static <T> T getPrivateValue(Object instance, String field) throws SecurityException, NoSuchFieldException {
@@ -129,11 +137,12 @@ public abstract class ModLoader {
 
     /**
      * Used for setting value of private fields.
+     *
      * @param instance Object to get private field from.
-     * @param field Name of the field.
-     * @param value Value to set.
-     * @param <T> Return type.
-     * @throws SecurityException if the thread is not allowed to access field.
+     * @param field    Name of the field.
+     * @param value    Value to set.
+     * @param <T>      Return type.
+     * @throws SecurityException    if the thread is not allowed to access field.
      * @throws NoSuchFieldException if field does not exist.
      */
     public static <T> void setPrivateValue(Object instance, String field, T value) throws SecurityException, NoSuchFieldException {
@@ -142,6 +151,7 @@ public abstract class ModLoader {
 
     /**
      * Gets the next Entity ID to use.
+     *
      * @return Assigned ID.
      */
     public static int getUniqueEntityId() {
@@ -150,6 +160,7 @@ public abstract class ModLoader {
 
     /**
      * Gets next available index for this sprite map.
+     *
      * @param path Sprite map to get available index from.
      * @return Assigned sprite index to use.
      */
@@ -164,6 +175,7 @@ public abstract class ModLoader {
 
     /**
      * Checks if a mod is loaded.
+     *
      * @param mod - Name of the mod to check for.
      * @return Returns true if a mod with supplied name exists in the mod list.
      */
@@ -173,7 +185,8 @@ public abstract class ModLoader {
 
     /**
      * Opens GUI for use with mods.
-     * @param player Player instance to open GUI for.
+     *
+     * @param player   Player instance to open GUI for.
      * @param instance Used for identifying which mod this call is for. Allows for passing extra data to GUI.
      * @return GUI that mod created.
      * @see BaseMod#OpenModGUI(EntityPlayerSP, Object)
@@ -188,10 +201,11 @@ public abstract class ModLoader {
 
     /**
      * Used for generating new blocks in the world.
+     *
      * @param generator Generator to pair with.
-     * @param chunkX X coordinate of chunk.
-     * @param chunkZ Z coordinate of chunk.
-     * @param world World to generate blocks in.
+     * @param chunkX    X coordinate of chunk.
+     * @param chunkZ    Z coordinate of chunk.
+     * @param world     World to generate blocks in.
      * @see BaseMod#GenerateSurface(World, Random, int, int)
      * @see BaseMod#GenerateNether(World, Random, int, int)
      */
@@ -205,6 +219,7 @@ public abstract class ModLoader {
 
     /**
      * Used to register all mod blocks that the client can use.
+     *
      * @param registry List of blocks to add to.
      * @see BaseMod#RegisterBlocks(List)
      */
@@ -214,6 +229,7 @@ public abstract class ModLoader {
 
     /**
      * Processes all registered texture overrides, modifies internal buffers.
+     *
      * @param texCache Reference to texture cache.
      * @see BaseMod#RegisterTextureOverrides()
      */
@@ -283,6 +299,7 @@ public abstract class ModLoader {
 
     /**
      * Place holder for calling the function that adds TileEntities.
+     *
      * @see BaseMod#RegisterTileEntity()
      */
     public static void RegisterAllTileEntities() {
@@ -291,11 +308,11 @@ public abstract class ModLoader {
 
     /**
      * Runs all registered OSD hooks, run by GUIInGame.
+     *
      * @param game instance of the game class.
      * @see BaseMod#OSDHook(Minecraft)
      */
     public static void RunOSDHooks(Minecraft game) {
         Loader.forEach(mod -> mod.OSDHook(game));
     }
-
 }

@@ -1,1 +1,1 @@
-ateranimavis.launcher.spi.ClientDevLauncherHandler
+com.github.ateranimavis.modlauncher.handler.ClientDevLaunchHandler

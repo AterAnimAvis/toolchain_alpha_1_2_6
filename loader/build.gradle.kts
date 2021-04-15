@@ -65,7 +65,7 @@ dependencies {
     implementation(group = "cpw.mods", name = "modlauncher", version = "8.0.9")
     implementation(group = "cpw.mods", name = "grossjava9hacks", version = "1.3.3")
     implementation(group = "net.sf.jopt-simple", name = "jopt-simple", version = "5.0.4")
-    runtimeOnly(group = "com.google.guava", name = "guava", version = "30.1.1-jre")
+    implementation(group = "com.google.guava", name = "guava", version = "30.1.1-jre")
     runtimeOnly(group = "com.google.code.gson", name = "gson", version = "2.2.4")
     runtimeOnly(group = "org.ow2.asm", name = "asm-analysis", version = "7.2")
     runtimeOnly(group = "org.ow2.asm", name = "asm-commons", version = "7.2")
