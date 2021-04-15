@@ -1,5 +1,14 @@
 --- a/net/minecraft/src/EntityPlayer.java
 +++ b/net/minecraft/src/EntityPlayer.java
+@@ -18,7 +18,7 @@
+    public EntityPlayer(World p_i83_1_) {
+       super(p_i83_1_);
+       this.field_9292_aO = 1.62F;
+-      this.func_365_c((double)p_i83_1_.field_1036_o + 0.5D, (double)(p_i83_1_.field_4210_n + 1), (double)p_i83_1_.field_1034_q + 0.5D, 0.0F, 0.0F);
++      this.func_365_c((double)p_i83_1_.field_1036_o + 0.5D, p_i83_1_.field_4210_n + 1, (double)p_i83_1_.field_1034_q + 0.5D, 0.0F, 0.0F);
+       this.field_9337_J = 20;
+       this.field_9351_C = "humanoid";
+       this.field_9353_B = 180.0F;
 @@ -79,10 +79,10 @@
        this.field_774_f += (f - this.field_774_f) * 0.4F;
        this.field_9328_R += (f1 - this.field_9328_R) * 0.8F;
@@ -14,23 +23,51 @@
              }
           }
        }
-@@ -135,7 +135,7 @@
+@@ -101,15 +101,15 @@
+       super.func_419_b(p_419_1_);
+       this.func_371_a(0.2F, 0.2F);
+       this.func_347_a(this.field_611_ak, this.field_610_al, this.field_609_am);
+-      this.field_607_ao = (double)0.1F;
++      this.field_607_ao = 0.1F;
+       if (this.field_771_i.equals("Notch")) {
+          this.func_444_a(new ItemStack(Item.field_228_h, 1), true);
+       }
+ 
+       this.field_778_b.func_503_g();
+       if (p_419_1_ != null) {
+-         this.field_608_an = (double)(-MathHelper.func_1114_b((this.field_9331_N + this.field_605_aq) * (float)Math.PI / 180.0F) * 0.1F);
+-         this.field_606_ap = (double)(-MathHelper.func_1106_a((this.field_9331_N + this.field_605_aq) * (float)Math.PI / 180.0F) * 0.1F);
++         this.field_608_an = -MathHelper.func_1114_b((this.field_9331_N + this.field_605_aq) * (float)Math.PI / 180.0F) * 0.1F;
++         this.field_606_ap = -MathHelper.func_1106_a((this.field_9331_N + this.field_605_aq) * (float)Math.PI / 180.0F) * 0.1F;
+       } else {
+          this.field_608_an = this.field_606_ap = 0.0D;
+       }
+@@ -133,20 +133,20 @@
+          if (p_444_2_) {
+             float f1 = this.field_9312_bd.nextFloat() * 0.5F;
              float f2 = this.field_9312_bd.nextFloat() * (float)Math.PI * 2.0F;
-             entityitem.field_608_an = (double)(-MathHelper.func_1106_a(f2) * f1);
-             entityitem.field_606_ap = (double)(MathHelper.func_1114_b(f2) * f1);
+-            entityitem.field_608_an = (double)(-MathHelper.func_1106_a(f2) * f1);
+-            entityitem.field_606_ap = (double)(MathHelper.func_1114_b(f2) * f1);
 -            entityitem.field_607_ao = (double)0.2F;
++            entityitem.field_608_an = -MathHelper.func_1106_a(f2) * f1;
++            entityitem.field_606_ap = MathHelper.func_1114_b(f2) * f1;
 +            entityitem.field_607_ao = 0.2F;
           } else {
              f = 0.3F;
-             entityitem.field_608_an = (double)(-MathHelper.func_1106_a(this.field_605_aq / 180.0F * (float)Math.PI) * MathHelper.func_1114_b(this.field_604_ar / 180.0F * (float)Math.PI) * f);
-@@ -144,9 +144,9 @@
+-            entityitem.field_608_an = (double)(-MathHelper.func_1106_a(this.field_605_aq / 180.0F * (float)Math.PI) * MathHelper.func_1114_b(this.field_604_ar / 180.0F * (float)Math.PI) * f);
+-            entityitem.field_606_ap = (double)(MathHelper.func_1114_b(this.field_605_aq / 180.0F * (float)Math.PI) * MathHelper.func_1114_b(this.field_604_ar / 180.0F * (float)Math.PI) * f);
+-            entityitem.field_607_ao = (double)(-MathHelper.func_1106_a(this.field_604_ar / 180.0F * (float)Math.PI) * f + 0.1F);
++            entityitem.field_608_an = -MathHelper.func_1106_a(this.field_605_aq / 180.0F * (float)Math.PI) * MathHelper.func_1114_b(this.field_604_ar / 180.0F * (float)Math.PI) * f;
++            entityitem.field_606_ap = MathHelper.func_1114_b(this.field_605_aq / 180.0F * (float)Math.PI) * MathHelper.func_1114_b(this.field_604_ar / 180.0F * (float)Math.PI) * f;
++            entityitem.field_607_ao = -MathHelper.func_1106_a(this.field_604_ar / 180.0F * (float)Math.PI) * f + 0.1F;
              f = 0.02F;
              float f3 = this.field_9312_bd.nextFloat() * (float)Math.PI * 2.0F;
              f = f * this.field_9312_bd.nextFloat();
 -            entityitem.field_608_an += Math.cos((double)f3) * (double)f;
-+            entityitem.field_608_an += Math.cos(f3) * (double)f;
-             entityitem.field_607_ao += (double)((this.field_9312_bd.nextFloat() - this.field_9312_bd.nextFloat()) * 0.1F);
+-            entityitem.field_607_ao += (double)((this.field_9312_bd.nextFloat() - this.field_9312_bd.nextFloat()) * 0.1F);
 -            entityitem.field_606_ap += Math.sin((double)f3) * (double)f;
++            entityitem.field_608_an += Math.cos(f3) * (double)f;
++            entityitem.field_607_ao += (this.field_9312_bd.nextFloat() - this.field_9312_bd.nextFloat()) * 0.1F;
 +            entityitem.field_606_ap += Math.sin(f3) * (double)f;
           }
  

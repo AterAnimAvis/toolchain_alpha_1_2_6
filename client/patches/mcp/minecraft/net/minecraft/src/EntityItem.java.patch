@@ -1,15 +1,19 @@
 --- a/net/minecraft/src/EntityItem.java
 +++ b/net/minecraft/src/EntityItem.java
-@@ -16,7 +16,7 @@
+@@ -15,9 +15,9 @@
+       this.func_347_a(p_i91_2_, p_i91_4_, p_i91_6_);
        this.field_801_a = p_i91_8_;
        this.field_605_aq = (float)(Math.random() * 360.0D);
-       this.field_608_an = (double)((float)(Math.random() * (double)0.2F - (double)0.1F));
+-      this.field_608_an = (double)((float)(Math.random() * (double)0.2F - (double)0.1F));
 -      this.field_607_ao = (double)0.2F;
+-      this.field_606_ap = (double)((float)(Math.random() * (double)0.2F - (double)0.1F));
++      this.field_608_an = (float)(Math.random() * (double)0.2F - (double)0.1F);
 +      this.field_607_ao = 0.2F;
-       this.field_606_ap = (double)((float)(Math.random() * (double)0.2F - (double)0.1F));
++      this.field_606_ap = (float)(Math.random() * (double)0.2F - (double)0.1F);
        this.field_9289_aT = false;
     }
-@@ -36,9 +36,9 @@
+ 
+@@ -36,11 +36,11 @@
        this.field_9285_at = this.field_611_ak;
        this.field_9284_au = this.field_610_al;
        this.field_9283_av = this.field_609_am;
@@ -17,10 +21,14 @@
 +      this.field_607_ao -= 0.04F;
        if (this.field_615_ag.func_599_f(MathHelper.func_1108_b(this.field_611_ak), MathHelper.func_1108_b(this.field_610_al), MathHelper.func_1108_b(this.field_609_am)) == Material.field_1331_g) {
 -         this.field_607_ao = (double)0.2F;
+-         this.field_608_an = (double)((this.field_9312_bd.nextFloat() - this.field_9312_bd.nextFloat()) * 0.2F);
+-         this.field_606_ap = (double)((this.field_9312_bd.nextFloat() - this.field_9312_bd.nextFloat()) * 0.2F);
 +         this.field_607_ao = 0.2F;
-          this.field_608_an = (double)((this.field_9312_bd.nextFloat() - this.field_9312_bd.nextFloat()) * 0.2F);
-          this.field_606_ap = (double)((this.field_9312_bd.nextFloat() - this.field_9312_bd.nextFloat()) * 0.2F);
++         this.field_608_an = (this.field_9312_bd.nextFloat() - this.field_9312_bd.nextFloat()) * 0.2F;
++         this.field_606_ap = (this.field_9312_bd.nextFloat() - this.field_9312_bd.nextFloat()) * 0.2F;
           this.field_615_ag.func_623_a(this, "random.fizz", 0.4F, 2.0F + this.field_9312_bd.nextFloat() * 0.4F);
+       }
+ 
 @@ -56,9 +56,9 @@
           }
        }
@@ -68,3 +76,12 @@
           }
        }
  
+@@ -165,7 +165,7 @@
+    }
+ 
+    public void func_352_a(NBTTagCompound p_352_1_) {
+-      p_352_1_.func_749_a("Health", (short)((byte)this.field_802_f));
++      p_352_1_.func_749_a("Health", (byte)this.field_802_f);
+       p_352_1_.func_749_a("Age", (short)this.field_800_b);
+       p_352_1_.func_763_a("Item", this.field_801_a.func_1086_a(new NBTTagCompound()));
+    }

@@ -1,0 +1,11 @@
+--- a/net/minecraft/src/Pathfinder.java
++++ b/net/minecraft/src/Pathfinder.java
+@@ -15,7 +15,7 @@
+    }
+ 
+    public PathEntity func_1131_a(Entity p_1131_1_, int p_1131_2_, int p_1131_3_, int p_1131_4_, float p_1131_5_) {
+-      return this.func_1130_a(p_1131_1_, (double)((float)p_1131_2_ + 0.5F), (double)((float)p_1131_3_ + 0.5F), (double)((float)p_1131_4_ + 0.5F), p_1131_5_);
++      return this.func_1130_a(p_1131_1_, (float)p_1131_2_ + 0.5F, (float)p_1131_3_ + 0.5F, (float)p_1131_4_ + 0.5F, p_1131_5_);
+    }
+ 
+    private PathEntity func_1130_a(Entity p_1130_1_, double p_1130_2_, double p_1130_4_, double p_1130_6_, float p_1130_8_) {

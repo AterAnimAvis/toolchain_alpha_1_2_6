@@ -1,5 +1,42 @@
 --- a/net/minecraft/src/FontRenderer.java
 +++ b/net/minecraft/src/FontRenderer.java
+@@ -2,7 +2,6 @@
+ 
+ import java.awt.image.BufferedImage;
+ import java.io.IOException;
+-import java.nio.Buffer;
+ import java.nio.IntBuffer;
+ import javax.imageio.ImageIO;
+ import org.lwjgl.opengl.GL11;
+@@ -35,11 +34,12 @@
+             int k1 = l * 8 + j1;
+             boolean flag = true;
+ 
+-            for(int l1 = 0; l1 < 8 && flag; ++l1) {
++            for(int l1 = 0; l1 < 8; ++l1) {
+                int i2 = (i1 * 8 + l1) * i;
+                int j2 = aint[k1 + i2] & 255;
+                if (j2 > 0) {
+                   flag = false;
++                  break;
+                }
+             }
+ 
+@@ -67,10 +67,10 @@
+          float f = 7.99F;
+          float f1 = 0.0F;
+          float f2 = 0.0F;
+-         tessellator.func_983_a(0.0D, (double)(0.0F + f), 0.0D, (double)((float)j3 / 128.0F + f1), (double)(((float)l3 + f) / 128.0F + f2));
+-         tessellator.func_983_a((double)(0.0F + f), (double)(0.0F + f), 0.0D, (double)(((float)j3 + f) / 128.0F + f1), (double)(((float)l3 + f) / 128.0F + f2));
+-         tessellator.func_983_a((double)(0.0F + f), 0.0D, 0.0D, (double)(((float)j3 + f) / 128.0F + f1), (double)((float)l3 / 128.0F + f2));
+-         tessellator.func_983_a(0.0D, 0.0D, 0.0D, (double)((float)j3 / 128.0F + f1), (double)((float)l3 / 128.0F + f2));
++         tessellator.func_983_a(0.0D, 0.0F + f, 0.0D, (float)j3 / 128.0F + f1, ((float)l3 + f) / 128.0F + f2);
++         tessellator.func_983_a(0.0F + f, 0.0F + f, 0.0D, ((float)j3 + f) / 128.0F + f1, ((float)l3 + f) / 128.0F + f2);
++         tessellator.func_983_a(0.0F + f, 0.0D, 0.0D, ((float)j3 + f) / 128.0F + f1, (float)l3 / 128.0F + f2);
++         tessellator.func_983_a(0.0D, 0.0D, 0.0D, (float)j3 / 128.0F + f1, (float)l3 / 128.0F + f2);
+          tessellator.func_982_a();
+          GL11.glTranslatef((float)this.field_1307_b[l2], 0.0F, 0.0F);
+          GL11.glEndList();
 @@ -135,7 +135,7 @@
           }
  

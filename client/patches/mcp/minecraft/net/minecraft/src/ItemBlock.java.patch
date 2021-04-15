@@ -1,0 +1,11 @@
+--- a/net/minecraft/src/ItemBlock.java
++++ b/net/minecraft/src/ItemBlock.java
+@@ -46,7 +46,7 @@
+             if (p_192_3_.func_690_d(p_192_4_, p_192_5_, p_192_6_, this.field_330_a)) {
+                Block.field_345_n[this.field_330_a].func_258_d(p_192_3_, p_192_4_, p_192_5_, p_192_6_, p_192_7_);
+                Block.field_345_n[this.field_330_a].func_4026_a(p_192_3_, p_192_4_, p_192_5_, p_192_6_, p_192_2_);
+-               p_192_3_.func_684_a((double)((float)p_192_4_ + 0.5F), (double)((float)p_192_5_ + 0.5F), (double)((float)p_192_6_ + 0.5F), block.field_358_bl.func_1145_d(), (block.field_358_bl.func_1147_b() + 1.0F) / 2.0F, block.field_358_bl.func_1144_c() * 0.8F);
++               p_192_3_.func_684_a((float)p_192_4_ + 0.5F, (float)p_192_5_ + 0.5F, (float)p_192_6_ + 0.5F, block.field_358_bl.func_1145_d(), (block.field_358_bl.func_1147_b() + 1.0F) / 2.0F, block.field_358_bl.func_1144_c() * 0.8F);
+                --p_192_1_.field_1615_a;
+             }
+          }

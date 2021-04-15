@@ -1,14 +1,36 @@
 --- a/net/minecraft/src/EntityFish.java
 +++ b/net/minecraft/src/EntityFish.java
-@@ -47,7 +47,7 @@
+@@ -46,15 +46,15 @@
+       this.field_4097_b.field_4128_n = this;
        this.func_371_a(0.25F, 0.25F);
        this.func_365_c(p_i149_2_.field_611_ak, p_i149_2_.field_610_al + 1.62D - (double)p_i149_2_.field_9292_aO, p_i149_2_.field_609_am, p_i149_2_.field_605_aq, p_i149_2_.field_604_ar);
-       this.field_611_ak -= (double)(MathHelper.func_1114_b(this.field_605_aq / 180.0F * (float)Math.PI) * 0.16F);
+-      this.field_611_ak -= (double)(MathHelper.func_1114_b(this.field_605_aq / 180.0F * (float)Math.PI) * 0.16F);
 -      this.field_610_al -= (double)0.1F;
+-      this.field_609_am -= (double)(MathHelper.func_1106_a(this.field_605_aq / 180.0F * (float)Math.PI) * 0.16F);
++      this.field_611_ak -= MathHelper.func_1114_b(this.field_605_aq / 180.0F * (float)Math.PI) * 0.16F;
 +      this.field_610_al -= 0.1F;
-       this.field_609_am -= (double)(MathHelper.func_1106_a(this.field_605_aq / 180.0F * (float)Math.PI) * 0.16F);
++      this.field_609_am -= MathHelper.func_1106_a(this.field_605_aq / 180.0F * (float)Math.PI) * 0.16F;
        this.func_347_a(this.field_611_ak, this.field_610_al, this.field_609_am);
        this.field_9292_aO = 0.0F;
+       float f = 0.4F;
+-      this.field_608_an = (double)(-MathHelper.func_1106_a(this.field_605_aq / 180.0F * (float)Math.PI) * MathHelper.func_1114_b(this.field_604_ar / 180.0F * (float)Math.PI) * f);
+-      this.field_606_ap = (double)(MathHelper.func_1114_b(this.field_605_aq / 180.0F * (float)Math.PI) * MathHelper.func_1114_b(this.field_604_ar / 180.0F * (float)Math.PI) * f);
+-      this.field_607_ao = (double)(-MathHelper.func_1106_a(this.field_604_ar / 180.0F * (float)Math.PI) * f);
++      this.field_608_an = -MathHelper.func_1106_a(this.field_605_aq / 180.0F * (float)Math.PI) * MathHelper.func_1114_b(this.field_604_ar / 180.0F * (float)Math.PI) * f;
++      this.field_606_ap = MathHelper.func_1114_b(this.field_605_aq / 180.0F * (float)Math.PI) * MathHelper.func_1114_b(this.field_604_ar / 180.0F * (float)Math.PI) * f;
++      this.field_607_ao = -MathHelper.func_1106_a(this.field_604_ar / 180.0F * (float)Math.PI) * f;
+       this.func_4042_a(this.field_608_an, this.field_607_ao, this.field_606_ap, 1.5F, 1.0F);
+    }
+ 
+@@ -74,7 +74,7 @@
+       this.field_606_ap = p_4042_5_;
+       float f1 = MathHelper.func_1109_a(p_4042_1_ * p_4042_1_ + p_4042_5_ * p_4042_5_);
+       this.field_603_as = this.field_605_aq = (float)(Math.atan2(p_4042_1_, p_4042_5_) * 180.0D / (double)(float)Math.PI);
+-      this.field_602_at = this.field_604_ar = (float)(Math.atan2(p_4042_3_, (double)f1) * 180.0D / (double)(float)Math.PI);
++      this.field_602_at = this.field_604_ar = (float)(Math.atan2(p_4042_3_, f1) * 180.0D / (double)(float)Math.PI);
+       this.field_4090_i = 0;
+    }
+ 
 @@ -82,8 +82,8 @@
        this.field_6387_m = p_378_1_;
        this.field_6386_n = p_378_3_;
@@ -20,6 +42,19 @@
        this.field_6388_l = p_378_9_;
        this.field_608_an = this.field_6382_r;
        this.field_607_ao = this.field_6381_s;
+@@ -153,9 +153,9 @@
+             }
+ 
+             this.field_4091_h = false;
+-            this.field_608_an *= (double)(this.field_9312_bd.nextFloat() * 0.2F);
+-            this.field_607_ao *= (double)(this.field_9312_bd.nextFloat() * 0.2F);
+-            this.field_606_ap *= (double)(this.field_9312_bd.nextFloat() * 0.2F);
++            this.field_608_an *= this.field_9312_bd.nextFloat() * 0.2F;
++            this.field_607_ao *= this.field_9312_bd.nextFloat() * 0.2F;
++            this.field_606_ap *= this.field_9312_bd.nextFloat() * 0.2F;
+             this.field_4090_i = 0;
+             this.field_4089_j = 0;
+          } else {
 @@ -172,14 +172,13 @@
           }
  
@@ -34,7 +69,71 @@
              if (entity1.func_401_c_() && (entity1 != this.field_4097_b || this.field_4089_j >= 5)) {
                 float f = 0.3F;
 -               AxisAlignedBB axisalignedbb = entity1.field_601_au.func_1177_b((double)f, (double)f, (double)f);
-+               AxisAlignedBB axisalignedbb = entity1.field_601_au.func_1177_b((double) f, (double) f, (double) f);
++               AxisAlignedBB axisalignedbb = entity1.field_601_au.func_1177_b(f, f, f);
                 MovingObjectPosition movingobjectposition1 = axisalignedbb.func_1169_a(vec3d1, vec3d);
                 if (movingobjectposition1 != null) {
                    double d2 = vec3d1.func_1251_c(movingobjectposition1.field_1169_f);
+@@ -210,7 +209,7 @@
+             float f2 = MathHelper.func_1109_a(this.field_608_an * this.field_608_an + this.field_606_ap * this.field_606_ap);
+             this.field_605_aq = (float)(Math.atan2(this.field_608_an, this.field_606_ap) * 180.0D / (double)(float)Math.PI);
+ 
+-            for(this.field_604_ar = (float)(Math.atan2(this.field_607_ao, (double)f2) * 180.0D / (double)(float)Math.PI); this.field_604_ar - this.field_602_at < -180.0F; this.field_602_at -= 360.0F) {
++            for(this.field_604_ar = (float)(Math.atan2(this.field_607_ao, f2) * 180.0D / (double)(float)Math.PI); this.field_604_ar - this.field_602_at < -180.0F; this.field_602_at -= 360.0F) {
+             }
+ 
+             while(this.field_604_ar - this.field_602_at >= 180.0F) {
+@@ -249,20 +248,20 @@
+                   --this.field_4088_k;
+                } else if (this.field_9312_bd.nextInt(500) == 0) {
+                   this.field_4088_k = this.field_9312_bd.nextInt(30) + 10;
+-                  this.field_607_ao -= (double)0.2F;
++                  this.field_607_ao -= 0.2F;
+                   this.field_615_ag.func_623_a(this, "random.splash", 0.25F, 1.0F + (this.field_9312_bd.nextFloat() - this.field_9312_bd.nextFloat()) * 0.4F);
+                   float f4 = (float)MathHelper.func_1108_b(this.field_601_au.field_1697_b);
+ 
+                   for(int l = 0; (float)l < 1.0F + this.field_644_aC * 20.0F; ++l) {
+                      float f1 = (this.field_9312_bd.nextFloat() * 2.0F - 1.0F) * this.field_644_aC;
+                      float f6 = (this.field_9312_bd.nextFloat() * 2.0F - 1.0F) * this.field_644_aC;
+-                     this.field_615_ag.func_694_a("bubble", this.field_611_ak + (double)f1, (double)(f4 + 1.0F), this.field_609_am + (double)f6, this.field_608_an, this.field_607_ao - (double)(this.field_9312_bd.nextFloat() * 0.2F), this.field_606_ap);
++                     this.field_615_ag.func_694_a("bubble", this.field_611_ak + (double)f1, f4 + 1.0F, this.field_609_am + (double)f6, this.field_608_an, this.field_607_ao - (double)(this.field_9312_bd.nextFloat() * 0.2F), this.field_606_ap);
+                   }
+ 
+                   for(int i1 = 0; (float)i1 < 1.0F + this.field_644_aC * 20.0F; ++i1) {
+                      float f5 = (this.field_9312_bd.nextFloat() * 2.0F - 1.0F) * this.field_644_aC;
+                      float f7 = (this.field_9312_bd.nextFloat() * 2.0F - 1.0F) * this.field_644_aC;
+-                     this.field_615_ag.func_694_a("splash", this.field_611_ak + (double)f5, (double)(f4 + 1.0F), this.field_609_am + (double)f7, this.field_608_an, this.field_607_ao, this.field_606_ap);
++                     this.field_615_ag.func_694_a("splash", this.field_611_ak + (double)f5, f4 + 1.0F, this.field_609_am + (double)f7, this.field_608_an, this.field_607_ao, this.field_606_ap);
+                   }
+                }
+             }
+@@ -278,9 +277,9 @@
+                this.field_607_ao *= 0.8D;
+             }
+ 
+-            this.field_608_an *= (double)f3;
+-            this.field_607_ao *= (double)f3;
+-            this.field_606_ap *= (double)f3;
++            this.field_608_an *= f3;
++            this.field_607_ao *= f3;
++            this.field_606_ap *= f3;
+             this.func_347_a(this.field_611_ak, this.field_610_al, this.field_609_am);
+          }
+       }
+@@ -314,7 +313,7 @@
+          double d0 = this.field_4097_b.field_611_ak - this.field_611_ak;
+          double d2 = this.field_4097_b.field_610_al - this.field_610_al;
+          double d4 = this.field_4097_b.field_609_am - this.field_609_am;
+-         double d6 = (double)MathHelper.func_1109_a(d0 * d0 + d2 * d2 + d4 * d4);
++         double d6 = MathHelper.func_1109_a(d0 * d0 + d2 * d2 + d4 * d4);
+          double d8 = 0.1D;
+          this.field_4096_c.field_608_an += d0 * d8;
+          this.field_4096_c.field_607_ao += d2 * d8 + (double)MathHelper.func_1109_a(d6) * 0.08D;
+@@ -325,7 +324,7 @@
+          double d1 = this.field_4097_b.field_611_ak - this.field_611_ak;
+          double d3 = this.field_4097_b.field_610_al - this.field_610_al;
+          double d5 = this.field_4097_b.field_609_am - this.field_609_am;
+-         double d7 = (double)MathHelper.func_1109_a(d1 * d1 + d3 * d3 + d5 * d5);
++         double d7 = MathHelper.func_1109_a(d1 * d1 + d3 * d3 + d5 * d5);
+          double d9 = 0.1D;
+          entityitem.field_608_an = d1 * d9;
+          entityitem.field_607_ao = d3 * d9 + (double)MathHelper.func_1109_a(d7) * 0.08D;

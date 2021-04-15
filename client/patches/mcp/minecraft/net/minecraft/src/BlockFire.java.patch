@@ -9,6 +9,15 @@
     }
  
     public boolean func_243_a(World p_243_1_, int p_243_2_, int p_243_3_, int p_243_4_) {
+@@ -174,7 +174,7 @@
+ 
+    public void func_247_b(World p_247_1_, int p_247_2_, int p_247_3_, int p_247_4_, Random p_247_5_) {
+       if (p_247_5_.nextInt(24) == 0) {
+-         p_247_1_.func_684_a((double)((float)p_247_2_ + 0.5F), (double)((float)p_247_3_ + 0.5F), (double)((float)p_247_4_ + 0.5F), "fire.fire", 1.0F + p_247_5_.nextFloat(), p_247_5_.nextFloat() * 0.7F + 0.3F);
++         p_247_1_.func_684_a((float)p_247_2_ + 0.5F, (float)p_247_3_ + 0.5F, (float)p_247_4_ + 0.5F, "fire.fire", 1.0F + p_247_5_.nextFloat(), p_247_5_.nextFloat() * 0.7F + 0.3F);
+       }
+ 
+       if (!p_247_1_.func_601_g(p_247_2_, p_247_3_ - 1, p_247_4_) && !Block.field_402_as.func_261_b(p_247_1_, p_247_2_, p_247_3_ - 1, p_247_4_)) {
 @@ -183,7 +183,7 @@
                 float f3 = (float)p_247_2_ + p_247_5_.nextFloat() * 0.1F;
                 float f8 = (float)p_247_3_ + p_247_5_.nextFloat();

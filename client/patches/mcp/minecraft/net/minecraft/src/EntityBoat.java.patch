@@ -1,6 +1,19 @@
 --- a/net/minecraft/src/EntityBoat.java
 +++ b/net/minecraft/src/EntityBoat.java
-@@ -89,8 +89,8 @@
+@@ -69,11 +69,9 @@
+             this.func_395_F();
+          }
+ 
++      }
+          return true;
+-      } else {
+-         return true;
+       }
+-   }
+ 
+    public void func_9280_g() {
+       this.field_808_c = -this.field_808_c;
+@@ -89,8 +87,8 @@
        this.field_9393_e = p_378_1_;
        this.field_9392_f = p_378_3_;
        this.field_9391_g = p_378_5_;
@@ -11,7 +24,7 @@
        this.field_9394_d = p_378_9_ + 4;
        this.field_608_an = this.field_9388_j;
        this.field_607_ao = this.field_9387_k;
-@@ -158,9 +158,9 @@
+@@ -158,9 +156,9 @@
                 this.field_606_ap *= 0.5D;
              }
  
@@ -24,7 +37,7 @@
           }
  
        } else {
-@@ -201,7 +201,7 @@
+@@ -201,7 +199,7 @@
              double d6 = Math.sin((double)this.field_605_aq * Math.PI / 180.0D);
  
              for(int j = 0; (double)j < 1.0D + d4 * 60.0D; ++j) {
@@ -33,7 +46,7 @@
                 double d9 = (double)(this.field_9312_bd.nextInt(2) * 2 - 1) * 0.7D;
                 if (this.field_9312_bd.nextBoolean()) {
                    double d10 = this.field_611_ak - d5 * d7 * 0.8D + d6 * d9;
-@@ -228,17 +228,17 @@
+@@ -228,17 +226,17 @@
                 }
              }
           } else {
@@ -56,7 +69,7 @@
           }
  
           double d8;
-@@ -259,10 +259,9 @@
+@@ -259,10 +257,9 @@
  
           this.field_605_aq = (float)((double)this.field_605_aq + d8);
           this.func_376_c(this.field_605_aq, this.field_604_ar);

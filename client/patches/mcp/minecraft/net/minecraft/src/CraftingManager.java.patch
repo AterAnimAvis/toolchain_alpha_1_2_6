@@ -1,15 +1,46 @@
 --- a/net/minecraft/src/CraftingManager.java
 +++ b/net/minecraft/src/CraftingManager.java
-@@ -7,7 +7,7 @@
+@@ -1,25 +1,24 @@
+ package net.minecraft.src;
+ 
+ import java.util.ArrayList;
+-import java.util.Collections;
+ import java.util.HashMap;
+ import java.util.List;
  
  public class CraftingManager {
     private static final CraftingManager field_6541_a = new CraftingManager();
 -   private List field_1662_b = new ArrayList();
 +   private List<CraftingRecipe> field_1662_b = new ArrayList<>();
  
-    public static final CraftingManager func_1120_a() {
+-   public static final CraftingManager func_1120_a() {
++   public static CraftingManager func_1120_a() {
        return field_6541_a;
-@@ -66,30 +66,29 @@
+    }
+ 
+    private CraftingManager() {
+-      (new RecipesTools()).func_1122_a(this);
+-      (new RecipesWeapons()).func_766_a(this);
+-      (new RecipesIngots()).func_810_a(this);
+-      (new RecipesFood()).func_976_a(this);
+-      (new RecipesCrafting()).func_1051_a(this);
+-      (new RecipesArmor()).func_1148_a(this);
++      new RecipesTools().func_1122_a(this);
++      new RecipesWeapons().func_766_a(this);
++      new RecipesIngots().func_810_a(this);
++      new RecipesFood().func_976_a(this);
++      new RecipesCrafting().func_1051_a(this);
++      new RecipesArmor().func_1148_a(this);
+       this.func_1121_a(new ItemStack(Item.field_4029_aI, 3), "###", '#', Item.field_302_aH);
+       this.func_1121_a(new ItemStack(Item.field_4028_aJ, 1), "#", "#", "#", '#', Item.field_4029_aI);
+       this.func_1121_a(new ItemStack(Block.field_4057_ba, 2), "###", "###", '#', Item.field_266_B);
+@@ -61,35 +60,34 @@
+       this.func_1121_a(new ItemStack(Block.field_4064_aS, 1), "#", "#", '#', Block.field_338_u);
+       this.func_1121_a(new ItemStack(Block.field_4066_aL, 1), "###", '#', Block.field_338_u);
+       this.func_1121_a(new ItemStack(Block.field_4065_aN, 1), "###", '#', Block.field_334_y);
+-      Collections.sort(this.field_1662_b, new RecipeSorter(this));
++      this.field_1662_b.sort(new RecipeSorter(this));
+       System.out.println(this.field_1662_b.size() + " recipes");
     }
  
     void func_1121_a(ItemStack p_1121_1_, Object... p_1121_2_) {
@@ -46,7 +77,7 @@
           Character character = (Character)p_1121_2_[i];
           int i1 = 0;
           if (p_1121_2_[i + 1] instanceof Item) {
-@@ -105,19 +104,14 @@
+@@ -105,19 +103,14 @@
  
        for(int j1 = 0; j1 < j * k; ++j1) {
           char c0 = s.charAt(j1);

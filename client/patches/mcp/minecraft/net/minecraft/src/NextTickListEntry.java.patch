@@ -1,6 +1,6 @@
 --- a/net/minecraft/src/NextTickListEntry.java
 +++ b/net/minecraft/src/NextTickListEntry.java
-@@ -1,6 +1,6 @@
+@@ -1,13 +1,13 @@
  package net.minecraft.src;
  
 -public class NextTickListEntry implements Comparable {
@@ -8,6 +8,14 @@
     private static long field_1363_f = 0L;
     public int field_1361_a;
     public int field_1360_b;
+    public int field_1366_c;
+    public int field_1365_d;
+    public long field_1364_e;
+-   private long field_1362_g = (long)(field_1363_f++);
++   private long field_1362_g = field_1363_f++;
+ 
+    public NextTickListEntry(int p_i215_1_, int p_i215_2_, int p_i215_3_, int p_i215_4_) {
+       this.field_1361_a = p_i215_1_;
 @@ -34,7 +34,7 @@
        return this;
     }

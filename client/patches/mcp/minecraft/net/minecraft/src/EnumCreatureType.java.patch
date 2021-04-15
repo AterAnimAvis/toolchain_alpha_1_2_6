@@ -1,0 +1,11 @@
+--- a/net/minecraft/src/EnumCreatureType.java
++++ b/net/minecraft/src/EnumCreatureType.java
+@@ -7,7 +7,7 @@
+    public final Class field_4278_c;
+    public final int field_4277_d;
+ 
+-   private EnumCreatureType(Class p_i139_3_, int p_i139_4_) {
++   EnumCreatureType(Class p_i139_3_, int p_i139_4_) {
+       this.field_4278_c = p_i139_3_;
+       this.field_4277_d = p_i139_4_;
+    }

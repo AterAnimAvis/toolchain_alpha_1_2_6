@@ -1,0 +1,17 @@
+--- a/net/minecraft/src/BlockCactus.java
++++ b/net/minecraft/src/BlockCactus.java
+@@ -29,12 +29,12 @@
+ 
+    public AxisAlignedBB func_221_d(World p_221_1_, int p_221_2_, int p_221_3_, int p_221_4_) {
+       float f = 0.0625F;
+-      return AxisAlignedBB.func_1161_b((double)((float)p_221_2_ + f), (double)p_221_3_, (double)((float)p_221_4_ + f), (double)((float)(p_221_2_ + 1) - f), (double)((float)(p_221_3_ + 1) - f), (double)((float)(p_221_4_ + 1) - f));
++      return AxisAlignedBB.func_1161_b((float)p_221_2_ + f, p_221_3_, (float)p_221_4_ + f, (float)(p_221_2_ + 1) - f, (float)(p_221_3_ + 1) - f, (float)(p_221_4_ + 1) - f);
+    }
+ 
+    public AxisAlignedBB func_246_f(World p_246_1_, int p_246_2_, int p_246_3_, int p_246_4_) {
+       float f = 0.0625F;
+-      return AxisAlignedBB.func_1161_b((double)((float)p_246_2_ + f), (double)p_246_3_, (double)((float)p_246_4_ + f), (double)((float)(p_246_2_ + 1) - f), (double)(p_246_3_ + 1), (double)((float)(p_246_4_ + 1) - f));
++      return AxisAlignedBB.func_1161_b((float)p_246_2_ + f, p_246_3_, (float)p_246_4_ + f, (float)(p_246_2_ + 1) - f, p_246_3_ + 1, (float)(p_246_4_ + 1) - f);
+    }
+ 
+    public int func_218_a(int p_218_1_) {

@@ -1,0 +1,9 @@
+--- a/net/minecraft/src/EnumOS1.java
++++ b/net/minecraft/src/EnumOS1.java
+@@ -5,5 +5,5 @@
+    solaris,
+    windows,
+    macos,
+-   unknown;
++   unknown
+ }

@@ -25,9 +25,9 @@
 -            tessellator.func_983_a(0.0D, (double)k, 0.0D, 0.0D, (double)((float)k / f));
 -            tessellator.func_983_a((double)j, (double)k, 0.0D, (double)((float)j / f), (double)((float)k / f));
 -            tessellator.func_983_a((double)j, 0.0D, 0.0D, (double)((float)j / f), 0.0D);
-+            tessellator.func_983_a(0.0D, k, 0.0D, 0.0D, (double)((float)k / f));
-+            tessellator.func_983_a(j, k, 0.0D, (double)((float)j / f), (double)((float)k / f));
-+            tessellator.func_983_a(j, 0.0D, 0.0D, (double)((float)j / f), 0.0D);
++            tessellator.func_983_a(0.0D, k, 0.0D, 0.0D, (float)k / f);
++            tessellator.func_983_a(j, k, 0.0D, (float)j / f, (float)k / f);
++            tessellator.func_983_a(j, 0.0D, 0.0D, (float)j / f, 0.0D);
              tessellator.func_983_a(0.0D, 0.0D, 0.0D, 0.0D, 0.0D);
              tessellator.func_982_a();
              if (p_593_1_ >= 0) {
@@ -37,18 +37,21 @@
                 tessellator.func_990_b(8421504);
 -               tessellator.func_991_a((double)i1, (double)j1, 0.0D);
 -               tessellator.func_991_a((double)i1, (double)(j1 + b1), 0.0D);
+-               tessellator.func_991_a((double)(i1 + b0), (double)(j1 + b1), 0.0D);
+-               tessellator.func_991_a((double)(i1 + b0), (double)j1, 0.0D);
 +               tessellator.func_991_a(i1, j1, 0.0D);
-+               tessellator.func_991_a(i1, (double)(j1 + b1), 0.0D);
-                tessellator.func_991_a((double)(i1 + b0), (double)(j1 + b1), 0.0D);
-                tessellator.func_991_a((double)(i1 + b0), (double)j1, 0.0D);
++               tessellator.func_991_a(i1, j1 + b1, 0.0D);
++               tessellator.func_991_a(i1 + b0, j1 + b1, 0.0D);
++               tessellator.func_991_a(i1 + b0, j1, 0.0D);
                 tessellator.func_990_b(8454016);
 -               tessellator.func_991_a((double)i1, (double)j1, 0.0D);
 -               tessellator.func_991_a((double)i1, (double)(j1 + b1), 0.0D);
-+               tessellator.func_991_a(i1, j1, 0.0D);
-+               tessellator.func_991_a(i1, (double)(j1 + b1), 0.0D);
-                tessellator.func_991_a((double)(i1 + p_593_1_), (double)(j1 + b1), 0.0D);
+-               tessellator.func_991_a((double)(i1 + p_593_1_), (double)(j1 + b1), 0.0D);
 -               tessellator.func_991_a((double)(i1 + p_593_1_), (double)j1, 0.0D);
-+               tessellator.func_991_a((double)(i1 + p_593_1_), j1, 0.0D);
++               tessellator.func_991_a(i1, j1, 0.0D);
++               tessellator.func_991_a(i1, j1 + b1, 0.0D);
++               tessellator.func_991_a(i1 + p_593_1_, j1 + b1, 0.0D);
++               tessellator.func_991_a(i1 + p_593_1_, j1, 0.0D);
                 tessellator.func_982_a();
                 GL11.glEnable(3553);
              }

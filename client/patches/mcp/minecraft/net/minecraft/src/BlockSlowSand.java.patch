@@ -1,0 +1,11 @@
+--- a/net/minecraft/src/BlockSlowSand.java
++++ b/net/minecraft/src/BlockSlowSand.java
+@@ -7,7 +7,7 @@
+ 
+    public AxisAlignedBB func_221_d(World p_221_1_, int p_221_2_, int p_221_3_, int p_221_4_) {
+       float f = 0.125F;
+-      return AxisAlignedBB.func_1161_b((double)p_221_2_, (double)p_221_3_, (double)p_221_4_, (double)(p_221_2_ + 1), (double)((float)(p_221_3_ + 1) - f), (double)(p_221_4_ + 1));
++      return AxisAlignedBB.func_1161_b(p_221_2_, p_221_3_, p_221_4_, p_221_2_ + 1, (float)(p_221_3_ + 1) - f, p_221_4_ + 1);
+    }
+ 
+    public void func_236_b(World p_236_1_, int p_236_2_, int p_236_3_, int p_236_4_, Entity p_236_5_) {

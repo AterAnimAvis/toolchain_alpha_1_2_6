@@ -1,14 +1,27 @@
 --- a/net/minecraft/src/EntitySnowball.java
 +++ b/net/minecraft/src/EntitySnowball.java
-@@ -30,7 +30,7 @@
+@@ -29,15 +29,15 @@
+       this.field_811_g = p_i16_2_;
        this.func_371_a(0.25F, 0.25F);
        this.func_365_c(p_i16_2_.field_611_ak, p_i16_2_.field_610_al + (double)p_i16_2_.func_373_s(), p_i16_2_.field_609_am, p_i16_2_.field_605_aq, p_i16_2_.field_604_ar);
-       this.field_611_ak -= (double)(MathHelper.func_1114_b(this.field_605_aq / 180.0F * (float)Math.PI) * 0.16F);
+-      this.field_611_ak -= (double)(MathHelper.func_1114_b(this.field_605_aq / 180.0F * (float)Math.PI) * 0.16F);
 -      this.field_610_al -= (double)0.1F;
+-      this.field_609_am -= (double)(MathHelper.func_1106_a(this.field_605_aq / 180.0F * (float)Math.PI) * 0.16F);
++      this.field_611_ak -= MathHelper.func_1114_b(this.field_605_aq / 180.0F * (float)Math.PI) * 0.16F;
 +      this.field_610_al -= 0.1F;
-       this.field_609_am -= (double)(MathHelper.func_1106_a(this.field_605_aq / 180.0F * (float)Math.PI) * 0.16F);
++      this.field_609_am -= MathHelper.func_1106_a(this.field_605_aq / 180.0F * (float)Math.PI) * 0.16F;
        this.func_347_a(this.field_611_ak, this.field_610_al, this.field_609_am);
        this.field_9292_aO = 0.0F;
+       float f = 0.4F;
+-      this.field_608_an = (double)(-MathHelper.func_1106_a(this.field_605_aq / 180.0F * (float)Math.PI) * MathHelper.func_1114_b(this.field_604_ar / 180.0F * (float)Math.PI) * f);
+-      this.field_606_ap = (double)(MathHelper.func_1114_b(this.field_605_aq / 180.0F * (float)Math.PI) * MathHelper.func_1114_b(this.field_604_ar / 180.0F * (float)Math.PI) * f);
+-      this.field_607_ao = (double)(-MathHelper.func_1106_a(this.field_604_ar / 180.0F * (float)Math.PI) * f);
++      this.field_608_an = -MathHelper.func_1106_a(this.field_605_aq / 180.0F * (float)Math.PI) * MathHelper.func_1114_b(this.field_604_ar / 180.0F * (float)Math.PI) * f;
++      this.field_606_ap = MathHelper.func_1114_b(this.field_605_aq / 180.0F * (float)Math.PI) * MathHelper.func_1114_b(this.field_604_ar / 180.0F * (float)Math.PI) * f;
++      this.field_607_ao = -MathHelper.func_1106_a(this.field_604_ar / 180.0F * (float)Math.PI) * f;
+       this.func_467_a(this.field_608_an, this.field_607_ao, this.field_606_ap, 1.5F, 1.0F);
+    }
+ 
 @@ -65,7 +65,7 @@
        this.field_606_ap = p_467_5_;
        float f1 = MathHelper.func_1109_a(p_467_1_ * p_467_1_ + p_467_5_ * p_467_5_);
@@ -27,6 +40,19 @@
        }
  
     }
+@@ -102,9 +102,9 @@
+          }
+ 
+          this.field_812_f = false;
+-         this.field_608_an *= (double)(this.field_9312_bd.nextFloat() * 0.2F);
+-         this.field_607_ao *= (double)(this.field_9312_bd.nextFloat() * 0.2F);
+-         this.field_606_ap *= (double)(this.field_9312_bd.nextFloat() * 0.2F);
++         this.field_608_an *= this.field_9312_bd.nextFloat() * 0.2F;
++         this.field_607_ao *= this.field_9312_bd.nextFloat() * 0.2F;
++         this.field_606_ap *= this.field_9312_bd.nextFloat() * 0.2F;
+          this.field_810_h = 0;
+          this.field_809_i = 0;
+       } else {
 @@ -122,14 +122,13 @@
  
        if (!this.field_615_ag.field_1026_y) {

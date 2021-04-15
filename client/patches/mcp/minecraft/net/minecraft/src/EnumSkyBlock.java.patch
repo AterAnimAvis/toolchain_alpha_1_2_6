@@ -1,0 +1,11 @@
+--- a/net/minecraft/src/EnumSkyBlock.java
++++ b/net/minecraft/src/EnumSkyBlock.java
+@@ -6,7 +6,7 @@
+ 
+    public final int field_1722_c;
+ 
+-   private EnumSkyBlock(int p_i45_3_) {
++   EnumSkyBlock(int p_i45_3_) {
+       this.field_1722_c = p_i45_3_;
+    }
+ }

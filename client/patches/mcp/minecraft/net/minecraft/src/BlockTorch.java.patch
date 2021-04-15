@@ -1,0 +1,19 @@
+--- a/net/minecraft/src/BlockTorch.java
++++ b/net/minecraft/src/BlockTorch.java
+@@ -150,11 +150,11 @@
+ 
+    public void func_247_b(World p_247_1_, int p_247_2_, int p_247_3_, int p_247_4_, Random p_247_5_) {
+       int i = p_247_1_.func_602_e(p_247_2_, p_247_3_, p_247_4_);
+-      double d0 = (double)((float)p_247_2_ + 0.5F);
+-      double d1 = (double)((float)p_247_3_ + 0.7F);
+-      double d2 = (double)((float)p_247_4_ + 0.5F);
+-      double d3 = (double)0.22F;
+-      double d4 = (double)0.27F;
++      double d0 = (float)p_247_2_ + 0.5F;
++      double d1 = (float)p_247_3_ + 0.7F;
++      double d2 = (float)p_247_4_ + 0.5F;
++      double d3 = 0.22F;
++      double d4 = 0.27F;
+       if (i == 1) {
+          p_247_1_.func_694_a("smoke", d0 - d4, d1 + d3, d2, 0.0D, 0.0D, 0.0D);
+          p_247_1_.func_694_a("flame", d0 - d4, d1 + d3, d2, 0.0D, 0.0D, 0.0D);

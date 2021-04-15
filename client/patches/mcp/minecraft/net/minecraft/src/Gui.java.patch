@@ -39,10 +39,10 @@
 -      tessellator.func_983_a((double)(p_550_1_ + p_550_5_), (double)(p_550_2_ + p_550_6_), (double)this.field_923_k, (double)((float)(p_550_3_ + p_550_5_) * f), (double)((float)(p_550_4_ + p_550_6_) * f1));
 -      tessellator.func_983_a((double)(p_550_1_ + p_550_5_), (double)(p_550_2_ + 0), (double)this.field_923_k, (double)((float)(p_550_3_ + p_550_5_) * f), (double)((float)(p_550_4_ + 0) * f1));
 -      tessellator.func_983_a((double)(p_550_1_ + 0), (double)(p_550_2_ + 0), (double)this.field_923_k, (double)((float)(p_550_3_ + 0) * f), (double)((float)(p_550_4_ + 0) * f1));
-+      tessellator.func_983_a((double)(p_550_1_ + 0), (double)(p_550_2_ + p_550_6_), this.field_923_k, (double)((float)(p_550_3_ + 0) * f), (double)((float)(p_550_4_ + p_550_6_) * f1));
-+      tessellator.func_983_a((double)(p_550_1_ + p_550_5_), (double)(p_550_2_ + p_550_6_), this.field_923_k, (double)((float)(p_550_3_ + p_550_5_) * f), (double)((float)(p_550_4_ + p_550_6_) * f1));
-+      tessellator.func_983_a((double)(p_550_1_ + p_550_5_), (double)(p_550_2_ + 0), this.field_923_k, (double)((float)(p_550_3_ + p_550_5_) * f), (double)((float)(p_550_4_ + 0) * f1));
-+      tessellator.func_983_a((double)(p_550_1_ + 0), (double)(p_550_2_ + 0), this.field_923_k, (double)((float)(p_550_3_ + 0) * f), (double)((float)(p_550_4_ + 0) * f1));
++      tessellator.func_983_a(p_550_1_, p_550_2_ + p_550_6_, this.field_923_k, (float)(p_550_3_) * f, (float)(p_550_4_ + p_550_6_) * f1);
++      tessellator.func_983_a(p_550_1_ + p_550_5_, p_550_2_ + p_550_6_, this.field_923_k, (float)(p_550_3_ + p_550_5_) * f, (float)(p_550_4_ + p_550_6_) * f1);
++      tessellator.func_983_a(p_550_1_ + p_550_5_, p_550_2_, this.field_923_k, (float)(p_550_3_ + p_550_5_) * f, (float)(p_550_4_) * f1);
++      tessellator.func_983_a(p_550_1_, p_550_2_, this.field_923_k, (float)(p_550_3_) * f, (float)(p_550_4_) * f1);
        tessellator.func_982_a();
     }
  }

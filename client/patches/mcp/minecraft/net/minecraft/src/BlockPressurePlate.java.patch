@@ -8,17 +8,17 @@
 +      List<? extends Entity> list = null;
        if (this.field_467_a == EnumMobType.everything) {
 -         list = p_318_1_.func_659_b((Entity)null, AxisAlignedBB.func_1161_b((double)((float)p_318_2_ + f), (double)p_318_3_, (double)((float)p_318_4_ + f), (double)((float)(p_318_2_ + 1) - f), (double)p_318_3_ + 0.25D, (double)((float)(p_318_4_ + 1) - f)));
-+         list = p_318_1_.func_659_b((Entity)null, AxisAlignedBB.func_1161_b((double)((float)p_318_2_ + f), p_318_3_, (double)((float)p_318_4_ + f), (double)((float)(p_318_2_ + 1) - f), (double)p_318_3_ + 0.25D, (double)((float)(p_318_4_ + 1) - f)));
++         list = p_318_1_.func_659_b((Entity)null, AxisAlignedBB.func_1161_b((float)p_318_2_ + f, p_318_3_, (float)p_318_4_ + f, (float)(p_318_2_ + 1) - f, (double)p_318_3_ + 0.25D, (float)(p_318_4_ + 1) - f));
        }
  
        if (this.field_467_a == EnumMobType.mobs) {
 -         list = p_318_1_.func_657_a(EntityLiving.class, AxisAlignedBB.func_1161_b((double)((float)p_318_2_ + f), (double)p_318_3_, (double)((float)p_318_4_ + f), (double)((float)(p_318_2_ + 1) - f), (double)p_318_3_ + 0.25D, (double)((float)(p_318_4_ + 1) - f)));
-+         list = p_318_1_.func_657_a(EntityLiving.class, AxisAlignedBB.func_1161_b((double)((float)p_318_2_ + f), p_318_3_, (double)((float)p_318_4_ + f), (double)((float)(p_318_2_ + 1) - f), (double)p_318_3_ + 0.25D, (double)((float)(p_318_4_ + 1) - f)));
++         list = p_318_1_.func_657_a(EntityLiving.class, AxisAlignedBB.func_1161_b((float)p_318_2_ + f, p_318_3_, (float)p_318_4_ + f, (float)(p_318_2_ + 1) - f, (double)p_318_3_ + 0.25D, (float)(p_318_4_ + 1) - f));
        }
  
        if (this.field_467_a == EnumMobType.players) {
 -         list = p_318_1_.func_657_a(EntityPlayer.class, AxisAlignedBB.func_1161_b((double)((float)p_318_2_ + f), (double)p_318_3_, (double)((float)p_318_4_ + f), (double)((float)(p_318_2_ + 1) - f), (double)p_318_3_ + 0.25D, (double)((float)(p_318_4_ + 1) - f)));
-+         list = p_318_1_.func_657_a(EntityPlayer.class, AxisAlignedBB.func_1161_b((double)((float)p_318_2_ + f), p_318_3_, (double)((float)p_318_4_ + f), (double)((float)(p_318_2_ + 1) - f), (double)p_318_3_ + 0.25D, (double)((float)(p_318_4_ + 1) - f)));
++         list = p_318_1_.func_657_a(EntityPlayer.class, AxisAlignedBB.func_1161_b((float)p_318_2_ + f, p_318_3_, (float)p_318_4_ + f, (float)(p_318_2_ + 1) - f, (double)p_318_3_ + 0.25D, (float)(p_318_4_ + 1) - f));
        }
  
        if (list.size() > 0) {

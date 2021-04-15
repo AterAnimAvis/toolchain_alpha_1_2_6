@@ -1,0 +1,38 @@
+--- a/net/minecraft/src/EntityDiggingFX.java
++++ b/net/minecraft/src/EntityDiggingFX.java
+@@ -13,16 +13,14 @@
+    }
+ 
+    public EntityDiggingFX func_4041_a(int p_4041_1_, int p_4041_2_, int p_4041_3_) {
+-      if (this.field_4082_a == Block.field_337_v) {
+-         return this;
+-      } else {
++      if (this.field_4082_a != Block.field_337_v) {
+          int i = this.field_4082_a.func_207_d(this.field_615_ag, p_4041_1_, p_4041_2_, p_4041_3_);
+-         this.field_663_i *= (float)(i >> 16 & 255) / 255.0F;
+-         this.field_662_j *= (float)(i >> 8 & 255) / 255.0F;
+-         this.field_661_k *= (float)(i & 255) / 255.0F;
++         this.field_663_i *= (float) (i >> 16 & 255) / 255.0F;
++         this.field_662_j *= (float) (i >> 8 & 255) / 255.0F;
++         this.field_661_k *= (float) (i & 255) / 255.0F;
++      }
+          return this;
+       }
+-   }
+ 
+    public int func_404_c() {
+       return 1;
+@@ -39,9 +37,9 @@
+       float f7 = (float)(this.field_9283_av + (this.field_609_am - this.field_9283_av) * (double)p_406_2_ - field_658_n);
+       float f8 = this.func_382_a(p_406_2_);
+       p_406_1_.func_987_a(f8 * this.field_663_i, f8 * this.field_662_j, f8 * this.field_661_k);
+-      p_406_1_.func_983_a((double)(f5 - p_406_3_ * f4 - p_406_6_ * f4), (double)(f6 - p_406_4_ * f4), (double)(f7 - p_406_5_ * f4 - p_406_7_ * f4), (double)f, (double)f3);
+-      p_406_1_.func_983_a((double)(f5 - p_406_3_ * f4 + p_406_6_ * f4), (double)(f6 + p_406_4_ * f4), (double)(f7 - p_406_5_ * f4 + p_406_7_ * f4), (double)f, (double)f2);
+-      p_406_1_.func_983_a((double)(f5 + p_406_3_ * f4 + p_406_6_ * f4), (double)(f6 + p_406_4_ * f4), (double)(f7 + p_406_5_ * f4 + p_406_7_ * f4), (double)f1, (double)f2);
+-      p_406_1_.func_983_a((double)(f5 + p_406_3_ * f4 - p_406_6_ * f4), (double)(f6 - p_406_4_ * f4), (double)(f7 + p_406_5_ * f4 - p_406_7_ * f4), (double)f1, (double)f3);
++      p_406_1_.func_983_a(f5 - p_406_3_ * f4 - p_406_6_ * f4, f6 - p_406_4_ * f4, f7 - p_406_5_ * f4 - p_406_7_ * f4, f, f3);
++      p_406_1_.func_983_a(f5 - p_406_3_ * f4 + p_406_6_ * f4, f6 + p_406_4_ * f4, f7 - p_406_5_ * f4 + p_406_7_ * f4, f, f2);
++      p_406_1_.func_983_a(f5 + p_406_3_ * f4 + p_406_6_ * f4, f6 + p_406_4_ * f4, f7 + p_406_5_ * f4 + p_406_7_ * f4, f1, f2);
++      p_406_1_.func_983_a(f5 + p_406_3_ * f4 - p_406_6_ * f4, f6 - p_406_4_ * f4, f7 + p_406_5_ * f4 - p_406_7_ * f4, f1, f3);
+    }
+ }

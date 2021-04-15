@@ -1,0 +1,38 @@
+--- a/net/minecraft/src/ItemHoe.java
++++ b/net/minecraft/src/ItemHoe.java
+@@ -14,30 +14,28 @@
+          return false;
+       } else {
+          Block block = Block.field_446_aB;
+-         p_192_3_.func_684_a((double)((float)p_192_4_ + 0.5F), (double)((float)p_192_5_ + 0.5F), (double)((float)p_192_6_ + 0.5F), block.field_358_bl.func_1145_d(), (block.field_358_bl.func_1147_b() + 1.0F) / 2.0F, block.field_358_bl.func_1144_c() * 0.8F);
+-         if (p_192_3_.field_1026_y) {
+-            return true;
+-         } else {
++         p_192_3_.func_684_a((float)p_192_4_ + 0.5F, (float)p_192_5_ + 0.5F, (float)p_192_6_ + 0.5F, block.field_358_bl.func_1145_d(), (block.field_358_bl.func_1147_b() + 1.0F) / 2.0F, block.field_358_bl.func_1144_c() * 0.8F);
++         if (!p_192_3_.field_1026_y) {
+             p_192_3_.func_690_d(p_192_4_, p_192_5_, p_192_6_, block.field_376_bc);
+             p_192_1_.func_1101_b(1);
+             if (p_192_3_.field_1037_n.nextInt(8) == 0 && i == Block.field_337_v.field_376_bc) {
+                byte b0 = 1;
+ 
+-               for(int j = 0; j < b0; ++j) {
++               for (int j = 0; j < b0; ++j) {
+                   float f = 0.7F;
+                   float f1 = p_192_3_.field_1037_n.nextFloat() * f + (1.0F - f) * 0.5F;
+                   float f2 = 1.2F;
+                   float f3 = p_192_3_.field_1037_n.nextFloat() * f + (1.0F - f) * 0.5F;
+-                  EntityItem entityitem = new EntityItem(p_192_3_, (double)((float)p_192_4_ + f1), (double)((float)p_192_5_ + f2), (double)((float)p_192_6_ + f3), new ItemStack(Item.field_244_Q));
++                  EntityItem entityitem = new EntityItem(p_192_3_, (float) p_192_4_ + f1, (float) p_192_5_ + f2, (float) p_192_6_ + f3, new ItemStack(Item.field_244_Q));
+                   entityitem.field_805_c = 10;
+                   p_192_3_.func_674_a(entityitem);
+                }
+             }
+ 
++         }
+             return true;
+          }
+       }
+-   }
+ 
+    public boolean func_4017_a() {
+       return true;

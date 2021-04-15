@@ -1,0 +1,15 @@
+--- a/net/minecraft/src/EntitySheep.java
++++ b/net/minecraft/src/EntitySheep.java
+@@ -16,9 +16,9 @@
+ 
+          for(int j = 0; j < i; ++j) {
+             EntityItem entityitem = this.func_394_a(Block.field_419_ac.field_376_bc, 1, 1.0F);
+-            entityitem.field_607_ao += (double)(this.field_9312_bd.nextFloat() * 0.05F);
+-            entityitem.field_608_an += (double)((this.field_9312_bd.nextFloat() - this.field_9312_bd.nextFloat()) * 0.1F);
+-            entityitem.field_606_ap += (double)((this.field_9312_bd.nextFloat() - this.field_9312_bd.nextFloat()) * 0.1F);
++            entityitem.field_607_ao += this.field_9312_bd.nextFloat() * 0.05F;
++            entityitem.field_608_an += (this.field_9312_bd.nextFloat() - this.field_9312_bd.nextFloat()) * 0.1F;
++            entityitem.field_606_ap += (this.field_9312_bd.nextFloat() - this.field_9312_bd.nextFloat()) * 0.1F;
+          }
+       }
+ 

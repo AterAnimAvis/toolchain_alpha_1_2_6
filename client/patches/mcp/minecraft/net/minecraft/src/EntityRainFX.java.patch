@@ -5,9 +5,10 @@
     public EntityRainFX(World p_i303_1_, double p_i303_2_, double p_i303_4_, double p_i303_6_) {
        super(p_i303_1_, p_i303_2_, p_i303_4_, p_i303_6_, 0.0D, 0.0D, 0.0D);
 -      this.field_608_an *= (double)0.3F;
-+      this.field_608_an *= 0.3F;
-       this.field_607_ao = (double)((float)Math.random() * 0.2F + 0.1F);
+-      this.field_607_ao = (double)((float)Math.random() * 0.2F + 0.1F);
 -      this.field_606_ap *= (double)0.3F;
++      this.field_608_an *= 0.3F;
++      this.field_607_ao = (float)Math.random() * 0.2F + 0.1F;
 +      this.field_606_ap *= 0.3F;
        this.field_663_i = 1.0F;
        this.field_662_j = 1.0F;
@@ -28,7 +29,7 @@
        if (this.field_666_f-- <= 0) {
           this.func_395_F();
        }
-@@ -37,8 +37,8 @@
+@@ -37,13 +37,13 @@
              this.func_395_F();
           }
  
@@ -39,3 +40,9 @@
        }
  
        Material material = this.field_615_ag.func_599_f(MathHelper.func_1108_b(this.field_611_ak), MathHelper.func_1108_b(this.field_610_al), MathHelper.func_1108_b(this.field_609_am));
+       if (material.func_879_d() || material.func_878_a()) {
+-         double d0 = (double)((float)(MathHelper.func_1108_b(this.field_610_al) + 1) - BlockFluids.func_288_b(this.field_615_ag.func_602_e(MathHelper.func_1108_b(this.field_611_ak), MathHelper.func_1108_b(this.field_610_al), MathHelper.func_1108_b(this.field_609_am))));
++         double d0 = (float)(MathHelper.func_1108_b(this.field_610_al) + 1) - BlockFluids.func_288_b(this.field_615_ag.func_602_e(MathHelper.func_1108_b(this.field_611_ak), MathHelper.func_1108_b(this.field_610_al), MathHelper.func_1108_b(this.field_609_am)));
+          if (this.field_610_al < d0) {
+             this.func_395_F();
+          }

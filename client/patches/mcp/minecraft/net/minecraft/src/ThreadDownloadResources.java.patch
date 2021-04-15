@@ -1,5 +1,16 @@
 --- a/net/minecraft/src/ThreadDownloadResources.java
 +++ b/net/minecraft/src/ThreadDownloadResources.java
+@@ -42,8 +42,8 @@
+                Node node = nodelist.item(j);
+                if (node.getNodeType() == 1) {
+                   Element element = (Element)node;
+-                  String s = ((Element)element.getElementsByTagName("Key").item(0)).getChildNodes().item(0).getNodeValue();
+-                  long k = Long.parseLong(((Element)element.getElementsByTagName("Size").item(0)).getChildNodes().item(0).getNodeValue());
++                  String s = element.getElementsByTagName("Key").item(0).getChildNodes().item(0).getNodeValue();
++                  long k = Long.parseLong(element.getElementsByTagName("Size").item(0).getChildNodes().item(0).getNodeValue());
+                   if (k > 0L) {
+                      this.func_1211_a(url, s, k, i);
+                      if (this.field_1769_c) {
 @@ -67,14 +67,14 @@
     private void func_1209_a(File p_1209_1_, String p_1209_2_) {
        File[] afile = p_1209_1_.listFiles();

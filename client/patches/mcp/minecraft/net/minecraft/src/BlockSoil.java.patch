@@ -1,0 +1,11 @@
+--- a/net/minecraft/src/BlockSoil.java
++++ b/net/minecraft/src/BlockSoil.java
+@@ -12,7 +12,7 @@
+    }
+ 
+    public AxisAlignedBB func_221_d(World p_221_1_, int p_221_2_, int p_221_3_, int p_221_4_) {
+-      return AxisAlignedBB.func_1161_b((double)(p_221_2_ + 0), (double)(p_221_3_ + 0), (double)(p_221_4_ + 0), (double)(p_221_2_ + 1), (double)(p_221_3_ + 1), (double)(p_221_4_ + 1));
++      return AxisAlignedBB.func_1161_b(p_221_2_ + 0, p_221_3_ + 0, p_221_4_ + 0, p_221_2_ + 1, p_221_3_ + 1, p_221_4_ + 1);
+    }
+ 
+    public boolean func_217_b() {

@@ -1,6 +1,14 @@
 --- a/net/minecraft/src/MouseHelper.java
 +++ b/net/minecraft/src/MouseHelper.java
-@@ -18,7 +18,7 @@
+@@ -1,7 +1,6 @@
+ package net.minecraft.src;
+ 
+ import java.awt.Component;
+-import java.nio.Buffer;
+ import java.nio.IntBuffer;
+ import org.lwjgl.LWJGLException;
+ import org.lwjgl.input.Cursor;
+@@ -18,7 +17,7 @@
        this.field_1117_c = p_i287_1_;
        IntBuffer intbuffer = GLAllocation.func_1125_c(1);
        intbuffer.put(0);

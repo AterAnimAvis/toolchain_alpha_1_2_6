@@ -1,0 +1,11 @@
+--- a/net/minecraft/src/TextureWatchFX.java
++++ b/net/minecraft/src/TextureWatchFX.java
+@@ -34,7 +34,7 @@
+       double d0 = 0.0D;
+       if (this.field_4225_g.field_6324_e != null && this.field_4225_g.field_6322_g != null) {
+          float f = this.field_4225_g.field_6324_e.func_619_c(1.0F);
+-         d0 = (double)(-f * (float)Math.PI * 2.0F);
++         d0 = -f * (float)Math.PI * 2.0F;
+          if (this.field_4225_g.field_6324_e.field_4209_q.field_4220_c) {
+             d0 = Math.random() * (double)(float)Math.PI * 2.0D;
+          }

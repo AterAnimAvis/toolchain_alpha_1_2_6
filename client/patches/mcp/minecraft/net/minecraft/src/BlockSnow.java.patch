@@ -1,0 +1,11 @@
+--- a/net/minecraft/src/BlockSnow.java
++++ b/net/minecraft/src/BlockSnow.java
+@@ -23,7 +23,7 @@
+ 
+    public boolean func_243_a(World p_243_1_, int p_243_2_, int p_243_3_, int p_243_4_) {
+       int i = p_243_1_.func_600_a(p_243_2_, p_243_3_ - 1, p_243_4_);
+-      return i != 0 && Block.field_345_n[i].func_217_b() ? p_243_1_.func_599_f(p_243_2_, p_243_3_ - 1, p_243_4_).func_880_c() : false;
++      return i != 0 && Block.field_345_n[i].func_217_b() && p_243_1_.func_599_f(p_243_2_, p_243_3_ - 1, p_243_4_).func_880_c();
+    }
+ 
+    public void func_226_a(World p_226_1_, int p_226_2_, int p_226_3_, int p_226_4_, int p_226_5_) {

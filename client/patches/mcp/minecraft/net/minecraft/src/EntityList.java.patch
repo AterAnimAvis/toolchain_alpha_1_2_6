@@ -54,3 +54,12 @@
           }
        } catch (Exception exception) {
           exception.printStackTrace();
+@@ -76,7 +76,7 @@
+    }
+ 
+    public static String func_1083_b(Entity p_1083_0_) {
+-      return (String)field_1610_b.get(p_1083_0_.getClass());
++      return field_1610_b.get(p_1083_0_.getClass());
+    }
+ 
+    static {

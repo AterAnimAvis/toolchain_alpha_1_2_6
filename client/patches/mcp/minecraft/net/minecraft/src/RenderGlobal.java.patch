@@ -1,28 +1,61 @@
 --- a/net/minecraft/src/RenderGlobal.java
 +++ b/net/minecraft/src/RenderGlobal.java
-@@ -12,10 +12,10 @@
+@@ -1,10 +1,8 @@
+ package net.minecraft.src;
+ 
+-import java.nio.Buffer;
+ import java.nio.IntBuffer;
+ import java.util.ArrayList;
+ import java.util.Arrays;
+-import java.util.Collections;
+ import java.util.List;
+ import java.util.Random;
+ import net.minecraft.client.Minecraft;
+@@ -12,24 +10,24 @@
  import org.lwjgl.opengl.GL11;
  
  public class RenderGlobal implements IWorldAccess {
 -   public List field_1458_a = new ArrayList();
 +   public List<TileEntity> field_1458_a = new ArrayList<>();
     private World field_1448_k;
-    private RenderEngine field_1447_l;
+-   private RenderEngine field_1447_l;
 -   private List field_1446_m = new ArrayList();
-+   private List<WorldRenderer> field_1446_m = new ArrayList<>();
++   private final RenderEngine field_1447_l;
++   private final List<WorldRenderer> field_1446_m = new ArrayList<>();
     private WorldRenderer[] field_1445_n;
     private WorldRenderer[] field_1444_o;
     private int field_1443_p;
-@@ -48,7 +48,7 @@
+    private int field_1442_q;
+    private int field_1441_r;
+-   private int field_1440_s;
+-   private Minecraft field_1439_t;
++   private final int field_1440_s;
++   private final Minecraft field_1439_t;
+    private RenderBlocks field_1438_u;
+    private IntBuffer field_1437_v;
+    private boolean field_1436_w = false;
+    private int field_1435_x = 0;
+-   private int field_1434_y;
+-   private int field_1433_z;
+-   private int field_1432_A;
++   private final int field_1434_y;
++   private final int field_1433_z;
++   private final int field_1432_A;
+    private int field_1431_B;
+    private int field_1430_C;
+    private int field_1429_D;
+@@ -48,8 +46,8 @@
     private int field_1418_O;
     private int field_1417_P;
     private int field_1416_Q;
 -   private List field_1415_R = new ArrayList();
-+   private List<WorldRenderer> field_1415_R = new ArrayList<>();
-    private RenderList[] field_1414_S = new RenderList[]{new RenderList(), new RenderList(), new RenderList(), new RenderList()};
+-   private RenderList[] field_1414_S = new RenderList[]{new RenderList(), new RenderList(), new RenderList(), new RenderList()};
++   private final List<WorldRenderer> field_1415_R = new ArrayList<>();
++   private final RenderList[] field_1414_S = new RenderList[]{new RenderList(), new RenderList(), new RenderList(), new RenderList()};
     int field_1455_d = 0;
     int field_1454_e = GLAllocation.func_1124_a(1);
-@@ -65,11 +65,11 @@
+    double field_1453_f = -9999.0D;
+@@ -65,11 +63,11 @@
        this.field_1440_s = GLAllocation.func_1124_a(b0 * b0 * b0 * 3);
        this.field_1436_w = p_i101_1_.func_6251_l().func_1213_a();
        if (this.field_1436_w) {
@@ -38,7 +71,288 @@
           ARBOcclusionQuery.glGenQueriesARB(this.field_1437_v);
        }
  
-@@ -839,7 +839,7 @@
+@@ -89,10 +87,10 @@
+       for(int j = -b1 * i; j <= b1 * i; j += b1) {
+          for(int k = -b1 * i; k <= b1 * i; k += b1) {
+             tessellator.func_977_b();
+-            tessellator.func_991_a((double)(j + 0), (double)f, (double)(k + 0));
+-            tessellator.func_991_a((double)(j + b1), (double)f, (double)(k + 0));
+-            tessellator.func_991_a((double)(j + b1), (double)f, (double)(k + b1));
+-            tessellator.func_991_a((double)(j + 0), (double)f, (double)(k + b1));
++            tessellator.func_991_a(j + 0, f, k + 0);
++            tessellator.func_991_a(j + b1, f, k + 0);
++            tessellator.func_991_a(j + b1, f, k + b1);
++            tessellator.func_991_a(j + 0, f, k + b1);
+             tessellator.func_982_a();
+          }
+       }
+@@ -105,10 +103,10 @@
+ 
+       for(int l = -b1 * i; l <= b1 * i; l += b1) {
+          for(int i1 = -b1 * i; i1 <= b1 * i; i1 += b1) {
+-            tessellator.func_991_a((double)(l + b1), (double)f, (double)(i1 + 0));
+-            tessellator.func_991_a((double)(l + 0), (double)f, (double)(i1 + 0));
+-            tessellator.func_991_a((double)(l + 0), (double)f, (double)(i1 + b1));
+-            tessellator.func_991_a((double)(l + b1), (double)f, (double)(i1 + b1));
++            tessellator.func_991_a(l + b1, f, i1 + 0);
++            tessellator.func_991_a(l + 0, f, i1 + 0);
++            tessellator.func_991_a(l + 0, f, i1 + b1);
++            tessellator.func_991_a(l + b1, f, i1 + b1);
+          }
+       }
+ 
+@@ -122,10 +120,10 @@
+       tessellator.func_977_b();
+ 
+       for(int i = 0; i < 1500; ++i) {
+-         double d0 = (double)(random.nextFloat() * 2.0F - 1.0F);
+-         double d1 = (double)(random.nextFloat() * 2.0F - 1.0F);
+-         double d2 = (double)(random.nextFloat() * 2.0F - 1.0F);
+-         double d3 = (double)(0.25F + random.nextFloat() * 0.25F);
++         double d0 = random.nextFloat() * 2.0F - 1.0F;
++         double d1 = random.nextFloat() * 2.0F - 1.0F;
++         double d2 = random.nextFloat() * 2.0F - 1.0F;
++         double d3 = 0.25F + random.nextFloat() * 0.25F;
+          double d4 = d0 * d0 + d1 * d1 + d2 * d2;
+          if (d4 < 1.0D && d4 > 0.01D) {
+             d4 = 1.0D / Math.sqrt(d4);
+@@ -185,8 +183,8 @@
+       Block.field_384_L.func_310_a(this.field_1439_t.field_6304_y.field_1576_i);
+       this.field_1425_H = this.field_1439_t.field_6304_y.field_1580_e;
+       if (this.field_1444_o != null) {
+-         for(int i = 0; i < this.field_1444_o.length; ++i) {
+-            this.field_1444_o[i].func_1204_c();
++         for (WorldRenderer worldRenderer : this.field_1444_o) {
++            worldRenderer.func_1204_c();
+          }
+       }
+ 
+@@ -209,8 +207,8 @@
+       this.field_1427_F = this.field_1442_q;
+       this.field_1426_G = this.field_1441_r;
+ 
+-      for(int l = 0; l < this.field_1446_m.size(); ++l) {
+-         ((WorldRenderer)this.field_1446_m.get(l)).field_1738_u = false;
++      for (WorldRenderer worldRenderer : this.field_1446_m) {
++         worldRenderer.field_1738_u = false;
+       }
+ 
+       this.field_1446_m.clear();
+@@ -261,19 +259,18 @@
+          TileEntityRenderer.field_1553_b = entityplayersp.field_638_aI + (entityplayersp.field_611_ak - entityplayersp.field_638_aI) * (double)p_951_3_;
+          TileEntityRenderer.field_1552_c = entityplayersp.field_637_aJ + (entityplayersp.field_610_al - entityplayersp.field_637_aJ) * (double)p_951_3_;
+          TileEntityRenderer.field_1551_d = entityplayersp.field_636_aK + (entityplayersp.field_609_am - entityplayersp.field_636_aK) * (double)p_951_3_;
+-         List list = this.field_1448_k.func_658_i();
++         List<Entity> list = this.field_1448_k.func_658_i();
+          this.field_1423_J = list.size();
+ 
+-         for(int i = 0; i < list.size(); ++i) {
+-            Entity entity = (Entity)list.get(i);
++         for (Entity entity : list) {
+             if (entity.func_390_a(p_951_1_) && p_951_2_.func_342_a(entity.field_601_au) && (entity != this.field_1439_t.field_6322_g || this.field_1439_t.field_6304_y.field_1560_x)) {
+                ++this.field_1422_K;
+                RenderManager.field_1233_a.func_854_a(entity, p_951_3_);
+             }
+          }
+ 
+-         for(int j = 0; j < this.field_1458_a.size(); ++j) {
+-            TileEntityRenderer.field_1554_a.func_1030_a((TileEntity)this.field_1458_a.get(j), p_951_3_);
++         for (TileEntity tileEntity : this.field_1458_a) {
++            TileEntityRenderer.field_1554_a.func_1030_a(tileEntity, p_951_3_);
+          }
+ 
+       }
+@@ -467,11 +464,11 @@
+    private void func_962_a(int p_962_1_, int p_962_2_) {
+       for(int i = p_962_1_; i < p_962_2_; ++i) {
+          if (this.field_1445_n[i].field_1733_y) {
+-            ((Buffer)this.field_1456_c).clear();
++            this.field_1456_c.clear();
+             ARBOcclusionQuery.glGetQueryObjectuARB(this.field_1445_n[i].field_1732_z, 34919, this.field_1456_c);
+             if (this.field_1456_c.get(0) != 0) {
+                this.field_1445_n[i].field_1733_y = false;
+-               ((Buffer)this.field_1456_c).clear();
++               this.field_1456_c.clear();
+                ARBOcclusionQuery.glGetQueryObjectuARB(this.field_1445_n[i].field_1732_z, 34918, this.field_1456_c);
+                this.field_1445_n[i].field_1734_x = this.field_1456_c.get(0) != 0;
+             }
+@@ -513,15 +510,14 @@
+       double d1 = entityplayersp.field_636_aK + (entityplayersp.field_609_am - entityplayersp.field_636_aK) * p_952_4_;
+       int l = 0;
+ 
+-      for(int i1 = 0; i1 < this.field_1414_S.length; ++i1) {
+-         this.field_1414_S[i1].func_859_b();
++      for (RenderList field_1414_ : this.field_1414_S) {
++         field_1414_.func_859_b();
+       }
+ 
+-      for(int l1 = 0; l1 < this.field_1415_R.size(); ++l1) {
+-         WorldRenderer worldrenderer = (WorldRenderer)this.field_1415_R.get(l1);
++      for (WorldRenderer worldrenderer : this.field_1415_R) {
+          int j1 = -1;
+ 
+-         for(int k1 = 0; k1 < l; ++k1) {
++         for (int k1 = 0; k1 < l; ++k1) {
+             if (this.field_1414_S[k1].func_862_a(worldrenderer.field_1755_i, worldrenderer.field_1754_j, worldrenderer.field_1753_k)) {
+                j1 = k1;
+             }
+@@ -540,8 +536,8 @@
+    }
+ 
+    public void func_944_a(int p_944_1_, double p_944_2_) {
+-      for(int i = 0; i < this.field_1414_S.length; ++i) {
+-         this.field_1414_S[i].func_860_a();
++      for (RenderList field_1414_ : this.field_1414_S) {
++         field_1414_.func_860_a();
+       }
+ 
+    }
+@@ -594,7 +590,7 @@
+                float f6 = (float)i * (float)Math.PI * 2.0F / (float)b0;
+                float f7 = MathHelper.func_1106_a(f6);
+                float f8 = MathHelper.func_1114_b(f6);
+-               tessellator.func_991_a((double)(f7 * 120.0F), (double)(f8 * 120.0F), (double)(-f8 * 40.0F * afloat[3]));
++               tessellator.func_991_a(f7 * 120.0F, f8 * 120.0F, -f8 * 40.0F * afloat[3]);
+             }
+ 
+             tessellator.func_982_a();
+@@ -615,18 +611,18 @@
+          float f13 = 30.0F;
+          GL11.glBindTexture(3553, this.field_1447_l.func_1070_a("/terrain/sun.png"));
+          tessellator.func_977_b();
+-         tessellator.func_983_a((double)(-f13), 100.0D, (double)(-f13), 0.0D, 0.0D);
+-         tessellator.func_983_a((double)f13, 100.0D, (double)(-f13), 1.0D, 0.0D);
+-         tessellator.func_983_a((double)f13, 100.0D, (double)f13, 1.0D, 1.0D);
+-         tessellator.func_983_a((double)(-f13), 100.0D, (double)f13, 0.0D, 1.0D);
++         tessellator.func_983_a(-f13, 100.0D, -f13, 0.0D, 0.0D);
++         tessellator.func_983_a(f13, 100.0D, -f13, 1.0D, 0.0D);
++         tessellator.func_983_a(f13, 100.0D, f13, 1.0D, 1.0D);
++         tessellator.func_983_a(-f13, 100.0D, f13, 0.0D, 1.0D);
+          tessellator.func_982_a();
+          f13 = 20.0F;
+          GL11.glBindTexture(3553, this.field_1447_l.func_1070_a("/terrain/moon.png"));
+          tessellator.func_977_b();
+-         tessellator.func_983_a((double)(-f13), -100.0D, (double)f13, 1.0D, 1.0D);
+-         tessellator.func_983_a((double)f13, -100.0D, (double)f13, 0.0D, 1.0D);
+-         tessellator.func_983_a((double)f13, -100.0D, (double)(-f13), 0.0D, 0.0D);
+-         tessellator.func_983_a((double)(-f13), -100.0D, (double)(-f13), 1.0D, 0.0D);
++         tessellator.func_983_a(-f13, -100.0D, f13, 1.0D, 1.0D);
++         tessellator.func_983_a(f13, -100.0D, f13, 0.0D, 1.0D);
++         tessellator.func_983_a(f13, -100.0D, -f13, 0.0D, 0.0D);
++         tessellator.func_983_a(-f13, -100.0D, -f13, 1.0D, 0.0D);
+          tessellator.func_982_a();
+          GL11.glDisable(3553);
+          float f14 = this.field_1448_k.func_679_f(p_4142_1_);
+@@ -689,10 +685,10 @@
+ 
+             for(int l = -b0 * i; l < b0 * i; l += b0) {
+                for(int i1 = -b0 * i; i1 < b0 * i; i1 += b0) {
+-                  tessellator.func_983_a((double)(l + 0), (double)f7, (double)(i1 + b0), (double)((float)(l + 0) * f10 + f8), (double)((float)(i1 + b0) * f10 + f9));
+-                  tessellator.func_983_a((double)(l + b0), (double)f7, (double)(i1 + b0), (double)((float)(l + b0) * f10 + f8), (double)((float)(i1 + b0) * f10 + f9));
+-                  tessellator.func_983_a((double)(l + b0), (double)f7, (double)(i1 + 0), (double)((float)(l + b0) * f10 + f8), (double)((float)(i1 + 0) * f10 + f9));
+-                  tessellator.func_983_a((double)(l + 0), (double)f7, (double)(i1 + 0), (double)((float)(l + 0) * f10 + f8), (double)((float)(i1 + 0) * f10 + f9));
++                  tessellator.func_983_a(l + 0, f7, i1 + b0, (float)(l + 0) * f10 + f8, (float)(i1 + b0) * f10 + f9);
++                  tessellator.func_983_a(l + b0, f7, i1 + b0, (float)(l + b0) * f10 + f8, (float)(i1 + b0) * f10 + f9);
++                  tessellator.func_983_a(l + b0, f7, i1 + 0, (float)(l + b0) * f10 + f8, (float)(i1 + 0) * f10 + f9);
++                  tessellator.func_983_a(l + 0, f7, i1 + 0, (float)(l + 0) * f10 + f8, (float)(i1 + 0) * f10 + f9);
+                }
+             }
+ 
+@@ -762,19 +758,19 @@
+                if (f3 > -f2 - 1.0F) {
+                   tessellator.func_986_a(f4 * 0.7F, f5 * 0.7F, f6 * 0.7F, 0.8F);
+                   tessellator.func_980_b(0.0F, -1.0F, 0.0F);
+-                  tessellator.func_983_a((double)(f15 + 0.0F), (double)(f3 + 0.0F), (double)(f16 + (float)b0), (double)((f13 + 0.0F) * f19 + f17), (double)((f14 + (float)b0) * f19 + f18));
+-                  tessellator.func_983_a((double)(f15 + (float)b0), (double)(f3 + 0.0F), (double)(f16 + (float)b0), (double)((f13 + (float)b0) * f19 + f17), (double)((f14 + (float)b0) * f19 + f18));
+-                  tessellator.func_983_a((double)(f15 + (float)b0), (double)(f3 + 0.0F), (double)(f16 + 0.0F), (double)((f13 + (float)b0) * f19 + f17), (double)((f14 + 0.0F) * f19 + f18));
+-                  tessellator.func_983_a((double)(f15 + 0.0F), (double)(f3 + 0.0F), (double)(f16 + 0.0F), (double)((f13 + 0.0F) * f19 + f17), (double)((f14 + 0.0F) * f19 + f18));
++                  tessellator.func_983_a(f15 + 0.0F, f3 + 0.0F, f16 + (float)b0, (f13 + 0.0F) * f19 + f17, (f14 + (float)b0) * f19 + f18);
++                  tessellator.func_983_a(f15 + (float)b0, f3 + 0.0F, f16 + (float)b0, (f13 + (float)b0) * f19 + f17, (f14 + (float)b0) * f19 + f18);
++                  tessellator.func_983_a(f15 + (float)b0, f3 + 0.0F, f16 + 0.0F, (f13 + (float)b0) * f19 + f17, (f14 + 0.0F) * f19 + f18);
++                  tessellator.func_983_a(f15 + 0.0F, f3 + 0.0F, f16 + 0.0F, (f13 + 0.0F) * f19 + f17, (f14 + 0.0F) * f19 + f18);
+                }
+ 
+                if (f3 <= f2 + 1.0F) {
+                   tessellator.func_986_a(f4, f5, f6, 0.8F);
+                   tessellator.func_980_b(0.0F, 1.0F, 0.0F);
+-                  tessellator.func_983_a((double)(f15 + 0.0F), (double)(f3 + f2 - f12), (double)(f16 + (float)b0), (double)((f13 + 0.0F) * f19 + f17), (double)((f14 + (float)b0) * f19 + f18));
+-                  tessellator.func_983_a((double)(f15 + (float)b0), (double)(f3 + f2 - f12), (double)(f16 + (float)b0), (double)((f13 + (float)b0) * f19 + f17), (double)((f14 + (float)b0) * f19 + f18));
+-                  tessellator.func_983_a((double)(f15 + (float)b0), (double)(f3 + f2 - f12), (double)(f16 + 0.0F), (double)((f13 + (float)b0) * f19 + f17), (double)((f14 + 0.0F) * f19 + f18));
+-                  tessellator.func_983_a((double)(f15 + 0.0F), (double)(f3 + f2 - f12), (double)(f16 + 0.0F), (double)((f13 + 0.0F) * f19 + f17), (double)((f14 + 0.0F) * f19 + f18));
++                  tessellator.func_983_a(f15 + 0.0F, f3 + f2 - f12, f16 + (float)b0, (f13 + 0.0F) * f19 + f17, (f14 + (float)b0) * f19 + f18);
++                  tessellator.func_983_a(f15 + (float)b0, f3 + f2 - f12, f16 + (float)b0, (f13 + (float)b0) * f19 + f17, (f14 + (float)b0) * f19 + f18);
++                  tessellator.func_983_a(f15 + (float)b0, f3 + f2 - f12, f16 + 0.0F, (f13 + (float)b0) * f19 + f17, (f14 + 0.0F) * f19 + f18);
++                  tessellator.func_983_a(f15 + 0.0F, f3 + f2 - f12, f16 + 0.0F, (f13 + 0.0F) * f19 + f17, (f14 + 0.0F) * f19 + f18);
+                }
+ 
+                tessellator.func_986_a(f4 * 0.9F, f5 * 0.9F, f6 * 0.9F, 0.8F);
+@@ -782,10 +778,10 @@
+                   tessellator.func_980_b(-1.0F, 0.0F, 0.0F);
+ 
+                   for(int j1 = 0; j1 < b0; ++j1) {
+-                     tessellator.func_983_a((double)(f15 + (float)j1 + 0.0F), (double)(f3 + 0.0F), (double)(f16 + (float)b0), (double)((f13 + (float)j1 + 0.5F) * f19 + f17), (double)((f14 + (float)b0) * f19 + f18));
+-                     tessellator.func_983_a((double)(f15 + (float)j1 + 0.0F), (double)(f3 + f2), (double)(f16 + (float)b0), (double)((f13 + (float)j1 + 0.5F) * f19 + f17), (double)((f14 + (float)b0) * f19 + f18));
+-                     tessellator.func_983_a((double)(f15 + (float)j1 + 0.0F), (double)(f3 + f2), (double)(f16 + 0.0F), (double)((f13 + (float)j1 + 0.5F) * f19 + f17), (double)((f14 + 0.0F) * f19 + f18));
+-                     tessellator.func_983_a((double)(f15 + (float)j1 + 0.0F), (double)(f3 + 0.0F), (double)(f16 + 0.0F), (double)((f13 + (float)j1 + 0.5F) * f19 + f17), (double)((f14 + 0.0F) * f19 + f18));
++                     tessellator.func_983_a(f15 + (float)j1 + 0.0F, f3 + 0.0F, f16 + (float)b0, (f13 + (float)j1 + 0.5F) * f19 + f17, (f14 + (float)b0) * f19 + f18);
++                     tessellator.func_983_a(f15 + (float)j1 + 0.0F, f3 + f2, f16 + (float)b0, (f13 + (float)j1 + 0.5F) * f19 + f17, (f14 + (float)b0) * f19 + f18);
++                     tessellator.func_983_a(f15 + (float)j1 + 0.0F, f3 + f2, f16 + 0.0F, (f13 + (float)j1 + 0.5F) * f19 + f17, (f14 + 0.0F) * f19 + f18);
++                     tessellator.func_983_a(f15 + (float)j1 + 0.0F, f3 + 0.0F, f16 + 0.0F, (f13 + (float)j1 + 0.5F) * f19 + f17, (f14 + 0.0F) * f19 + f18);
+                   }
+                }
+ 
+@@ -793,10 +789,10 @@
+                   tessellator.func_980_b(1.0F, 0.0F, 0.0F);
+ 
+                   for(int k1 = 0; k1 < b0; ++k1) {
+-                     tessellator.func_983_a((double)(f15 + (float)k1 + 1.0F - f12), (double)(f3 + 0.0F), (double)(f16 + (float)b0), (double)((f13 + (float)k1 + 0.5F) * f19 + f17), (double)((f14 + (float)b0) * f19 + f18));
+-                     tessellator.func_983_a((double)(f15 + (float)k1 + 1.0F - f12), (double)(f3 + f2), (double)(f16 + (float)b0), (double)((f13 + (float)k1 + 0.5F) * f19 + f17), (double)((f14 + (float)b0) * f19 + f18));
+-                     tessellator.func_983_a((double)(f15 + (float)k1 + 1.0F - f12), (double)(f3 + f2), (double)(f16 + 0.0F), (double)((f13 + (float)k1 + 0.5F) * f19 + f17), (double)((f14 + 0.0F) * f19 + f18));
+-                     tessellator.func_983_a((double)(f15 + (float)k1 + 1.0F - f12), (double)(f3 + 0.0F), (double)(f16 + 0.0F), (double)((f13 + (float)k1 + 0.5F) * f19 + f17), (double)((f14 + 0.0F) * f19 + f18));
++                     tessellator.func_983_a(f15 + (float)k1 + 1.0F - f12, f3 + 0.0F, f16 + (float)b0, (f13 + (float)k1 + 0.5F) * f19 + f17, (f14 + (float)b0) * f19 + f18);
++                     tessellator.func_983_a(f15 + (float)k1 + 1.0F - f12, f3 + f2, f16 + (float)b0, (f13 + (float)k1 + 0.5F) * f19 + f17, (f14 + (float)b0) * f19 + f18);
++                     tessellator.func_983_a(f15 + (float)k1 + 1.0F - f12, f3 + f2, f16 + 0.0F, (f13 + (float)k1 + 0.5F) * f19 + f17, (f14 + 0.0F) * f19 + f18);
++                     tessellator.func_983_a(f15 + (float)k1 + 1.0F - f12, f3 + 0.0F, f16 + 0.0F, (f13 + (float)k1 + 0.5F) * f19 + f17, (f14 + 0.0F) * f19 + f18);
+                   }
+                }
+ 
+@@ -805,10 +801,10 @@
+                   tessellator.func_980_b(0.0F, 0.0F, -1.0F);
+ 
+                   for(int l1 = 0; l1 < b0; ++l1) {
+-                     tessellator.func_983_a((double)(f15 + 0.0F), (double)(f3 + f2), (double)(f16 + (float)l1 + 0.0F), (double)((f13 + 0.0F) * f19 + f17), (double)((f14 + (float)l1 + 0.5F) * f19 + f18));
+-                     tessellator.func_983_a((double)(f15 + (float)b0), (double)(f3 + f2), (double)(f16 + (float)l1 + 0.0F), (double)((f13 + (float)b0) * f19 + f17), (double)((f14 + (float)l1 + 0.5F) * f19 + f18));
+-                     tessellator.func_983_a((double)(f15 + (float)b0), (double)(f3 + 0.0F), (double)(f16 + (float)l1 + 0.0F), (double)((f13 + (float)b0) * f19 + f17), (double)((f14 + (float)l1 + 0.5F) * f19 + f18));
+-                     tessellator.func_983_a((double)(f15 + 0.0F), (double)(f3 + 0.0F), (double)(f16 + (float)l1 + 0.0F), (double)((f13 + 0.0F) * f19 + f17), (double)((f14 + (float)l1 + 0.5F) * f19 + f18));
++                     tessellator.func_983_a(f15 + 0.0F, f3 + f2, f16 + (float)l1 + 0.0F, (f13 + 0.0F) * f19 + f17, (f14 + (float)l1 + 0.5F) * f19 + f18);
++                     tessellator.func_983_a(f15 + (float)b0, f3 + f2, f16 + (float)l1 + 0.0F, (f13 + (float)b0) * f19 + f17, (f14 + (float)l1 + 0.5F) * f19 + f18);
++                     tessellator.func_983_a(f15 + (float)b0, f3 + 0.0F, f16 + (float)l1 + 0.0F, (f13 + (float)b0) * f19 + f17, (f14 + (float)l1 + 0.5F) * f19 + f18);
++                     tessellator.func_983_a(f15 + 0.0F, f3 + 0.0F, f16 + (float)l1 + 0.0F, (f13 + 0.0F) * f19 + f17, (f14 + (float)l1 + 0.5F) * f19 + f18);
+                   }
+                }
+ 
+@@ -816,10 +812,10 @@
+                   tessellator.func_980_b(0.0F, 0.0F, 1.0F);
+ 
+                   for(int i2 = 0; i2 < b0; ++i2) {
+-                     tessellator.func_983_a((double)(f15 + 0.0F), (double)(f3 + f2), (double)(f16 + (float)i2 + 1.0F - f12), (double)((f13 + 0.0F) * f19 + f17), (double)((f14 + (float)i2 + 0.5F) * f19 + f18));
+-                     tessellator.func_983_a((double)(f15 + (float)b0), (double)(f3 + f2), (double)(f16 + (float)i2 + 1.0F - f12), (double)((f13 + (float)b0) * f19 + f17), (double)((f14 + (float)i2 + 0.5F) * f19 + f18));
+-                     tessellator.func_983_a((double)(f15 + (float)b0), (double)(f3 + 0.0F), (double)(f16 + (float)i2 + 1.0F - f12), (double)((f13 + (float)b0) * f19 + f17), (double)((f14 + (float)i2 + 0.5F) * f19 + f18));
+-                     tessellator.func_983_a((double)(f15 + 0.0F), (double)(f3 + 0.0F), (double)(f16 + (float)i2 + 1.0F - f12), (double)((f13 + 0.0F) * f19 + f17), (double)((f14 + (float)i2 + 0.5F) * f19 + f18));
++                     tessellator.func_983_a(f15 + 0.0F, f3 + f2, f16 + (float)i2 + 1.0F - f12, (f13 + 0.0F) * f19 + f17, (f14 + (float)i2 + 0.5F) * f19 + f18);
++                     tessellator.func_983_a(f15 + (float)b0, f3 + f2, f16 + (float)i2 + 1.0F - f12, (f13 + (float)b0) * f19 + f17, (f14 + (float)i2 + 0.5F) * f19 + f18);
++                     tessellator.func_983_a(f15 + (float)b0, f3 + 0.0F, f16 + (float)i2 + 1.0F - f12, (f13 + (float)b0) * f19 + f17, (f14 + (float)i2 + 0.5F) * f19 + f18);
++                     tessellator.func_983_a(f15 + 0.0F, f3 + 0.0F, f16 + (float)i2 + 1.0F - f12, (f13 + 0.0F) * f19 + f17, (f14 + (float)i2 + 0.5F) * f19 + f18);
+                   }
+                }
+ 
+@@ -834,12 +830,12 @@
+    }
+ 
+    public boolean func_948_a(EntityPlayer p_948_1_, boolean p_948_2_) {
+-      Collections.sort(this.field_1446_m, new RenderSorter(p_948_1_));
++      this.field_1446_m.sort(new RenderSorter(p_948_1_));
+       int i = this.field_1446_m.size() - 1;
        int j = this.field_1446_m.size();
  
        for(int k = 0; k < j; ++k) {
@@ -47,7 +361,7 @@
           if (!p_948_2_) {
              if (worldrenderer.func_1202_a(p_948_1_) > 1024.0F) {
                 if (worldrenderer.field_1749_o) {
-@@ -952,7 +952,7 @@
+@@ -952,7 +948,7 @@
              double d0 = p_955_1_.field_638_aI + (p_955_1_.field_611_ak - p_955_1_.field_638_aI) * (double)p_955_5_;
              double d1 = p_955_1_.field_637_aJ + (p_955_1_.field_610_al - p_955_1_.field_637_aJ) * (double)p_955_5_;
              double d2 = p_955_1_.field_636_aK + (p_955_1_.field_609_am - p_955_1_.field_636_aK) * (double)p_955_5_;
@@ -56,3 +370,74 @@
           }
  
           GL11.glDepthMask(true);
+@@ -1072,28 +1068,40 @@
+       double d1 = this.field_1439_t.field_6322_g.field_610_al - p_939_4_;
+       double d2 = this.field_1439_t.field_6322_g.field_609_am - p_939_6_;
+       if (!(d0 * d0 + d1 * d1 + d2 * d2 > 256.0D)) {
+-         if (p_939_1_ == "bubble") {
++         switch (p_939_1_) {
++            case "bubble":
+             this.field_1439_t.field_6321_h.func_1192_a(new EntityBubbleFX(this.field_1448_k, p_939_2_, p_939_4_, p_939_6_, p_939_8_, p_939_10_, p_939_12_));
+-         } else if (p_939_1_ == "smoke") {
++               break;
++            case "smoke":
+             this.field_1439_t.field_6321_h.func_1192_a(new EntitySmokeFX(this.field_1448_k, p_939_2_, p_939_4_, p_939_6_));
+-         } else if (p_939_1_ == "portal") {
++               break;
++            case "portal":
+             this.field_1439_t.field_6321_h.func_1192_a(new EntityPortalFX(this.field_1448_k, p_939_2_, p_939_4_, p_939_6_, p_939_8_, p_939_10_, p_939_12_));
+-         } else if (p_939_1_ == "explode") {
++               break;
++            case "explode":
+             this.field_1439_t.field_6321_h.func_1192_a(new EntityExplodeFX(this.field_1448_k, p_939_2_, p_939_4_, p_939_6_, p_939_8_, p_939_10_, p_939_12_));
+-         } else if (p_939_1_ == "flame") {
++               break;
++            case "flame":
+             this.field_1439_t.field_6321_h.func_1192_a(new EntityFlameFX(this.field_1448_k, p_939_2_, p_939_4_, p_939_6_, p_939_8_, p_939_10_, p_939_12_));
+-         } else if (p_939_1_ == "lava") {
++               break;
++            case "lava":
+             this.field_1439_t.field_6321_h.func_1192_a(new EntityLavaFX(this.field_1448_k, p_939_2_, p_939_4_, p_939_6_));
+-         } else if (p_939_1_ == "splash") {
++               break;
++            case "splash":
+             this.field_1439_t.field_6321_h.func_1192_a(new EntitySplashFX(this.field_1448_k, p_939_2_, p_939_4_, p_939_6_, p_939_8_, p_939_10_, p_939_12_));
+-         } else if (p_939_1_ == "largesmoke") {
++               break;
++            case "largesmoke":
+             this.field_1439_t.field_6321_h.func_1192_a(new EntitySmokeFX(this.field_1448_k, p_939_2_, p_939_4_, p_939_6_, 2.5F));
+-         } else if (p_939_1_ == "reddust") {
++               break;
++            case "reddust":
+             this.field_1439_t.field_6321_h.func_1192_a(new EntityReddustFX(this.field_1448_k, p_939_2_, p_939_4_, p_939_6_));
+-         } else if (p_939_1_ == "snowballpoof") {
++               break;
++            case "snowballpoof":
+             this.field_1439_t.field_6321_h.func_1192_a(new EntitySlimeFX(this.field_1448_k, p_939_2_, p_939_4_, p_939_6_, Item.field_308_aB));
+-         } else if (p_939_1_ == "slime") {
++               break;
++            case "slime":
+             this.field_1439_t.field_6321_h.func_1192_a(new EntitySlimeFX(this.field_1448_k, p_939_2_, p_939_4_, p_939_6_, Item.field_299_aK));
++               break;
+          }
+ 
+       }
+@@ -1114,13 +1122,13 @@
+    }
+ 
+    public void func_936_e() {
+-      for(int i = 0; i < this.field_1444_o.length; ++i) {
+-         if (this.field_1444_o[i].field_1747_A) {
+-            if (!this.field_1444_o[i].field_1738_u) {
+-               this.field_1446_m.add(this.field_1444_o[i]);
++      for (WorldRenderer worldRenderer : this.field_1444_o) {
++         if (worldRenderer.field_1747_A) {
++            if (!worldRenderer.field_1738_u) {
++               this.field_1446_m.add(worldRenderer);
+             }
+ 
+-            this.field_1444_o[i].func_1194_f();
++            worldRenderer.func_1194_f();
+          }
+       }
+ 
