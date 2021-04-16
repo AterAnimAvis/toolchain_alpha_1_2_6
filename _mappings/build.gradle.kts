@@ -13,6 +13,7 @@ version = "1.0-SNAPSHOT"
 
 val clientRetroGuard         = rootProject.file("conf/minecraft.rgs")
 
+val rgReplacements           = file("mcp-extra/class-renames.csv")
 val mappingsFieldsCsv        = mutableSetOf(rootProject.file("conf/fields.csv"), file("mcp-extra/fields.csv"))
 val mappingsMethodsCsv       = mutableSetOf(rootProject.file("conf/methods.csv"), file("mcp-extra/methods.csv"))
 
@@ -30,6 +31,7 @@ val generateObf2Srg by tasks.creating(task.srg.GenerateRetroGuardTSrg::class) {
     group = "srg"
 
     input = clientRetroGuard
+    renames = rgReplacements
     output = obf2srg
 }
 

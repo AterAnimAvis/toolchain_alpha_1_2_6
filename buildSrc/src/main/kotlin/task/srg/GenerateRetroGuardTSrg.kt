@@ -2,6 +2,7 @@ package task.srg
 
 import org.gradle.api.DefaultTask
 import org.gradle.api.tasks.InputFile
+import org.gradle.api.tasks.Optional
 import org.gradle.api.tasks.OutputFile
 import org.gradle.api.tasks.TaskAction
 import java.io.*
@@ -13,6 +14,10 @@ open class GenerateRetroGuardTSrg : DefaultTask() {
     @InputFile
     var input: File? = null
 
+    @Optional
+    @InputFile
+    var renames: File? = null
+
     @OutputFile
     var output: File? = null
 
@@ -20,6 +25,19 @@ open class GenerateRetroGuardTSrg : DefaultTask() {
     @Throws(IOException::class)
     fun apply() {
         output?.ensureParentDirectoriesExist()
+
+        val replacements = mutableMapOf<String, String>()
+        if (renames != null) {
+            Files
+                .readAllLines(renames!!.toPath())
+                .forEach {
+                    if (it.startsWith("#")) return@forEach
+
+                    val parts = it.split(",")
+                    if (parts.size >= 2)
+                        replacements[parts[0]] = parts[1]
+                }
+        }
 
         var currentClass : String? = null
         OutputStreamWriter(FileOutputStream(output!!)).use { out ->
@@ -29,8 +47,7 @@ open class GenerateRetroGuardTSrg : DefaultTask() {
                     val a = parts[1]
                     var b = if (a.contains("/")) a else "net/minecraft/src/${parts[2]}"
 
-                    // Fix: Unfortunate Naming
-                    if (b.contains("ModelQuadraped")) b = b.replace("ModelQuadraped", "ModelQuadruped")
+                    replacements.forEach { (k, v) -> if (b.contains(k)) b = b.replace(k, v) }
 
                     currentClass = a
 
