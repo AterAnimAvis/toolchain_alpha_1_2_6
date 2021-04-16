@@ -1,6 +1,13 @@
 --- a/net/minecraft/src/EntityRenderer.java
 +++ b/net/minecraft/src/EntityRenderer.java
-@@ -50,7 +50,7 @@
+@@ -1,6 +1,5 @@
+ package net.minecraft.src;
+ 
+-import java.nio.Buffer;
+ import java.nio.FloatBuffer;
+ import java.util.List;
+ import java.util.Random;
+@@ -50,7 +49,7 @@
  
     public void func_910_a(float p_910_1_) {
        if (this.field_1388_h.field_6322_g != null) {
@@ -9,7 +16,7 @@
           this.field_1388_h.field_6305_x = this.field_1388_h.field_6322_g.func_416_a(d0, p_910_1_);
           double d1 = d0;
           Vec3D vec3d = this.field_1388_h.field_6322_g.func_427_e(p_910_1_);
-@@ -73,14 +73,13 @@
+@@ -73,14 +72,13 @@
           Vec3D vec3d2 = vec3d.func_1257_c(vec3d1.field_1776_a * d0, vec3d1.field_1775_b * d0, vec3d1.field_1779_c * d0);
           this.field_1385_k = null;
           float f = 1.0F;
@@ -27,7 +34,16 @@
                 MovingObjectPosition movingobjectposition = axisalignedbb.func_1169_a(vec3d, vec3d2);
                 if (axisalignedbb.func_4150_a(vec3d)) {
                    if (0.0D < d2 || d2 == 0.0D) {
-@@ -376,7 +375,7 @@
+@@ -355,7 +353,7 @@
+          GL11.glEnable(2912);
+          GL11.glBindTexture(3553, this.field_1388_h.field_6315_n.func_1070_a("/terrain.png"));
+          RenderHelper.func_1159_a();
+-         renderglobal.func_943_a(entityplayersp, 0, (double)p_4134_1_);
++         renderglobal.func_943_a(entityplayersp, 0, p_4134_1_);
+          RenderHelper.func_1158_b();
+          renderglobal.func_951_a(entityplayersp.func_427_e(p_4134_1_), frustrum, p_4134_1_);
+          effectrenderer.func_1187_b(entityplayersp, p_4134_1_);
+@@ -376,7 +374,7 @@
           GL11.glBindTexture(3553, this.field_1388_h.field_6315_n.func_1070_a("/terrain.png"));
           if (this.field_1388_h.field_6304_y.field_1576_i) {
              GL11.glColorMask(false, false, false, false);
@@ -36,7 +52,7 @@
              GL11.glColorMask(true, true, true, true);
              if (this.field_1388_h.field_6304_y.field_1578_g) {
                 if (i == 0) {
-@@ -387,10 +386,10 @@
+@@ -387,10 +385,10 @@
              }
  
              if (j > 0) {
@@ -49,7 +65,16 @@
           }
  
           GL11.glDepthMask(true);
-@@ -455,7 +454,7 @@
+@@ -440,7 +438,7 @@
+                float f = this.field_1383_m.nextFloat();
+                float f1 = this.field_1383_m.nextFloat();
+                if (l1 > 0) {
+-                  this.field_1388_h.field_6321_h.func_1192_a(new EntityRainFX(world, (double)((float)i1 + f), (double)((float)k1 + 0.1F) - Block.field_345_n[l1].field_368_bg, (double)((float)j1 + f1)));
++                  this.field_1388_h.field_6321_h.func_1192_a(new EntityRainFX(world, (float)i1 + f, (double)((float)k1 + 0.1F) - Block.field_345_n[l1].field_368_bg, (float)j1 + f1));
+                }
+             }
+          }
+@@ -455,7 +453,7 @@
        GL11.glClear(256);
        GL11.glMatrixMode(5889);
        GL11.glLoadIdentity();
@@ -58,7 +83,7 @@
        GL11.glMatrixMode(5888);
        GL11.glLoadIdentity();
        GL11.glTranslatef(0.0F, 0.0F, -2000.0F);
-@@ -465,7 +464,7 @@
+@@ -465,7 +463,7 @@
        World world = this.field_1388_h.field_6324_e;
        EntityPlayerSP entityplayersp = this.field_1388_h.field_6322_g;
        float f = 1.0F / (float)(4 - this.field_1388_h.field_6304_y.field_1580_e);
@@ -67,7 +92,7 @@
        Vec3D vec3d = world.func_4079_a(this.field_1388_h.field_6322_g, p_4137_1_);
        float f1 = (float)vec3d.field_1776_a;
        float f2 = (float)vec3d.field_1775_b;
-@@ -553,9 +552,9 @@
+@@ -553,9 +551,9 @@
     }
  
     private FloatBuffer func_908_a(float p_908_1_, float p_908_2_, float p_908_3_, float p_908_4_) {

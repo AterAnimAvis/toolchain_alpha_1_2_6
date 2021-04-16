@@ -1,15 +1,75 @@
 --- a/net/minecraft/src/WorldGenBigTree.java
 +++ b/net/minecraft/src/WorldGenBigTree.java
-@@ -57,7 +57,7 @@
+@@ -44,25 +44,22 @@
+       while(i1 >= 0) {
+          int j1 = 0;
+          float f = this.func_528_a(i1);
+-         if (f < 0.0F) {
+-            --j;
+-            --i1;
+-         } else {
+-            for(double d0 = 0.5D; j1 < i; ++j1) {
+-               double d1 = this.field_873_j * (double)f * ((double)this.field_881_b.nextFloat() + 0.328D);
+-               double d2 = (double)this.field_881_b.nextFloat() * 2.0D * 3.14159D;
+-               int k1 = (int)(d1 * Math.sin(d2) + (double)this.field_879_d[0] + d0);
+-               int l1 = (int)(d1 * Math.cos(d2) + (double)this.field_879_d[2] + d0);
++         if (!(f < 0.0F)) {
++            for (double d0 = 0.5D; j1 < i; ++j1) {
++               double d1 = this.field_873_j * (double) f * ((double) this.field_881_b.nextFloat() + 0.328D);
++               double d2 = (double) this.field_881_b.nextFloat() * 2.0D * 3.14159D;
++               int k1 = (int) (d1 * Math.sin(d2) + (double) this.field_879_d[0] + d0);
++               int l1 = (int) (d1 * Math.cos(d2) + (double) this.field_879_d[2] + d0);
+                int[] aint1 = new int[]{k1, j, l1};
                 int[] aint2 = new int[]{k1, j + this.field_869_n, l1};
                 if (this.func_524_a(aint1, aint2) == -1) {
                    int[] aint3 = new int[]{this.field_879_d[0], this.field_879_d[1], this.field_879_d[2]};
 -                  double d3 = Math.sqrt(Math.pow((double)Math.abs(this.field_879_d[0] - aint1[0]), 2.0D) + Math.pow((double)Math.abs(this.field_879_d[2] - aint1[2]), 2.0D));
 +                  double d3 = Math.sqrt(Math.pow(Math.abs(this.field_879_d[0] - aint1[0]), 2.0D) + Math.pow(Math.abs(this.field_879_d[2] - aint1[2]), 2.0D));
                    double d4 = d3 * this.field_874_i;
-                   if ((double)aint1[1] - d4 > (double)l) {
+-                  if ((double)aint1[1] - d4 > (double)l) {
++                  if ((double) aint1[1] - d4 > (double) l) {
                       aint3[1] = l;
-@@ -128,7 +128,7 @@
+                   } else {
+-                     aint3[1] = (int)((double)aint1[1] - d4);
++                     aint3[1] = (int) ((double) aint1[1] - d4);
+                   }
+ 
+                   if (this.func_524_a(aint3, aint1) == -1) {
+@@ -75,10 +72,10 @@
+                }
+             }
+ 
++         }
+             --j;
+             --i1;
+          }
+-      }
+ 
+       this.field_868_o = new int[k][4];
+       System.arraycopy(aint, 0, this.field_868_o, 0, k);
+@@ -99,18 +96,14 @@
+ 
+          while(k <= i) {
+             double d0 = Math.sqrt(Math.pow((double)Math.abs(j) + 0.5D, 2.0D) + Math.pow((double)Math.abs(k) + 0.5D, 2.0D));
+-            if (d0 > (double)p_523_4_) {
+-               ++k;
+-            } else {
++            if (!(d0 > (double) p_523_4_)) {
+                aint1[b1] = aint[b1] + k;
+                int l = this.field_880_c.func_600_a(aint1[0], aint1[1], aint1[2]);
+-               if (l != 0 && l != 18) {
+-                  ++k;
+-               } else {
++               if (l == 0 || l == 18) {
+                   this.field_880_c.func_634_a(aint1[0], aint1[1], aint1[2], p_523_6_);
+-                  ++k;
+                }
+             }
++            ++k;
+          }
+       }
+ 
+@@ -128,7 +121,7 @@
           } else if (Math.abs(f1) >= f) {
              f2 = 0.0F;
           } else {

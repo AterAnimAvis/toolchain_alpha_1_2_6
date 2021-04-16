@@ -1,0 +1,11 @@
+--- a/net/minecraft/src/EntityPickupFX.java
++++ b/net/minecraft/src/EntityPickupFX.java
+@@ -37,7 +37,7 @@
+       d7 = d7 - field_659_m;
+       d8 = d8 - field_658_n;
+       GL11.glColor4f(f1, f1, f1, 1.0F);
+-      RenderManager.field_1233_a.func_853_a(this.field_675_a, (double)((float)d6), (double)((float)d7), (double)((float)d8), this.field_675_a.field_605_aq, p_406_2_);
++      RenderManager.field_1233_a.func_853_a(this.field_675_a, (float)d6, (float)d7, (float)d8, this.field_675_a.field_605_aq, p_406_2_);
+    }
+ 
+    public void func_370_e_() {

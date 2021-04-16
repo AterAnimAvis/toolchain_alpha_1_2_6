@@ -1,0 +1,38 @@
+--- a/net/minecraft/src/BlockDoor.java
++++ b/net/minecraft/src/BlockDoor.java
+@@ -87,16 +87,13 @@
+    }
+ 
+    public boolean func_250_a(World p_250_1_, int p_250_2_, int p_250_3_, int p_250_4_, EntityPlayer p_250_5_) {
+-      if (this.field_356_bn == Material.field_1333_e) {
+-         return true;
+-      } else {
++      if (this.field_356_bn != Material.field_1333_e) {
+          int i = p_250_1_.func_602_e(p_250_2_, p_250_3_, p_250_4_);
+          if ((i & 8) != 0) {
+             if (p_250_1_.func_600_a(p_250_2_, p_250_3_ - 1, p_250_4_) == this.field_376_bc) {
+                this.func_250_a(p_250_1_, p_250_2_, p_250_3_ - 1, p_250_4_, p_250_5_);
+             }
+ 
+-            return true;
+          } else {
+             if (p_250_1_.func_600_a(p_250_2_, p_250_3_ + 1, p_250_4_) == this.field_376_bc) {
+                p_250_1_.func_691_b(p_250_2_, p_250_3_ + 1, p_250_4_, (i ^ 4) + 8);
+@@ -105,14 +102,14 @@
+             p_250_1_.func_691_b(p_250_2_, p_250_3_, p_250_4_, i ^ 4);
+             p_250_1_.func_701_b(p_250_2_, p_250_3_ - 1, p_250_4_, p_250_2_, p_250_3_, p_250_4_);
+             if (Math.random() < 0.5D) {
+-               p_250_1_.func_684_a((double)p_250_2_ + 0.5D, (double)p_250_3_ + 0.5D, (double)p_250_4_ + 0.5D, "random.door_open", 1.0F, p_250_1_.field_1037_n.nextFloat() * 0.1F + 0.9F);
++               p_250_1_.func_684_a((double) p_250_2_ + 0.5D, (double) p_250_3_ + 0.5D, (double) p_250_4_ + 0.5D, "random.door_open", 1.0F, p_250_1_.field_1037_n.nextFloat() * 0.1F + 0.9F);
+             } else {
+-               p_250_1_.func_684_a((double)p_250_2_ + 0.5D, (double)p_250_3_ + 0.5D, (double)p_250_4_ + 0.5D, "random.door_close", 1.0F, p_250_1_.field_1037_n.nextFloat() * 0.1F + 0.9F);
++               p_250_1_.func_684_a((double) p_250_2_ + 0.5D, (double) p_250_3_ + 0.5D, (double) p_250_4_ + 0.5D, "random.door_close", 1.0F, p_250_1_.field_1037_n.nextFloat() * 0.1F + 0.9F);
+             }
+ 
+-            return true;
+          }
+       }
++      return true;
+    }
+ 
+    public void func_311_a(World p_311_1_, int p_311_2_, int p_311_3_, int p_311_4_, boolean p_311_5_) {

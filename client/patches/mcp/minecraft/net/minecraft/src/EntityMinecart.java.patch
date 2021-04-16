@@ -1,11 +1,153 @@
 --- a/net/minecraft/src/EntityMinecart.java
 +++ b/net/minecraft/src/EntityMinecart.java
-@@ -377,10 +377,9 @@
+@@ -76,11 +76,9 @@
+             this.func_395_F();
+          }
+ 
++      }
+          return true;
+-      } else {
+-         return true;
+       }
+-   }
+ 
+    public void func_9280_g() {
+       System.out.println("Animating hurt");
+@@ -110,9 +108,9 @@
+                itemstack.field_1615_a -= j;
+                EntityItem entityitem = new EntityItem(this.field_615_ag, this.field_611_ak + (double)f, this.field_610_al + (double)f1, this.field_609_am + (double)f2, new ItemStack(itemstack.field_1617_c, j, itemstack.field_1616_d));
+                float f3 = 0.05F;
+-               entityitem.field_608_an = (double)((float)this.field_9312_bd.nextGaussian() * f3);
+-               entityitem.field_607_ao = (double)((float)this.field_9312_bd.nextGaussian() * f3 + 0.2F);
+-               entityitem.field_606_ap = (double)((float)this.field_9312_bd.nextGaussian() * f3);
++               entityitem.field_608_an = (float)this.field_9312_bd.nextGaussian() * f3;
++               entityitem.field_607_ao = (float)this.field_9312_bd.nextGaussian() * f3 + 0.2F;
++               entityitem.field_606_ap = (float)this.field_9312_bd.nextGaussian() * f3;
+                this.field_615_ag.func_674_a(entityitem);
+             }
+          }
+@@ -148,17 +146,16 @@
+             this.field_604_ar = (float)((double)this.field_604_ar + (this.field_9410_p - (double)this.field_604_ar) / (double)this.field_9415_k);
+             --this.field_9415_k;
+             this.func_347_a(d20, d21, d1);
+-            this.func_376_c(this.field_605_aq, this.field_604_ar);
+          } else {
+             this.func_347_a(this.field_611_ak, this.field_610_al, this.field_609_am);
+-            this.func_376_c(this.field_605_aq, this.field_604_ar);
+          }
++         this.func_376_c(this.field_605_aq, this.field_604_ar);
+ 
+       } else {
+          this.field_9285_at = this.field_611_ak;
+          this.field_9284_au = this.field_610_al;
+          this.field_9283_av = this.field_609_am;
+-         this.field_607_ao -= (double)0.04F;
++         this.field_607_ao -= 0.04F;
+          int i = MathHelper.func_1108_b(this.field_611_ak);
+          int j = MathHelper.func_1108_b(this.field_610_al);
+          int k = MathHelper.func_1108_b(this.field_609_am);
+@@ -172,9 +169,9 @@
+          if (this.field_615_ag.func_600_a(i, j, k) == Block.field_440_aH.field_376_bc) {
+             Vec3D vec3d = this.func_514_g(this.field_611_ak, this.field_610_al, this.field_609_am);
+             int l = this.field_615_ag.func_602_e(i, j, k);
+-            this.field_610_al = (double)j;
++            this.field_610_al = j;
+             if (l >= 2 && l <= 5) {
+-               this.field_610_al = (double)(j + 1);
++               this.field_610_al = j + 1;
+             }
+ 
+             if (l == 2) {
+@@ -194,8 +191,8 @@
+             }
+ 
+             int[][] aint = field_855_j[l];
+-            double d3 = (double)(aint[1][0] - aint[0][0]);
+-            double d5 = (double)(aint[1][2] - aint[0][2]);
++            double d3 = aint[1][0] - aint[0][0];
++            double d5 = aint[1][2] - aint[0][2];
+             double d6 = Math.sqrt(d3 * d3 + d5 * d5);
+             double d7 = this.field_608_an * d3 + this.field_606_ap * d5;
+             if (d7 < 0.0D) {
+@@ -260,32 +257,32 @@
+             }
+ 
+             if (this.field_617_ae != null) {
+-               this.field_608_an *= (double)0.997F;
++               this.field_608_an *= 0.997F;
+                this.field_607_ao *= 0.0D;
+-               this.field_606_ap *= (double)0.997F;
++               this.field_606_ap *= 0.997F;
+             } else {
+                if (this.field_861_d == 2) {
+-                  double d27 = (double)MathHelper.func_1109_a(this.field_9417_f * this.field_9417_f + this.field_9416_g * this.field_9416_g);
++                  double d27 = MathHelper.func_1109_a(this.field_9417_f * this.field_9417_f + this.field_9416_g * this.field_9416_g);
+                   if (d27 > 0.01D) {
+                      flag = true;
+                      this.field_9417_f /= d27;
+                      this.field_9416_g /= d27;
+                      double d18 = 0.04D;
+-                     this.field_608_an *= (double)0.8F;
++                     this.field_608_an *= 0.8F;
+                      this.field_607_ao *= 0.0D;
+-                     this.field_606_ap *= (double)0.8F;
++                     this.field_606_ap *= 0.8F;
+                      this.field_608_an += this.field_9417_f * d18;
+                      this.field_606_ap += this.field_9416_g * d18;
+                   } else {
+-                     this.field_608_an *= (double)0.9F;
++                     this.field_608_an *= 0.9F;
+                      this.field_607_ao *= 0.0D;
+-                     this.field_606_ap *= (double)0.9F;
++                     this.field_606_ap *= 0.9F;
+                   }
+                }
+ 
+-               this.field_608_an *= (double)0.96F;
++               this.field_608_an *= 0.96F;
+                this.field_607_ao *= 0.0D;
+-               this.field_606_ap *= (double)0.96F;
++               this.field_606_ap *= 0.96F;
+             }
+ 
+             Vec3D vec3d1 = this.func_514_g(this.field_611_ak, this.field_610_al, this.field_609_am);
+@@ -309,7 +306,7 @@
+             }
+ 
+             if (this.field_861_d == 2) {
+-               double d19 = (double)MathHelper.func_1109_a(this.field_9417_f * this.field_9417_f + this.field_9416_g * this.field_9416_g);
++               double d19 = MathHelper.func_1109_a(this.field_9417_f * this.field_9417_f + this.field_9416_g * this.field_9416_g);
+                if (d19 > 0.01D && this.field_608_an * this.field_608_an + this.field_606_ap * this.field_606_ap > 0.001D) {
+                   this.field_9417_f /= d19;
+                   this.field_9416_g /= d19;
+@@ -347,9 +344,9 @@
+ 
+             this.func_349_c(this.field_608_an, this.field_607_ao, this.field_606_ap);
+             if (!this.field_9298_aH) {
+-               this.field_608_an *= (double)0.95F;
+-               this.field_607_ao *= (double)0.95F;
+-               this.field_606_ap *= (double)0.95F;
++               this.field_608_an *= 0.95F;
++               this.field_607_ao *= 0.95F;
++               this.field_606_ap *= 0.95F;
+             }
+          }
+ 
+@@ -364,7 +361,7 @@
+          }
+ 
+          double d4;
+-         for(d4 = (double)(this.field_605_aq - this.field_603_as); d4 >= 180.0D; d4 -= 360.0D) {
++         for(d4 = this.field_605_aq - this.field_603_as; d4 >= 180.0D; d4 -= 360.0D) {
+          }
+ 
+          while(d4 < -180.0D) {
+@@ -377,10 +374,9 @@
           }
  
           this.func_376_c(this.field_605_aq, this.field_604_ar);
 -         List list = this.field_615_ag.func_659_b(this, this.field_601_au.func_1177_b((double)0.2F, 0.0D, (double)0.2F));
-+         List<Entity> list = this.field_615_ag.func_659_b(this, this.field_601_au.func_1177_b((double)0.2F, 0.0D, (double)0.2F));
++         List<Entity> list = this.field_615_ag.func_659_b(this, this.field_601_au.func_1177_b(0.2F, 0.0D, 0.2F));
           if (list != null && list.size() > 0) {
 -            for(int i1 = 0; i1 < list.size(); ++i1) {
 -               Entity entity = (Entity)list.get(i1);
@@ -13,7 +155,7 @@
                 if (entity != this.field_617_ae && entity.func_385_d_() && entity instanceof EntityMinecart) {
                    entity.func_380_f(this);
                 }
-@@ -413,23 +412,23 @@
+@@ -413,23 +409,23 @@
  
        if (this.field_615_ag.func_600_a(i, j, k) == Block.field_440_aH.field_376_bc) {
           int l = this.field_615_ag.func_602_e(i, j, k);
@@ -43,7 +185,19 @@
           }
  
           return this.func_514_g(p_515_1_, p_515_3_, p_515_5_);
-@@ -553,7 +552,7 @@
+@@ -448,9 +444,9 @@
+ 
+       if (this.field_615_ag.func_600_a(i, j, k) == Block.field_440_aH.field_376_bc) {
+          int l = this.field_615_ag.func_602_e(i, j, k);
+-         p_514_3_ = (double)j;
++         p_514_3_ = j;
+          if (l >= 2 && l <= 5) {
+-            p_514_3_ = (double)(j + 1);
++            p_514_3_ = j + 1;
+          }
+ 
+          int[][] aint = field_855_j[l];
+@@ -553,7 +549,7 @@
              double d1 = p_380_1_.field_609_am - this.field_609_am;
              double d2 = d0 * d0 + d1 * d1;
              if (d2 >= (double)1.0E-4F) {
@@ -52,3 +206,52 @@
                 d0 = d0 / d2;
                 d1 = d1 / d2;
                 double d3 = 1.0D / d2;
+@@ -573,25 +569,25 @@
+                   double d4 = p_380_1_.field_608_an + this.field_608_an;
+                   double d5 = p_380_1_.field_606_ap + this.field_606_ap;
+                   if (((EntityMinecart)p_380_1_).field_861_d == 2 && this.field_861_d != 2) {
+-                     this.field_608_an *= (double)0.2F;
+-                     this.field_606_ap *= (double)0.2F;
++                     this.field_608_an *= 0.2F;
++                     this.field_606_ap *= 0.2F;
+                      this.func_348_f(p_380_1_.field_608_an - d0, 0.0D, p_380_1_.field_606_ap - d1);
+-                     p_380_1_.field_608_an *= (double)0.7F;
+-                     p_380_1_.field_606_ap *= (double)0.7F;
++                     p_380_1_.field_608_an *= 0.7F;
++                     p_380_1_.field_606_ap *= 0.7F;
+                   } else if (((EntityMinecart)p_380_1_).field_861_d != 2 && this.field_861_d == 2) {
+-                     p_380_1_.field_608_an *= (double)0.2F;
+-                     p_380_1_.field_606_ap *= (double)0.2F;
++                     p_380_1_.field_608_an *= 0.2F;
++                     p_380_1_.field_606_ap *= 0.2F;
+                      p_380_1_.func_348_f(this.field_608_an + d0, 0.0D, this.field_606_ap + d1);
+-                     this.field_608_an *= (double)0.7F;
+-                     this.field_606_ap *= (double)0.7F;
++                     this.field_608_an *= 0.7F;
++                     this.field_606_ap *= 0.7F;
+                   } else {
+                      d4 = d4 / 2.0D;
+                      d5 = d5 / 2.0D;
+-                     this.field_608_an *= (double)0.2F;
+-                     this.field_606_ap *= (double)0.2F;
++                     this.field_608_an *= 0.2F;
++                     this.field_606_ap *= 0.2F;
+                      this.func_348_f(d4 - d0, 0.0D, d5 - d1);
+-                     p_380_1_.field_608_an *= (double)0.2F;
+-                     p_380_1_.field_606_ap *= (double)0.2F;
++                     p_380_1_.field_608_an *= 0.2F;
++                     p_380_1_.field_606_ap *= 0.2F;
+                      p_380_1_.func_348_f(d4 + d0, 0.0D, d5 + d1);
+                   }
+                } else {
+@@ -682,8 +678,8 @@
+       this.field_9414_l = p_378_1_;
+       this.field_9413_m = p_378_3_;
+       this.field_9412_n = p_378_5_;
+-      this.field_9411_o = (double)p_378_7_;
+-      this.field_9410_p = (double)p_378_8_;
++      this.field_9411_o = p_378_7_;
++      this.field_9410_p = p_378_8_;
+       this.field_9415_k = p_378_9_ + 2;
+       this.field_608_an = this.field_9409_q;
+       this.field_607_ao = this.field_9408_r;

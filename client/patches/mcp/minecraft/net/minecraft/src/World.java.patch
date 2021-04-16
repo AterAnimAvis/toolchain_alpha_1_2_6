@@ -30,7 +30,7 @@
     private IChunkProvider field_1017_H;
     public File field_9433_s;
     public File field_9432_t;
-@@ -46,12 +46,12 @@
+@@ -46,20 +46,18 @@
     public long field_1029_v = 0L;
     public final String field_9431_w;
     public boolean field_9430_x;
@@ -46,7 +46,27 @@
     public boolean field_1026_y = false;
  
     public static NBTTagCompound func_629_a(File p_629_0_, String p_629_1_) {
-@@ -141,19 +141,16 @@
+       File file1 = new File(p_629_0_, "saves");
+       File file2 = new File(file1, p_629_1_);
+-      if (!file2.exists()) {
+-         return null;
+-      } else {
++      if (file2.exists()) {
+          File file3 = new File(file2, "level.dat");
+          if (file3.exists()) {
+             try {
+@@ -70,9 +68,9 @@
+             }
+          }
+ 
++      }
+          return null;
+       }
+-   }
+ 
+    public static void func_615_b(File p_615_0_, String p_615_1_) {
+       File file1 = new File(p_615_0_, "saves");
+@@ -141,19 +139,16 @@
  
        try {
           File file1 = new File(this.field_9432_t, "session.lock");
@@ -68,7 +88,7 @@
        File file2 = new File(this.field_9432_t, "level.dat");
        this.field_1033_r = !file2.exists();
        if (file2.exists()) {
-@@ -188,7 +185,7 @@
+@@ -188,7 +183,7 @@
           flag = true;
        }
  
@@ -77,7 +97,7 @@
        this.field_4209_q.func_4095_a(this);
        this.field_1017_H = this.func_4081_a(this.field_9432_t);
        if (flag) {
-@@ -274,7 +271,7 @@
+@@ -274,7 +269,7 @@
        nbttagcompound.func_750_a("LastPlayed", System.currentTimeMillis());
        EntityPlayer entityplayer = null;
        if (this.field_1040_k.size() > 0) {
@@ -86,7 +106,7 @@
        }
  
        if (entityplayer != null) {
-@@ -318,7 +315,7 @@
+@@ -318,7 +313,7 @@
              this.func_669_m();
           }
  
@@ -95,7 +115,7 @@
        }
     }
  
-@@ -469,8 +466,8 @@
+@@ -469,8 +464,8 @@
     }
  
     public void func_665_h(int p_665_1_, int p_665_2_, int p_665_3_) {
@@ -106,7 +126,7 @@
        }
  
     }
-@@ -491,8 +488,8 @@
+@@ -491,8 +486,8 @@
     }
  
     public void func_701_b(int p_701_1_, int p_701_2_, int p_701_3_, int p_701_4_, int p_701_5_, int p_701_6_) {
@@ -117,7 +137,7 @@
        }
  
     }
-@@ -651,8 +648,8 @@
+@@ -651,8 +646,8 @@
                    Chunk chunk = this.func_704_b(p_664_2_ >> 4, p_664_4_ >> 4);
                    chunk.func_1011_a(p_664_1_, p_664_2_ & 15, p_664_3_, p_664_4_ & 15, p_664_5_);
  
@@ -128,7 +148,7 @@
                    }
  
                 }
-@@ -772,19 +769,19 @@
+@@ -772,19 +767,19 @@
                 }
  
                 Vec3D vec3d = Vec3D.func_1248_b(p_642_1_.field_1776_a, p_642_1_.field_1775_b, p_642_1_.field_1779_c);
@@ -151,8 +171,19 @@
                 if (b0 == 3) {
                    --j1;
                    ++vec3d.field_1779_c;
-@@ -811,29 +808,29 @@
-    }
+@@ -801,39 +796,35 @@
+                }
+             }
+ 
+-            return null;
+-         } else {
+-            return null;
+          }
+-      } else {
++      }
+          return null;
+       }
+-   }
  
     public void func_623_a(Entity p_623_1_, String p_623_2_, float p_623_3_, float p_623_4_) {
 -      for(int i = 0; i < this.field_9434_r.size(); ++i) {
@@ -189,7 +220,7 @@
        }
  
     }
-@@ -862,15 +859,15 @@
+@@ -862,15 +853,15 @@
     }
  
     protected void func_606_b(Entity p_606_1_) {
@@ -209,7 +240,7 @@
        }
  
     }
-@@ -878,7 +875,7 @@
+@@ -878,7 +869,7 @@
     public void func_607_d(Entity p_607_1_) {
        p_607_1_.func_395_F();
        if (p_607_1_ instanceof EntityPlayer) {
@@ -218,7 +249,7 @@
        }
  
     }
-@@ -891,7 +888,7 @@
+@@ -891,7 +882,7 @@
        this.field_9434_r.remove(p_672_1_);
     }
  
@@ -227,7 +258,7 @@
        this.field_9428_I.clear();
        int i = MathHelper.func_1108_b(p_697_2_.field_1698_a);
        int j = MathHelper.func_1108_b(p_697_2_.field_1703_d + 1.0D);
-@@ -914,15 +911,15 @@
+@@ -914,15 +905,15 @@
        }
  
        double d0 = 0.25D;
@@ -247,7 +278,7 @@
           if (axisalignedbb != null && axisalignedbb.func_1178_a(p_697_2_)) {
              this.field_9428_I.add(axisalignedbb);
           }
-@@ -966,7 +963,7 @@
+@@ -966,7 +957,7 @@
        f3 = f3 * f1;
        f4 = f4 * f1;
        f5 = f5 * f1;
@@ -256,7 +287,7 @@
     }
  
     public float func_619_c(float p_619_1_) {
-@@ -990,7 +987,7 @@
+@@ -990,7 +981,7 @@
        f2 = f2 * (f1 * 0.9F + 0.1F);
        f3 = f3 * (f1 * 0.9F + 0.1F);
        f4 = f4 * (f1 * 0.85F + 0.15F);
@@ -265,7 +296,7 @@
     }
  
     public Vec3D func_4082_d(float p_4082_1_) {
-@@ -1064,8 +1061,7 @@
+@@ -1064,8 +1055,7 @@
     public void func_633_c() {
        this.field_1050_a.removeAll(this.field_1024_A);
  
@@ -275,7 +306,7 @@
           int j = entity.field_657_ba;
           int k = entity.field_654_bc;
           if (entity.field_621_aZ && this.func_620_h(j, k)) {
-@@ -1073,14 +1069,14 @@
+@@ -1073,14 +1063,14 @@
           }
        }
  
@@ -293,7 +324,7 @@
           if (entity1.field_616_af != null) {
              if (!entity1.field_616_af.field_646_aA && entity1.field_616_af.field_617_ae == entity1) {
                 continue;
-@@ -1106,8 +1102,7 @@
+@@ -1106,8 +1096,7 @@
           }
        }
  
@@ -303,7 +334,7 @@
           tileentity.func_475_b();
        }
  
-@@ -1147,11 +1142,11 @@
+@@ -1147,11 +1136,11 @@
              p_4084_1_.field_609_am = p_4084_1_.field_636_aK;
           }
  
@@ -317,7 +348,7 @@
              p_4084_1_.field_605_aq = p_4084_1_.field_603_as;
           }
  
-@@ -1184,10 +1179,9 @@
+@@ -1184,10 +1173,9 @@
     }
  
     public boolean func_604_a(AxisAlignedBB p_604_1_) {
@@ -330,7 +361,16 @@
           if (!entity.field_646_aA && entity.field_618_ad) {
              return false;
           }
-@@ -1323,7 +1317,7 @@
+@@ -1266,7 +1254,7 @@
+             for(int i2 = i1; i2 < j1; ++i2) {
+                Block block = Block.field_345_n[this.func_600_a(k1, l1, i2)];
+                if (block != null && block.field_356_bn == p_682_2_) {
+-                  double d0 = (double)((float)(l1 + 1) - BlockFluids.func_288_b(this.func_602_e(k1, l1, i2)));
++                  double d0 = (float)(l1 + 1) - BlockFluids.func_288_b(this.func_602_e(k1, l1, i2));
+                   if ((double)l >= d0) {
+                      flag = true;
+                      block.func_257_a(this, k1, l1, i2, p_682_3_, vec3d);
+@@ -1323,7 +1311,7 @@
                 Block block = Block.field_345_n[this.func_600_a(k1, l1, i2)];
                 if (block != null && block.field_356_bn == p_707_2_) {
                    int j2 = this.func_602_e(k1, l1, i2);
@@ -339,7 +379,7 @@
                    if (j2 < 8) {
                       d0 = (double)(l1 + 1) - (double)j2 / 8.0D;
                    }
-@@ -1402,7 +1396,7 @@
+@@ -1402,7 +1390,7 @@
        }
  
        if (this.func_600_a(p_612_1_, p_612_2_, p_612_3_) == Block.field_402_as.field_376_bc) {
@@ -348,7 +388,7 @@
           this.func_690_d(p_612_1_, p_612_2_, p_612_3_, 0);
        }
  
-@@ -1461,7 +1455,7 @@
+@@ -1461,7 +1449,7 @@
                    return true;
                 }
  
@@ -357,16 +397,46 @@
              }
  
              return false;
-@@ -1494,7 +1488,7 @@
+@@ -1478,14 +1466,10 @@
+    public void func_627_a(EnumSkyBlock p_627_1_, int p_627_2_, int p_627_3_, int p_627_4_, int p_627_5_, int p_627_6_, int p_627_7_, boolean p_627_8_) {
+       if (!this.field_4209_q.field_6478_e || p_627_1_ != EnumSkyBlock.Sky) {
+          ++field_9429_y;
+-         if (field_9429_y == 50) {
+-            --field_9429_y;
+-         } else {
++         if (field_9429_y != 50) {
+             int i = (p_627_5_ + p_627_2_) / 2;
+             int j = (p_627_7_ + p_627_4_) / 2;
+-            if (!this.func_630_d(i, 64, j)) {
+-               --field_9429_y;
+-            } else {
++            if (this.func_630_d(i, 64, j)) {
+                int k = this.field_1051_z.size();
+                if (p_627_8_) {
+                   int l = 4;
+@@ -1493,8 +1477,8 @@
+                      l = k;
                    }
  
-                   for(int i1 = 0; i1 < l; ++i1) {
+-                  for(int i1 = 0; i1 < l; ++i1) {
 -                     MetadataChunkBlock metadatachunkblock = (MetadataChunkBlock)this.field_1051_z.get(this.field_1051_z.size() - i1 - 1);
++                  for (int i1 = 0; i1 < l; ++i1) {
 +                     MetadataChunkBlock metadatachunkblock = this.field_1051_z.get(this.field_1051_z.size() - i1 - 1);
                       if (metadatachunkblock.field_1299_a == p_627_1_ && metadatachunkblock.func_866_a(p_627_2_, p_627_3_, p_627_4_, p_627_5_, p_627_6_, p_627_7_)) {
                          --field_9429_y;
                          return;
-@@ -1528,14 +1522,14 @@
+@@ -1507,9 +1491,9 @@
+                   this.field_1051_z.clear();
+                }
+ 
+-               --field_9429_y;
+             }
+          }
++         --field_9429_y;
+       }
+    }
+ 
+@@ -1528,14 +1512,14 @@
        if (i != this.field_1046_e) {
           this.field_1046_e = i;
  
@@ -384,7 +454,7 @@
        }
  
        this.func_700_a(false);
-@@ -1543,8 +1537,51 @@
+@@ -1543,8 +1527,51 @@
     }
  
     protected void func_4080_j() {
@@ -437,7 +507,7 @@
  
     public boolean func_700_a(boolean p_700_1_) {
        int i = this.field_1058_B.size();
-@@ -1556,7 +1593,7 @@
+@@ -1556,7 +1583,7 @@
           }
  
           for(int j = 0; j < i; ++j) {
@@ -446,7 +516,7 @@
              if (!p_700_1_ && nextticklistentry.field_1364_e > this.field_1048_c) {
                 break;
              }
-@@ -1592,7 +1629,7 @@
+@@ -1592,7 +1619,7 @@
  
     }
  
@@ -455,7 +525,7 @@
        this.field_1012_M.clear();
        int i = MathHelper.func_1108_b((p_659_2_.field_1698_a - 2.0D) / 16.0D);
        int j = MathHelper.func_1108_b((p_659_2_.field_1703_d + 2.0D) / 16.0D);
-@@ -1610,12 +1647,12 @@
+@@ -1610,12 +1637,12 @@
        return this.field_1012_M;
     }
  
@@ -470,7 +540,7 @@
  
        for(int i1 = i; i1 <= j; ++i1) {
           for(int j1 = k; j1 <= l; ++j1) {
-@@ -1628,7 +1665,7 @@
+@@ -1628,7 +1655,7 @@
        return arraylist;
     }
  
@@ -479,7 +549,7 @@
        return this.field_1050_a;
     }
  
-@@ -1637,17 +1674,15 @@
+@@ -1637,17 +1664,15 @@
           this.func_673_a(p_698_1_, p_698_3_).func_1006_f();
        }
  
@@ -501,7 +571,7 @@
           if (p_621_1_.isAssignableFrom(entity.getClass())) {
              ++i;
           }
-@@ -1656,21 +1691,21 @@
+@@ -1656,21 +1681,21 @@
        return i;
     }
  
@@ -529,7 +599,7 @@
        }
  
     }
-@@ -1777,12 +1812,11 @@
+@@ -1777,12 +1802,11 @@
        double d0 = -1.0D;
        EntityPlayer entityplayer = null;
  
@@ -545,7 +615,7 @@
           }
        }
  
-@@ -1840,16 +1874,12 @@
+@@ -1840,16 +1864,12 @@
     public void func_663_l() {
        try {
           File file1 = new File(this.field_9432_t, "session.lock");
@@ -563,7 +633,7 @@
        } catch (IOException ioexception) {
           throw new MinecraftException("Failed to check session lock, aborting");
        }
-@@ -1886,8 +1916,7 @@
+@@ -1886,8 +1906,7 @@
     public void func_9424_o() {
        this.field_1050_a.removeAll(this.field_1024_A);
  
@@ -573,7 +643,7 @@
           int j = entity.field_657_ba;
           int k = entity.field_654_bc;
           if (entity.field_621_aZ && this.func_620_h(j, k)) {
-@@ -1895,14 +1924,14 @@
+@@ -1895,14 +1914,14 @@
           }
        }
  

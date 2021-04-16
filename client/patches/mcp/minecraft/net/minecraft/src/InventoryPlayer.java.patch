@@ -1,6 +1,38 @@
 --- a/net/minecraft/src/InventoryPlayer.java
 +++ b/net/minecraft/src/InventoryPlayer.java
-@@ -106,9 +106,9 @@
+@@ -78,37 +78,30 @@
+          i = this.func_499_j();
+       }
+ 
+-      if (i < 0) {
+-         return p_495_2_;
+-      } else {
++      if (i >= 0) {
+          if (this.field_843_a[i] == null) {
+             this.field_843_a[i] = new ItemStack(p_495_1_, 0);
+          }
+ 
+-         int j = p_495_2_;
+-         if (p_495_2_ > this.field_843_a[i].func_1089_c() - this.field_843_a[i].field_1615_a) {
+-            j = this.field_843_a[i].func_1089_c() - this.field_843_a[i].field_1615_a;
+-         }
++         int j = Math.min(p_495_2_, this.field_843_a[i].func_1089_c() - this.field_843_a[i].field_1615_a);
+ 
+          if (j > this.func_470_e() - this.field_843_a[i].field_1615_a) {
+             j = this.func_470_e() - this.field_843_a[i].field_1615_a;
+          }
+ 
+-         if (j == 0) {
+-            return p_495_2_;
+-         } else {
++         if (j != 0) {
+             p_495_2_ = p_495_2_ - j;
+             this.field_843_a[i].field_1615_a += j;
+             this.field_843_a[i].field_1614_b = 5;
+-            return p_495_2_;
+          }
+       }
++      return p_495_2_;
     }
  
     public void func_511_b() {
@@ -13,7 +45,7 @@
           }
        }
  
-@@ -298,14 +298,14 @@
+@@ -298,14 +291,14 @@
        int j = 0;
        int k = 0;
  

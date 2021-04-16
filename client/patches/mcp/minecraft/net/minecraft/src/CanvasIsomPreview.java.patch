@@ -5,7 +5,7 @@
     private File field_1789_e;
     private boolean field_1788_f = true;
 -   private List field_1787_g = Collections.synchronizedList(new LinkedList());
-+   private List<IsoImageBuffer> field_1787_g = Collections.synchronizedList(new LinkedList<>());
++   private final List<IsoImageBuffer> field_1787_g = Collections.synchronizedList(new LinkedList<>());
     private IsoImageBuffer[][] field_1786_h = new IsoImageBuffer[64][64];
     private int field_1785_i;
     private int field_1784_j;

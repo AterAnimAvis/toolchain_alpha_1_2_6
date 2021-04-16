@@ -1,0 +1,13 @@
+--- a/net/minecraft/src/MCHashTable.java
++++ b/net/minecraft/src/MCHashTable.java
+@@ -120,10 +120,6 @@
+       ++this.field_1591_e;
+       HashEntry[] ahashentry = this.field_1590_a;
+ 
+-      for(int i = 0; i < ahashentry.length; ++i) {
+-         ahashentry[i] = null;
+-      }
+-
+       this.field_1589_b = 0;
+    }
+ 

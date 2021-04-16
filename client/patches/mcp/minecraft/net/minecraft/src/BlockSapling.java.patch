@@ -1,0 +1,18 @@
+--- a/net/minecraft/src/BlockSapling.java
++++ b/net/minecraft/src/BlockSapling.java
+@@ -17,12 +17,12 @@
+             p_208_1_.func_691_b(p_208_2_, p_208_3_, p_208_4_, i + 1);
+          } else {
+             p_208_1_.func_634_a(p_208_2_, p_208_3_, p_208_4_, 0);
+-            Object object = new WorldGenTrees();
++            WorldGenerator worldGenerator = new WorldGenTrees();
+             if (p_208_5_.nextInt(10) == 0) {
+-               object = new WorldGenBigTree();
++               worldGenerator = new WorldGenBigTree();
+             }
+ 
+-            if (!((WorldGenerator)object).func_516_a(p_208_1_, p_208_5_, p_208_2_, p_208_3_, p_208_4_)) {
++            if (!worldGenerator.func_516_a(p_208_1_, p_208_5_, p_208_2_, p_208_3_, p_208_4_)) {
+                p_208_1_.func_634_a(p_208_2_, p_208_3_, p_208_4_, this.field_376_bc);
+             }
+          }

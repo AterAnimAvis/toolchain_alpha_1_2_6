@@ -1,0 +1,11 @@
+--- a/net/minecraft/src/EntityPortalFX.java
++++ b/net/minecraft/src/EntityPortalFX.java
+@@ -16,7 +16,7 @@
+       this.field_4084_r = this.field_609_am = p_i187_6_;
+       float f = this.field_9312_bd.nextFloat() * 0.6F + 0.4F;
+       this.field_4083_a = this.field_665_g = this.field_9312_bd.nextFloat() * 0.2F + 0.5F;
+-      this.field_663_i = this.field_662_j = this.field_661_k = 1.0F * f;
++      this.field_663_i = this.field_662_j = this.field_661_k = f;
+       this.field_662_j *= 0.3F;
+       this.field_663_i *= 0.9F;
+       this.field_666_f = (int)(Math.random() * 10.0D) + 40;

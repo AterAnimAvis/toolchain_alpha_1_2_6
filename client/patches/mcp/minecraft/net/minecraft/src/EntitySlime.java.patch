@@ -1,0 +1,11 @@
+--- a/net/minecraft/src/EntitySlime.java
++++ b/net/minecraft/src/EntitySlime.java
+@@ -74,7 +74,7 @@
+ 
+          this.field_768_a = 1.0F;
+          this.field_9342_ah = 1.0F - this.field_9312_bd.nextFloat() * 2.0F;
+-         this.field_9340_ai = (float)(1 * this.field_770_c);
++         this.field_9340_ai = (float)this.field_770_c;
+       } else {
+          this.field_9336_ak = false;
+          if (this.field_9298_aH) {

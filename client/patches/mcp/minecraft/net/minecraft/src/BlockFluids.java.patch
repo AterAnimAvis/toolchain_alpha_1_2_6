@@ -1,5 +1,27 @@
 --- a/net/minecraft/src/BlockFluids.java
 +++ b/net/minecraft/src/BlockFluids.java
+@@ -108,18 +108,18 @@
+                i1 = this.func_289_b(p_291_1_, k, p_291_3_ - 1, l);
+                if (i1 >= 0) {
+                   int j1 = i1 - (i - 8);
+-                  vec3d = vec3d.func_1257_c((double)((k - p_291_2_) * j1), (double)((p_291_3_ - p_291_3_) * j1), (double)((l - p_291_4_) * j1));
++                  vec3d = vec3d.func_1257_c((k - p_291_2_) * j1, (p_291_3_ - p_291_3_) * j1, (l - p_291_4_) * j1);
+                }
+             }
+          } else if (i1 >= 0) {
+             int k1 = i1 - i;
+-            vec3d = vec3d.func_1257_c((double)((k - p_291_2_) * k1), (double)((p_291_3_ - p_291_3_) * k1), (double)((l - p_291_4_) * k1));
++            vec3d = vec3d.func_1257_c((k - p_291_2_) * k1, (p_291_3_ - p_291_3_) * k1, (l - p_291_4_) * k1);
+          }
+       }
+ 
+       if (p_291_1_.func_602_e(p_291_2_, p_291_3_, p_291_4_) >= 8) {
+          boolean flag = false;
+-         if (flag || this.func_260_c(p_291_1_, p_291_2_, p_291_3_, p_291_4_ - 1, 2)) {
++         if (this.func_260_c(p_291_1_, p_291_2_, p_291_3_, p_291_4_ - 1, 2)) {
+             flag = true;
+          }
+ 
 @@ -177,7 +177,7 @@
     public float func_241_c(IBlockAccess p_241_1_, int p_241_2_, int p_241_3_, int p_241_4_) {
        float f = p_241_1_.func_598_c(p_241_2_, p_241_3_, p_241_4_);
@@ -9,3 +31,39 @@
     }
  
     public void func_208_a(World p_208_1_, int p_208_2_, int p_208_3_, int p_208_4_, Random p_208_5_) {
+@@ -192,14 +192,14 @@
+       if (this.field_356_bn == Material.field_1332_f && p_247_5_.nextInt(64) == 0) {
+          int i = p_247_1_.func_602_e(p_247_2_, p_247_3_, p_247_4_);
+          if (i > 0 && i < 8) {
+-            p_247_1_.func_684_a((double)((float)p_247_2_ + 0.5F), (double)((float)p_247_3_ + 0.5F), (double)((float)p_247_4_ + 0.5F), "liquid.water", p_247_5_.nextFloat() * 0.25F + 0.75F, p_247_5_.nextFloat() * 1.0F + 0.5F);
++            p_247_1_.func_684_a((float)p_247_2_ + 0.5F, (float)p_247_3_ + 0.5F, (float)p_247_4_ + 0.5F, "liquid.water", p_247_5_.nextFloat() * 0.25F + 0.75F, p_247_5_.nextFloat() * 1.0F + 0.5F);
+          }
+       }
+ 
+       if (this.field_356_bn == Material.field_1331_g && p_247_1_.func_599_f(p_247_2_, p_247_3_ + 1, p_247_4_) == Material.field_1337_a && !p_247_1_.func_601_g(p_247_2_, p_247_3_ + 1, p_247_4_) && p_247_5_.nextInt(100) == 0) {
+-         double d2 = (double)((float)p_247_2_ + p_247_5_.nextFloat());
++         double d2 = (float)p_247_2_ + p_247_5_.nextFloat();
+          double d0 = (double)p_247_3_ + this.field_362_bj;
+-         double d1 = (double)((float)p_247_4_ + p_247_5_.nextFloat());
++         double d1 = (float)p_247_4_ + p_247_5_.nextFloat();
+          p_247_1_.func_694_a("lava", d2, d0, d1, 0.0D, 0.0D, 0.0D);
+       }
+ 
+@@ -230,7 +230,7 @@
+       if (p_287_1_.func_600_a(p_287_2_, p_287_3_, p_287_4_) == this.field_376_bc) {
+          if (this.field_356_bn == Material.field_1331_g) {
+             boolean flag = false;
+-            if (flag || p_287_1_.func_599_f(p_287_2_, p_287_3_, p_287_4_ - 1) == Material.field_1332_f) {
++            if (p_287_1_.func_599_f(p_287_2_, p_287_3_, p_287_4_ - 1) == Material.field_1332_f) {
+                flag = true;
+             }
+ 
+@@ -266,7 +266,7 @@
+    }
+ 
+    protected void func_292_i(World p_292_1_, int p_292_2_, int p_292_3_, int p_292_4_) {
+-      p_292_1_.func_684_a((double)((float)p_292_2_ + 0.5F), (double)((float)p_292_3_ + 0.5F), (double)((float)p_292_4_ + 0.5F), "random.fizz", 0.5F, 2.6F + (p_292_1_.field_1037_n.nextFloat() - p_292_1_.field_1037_n.nextFloat()) * 0.8F);
++      p_292_1_.func_684_a((float)p_292_2_ + 0.5F, (float)p_292_3_ + 0.5F, (float)p_292_4_ + 0.5F, "random.fizz", 0.5F, 2.6F + (p_292_1_.field_1037_n.nextFloat() - p_292_1_.field_1037_n.nextFloat()) * 0.8F);
+ 
+       for(int i = 0; i < 8; ++i) {
+          p_292_1_.func_694_a("largesmoke", (double)p_292_2_ + Math.random(), (double)p_292_3_ + 1.2D, (double)p_292_4_ + Math.random(), 0.0D, 0.0D, 0.0D);

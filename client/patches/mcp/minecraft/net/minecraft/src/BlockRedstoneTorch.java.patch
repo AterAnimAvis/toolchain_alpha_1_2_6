@@ -19,6 +19,24 @@
           if (redstoneupdateinfo.field_1009_a == p_273_2_ && redstoneupdateinfo.field_1008_b == p_273_3_ && redstoneupdateinfo.field_1011_c == p_273_4_) {
              ++i;
              if (i >= 8) {
+@@ -107,7 +106,7 @@
+    public void func_208_a(World p_208_1_, int p_208_2_, int p_208_3_, int p_208_4_, Random p_208_5_) {
+       boolean flag = this.func_15232_h(p_208_1_, p_208_2_, p_208_3_, p_208_4_);
+ 
+-      while(field_450_b.size() > 0 && p_208_1_.field_1048_c - ((RedstoneUpdateInfo)field_450_b.get(0)).field_1010_d > 100L) {
++      while(field_450_b.size() > 0 && p_208_1_.field_1048_c - field_450_b.get(0).field_1010_d > 100L) {
+          field_450_b.remove(0);
+       }
+ 
+@@ -115,7 +114,7 @@
+          if (flag) {
+             p_208_1_.func_688_b(p_208_2_, p_208_3_, p_208_4_, Block.field_431_aQ.field_376_bc, p_208_1_.func_602_e(p_208_2_, p_208_3_, p_208_4_));
+             if (this.func_273_a(p_208_1_, p_208_2_, p_208_3_, p_208_4_, true)) {
+-               p_208_1_.func_684_a((double)((float)p_208_2_ + 0.5F), (double)((float)p_208_3_ + 0.5F), (double)((float)p_208_4_ + 0.5F), "random.fizz", 0.5F, 2.6F + (p_208_1_.field_1037_n.nextFloat() - p_208_1_.field_1037_n.nextFloat()) * 0.8F);
++               p_208_1_.func_684_a((float)p_208_2_ + 0.5F, (float)p_208_3_ + 0.5F, (float)p_208_4_ + 0.5F, "random.fizz", 0.5F, 2.6F + (p_208_1_.field_1037_n.nextFloat() - p_208_1_.field_1037_n.nextFloat()) * 0.8F);
+ 
+                for(int i = 0; i < 5; ++i) {
+                   double d0 = (double)p_208_2_ + p_208_5_.nextDouble() * 0.6D + 0.2D;
 @@ -154,8 +153,8 @@
           double d0 = (double)((float)p_247_2_ + 0.5F) + (double)(p_247_5_.nextFloat() - 0.5F) * 0.2D;
           double d1 = (double)((float)p_247_3_ + 0.7F) + (double)(p_247_5_.nextFloat() - 0.5F) * 0.2D;

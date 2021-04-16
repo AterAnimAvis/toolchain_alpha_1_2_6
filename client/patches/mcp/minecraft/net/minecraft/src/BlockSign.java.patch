@@ -1,0 +1,24 @@
+--- a/net/minecraft/src/BlockSign.java
++++ b/net/minecraft/src/BlockSign.java
+@@ -3,10 +3,10 @@
+ import java.util.Random;
+ 
+ public class BlockSign extends BlockContainer {
+-   private Class field_455_a;
++   private Class<? extends TileEntity> field_455_a;
+    private boolean field_454_b;
+ 
+-   protected BlockSign(int p_i263_1_, Class p_i263_2_, boolean p_i263_3_) {
++   protected BlockSign(int p_i263_1_, Class<? extends TileEntity> p_i263_2_, boolean p_i263_3_) {
+       super(p_i263_1_, Material.field_1335_c);
+       this.field_454_b = p_i263_3_;
+       this.field_378_bb = 4;
+@@ -67,7 +67,7 @@
+ 
+    protected TileEntity func_283_a_() {
+       try {
+-         return (TileEntity)this.field_455_a.newInstance();
++         return this.field_455_a.newInstance();
+       } catch (Exception exception) {
+          throw new RuntimeException(exception);
+       }

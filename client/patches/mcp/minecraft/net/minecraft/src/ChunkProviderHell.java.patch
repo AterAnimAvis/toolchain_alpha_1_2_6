@@ -1,5 +1,14 @@
 --- a/net/minecraft/src/ChunkProviderHell.java
 +++ b/net/minecraft/src/ChunkProviderHell.java
+@@ -64,7 +64,7 @@
+                   double d13 = (d4 - d2) * d9;
+ 
+                   for(int k1 = 0; k1 < 4; ++k1) {
+-                     int l1 = k1 + k * 4 << 11 | 0 + l * 4 << 7 | i1 * 8 + j1;
++                     int l1 = k1 + k * 4 << 11 | l * 4 << 7 | i1 * 8 + j1;
+                      short short1 = 128;
+                      double d14 = 0.25D;
+                      double d15 = d10;
 @@ -103,9 +103,9 @@
     public void func_4058_b(int p_4058_1_, int p_4058_2_, byte[] p_4058_3_) {
        byte b0 = 64;
@@ -13,6 +22,15 @@
  
        for(int i = 0; i < 16; ++i) {
           for(int j = 0; j < 16; ++j) {
+@@ -120,7 +120,7 @@
+                int j1 = (i * 16 + j) * 128 + i1;
+                if (i1 >= 127 - this.field_4170_h.nextInt(5)) {
+                   p_4058_3_[j1] = (byte)Block.field_403_A.field_376_bc;
+-               } else if (i1 <= 0 + this.field_4170_h.nextInt(5)) {
++               } else if (i1 <= this.field_4170_h.nextInt(5)) {
+                   p_4058_3_[j1] = (byte)Block.field_403_A.field_376_bc;
+                } else {
+                   byte b3 = p_4058_3_[j1];
 @@ -192,20 +192,20 @@
  
        double d0 = 684.412D;

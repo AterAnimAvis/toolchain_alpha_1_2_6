@@ -17,6 +17,21 @@
  
     protected void func_151_a(String p_151_1_) {
        RenderEngine renderengine = this.field_191_a.field_1229_e;
+@@ -46,10 +46,10 @@
+       tessellator.func_977_b();
+ 
+       while(f8 > 0.0F) {
+-         tessellator.func_983_a((double)(f5 - f6), (double)(0.0F - f7), 0.0D, (double)f1, (double)f3);
+-         tessellator.func_983_a((double)(0.0F - f6), (double)(0.0F - f7), 0.0D, (double)f, (double)f3);
+-         tessellator.func_983_a((double)(0.0F - f6), (double)(1.4F - f7), 0.0D, (double)f, (double)f2);
+-         tessellator.func_983_a((double)(f5 - f6), (double)(1.4F - f7), 0.0D, (double)f1, (double)f2);
++         tessellator.func_983_a(f5 - f6, 0.0F - f7, 0.0D, f1, f3);
++         tessellator.func_983_a(0.0F - f6, 0.0F - f7, 0.0D, f, f3);
++         tessellator.func_983_a(0.0F - f6, 1.4F - f7, 0.0D, f, f2);
++         tessellator.func_983_a(f5 - f6, 1.4F - f7, 0.0D, f1, f2);
+          --f8;
+          --f7;
+          f5 *= 0.9F;
 @@ -124,10 +124,10 @@
              float f1 = (float)((p_145_2_ - d2) / 2.0D / (double)p_145_12_ + 0.5D);
              float f2 = (float)((p_145_6_ - d4) / 2.0D / (double)p_145_12_ + 0.5D);

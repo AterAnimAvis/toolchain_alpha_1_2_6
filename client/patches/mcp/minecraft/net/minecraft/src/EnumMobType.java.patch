@@ -1,0 +1,9 @@
+--- a/net/minecraft/src/EnumMobType.java
++++ b/net/minecraft/src/EnumMobType.java
+@@ -3,5 +3,5 @@
+ public enum EnumMobType {
+    everything,
+    mobs,
+-   players;
++   players
+ }

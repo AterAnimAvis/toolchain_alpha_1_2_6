@@ -1,0 +1,11 @@
+--- a/net/minecraft/src/EnumArt.java
++++ b/net/minecraft/src/EnumArt.java
+@@ -32,7 +32,7 @@
+    public final int field_1634_B;
+    public final int field_1632_C;
+ 
+-   private EnumArt(String p_i108_3_, int p_i108_4_, int p_i108_5_, int p_i108_6_, int p_i108_7_) {
++   EnumArt(String p_i108_3_, int p_i108_4_, int p_i108_5_, int p_i108_6_, int p_i108_7_) {
+       this.field_1624_y = p_i108_3_;
+       this.field_1623_z = p_i108_4_;
+       this.field_1636_A = p_i108_5_;

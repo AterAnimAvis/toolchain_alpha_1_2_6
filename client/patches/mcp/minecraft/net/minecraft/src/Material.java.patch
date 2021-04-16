@@ -1,0 +1,27 @@
+--- a/net/minecraft/src/Material.java
++++ b/net/minecraft/src/Material.java
+@@ -3,20 +3,20 @@
+ public class Material {
+    public static final Material field_1337_a = new MaterialTransparent();
+    public static final Material field_1336_b = new Material();
+-   public static final Material field_1335_c = (new Material()).func_4130_f();
++   public static final Material field_1335_c = new Material().func_4130_f();
+    public static final Material field_1334_d = new Material();
+    public static final Material field_1333_e = new Material();
+    public static final Material field_1332_f = new MaterialLiquid();
+    public static final Material field_1331_g = new MaterialLiquid();
+-   public static final Material field_4265_h = (new Material()).func_4130_f();
++   public static final Material field_4265_h = new Material().func_4130_f();
+    public static final Material field_1329_i = new MaterialLogic();
+    public static final Material field_1328_j = new Material();
+-   public static final Material field_4264_k = (new Material()).func_4130_f();
++   public static final Material field_4264_k = new Material().func_4130_f();
+    public static final Material field_1326_l = new MaterialTransparent();
+    public static final Material field_1325_m = new Material();
+    public static final Material field_1324_n = new MaterialLogic();
+    public static final Material field_4263_o = new Material();
+-   public static final Material field_1322_p = (new Material()).func_4130_f();
++   public static final Material field_1322_p = new Material().func_4130_f();
+    public static final Material field_4262_q = new Material();
+    public static final Material field_1320_r = new Material();
+    public static final Material field_1319_s = new MaterialLogic();

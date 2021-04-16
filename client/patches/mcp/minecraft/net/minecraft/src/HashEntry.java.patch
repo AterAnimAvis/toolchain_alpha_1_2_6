@@ -1,0 +1,26 @@
+--- a/net/minecraft/src/HashEntry.java
++++ b/net/minecraft/src/HashEntry.java
+@@ -22,10 +22,8 @@
+    }
+ 
+    public final boolean equals(Object p_equals_1_) {
+-      if (!(p_equals_1_ instanceof HashEntry)) {
+-         return false;
+-      } else {
+-         HashEntry hashentry = (HashEntry)p_equals_1_;
++      if (p_equals_1_ instanceof HashEntry) {
++         HashEntry hashentry = (HashEntry) p_equals_1_;
+          Integer integer = this.func_768_a();
+          Integer integer1 = hashentry.func_768_a();
+          if (integer == integer1 || integer != null && integer.equals(integer1)) {
+@@ -36,9 +34,9 @@
+             }
+          }
+ 
++      }
+          return false;
+       }
+-   }
+ 
+    public final int hashCode() {
+       return MCHashTable.func_1056_d(this.field_1106_a);

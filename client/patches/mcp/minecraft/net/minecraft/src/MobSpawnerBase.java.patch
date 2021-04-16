@@ -1,5 +1,36 @@
 --- a/net/minecraft/src/MobSpawnerBase.java
 +++ b/net/minecraft/src/MobSpawnerBase.java
+@@ -3,18 +3,18 @@
+ import java.awt.Color;
+ 
+ public class MobSpawnerBase {
+-   public static final MobSpawnerBase field_4256_a = (new MobSpawnerBase()).func_4123_b(588342).func_4125_a("Rainforest").func_4124_a(2094168);
+-   public static final MobSpawnerBase field_4255_b = (new MobSpawnerSwamp()).func_4123_b(522674).func_4125_a("Swampland").func_4124_a(9154376);
+-   public static final MobSpawnerBase field_4254_c = (new MobSpawnerBase()).func_4123_b(10215459).func_4125_a("Seasonal Forest");
+-   public static final MobSpawnerBase field_4253_d = (new MobSpawnerBase()).func_4123_b(353825).func_4125_a("Forest").func_4124_a(5159473);
+-   public static final MobSpawnerBase field_4252_e = (new MobSpawnerDesert()).func_4123_b(14278691).func_4125_a("Savanna");
+-   public static final MobSpawnerBase field_4251_f = (new MobSpawnerBase()).func_4123_b(10595616).func_4125_a("Shrubland");
+-   public static final MobSpawnerBase field_4250_g = (new MobSpawnerBase()).func_4123_b(3060051).func_4125_a("Taiga").func_4122_b().func_4124_a(8107825);
+-   public static final MobSpawnerBase field_4249_h = (new MobSpawnerDesert()).func_4123_b(16421912).func_4125_a("Desert");
+-   public static final MobSpawnerBase field_4248_i = (new MobSpawnerDesert()).func_4123_b(16767248).func_4125_a("Plains");
+-   public static final MobSpawnerBase field_4247_j = (new MobSpawnerDesert()).func_4123_b(16772499).func_4125_a("Ice Desert").func_4122_b().func_4124_a(12899129);
+-   public static final MobSpawnerBase field_4246_k = (new MobSpawnerBase()).func_4123_b(5762041).func_4125_a("Tundra").func_4122_b().func_4124_a(12899129);
+-   public static final MobSpawnerBase field_4245_l = (new MobSpawnerHell()).func_4123_b(16711680).func_4125_a("Hell");
++   public static final MobSpawnerBase field_4256_a = new MobSpawnerBase().func_4123_b(588342).func_4125_a("Rainforest").func_4124_a(2094168);
++   public static final MobSpawnerBase field_4255_b = new MobSpawnerSwamp().func_4123_b(522674).func_4125_a("Swampland").func_4124_a(9154376);
++   public static final MobSpawnerBase field_4254_c = new MobSpawnerBase().func_4123_b(10215459).func_4125_a("Seasonal Forest");
++   public static final MobSpawnerBase field_4253_d = new MobSpawnerBase().func_4123_b(353825).func_4125_a("Forest").func_4124_a(5159473);
++   public static final MobSpawnerBase field_4252_e = new MobSpawnerDesert().func_4123_b(14278691).func_4125_a("Savanna");
++   public static final MobSpawnerBase field_4251_f = new MobSpawnerBase().func_4123_b(10595616).func_4125_a("Shrubland");
++   public static final MobSpawnerBase field_4250_g = new MobSpawnerBase().func_4123_b(3060051).func_4125_a("Taiga").func_4122_b().func_4124_a(8107825);
++   public static final MobSpawnerBase field_4249_h = new MobSpawnerDesert().func_4123_b(16421912).func_4125_a("Desert");
++   public static final MobSpawnerBase field_4248_i = new MobSpawnerDesert().func_4123_b(16767248).func_4125_a("Plains");
++   public static final MobSpawnerBase field_4247_j = new MobSpawnerDesert().func_4123_b(16772499).func_4125_a("Ice Desert").func_4122_b().func_4124_a(12899129);
++   public static final MobSpawnerBase field_4246_k = new MobSpawnerBase().func_4123_b(5762041).func_4125_a("Tundra").func_4122_b().func_4124_a(12899129);
++   public static final MobSpawnerBase field_4245_l = new MobSpawnerHell().func_4123_b(16711680).func_4125_a("Hell");
+    public String field_6504_m;
+    public int field_6503_n;
+    public byte field_4242_o = (byte)Block.field_337_v.field_376_bc;
 @@ -96,7 +96,7 @@
        return Color.getHSBColor(0.62222224F - p_4126_1_ * 0.05F, 0.5F + p_4126_1_ * 0.1F, 1.0F).getRGB();
     }

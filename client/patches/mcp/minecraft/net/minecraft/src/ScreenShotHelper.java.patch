@@ -1,6 +1,14 @@
 --- a/net/minecraft/src/ScreenShotHelper.java
 +++ b/net/minecraft/src/ScreenShotHelper.java
-@@ -29,9 +29,9 @@
+@@ -2,7 +2,6 @@
+ 
+ import java.awt.image.BufferedImage;
+ import java.io.File;
+-import java.nio.Buffer;
+ import java.nio.ByteBuffer;
+ import java.text.DateFormat;
+ import java.text.SimpleDateFormat;
+@@ -29,9 +28,9 @@
  
           GL11.glPixelStorei(3333, 1);
           GL11.glPixelStorei(3317, 1);

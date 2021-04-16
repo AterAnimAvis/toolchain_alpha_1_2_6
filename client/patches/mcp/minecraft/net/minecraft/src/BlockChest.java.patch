@@ -1,8 +1,11 @@
 --- a/net/minecraft/src/BlockChest.java
 +++ b/net/minecraft/src/BlockChest.java
-@@ -167,9 +167,9 @@
+@@ -165,11 +165,11 @@
+                }
+ 
                 itemstack.field_1615_a -= j;
-                EntityItem entityitem = new EntityItem(p_214_1_, (double)((float)p_214_2_ + f), (double)((float)p_214_3_ + f1), (double)((float)p_214_4_ + f2), new ItemStack(itemstack.field_1617_c, j, itemstack.field_1616_d));
+-               EntityItem entityitem = new EntityItem(p_214_1_, (double)((float)p_214_2_ + f), (double)((float)p_214_3_ + f1), (double)((float)p_214_4_ + f2), new ItemStack(itemstack.field_1617_c, j, itemstack.field_1616_d));
++               EntityItem entityitem = new EntityItem(p_214_1_, (float)p_214_2_ + f, (float)p_214_3_ + f1, (float)p_214_4_ + f2, new ItemStack(itemstack.field_1617_c, j, itemstack.field_1616_d));
                 float f3 = 0.05F;
 -               entityitem.field_608_an = (double)((float)this.field_457_a.nextGaussian() * f3);
 -               entityitem.field_607_ao = (double)((float)this.field_457_a.nextGaussian() * f3 + 0.2F);
