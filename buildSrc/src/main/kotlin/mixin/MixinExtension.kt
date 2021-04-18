@@ -243,7 +243,7 @@ open class MixinExtension(project: Project) : MixinExtensionBase(project) {
         set.refMapFile = refMapFile
         compileTask.refMap = set.refMap.toString()
 
-        // We need createMcpToSrg to run in order to generate the mappings
+        // We need the mappingsTask to run in order to generate the mappings
         // consumed by the AP
         compileTask.dependsOn(mappingsTask)
 
@@ -297,26 +297,6 @@ open class MixinExtension(project: Project) : MixinExtensionBase(project) {
                 this@withType.dependsOn(this)
             })
         }
-
-        /*
-            `--- :reobfJar                                        (net.minecraftforge.gradle.userdev.tasks.RenameJarInPlace)
-                 +--- :createMcpToSrg                             (net.minecraftforge.gradle.mcp.task.GenerateSRG)
-                 |    `--- :extractSrg                            (net.minecraftforge.gradle.common.task.ExtractMCPData)
-                 |         `--- :downloadMcpConfig                (net.minecraftforge.gradle.common.task.DownloadMavenArtifact)
-                 `--- :jar                                        (org.gradle.api.tasks.bundling.Jar)
-                      +--- :addRefMapToJar                        (org.spongepowered.asm.gradle.plugins.MixinExtension$AddRefMapToJarTask)
-                      |    `--- :compileJava                      (org.gradle.api.tasks.compile.JavaCompile)
-                      |         `--- :createMcpToSrg              (net.minecraftforge.gradle.mcp.task.GenerateSRG)
-                      |              `--- :extractSrg             (net.minecraftforge.gradle.common.task.ExtractMCPData)
-                      |                   `--- :downloadMcpConfig (net.minecraftforge.gradle.common.task.DownloadMavenArtifact)
-                      +--- :classes                               (org.gradle.api.DefaultTask)
-                      |    +--- :compileJava                      (org.gradle.api.tasks.compile.JavaCompile)
-                      |    |    `--- :createMcpToSrg              (net.minecraftforge.gradle.mcp.task.GenerateSRG)
-                      |    |         `--- :extractSrg             (net.minecraftforge.gradle.common.task.ExtractMCPData)
-                      |    |              `--- :downloadMcpConfig (net.minecraftforge.gradle.common.task.DownloadMavenArtifact)
-                      |    `--- :processResources                 (org.gradle.language.jvm.tasks.ProcessResources)
-                      `--- :reobfJar (finalizer) <shown before>
-         */
 
         // Closure to allocate generated AP resources once compile task is completed
         this.reobfTasks.forEach { reobfTask ->

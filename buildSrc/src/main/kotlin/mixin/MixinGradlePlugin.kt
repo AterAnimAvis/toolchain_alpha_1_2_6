@@ -24,6 +24,7 @@
  */
 package mixin
 
+import org.gradle.api.InvalidUserDataException
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 
@@ -41,7 +42,7 @@ class MixinGradlePlugin : Plugin<Project> {
          * Plugin version, sent to the AP so that the AP can notify if the plugin
          * version is too old to support its feature set
          */
-        val VERSION = "0.7"
+        const val VERSION = "0.7"
     }
 
     /* (non-Groovydoc)
@@ -57,13 +58,15 @@ class MixinGradlePlugin : Plugin<Project> {
 
     /**
      * Perform some basic validation on the project environment, mainly checking
-     * that the tasks and extensions we need (provided by ForgeGradle) are
+     * that the tasks and extensions we need (provided by mcp-plugin) are
      * available.
      *
      * @param project Project to validate
      */
     private fun checkEnvironment(project: Project) {
-
+        if (project.extensions.findByName("reobf") == null) {
+            throw InvalidUserDataException("Could not find property 'reobf' on $project, ensure mcp-plugin is applied.")
+        }
     }
 
 }

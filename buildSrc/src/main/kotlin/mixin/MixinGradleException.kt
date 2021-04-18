@@ -29,10 +29,7 @@ import org.gradle.api.GradleException
 /**
  * Exception to be thrown for MixinGradle-specific error conditions
  */
-class MixinGradleException : GradleException {
-
-    constructor(message: String) : super(message)
-    constructor(message: String, cause: Throwable?) : super(message, cause)
+class MixinGradleException(message: String) : GradleException(message) {
 
     companion object {
         private const val serialVersionUID = 1L

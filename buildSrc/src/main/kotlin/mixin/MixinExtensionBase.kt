@@ -40,9 +40,8 @@ open class MixinExtensionBase(project: Project) {
     internal val project : Project
 
     /**
-     * ForgeGradle has two major types of projects, with slightly different setups
-     * 'patcher' is used for developing Forge itself, and any other project that edits Minecraft's source directly.
-     * 'userdev' is used by modders who are using Forge or other project based on the patcher plugin.
+     * mcp-plugin has one major type of project currently
+     * 'mcp-plugin' is used by modders
      */
     internal val projectType: String
 
@@ -60,7 +59,7 @@ open class MixinExtensionBase(project: Project) {
                 this.projectType = "mcp-plugin"
             }
             else -> {
-                throw InvalidUserDataException("Could not find property 'minecraft', or 'patcher' on $project, ensure ForgeGradle is applied.")
+                throw InvalidUserDataException("Could not find plugin 'mcp-plugin' on $project, ensure mcp-plugin is applied.")
             }
         }
     }
