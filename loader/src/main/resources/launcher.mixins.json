@@ -2,6 +2,7 @@
   "required": true,
   "package": "com.github.ateranimavis.modloader.mixin",
   "compatibilityLevel": "JAVA_8",
+  "refmap": "launcher.refmap.json",
   "client": [
     "loader.MinecraftInstanceMixin",
     "recipe.FuelMixin",

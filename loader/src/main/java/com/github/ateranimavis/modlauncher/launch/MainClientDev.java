@@ -18,5 +18,10 @@ public class MainClientDev extends Main {
 
         args.add("mixin.config", "launcher.mixins.json");
         args.add("mixin.config", "launcher.vanity.mixins.json");
+
+        //FIXME: Probably via a INameMappingService or via
+        // property 'mixin.env.remapRefMap', 'true'
+        // property 'mixin.env.refMapRemappingFile', "${buildDir}/createSrgToMcp/output.srg"
+        System.setProperty("mixin.env.disableRefMap", "true");
     }
 }

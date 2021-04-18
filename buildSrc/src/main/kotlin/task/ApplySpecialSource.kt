@@ -1,6 +1,7 @@
 package task
 
 import org.gradle.api.tasks.InputFile
+import org.gradle.api.tasks.InputFiles
 import org.gradle.api.tasks.OutputFile
 import task.base.MavenJarExec
 import utils.ensureParentDirectoriesExist
@@ -18,9 +19,12 @@ open class ApplySpecialSource : MavenJarExec() {
     @InputFile
     lateinit var mappings: File
 
+    @InputFiles
+    var extraMappings: MutableList<File> = mutableListOf()
+
     init {
         toolJar = "net.md-5:SpecialSource:1.8.3:shaded"
-        args = mutableListOf("--in-jar", "{input}", "--out-jar", "{output}", "--srg-in", "{mappings}")
+        args = mutableListOf("--in-jar", "{input}", "--out-jar", "{output}", "{mappings}")
     }
 
     override fun filterArgs(): List<String> {
@@ -28,11 +32,14 @@ open class ApplySpecialSource : MavenJarExec() {
 
         val replace = mapOf(
                 "{input}" to input.absolutePath,
-                "{output}" to output.absolutePath,
-                "{mappings}" to mappings.absolutePath
+                "{output}" to output.absolutePath
         )
 
-        return args.map { arg -> replace.getOrDefault(arg, arg) }
+        return args.map { arg -> replace.getOrDefault(arg, arg) }.flatMap {
+            if (it == "{mappings}")
+                (extraMappings + mappings).flatMap { f -> listOf("--srg-in", f.absolutePath) }
+            else listOf(it)
+        }
     }
 
 }

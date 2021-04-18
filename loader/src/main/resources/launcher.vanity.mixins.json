@@ -2,6 +2,7 @@
   "required": true,
   "package": "com.github.ateranimavis.vanity",
   "compatibilityLevel": "JAVA_8",
+  "refmap": "launcher.refmap.json",
   "client": [
     "MainMenuMixin"
   ],

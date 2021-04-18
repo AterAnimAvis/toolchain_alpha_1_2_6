@@ -30,6 +30,13 @@ class MCPPlugin : Plugin<Project> {
             }
         }
 
+        project.repositories.maybeDeclare(MIXIN_MAVEN) {
+            url = URI("https://repo.spongepowered.org/repository/maven-public/")
+            content {
+                includeGroup("org.spongepowered")
+            }
+        }
+
         val container = project.container(ApplySpecialSource::class.java) { jarName ->
             val name = jarName.capitalize()
             val java = project.the<JavaPluginConvention>()
@@ -87,6 +94,7 @@ class MCPPlugin : Plugin<Project> {
 
     companion object {
         const val MINECRAFT_FORGE_MAVEN = "MinecraftForge Maven"
+        const val MIXIN_MAVEN = "SpongePowered Mixin Maven"
         const val MINECRAFT_MAVEN = "Minecraft Maven"
     }
 }

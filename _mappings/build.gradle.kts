@@ -21,7 +21,7 @@ val obf2srg                  = file("build/temp/obf_to_srg.tsrg")
 val srg2srg                  = file("build/temp/srg_to_srg.tsrg")
 val srg2mcp                  = file("build/temp/srg_to_mcp.tsrg")
 val mcp2srg                  = file("build/temp/mcp_to_srg.tsrg")
-val mcp2obf                  = file("build/temp/mcp_to_obf.tsrg")
+val mcp2obf                  = file("build/temp/mcp_to_obf.srg")
 
 //----------------------------------------------------------------------------------------------------------------------
 // Mappings

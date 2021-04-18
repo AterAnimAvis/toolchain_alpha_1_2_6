@@ -12,4 +12,7 @@ fun Project.reobfFinalized(task: Jar) = task.finalizedBy(reobf(task))
 fun Project.reobf(task: Jar) = reobf(task.name)
 
 @Throws(InvalidUserDataException::class)
-fun Project.reobf(name: String) = extensions.getByName<NamedDomainObjectContainer<ApplySpecialSource>>("reobf").create(name)
+fun Project.reobf(name: String) = reobf.create(name)
+
+val Project.reobf
+    get() = extensions.getByName<NamedDomainObjectContainer<ApplySpecialSource>>("reobf")
