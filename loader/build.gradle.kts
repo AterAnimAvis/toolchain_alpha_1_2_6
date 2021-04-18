@@ -9,8 +9,22 @@ plugins {
 apply(plugin = "mcp-plugin")
 apply(plugin = "mixin-plugin")
 
-group = "org.example"
-version = "1.0-SNAPSHOT"
+//----------------------------------------------------------------------------------------------------------------------
+// Config
+//----------------------------------------------------------------------------------------------------------------------
+
+val modId: String by extra
+val modName: String by extra
+val modVersion: String by extra
+val modGroup: String by extra
+val vendor: String by extra
+
+//----------------------------------------------------------------------------------------------------------------------
+// Common
+//----------------------------------------------------------------------------------------------------------------------
+
+group = modGroup
+version = modVersion
 
 //----------------------------------------------------------------------------------------------------------------------
 // MCP
@@ -24,7 +38,7 @@ val reobfJar = project.reobfFinalized(jar)
 //----------------------------------------------------------------------------------------------------------------------
 
 repositories {
-    // Maven Central + Mojang + SpongePownered Mavens are both provided by mcp-plugin
+    // Maven Central + Mojang + SpongePownered Mavens are provided by mcp-plugin
 }
 
 val api : Configuration by configurations.getting
@@ -65,7 +79,7 @@ dependencies {
 //----------------------------------------------------------------------------------------------------------------------
 // Mixins
 //----------------------------------------------------------------------------------------------------------------------
-the<mixin.MixinExtension>().add(sourceSets["main"], "launcher.refmap.json")
+the<mixin.MixinExtension>().add(sourceSets["main"], "$modId.refmap.json")
 
 //----------------------------------------------------------------------------------------------------------------------
 // Jar Manifest
@@ -74,15 +88,15 @@ the<mixin.MixinExtension>().add(sourceSets["main"], "launcher.refmap.json")
 tasks.withType<Jar> {
     manifest {
         attributes(
-            "Specification-Title" to "Launcher",
-            "Specification-Vendor" to "AterAnimAvis",
+            "Specification-Title" to modName,
+            "Specification-Vendor" to vendor,
             "Specification-Version" to "1",
-            "Implementation-Title" to project.name,
+            "Implementation-Title" to modName,
             "Implementation-Version" to project.version,
-            "Implementation-Vendor" to  "AterAnimAvis",
+            "Implementation-Vendor" to vendor,
             "Implementation-Timestamp" to Date().format("yyyy-MM-dd'T'HH:mm:ssZ"),
             "Implementation-Timestamp" to Date().format("yyyy-MM-dd'T'HH:mm:ssZ"),
-            "MixinConfigs" to configs("launcher.mixins.json", "launcher.vanity.mixins.json")
+            "MixinConfigs" to configs("$modId.mixins.json", "$modId.vanity.mixins.json")
         )
     }
 }
