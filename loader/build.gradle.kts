@@ -1,3 +1,5 @@
+import java.text.SimpleDateFormat
+import java.util.Date
 import mcp.reobfFinalized
 
 plugins {
@@ -83,3 +85,22 @@ val compileJava by tasks.getting(JavaCompile::class) {
         "-AdefaultObfuscationEnv=notch"
     ))
 }
+
+tasks.withType<Jar> {
+    manifest {
+        attributes(
+            "Specification-Title" to "Launcher",
+            "Specification-Vendor" to "AterAnimAvis",
+            "Specification-Version" to "1",
+            "Implementation-Title" to project.name,
+            "Implementation-Version" to project.version,
+            "Implementation-Vendor" to  "AterAnimAvis",
+            "Implementation-Timestamp" to Date().format("yyyy-MM-dd'T'HH:mm:ssZ"),
+            "Implementation-Timestamp" to Date().format("yyyy-MM-dd'T'HH:mm:ssZ"),
+            "MixinConfigs" to configs("launcher.mixins.json", "launcher.vanity.mixins.json")
+        )
+    }
+}
+
+fun configs(vararg configs: String) = configs.joinToString(",")
+fun Date.format(format: String) = SimpleDateFormat(format).format(this)

@@ -2,7 +2,7 @@ package intellij;
 
 import java.io.IOException;
 
-import com.github.ateranimavis.modlauncher.MainClient;
+import com.github.ateranimavis.modlauncher.launch.MainClientDev;
 
 public class Launch {
 
@@ -12,6 +12,6 @@ public class Launch {
      * @see <a href="https://youtrack.jetbrains.com/issue/IDEA-220528">IDEA-220528</a>
      */
     public static void main(String[] args) throws IOException {
-        MainClient.main(args);
+        MainClientDev.main(args);
     }
 }

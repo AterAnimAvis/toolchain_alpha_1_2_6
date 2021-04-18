@@ -1,4 +1,4 @@
-package com.github.ateranimavis.modlauncher;
+package com.github.ateranimavis.modlauncher.launch;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -13,9 +13,9 @@ import joptsimple.OptionSet;
 import joptsimple.util.PathConverter;
 import joptsimple.util.PathProperties;
 
-public class MainClient {
+public abstract class Main {
 
-    public static void main(final String[] args) throws IOException {
+    public void launch(final String[] args) throws IOException {
         final OptionParser parser = new OptionParser();
         final ArgumentAcceptingOptionSpec<Path> gameDir = parser.accepts("gameDir", "Alternative game directory").withRequiredArg().withValuesConvertedBy(new PathConverter(PathProperties.DIRECTORY_EXISTING)).defaultsTo(Paths.get("."));
         parser.allowsUnrecognizedOptions();
@@ -23,15 +23,15 @@ public class MainClient {
 
         final Path gameDirectory = optionSet.valueOf(gameDir);
         final Path modsDirectory = modsDirectory(gameDirectory);
-
         final ArgumentList lst = ArgumentList.from(args);
-        lst.putLazy("gameDir", ".");
-        lst.putLazy("launchTarget", "client_dev");
 
-        lst.add("mixin.config", "launcher.mixins.json");
-        lst.add("mixin.config", "launcher.vanity.mixins.json");
+        addArguments(lst);
 
         Launcher.main(lst.getArguments());
+    }
+
+    public void addArguments(ArgumentList args) {
+        args.putLazy("gameDir", ".");
     }
 
     private static Path modsDirectory(Path gameDirectory) throws IOException {
