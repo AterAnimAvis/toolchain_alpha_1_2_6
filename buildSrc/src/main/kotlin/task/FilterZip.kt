@@ -15,10 +15,10 @@ import java.util.zip.ZipOutputStream
 open class FilterZip : DefaultTask() {
 
     @InputFile
-    var input: File? = null
+    lateinit var input: File
 
     @OutputFile
-    var output: File? = null
+    lateinit var output: File
 
     @Optional
     @Input
@@ -31,8 +31,8 @@ open class FilterZip : DefaultTask() {
     @TaskAction
     @Throws(IOException::class)
     open fun run() {
-        ZipOutputStream(FileOutputStream(output!!)).use { zout ->
-            ZipInputStream(FileInputStream(input!!)).use { zin ->
+        ZipOutputStream(FileOutputStream(output)).use { zout ->
+            ZipInputStream(FileInputStream(input)).use { zin ->
                 Utilities.copyZipEntries(zout, zin, filter)
             }
         }

@@ -11,13 +11,13 @@ import java.io.File
 open class ApplyRetroguard : MavenJarExec() {
 
     @InputFile
-    var input: File? = null
+    lateinit var input: File
 
     @InputFile
-    var script: File? = null
+    lateinit var script: File
 
     @OutputFile
-    var output: File? = null
+    lateinit var output: File
 
     @Input
     var reindex: Int = 20000
@@ -31,12 +31,12 @@ open class ApplyRetroguard : MavenJarExec() {
     override fun filterArgs(): List<String> {
         val logFile = File(project.file("build/$name"), "log-rg.txt")
 
-        output?.ensureParentDirectoriesExist()
+        output.ensureParentDirectoriesExist()
 
         val replace = mapOf(
-                "{input}" to (input?.absolutePath ?: ""),
-                "{output}" to (output?.absolutePath ?: ""),
-                "{script}" to (script?.absolutePath ?: ""),
+                "{input}" to input.absolutePath,
+                "{output}" to output.absolutePath,
+                "{script}" to script.absolutePath,
                 "{reindex}" to reindex.toString(),
                 "{log}" to logFile.absolutePath
         )

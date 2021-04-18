@@ -9,10 +9,10 @@ import java.io.*
 open class TransformSrg : DefaultTask() {
 
     @InputFile
-    var input: File? = null
+    lateinit var input: File
 
     @OutputFile
-    var output: File? = null
+    lateinit var output: File
 
     @Optional
     @Input
@@ -25,11 +25,11 @@ open class TransformSrg : DefaultTask() {
     @TaskAction
     @Throws(IOException::class)
     fun apply() {
-        output?.ensureParentDirectoriesExist()
+        output.ensureParentDirectoriesExist()
 
         transformer
                 .invoke(IMappingFile.load(input))
-                .write(output!!.toPath(), format, false)
+                .write(output.toPath(), format, false)
     }
 }
 

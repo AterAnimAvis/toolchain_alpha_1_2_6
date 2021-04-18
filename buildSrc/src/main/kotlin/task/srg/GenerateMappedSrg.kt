@@ -12,7 +12,7 @@ import utils.*
 open class GenerateMappedSrg : DefaultTask() {
 
     @InputFile
-    var input: File? = null
+    lateinit var input: File
 
     @InputFiles
     var fields: MutableSet<File> = mutableSetOf()
@@ -20,17 +20,16 @@ open class GenerateMappedSrg : DefaultTask() {
     @InputFiles
     var methods: MutableSet<File> = mutableSetOf()
 
-    @Optional
     @Input
     var format: IMappingFile.Format = IMappingFile.Format.TSRG
 
     @OutputFile
-    var output: File? = null
+    lateinit var output: File
 
     @TaskAction
     @Throws(IOException::class)
     fun apply() {
-        output?.ensureParentDirectoriesExist()
+        output.ensureParentDirectoriesExist()
 
         val input = IMappingFile.load(input)
 
@@ -68,7 +67,7 @@ open class GenerateMappedSrg : DefaultTask() {
             }
         })
 
-        ret.write(output!!.toPath(), format, false)
+        ret.write(output.toPath(), format, false)
     }
 
     private fun <K> Map<K, K>.rename(mapped: K): K = getOrDefault(mapped, mapped)

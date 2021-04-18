@@ -10,10 +10,10 @@ import java.util.zip.ZipEntry
 open class ExtractZip : DefaultTask() {
 
     @InputFile
-    var input: File? = null
+    lateinit var input: File
 
     @OutputDirectory
-    var output: File? = null
+    lateinit var output: File
 
     @Optional
     @Input
@@ -34,7 +34,7 @@ open class ExtractZip : DefaultTask() {
     @TaskAction
     @Throws(IOException::class)
     open fun run() {
-        Utilities.extractZip(input!!, output!!, filter)
+        Utilities.extractZip(input, output, filter)
     }
 
 }

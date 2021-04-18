@@ -17,7 +17,7 @@ open class GenerateRemappingSrg : DualTransformSrg() {
     override fun apply() {
         super.apply()
 
-        Files.write(output!!.toPath(), listOf("PK: net/minecraft/src .\n"), StandardOpenOption.APPEND)
+        Files.write(output.toPath(), listOf("PK: net/minecraft/src .\n"), StandardOpenOption.APPEND)
     }
 }
 

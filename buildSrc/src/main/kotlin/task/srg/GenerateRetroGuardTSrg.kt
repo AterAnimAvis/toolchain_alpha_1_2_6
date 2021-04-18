@@ -12,24 +12,25 @@ import utils.*
 open class GenerateRetroGuardTSrg : DefaultTask() {
 
     @InputFile
-    var input: File? = null
+    lateinit var input: File
 
     @Optional
     @InputFile
     var renames: File? = null
 
     @OutputFile
-    var output: File? = null
+    lateinit var output: File
 
     @TaskAction
     @Throws(IOException::class)
     fun apply() {
-        output?.ensureParentDirectoriesExist()
+        output.ensureParentDirectoriesExist()
 
         val replacements = mutableMapOf<String, String>()
+        val renames = renames
         if (renames != null) {
             Files
-                .readAllLines(renames!!.toPath())
+                .readAllLines(renames.toPath())
                 .forEach {
                     if (it.startsWith("#")) return@forEach
 
@@ -40,8 +41,8 @@ open class GenerateRetroGuardTSrg : DefaultTask() {
         }
 
         var currentClass : String? = null
-        OutputStreamWriter(FileOutputStream(output!!)).use { out ->
-            Files.readAllLines(input!!.toPath()).forEach {
+        OutputStreamWriter(FileOutputStream(output)).use { out ->
+            Files.readAllLines(input.toPath()).forEach {
                 if (it.startsWith(".class_map")) {
                     val parts = it.split(" ")
                     val a = parts[1]

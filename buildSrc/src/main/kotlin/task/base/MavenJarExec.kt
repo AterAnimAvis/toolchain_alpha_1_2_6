@@ -7,9 +7,9 @@ import utils.Utilities
 open class MavenJarExec : AbstractJarExec() {
 
     @Input
-    var toolJar : String? = null
+    lateinit var toolJar : String
 
     override fun getJar(): File {
-        return Utilities.resolve(project, toolJar!!, isChanging=false)!!
+        return Utilities.resolve(project, toolJar, isChanging=false)!!
     }
 }

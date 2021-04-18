@@ -13,19 +13,19 @@ import java.nio.file.Paths
 open class ApplyMCInjector : MavenJarExec() {
 
     @InputFile
-    var input: File? = null
+    lateinit var input: File
 
     @InputFile
-    var exceptions: File? = null
+    lateinit var exceptions: File
 
     @InputFile
-    var access: File? = null
+    lateinit var access: File
 
     @InputFile
-    var constructors: File? = null
+    lateinit var constructors: File
 
     @OutputFile
-    var output: File? = null
+    lateinit var output: File
 
     @Input
     var generate: Boolean = false
@@ -49,9 +49,9 @@ open class ApplyMCInjector : MavenJarExec() {
         val arguments = args.toMutableList()
 
         val logFile = File(project.file("build/$name"), "log-injector.txt")
-        val exceptionsOut = (exceptions?.absolutePath ?: "") + ".out.txt"
-        val accessOut = (access?.absolutePath ?: "") + ".out.txt"
-        val constructorsOut = (constructors?.absolutePath ?: "") + ".out.txt"
+        val exceptionsOut = exceptions.absolutePath + ".out.txt"
+        val accessOut = access.absolutePath + ".out.txt"
+        val constructorsOut = constructors.absolutePath + ".out.txt"
 
         if (generate) {
             arguments.addAll(arrayOf("--excOut", "{exceptions-out}", "--accOut", "{access-out}", "--ctrOut", "{constructors-out}"))
@@ -61,14 +61,14 @@ open class ApplyMCInjector : MavenJarExec() {
             constructorsOut.deleteIfExists()
         }
 
-        output?.ensureParentDirectoriesExist()
+        output.ensureParentDirectoriesExist()
 
         val replace = mapOf(
-                "{input}" to (input?.absolutePath ?: ""),
-                "{output}" to (output?.absolutePath ?: ""),
-                "{exceptions}" to (exceptions?.absolutePath ?: ""),
-                "{access}" to (access?.absolutePath ?: ""),
-                "{constructors}" to (constructors?.absolutePath ?: ""),
+                "{input}" to input.absolutePath,
+                "{output}" to output.absolutePath,
+                "{exceptions}" to exceptions.absolutePath,
+                "{access}" to access.absolutePath,
+                "{constructors}" to constructors.absolutePath,
                 "{exceptions-out}" to exceptionsOut,
                 "{access-out}" to accessOut,
                 "{constructors-out}" to constructorsOut,

@@ -9,10 +9,10 @@ import java.io.File
 open class ApplyForgeFlower : MavenJarExec() {
 
     @InputFile
-    var input: File? = null
+    lateinit var input: File
 
     @OutputFile
-    var output: File? = null
+    lateinit var output: File
 
     init {
         toolJar = "net.minecraftforge:forgeflower:1.5.478.19"
@@ -48,11 +48,11 @@ open class ApplyForgeFlower : MavenJarExec() {
     }
 
     override fun filterArgs(): List<String> {
-        output?.ensureParentDirectoriesExist()
+        output.ensureParentDirectoriesExist()
 
         val replace = mapOf(
-                "{input}" to (input?.absolutePath ?: ""),
-                "{output}" to (output?.absolutePath ?: "")
+                "{input}" to input.absolutePath,
+                "{output}" to output.absolutePath
         )
 
         return args.map { arg -> replace.getOrDefault(arg, arg) }

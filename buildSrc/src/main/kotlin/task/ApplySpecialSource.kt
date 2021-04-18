@@ -10,13 +10,13 @@ import java.io.File
 open class ApplySpecialSource : MavenJarExec() {
 
     @InputFile
-    var input: File? = null
+    lateinit var input: File
 
     @OutputFile
-    var output: File? = null
+    lateinit var output: File
 
     @InputFile
-    var mappings: File? = null
+    lateinit var mappings: File
 
     init {
         toolJar = "net.md-5:SpecialSource:1.8.3:shaded"
@@ -24,12 +24,12 @@ open class ApplySpecialSource : MavenJarExec() {
     }
 
     override fun filterArgs(): List<String> {
-        output?.ensureParentDirectoriesExist()
+        output.ensureParentDirectoriesExist()
 
         val replace = mapOf(
-                "{input}" to (input?.absolutePath ?: ""),
-                "{output}" to (output?.absolutePath ?: ""),
-                "{mappings}" to (mappings?.absolutePath ?: "")
+                "{input}" to input.absolutePath,
+                "{output}" to output.absolutePath,
+                "{mappings}" to mappings.absolutePath
         )
 
         return args.map { arg -> replace.getOrDefault(arg, arg) }

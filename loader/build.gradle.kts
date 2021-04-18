@@ -89,9 +89,10 @@ val compileJava by tasks.getting(JavaCompile::class) {
 
     //TODO: refmap -> into Jar
     options.compilerArgs.addAll(listOf(
-        "-AreobfTsrgFile=${generateMcp2Srg.output!!.canonicalPath}",
+        "-AreobfTsrgFile=${generateMcp2Srg.output.canonicalPath}",
         "-AoutTsrgFile=${file("$temporaryDir/$name-mappings.tsrg").canonicalPath}",
         "-AoutRefMapFile=${file("build/temp/refmap.json").canonicalPath}", // ${file("$temporaryDir/$name-refmap.json").canonicalPath}",
-        "-AmappingTypes=tsrg"
+        "-AmappingTypes=tsrg",
+        "-AdefaultObfuscationEnv=notch"
     ))
 }

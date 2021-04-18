@@ -10,14 +10,15 @@ import java.util.HashSet
 
 import org.gradle.api.file.FileCollection
 import org.gradle.api.tasks.InputFiles
+import utils.ensureParentDirectoriesExist
 
 open class ExtractRangeMap : MavenJarExec() {
 
     @InputDirectory
-    var input: File? = null
+    lateinit var input: File
 
     @OutputFile
-    var output: File? = null
+    lateinit var output: File
 
     @InputFiles
     val dependencies: MutableSet<FileCollection> = mutableSetOf()
@@ -34,10 +35,12 @@ open class ExtractRangeMap : MavenJarExec() {
     }
 
     override fun filterArgs(): List<String> {
+        output.ensureParentDirectoriesExist()
+
         val replace = mapOf(
-                "{input}" to (input?.absolutePath ?: ""),
+                "{input}" to input.absolutePath,
                 "{compat}" to compat,
-                "{output}" to (output?.absolutePath ?: ""),
+                "{output}" to output.absolutePath,
                 "{batched}" to (if (batched) "true" else "false")
         )
 

@@ -11,30 +11,28 @@ import java.nio.file.StandardOpenOption
 open class DualTransformSrg : DefaultTask() {
 
     @InputFile
-    var inputA: File? = null
+    lateinit var inputA: File
 
     @InputFile
-    var inputB: File? = null
+    lateinit var inputB: File
 
     @OutputFile
-    var output: File? = null
+    lateinit var output: File
 
-    @Optional
     @Input
     var format: IMappingFile.Format = IMappingFile.Format.TSRG
 
-    @Optional
     @Input
     var transformer: (IMappingFile, IMappingFile) -> IMappingFile = { a, _ -> a}
 
     @TaskAction
     @Throws(IOException::class)
     open fun apply() {
-        output?.ensureParentDirectoriesExist()
+        output.ensureParentDirectoriesExist()
 
         transformer
                 .invoke(IMappingFile.load(inputA), IMappingFile.load(inputB))
-                .write(output!!.toPath(), format, false)
+                .write(output.toPath(), format, false)
     }
 }
 
