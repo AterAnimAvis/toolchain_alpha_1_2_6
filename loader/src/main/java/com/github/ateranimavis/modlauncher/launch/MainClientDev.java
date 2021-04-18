@@ -14,7 +14,7 @@ public class MainClientDev extends Main {
     public void addArguments(ArgumentList args) {
         super.addArguments(args);
 
-        args.putLazy("launchTarget", "client");
+        args.putLazy("launchTarget", "client_dev");
 
         args.add("mixin.config", "launcher.mixins.json");
         args.add("mixin.config", "launcher.vanity.mixins.json");
