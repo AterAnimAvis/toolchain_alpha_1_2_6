@@ -25,7 +25,7 @@ open class ApplyRetroguard : MavenJarExec() {
     init {
         toolJar = "de.oceanlabs.mcp:RetroGuard:3.6.6:fatjar"
         mainClass = "RetroGuard"
-        args = arrayOf("{input}", "{output}", "{script}", "{log}", "{reindex}")
+        args = mutableListOf("{input}", "{output}", "{script}", "{log}", "{reindex}")
     }
 
     override fun filterArgs(): List<String> {

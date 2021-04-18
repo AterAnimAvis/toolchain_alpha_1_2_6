@@ -31,7 +31,7 @@ open class ExtractRangeMap : MavenJarExec() {
 
     init {
         toolJar = "net.minecraftforge:Srg2Source:5.+:fatjar"
-        args = arrayOf("--extract", "--source-compatibility", "{compat}", "--output", "{output}", "{libraries}", "--input", "{input}", "--batch", "{batched}")
+        args = mutableListOf("--extract", "--source-compatibility", "{compat}", "--output", "{output}", "{libraries}", "--input", "{input}", "--batch", "{batched}")
     }
 
     override fun filterArgs(): List<String> {

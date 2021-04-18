@@ -20,7 +20,7 @@ open class ApplySpecialSource : MavenJarExec() {
 
     init {
         toolJar = "net.md-5:SpecialSource:1.8.3:shaded"
-        args = arrayOf("--in-jar", "{input}", "--out-jar", "{output}", "--srg-in", "{mappings}")
+        args = mutableListOf("--in-jar", "{input}", "--out-jar", "{output}", "--srg-in", "{mappings}")
     }
 
     override fun filterArgs(): List<String> {

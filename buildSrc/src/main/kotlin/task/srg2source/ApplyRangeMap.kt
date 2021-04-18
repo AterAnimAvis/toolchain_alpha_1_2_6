@@ -31,7 +31,7 @@ open class ApplyRangeMap : MavenJarExec() {
 
     init {
         toolJar = "net.minecraftforge:Srg2Source:5.+:fatjar"
-        args = arrayOf( "--apply", "--input", "{input}", "--range", "{range}", "--srg", "{mappings}", /* "--exc", "{exc}", */ "--output", "{output}", "--keepImports", "{keepImports}")
+        args = mutableListOf( "--apply", "--input", "{input}", "--range", "{range}", "--srg", "{mappings}", /* "--exc", "{exc}", */ "--output", "{output}", "--keepImports", "{keepImports}")
     }
 
     override fun filterArgs(): List<String> {

@@ -16,7 +16,7 @@ open class ApplyForgeFlower : MavenJarExec() {
 
     init {
         toolJar = "net.minecraftforge:forgeflower:1.5.478.19"
-        args = arrayOf(
+        args = mutableListOf(
                 /* Original
                 "-din=1",
                 "-rbr=1",
@@ -44,7 +44,7 @@ open class ApplyForgeFlower : MavenJarExec() {
                 "{input}",
                 "{output}"
         )
-        jvmArgs = arrayOf("-Xmx4G")
+        jvmArgs = mutableListOf("-Xmx4G")
     }
 
     override fun filterArgs(): List<String> {

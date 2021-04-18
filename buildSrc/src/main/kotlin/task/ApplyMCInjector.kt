@@ -32,7 +32,7 @@ open class ApplyMCInjector : MavenJarExec() {
 
     init {
         toolJar = "de.oceanlabs.mcp:mcinjector:3.8.0:fatjar"
-        args = arrayOf(
+        args = mutableListOf(
                 "--in", "{input}",
                 "--out", "{output}",
                 "--log", "{log}",
@@ -42,7 +42,7 @@ open class ApplyMCInjector : MavenJarExec() {
                 "--acc", "{access}",
                 "--ctr", "{constructors}"
         )
-        jvmArgs = arrayOf("-Xmx4G")
+        jvmArgs = mutableListOf("-Xmx4G")
     }
 
     override fun filterArgs(): List<String> {
@@ -54,7 +54,7 @@ open class ApplyMCInjector : MavenJarExec() {
         val constructorsOut = constructors.absolutePath + ".out.txt"
 
         if (generate) {
-            arguments.addAll(arrayOf("--excOut", "{exceptions-out}", "--accOut", "{access-out}", "--ctrOut", "{constructors-out}"))
+            arguments.addAll("--excOut", "{exceptions-out}", "--accOut", "{access-out}", "--ctrOut", "{constructors-out}")
 
             exceptionsOut.deleteIfExists()
             accessOut.deleteIfExists()
@@ -79,5 +79,6 @@ open class ApplyMCInjector : MavenJarExec() {
     }
 
     private fun String.deleteIfExists() = Files.deleteIfExists(Paths.get(this))
+    private fun <E> MutableList<E>.addAll(vararg arguments: E) = this.addAll(arguments)
 
 }

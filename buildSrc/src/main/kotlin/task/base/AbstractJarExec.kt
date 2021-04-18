@@ -20,10 +20,10 @@ abstract class AbstractJarExec : DefaultTask() {
     var hasLog = true
 
     @Input
-    var args: Array<String> = emptyArray()
+    var args: MutableList<String> = mutableListOf()
 
     @Input
-    var jvmArgs: Array<String> = emptyArray()
+    var jvmArgs: MutableList<String> = mutableListOf()
 
     @Optional
     @InputFiles
@@ -41,7 +41,7 @@ abstract class AbstractJarExec : DefaultTask() {
         val printer = PrintWriter(log, true)
         project.javaexec {
             args = this@AbstractJarExec.filterArgs()
-            jvmArgs = listOf(*this@AbstractJarExec.jvmArgs)
+            jvmArgs = this@AbstractJarExec.jvmArgs
             classpath = if (this@AbstractJarExec.classpath == null) project.files(jar) else project.files(jar, this@AbstractJarExec.classpath)
             workingDir = workDir
             main = mainClass
@@ -60,7 +60,7 @@ abstract class AbstractJarExec : DefaultTask() {
     }
 
     protected open fun filterArgs(): List<String> {
-        return args.asList()
+        return args
     }
 
     @InputFile

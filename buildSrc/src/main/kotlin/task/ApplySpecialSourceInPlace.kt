@@ -7,7 +7,7 @@ import java.nio.file.StandardCopyOption
 open class ApplySpecialSourceInPlace : ApplySpecialSource() {
 
     init {
-        args += "--live"
+        args.add("--live")
         outputs.upToDateWhen { false }
     }
 
