@@ -1,3 +1,5 @@
+import mcp.reobfFinalized
+
 plugins {
     `java-library`
 }
@@ -12,28 +14,13 @@ version = "1.0-SNAPSHOT"
 //----------------------------------------------------------------------------------------------------------------------
 
 val generateMcp2Srg by project(":_mappings").tasks.getting(task.srg.TransformSrg::class)
-val generateMcp2Obf by project(":_mappings").tasks.getting(task.srg.GenerateRemappingSrg::class)
 
 //----------------------------------------------------------------------------------------------------------------------
 // MCP
 //----------------------------------------------------------------------------------------------------------------------
 
-val jar by tasks.getting(Jar::class) {
-
-}
-
-val reobfJar by tasks.creating(task.ApplySpecialSource::class) {
-    group = "mcp"
-    dependsOn(generateMcp2Obf)
-
-    val jarFile = jar.archiveFile.get().asFile
-
-    input = jarFile
-    output = file(jarFile.toPath().resolveSibling("${jarFile.nameWithoutExtension}-reobf.jar"))
-    mappings = generateMcp2Obf.output
-}
-
-jar.finalizedBy(reobfJar)
+val jar = tasks.getByName<Jar>("jar")
+val reobfJar = project.reobfFinalized(jar)
 
 //----------------------------------------------------------------------------------------------------------------------
 // Dependencies

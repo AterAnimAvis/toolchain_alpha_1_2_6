@@ -6,6 +6,10 @@ import org.gradle.api.artifacts.ArtifactRepositoryContainer
 import org.gradle.api.artifacts.UnknownRepositoryException
 import org.gradle.api.artifacts.dsl.RepositoryHandler
 import org.gradle.api.artifacts.repositories.MavenArtifactRepository
+import org.gradle.api.plugins.JavaPluginConvention
+import org.gradle.jvm.tasks.Jar
+import org.gradle.kotlin.dsl.the
+import task.ApplySpecialSource
 import java.net.URI
 
 @Suppress("unused")
@@ -26,6 +30,39 @@ class MCPPlugin : Plugin<Project> {
             }
         }
 
+        val container = project.container(ApplySpecialSource::class.java) { jarName ->
+            val name = jarName.capitalize()
+            val java = project.the<JavaPluginConvention>()
+
+            val task = project.tasks.maybeCreate("reobf$name", ApplySpecialSource::class.java)
+            task.classpath = java.sourceSets.getByName("main").compileClasspath
+            task.group = "reobf-tasks"
+
+            val generateMcp2Obf = project.findProject(":_mappings")?.tasks?.getByName("generateMcp2Obf")
+            if (generateMcp2Obf != null) {
+                task.mappings = generateMcp2Obf.outputs.files.singleFile
+            }
+
+            project.tasks.getByName("assemble").dependsOn(task)
+
+            // do after-Evaluate resolution, for the same of good error reporting
+            project.afterEvaluate {
+                val jar = project.tasks.getByName(jarName)
+                if (jar !is Jar) throw IllegalStateException("$jarName is not a jar task. Can only reobf jars!")
+                val jarFile = jar.archiveFile.get().asFile
+                task.input = jarFile
+                task.output = file(jarFile.toPath().resolveSibling("${jarFile.nameWithoutExtension}-reobf.jar"))
+                task.dependsOn(jar)
+
+                if (generateMcp2Obf != null && task.mappings == generateMcp2Obf.outputs.files.singleFile) {
+                    task.dependsOn(generateMcp2Obf) // Add needed dependency if uses default mappings
+                }
+            }
+
+            task
+        }
+
+        project.extensions.add("reobf", container)
     }
 
     private fun RepositoryHandler.maybeDeclare(name: String, configure: MavenArtifactRepository.() -> Unit) {
