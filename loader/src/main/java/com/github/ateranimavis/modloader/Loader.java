@@ -1,13 +1,12 @@
 package com.github.ateranimavis.modloader;
 
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.function.Consumer;
+import java.util.stream.Stream;
 
 import com.github.ateranimavis.modlauncher.ModLoader;
 import com.github.ateranimavis.modlauncher.api.ModInstance;
@@ -60,28 +59,25 @@ public class Loader {
 
     private static final Type MOD_ANNOTATION = Type.getType(Mod.class);
 
-    public static Collection<ModInstance<?>> discoverMods(ModLocation location) {
+    public static Stream<? extends ModInstance<?>> discoverMods(ModLocation location) {
         Scanner scanner = new Scanner(location).scan();
-        List<ModInstance<?>> mods = new ArrayList<>();
 
-        scanner
+        Stream<? extends ModInstance<?>> annotation = scanner
             .getAnnotations()
             .stream()
             .filter(ad -> MOD_ANNOTATION.equals(ad.getAnnotationType()))
             .peek(ad -> LOGGER.debug("Found @Mod class {} with id {}", ad.getClassType().getClassName(), ad.getAnnotationData().get("value")))
-            .map(ad -> AnnotatedModInstance.of(ad, Thread.currentThread().getContextClassLoader()))
-            .forEach(mods::add);
+            .map(ad -> AnnotatedModInstance.of(ad, Thread.currentThread().getContextClassLoader()));
 
-        scanner
+        Stream<? extends ModInstance<?>> baseMod = scanner
             .getClasses()
             .stream()
             .filter(Loader::isModLoaderMod)
             .map(cd -> BaseModInstance.of(cd, Thread.currentThread().getContextClassLoader()))
             .filter(Objects::nonNull)
-            .peek(mod -> LOGGER.debug("Found BaseMod with id {}", mod.id()))
-            .forEach(mods::add);
+            .peek(mod -> LOGGER.debug("Found BaseMod with id {}", mod.id()));
 
-        return mods;
+        return Stream.concat(annotation, baseMod);
     }
 
     private static boolean isModLoaderMod(ClassData data) {

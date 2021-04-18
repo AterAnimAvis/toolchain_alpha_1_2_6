@@ -16,6 +16,7 @@ import java.util.ServiceLoader;
 import java.util.function.Function;
 import java.util.jar.Manifest;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 import com.github.ateranimavis.modlauncher.api.ModInstance;
 import com.github.ateranimavis.modlauncher.api.ModLocation;
@@ -46,12 +47,11 @@ public final class ModLoader {
             .collect(Collectors.toSet());
     }
 
-    public static void discoverMods(Function<ModLocation, Collection<ModInstance<?>>> converter) {
+    public static void discoverMods(Function<ModLocation, Stream<? extends ModInstance<?>>> converter) {
         LOADED_LOCATIONS
             .values()
             .stream()
-            .map(converter)
-            .flatMap(Collection::stream)
+            .flatMap(converter)
             .forEach(instance -> LOADED_MODS.put(instance.id(), instance));
     }
 
@@ -91,7 +91,7 @@ public final class ModLoader {
     }
 
     public static boolean isLoaded(String id) {
-        return LOADED_MODS.containsKey(id);
+        return LOADED_MODS.containsKey(id) || LOADED_MODS.containsKey(id.replaceFirst("^mod_", ""));
     }
 
     public static Enumeration<URL> findAllURLsForResource(final String resName) {
