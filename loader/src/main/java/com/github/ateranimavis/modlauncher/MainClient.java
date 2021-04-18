@@ -28,8 +28,8 @@ public class MainClient {
         lst.putLazy("gameDir", ".");
         lst.putLazy("launchTarget", "client_dev");
 
-        // TODO: List
-        lst.put("mixin.config", "launcher.mixins.json");
+        lst.add("mixin.config", "launcher.mixins.json");
+        lst.add("mixin.config", "launcher.vanity.mixins.json");
 
         Launcher.main(lst.getArguments());
     }

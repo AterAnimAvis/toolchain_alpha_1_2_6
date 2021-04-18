@@ -18,7 +18,6 @@ public class ClasspathDevLocator extends ExplodedDirectoryLocator {
         String[] classpathEntries = classpath.split(File.pathSeparator);
 
         return Arrays.stream(classpathEntries)
-            .peek(System.out::println)
             .filter(it -> it.replace("\\", "/").contains("/build/classes/") || it.replace("\\", "/").contains("/build/resources/"))
             .map(Paths::get)
             .collect(Collectors.toList());

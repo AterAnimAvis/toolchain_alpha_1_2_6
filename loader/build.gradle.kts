@@ -63,8 +63,8 @@ dependencies {
     // Mixins
     //------------------------------------------------------------------------------------------------------------------
 
-    api(group = "org.spongepowered", name = "mixin", version = "0.8.1")
-    annotationProcessor(group = "org.spongepowered", name = "mixin", version = "0.8.1", classifier = "processor")
+    api(group = "org.spongepowered", name = "mixin", version = "0.8.2")
+    annotationProcessor(group = "org.spongepowered", name = "mixin", version = "0.8.2", classifier = "processor")
 }
 
 //----------------------------------------------------------------------------------------------------------------------

@@ -31,6 +31,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.function.Supplier;
 
+import com.google.common.collect.Lists;
+
 /*
  * A class that attempts to parse command line arguments into key value pairs to allow addition and editing.
  * Can not use JOptSimple as that doesn't parse out the values for keys unless the spec says it has a value.
@@ -45,27 +47,35 @@ public class ArgumentList {
 
         boolean ended = false;
         for (int x = 0; x < args.length; x++) {
-            if (!ended) {
-                if ("--".equals(args[x])) { // '--' by itself means there are no more arguments
-                    ended = true;
-                } else if ("-".equals(args[x])) {
-                    ret.addRaw(args[x]);
-                } else if (args[x].startsWith("-")) {
-                    final int idx = args[x].indexOf('=');
-                    final String key = idx == -1 ? args[x] : args[x].substring(0, idx);
-                    final String value = idx == -1 ? null : idx == args[x].length() - 1 ? "" : args[x].substring(idx + 1);
-
-                    if (idx == -1 && x + 1 < args.length && !args[x + 1].startsWith("-")) { //Not in --key=value, so try and grab the next argument.
-                        ret.addArg(true, key, args[x + 1]); //Assume that if the next value is a "argument" then don't use it as a value.
-                        x++; // This isn't perfect, but the best we can do without knowing all of the spec.
-                    } else {
-                        ret.addArg(false, key, value);
-                    }
-                } else {
-                    ret.addRaw(args[x]);
-                }
-            } else {
+            if (ended) {
                 ret.addRaw(args[x]);
+                continue;
+            }
+
+            if ("--".equals(args[x])) { // '--' by itself means there are no more arguments
+                ended = true;
+                continue;
+            }
+
+            if ("-".equals(args[x])) {
+                ret.addRaw(args[x]);
+                continue;
+            }
+
+            if (!args[x].startsWith("-")) {
+                ret.addRaw(args[x]);
+                continue;
+            }
+
+            final int idx = args[x].indexOf('=');
+            final String key = idx == -1 ? args[x] : args[x].substring(0, idx);
+            final String value = idx == -1 ? null : idx == args[x].length() - 1 ? "" : args[x].substring(idx + 1);
+
+            if (idx == -1 && x + 1 < args.length && !args[x + 1].startsWith("-")) { //Not in --key=value, so try and grab the next argument.
+                ret.addArg(true, key, args[x + 1]); //Assume that if the next value is a "argument" then don't use it as a value.
+                x++; // This isn't perfect, but the best we can do without knowing all of the spec.
+            } else {
+                ret.addArg(false, key, value);
             }
         }
         return ret;
@@ -80,12 +90,13 @@ public class ArgumentList {
         final String prefix = raw.substring(0, idx);
         final String key = raw.substring(idx);
         final EntryValue entry = new EntryValue(split, prefix, key, value);
-        if (values.containsKey(key)) {
-            System.out.println("Duplicate entries for " + key + " Unindexable");
-        } else {
-            this.values.put(key, entry);
-        }
-        this.entries.add(entry);
+
+        if (!values.containsKey(key)) entries.add(entry);
+
+        values.merge(key, entry, (old, _new) -> {
+            old.addValue(value);
+            return old;
+        });
     }
 
     public String[] getArguments() {
@@ -101,6 +112,11 @@ public class ArgumentList {
     public String get(final String key) {
         final EntryValue ent = this.values.get(key);
         return ent == null ? null : ent.getValue();
+    }
+
+    public String[] getAll(final String key) {
+        final EntryValue ent = this.values.get(key);
+        return ent == null ? null : ent.getValues();
     }
 
     public String getOrDefault(final String key, final String value) {
@@ -128,6 +144,17 @@ public class ArgumentList {
         }
     }
 
+    public void add(final String key, final String value) {
+        EntryValue entry = this.values.get(key);
+        if (entry == null) {
+            entry = new EntryValue(true, "--", key, value);
+            this.values.put(key, entry);
+            this.entries.add(entry);
+        } else {
+            entry.addValue(value);
+        }
+    }
+
     public String remove(final String key) {
         final EntryValue ent = this.values.remove(key);
         if (ent == null) {
@@ -142,13 +169,13 @@ public class ArgumentList {
         private final String prefix;
         private final String key;
         private final boolean split;
-        private String value;
+        private List<String> values;
 
         public EntryValue(final boolean split, final String prefix, final String key, final String value) {
             this.split = split;
             this.prefix = prefix;
             this.key = key;
-            this.value = value;
+            setValue(value);
         }
 
         public String getKey() {
@@ -156,22 +183,38 @@ public class ArgumentList {
         }
 
         public String getValue() {
-            return this.value;
+            return this.values.size() > 0 ? this.values.get(0) : null;
+        }
+
+        public String[] getValues() {
+            return this.values.toArray(new String[0]);
         }
 
         public void setValue(final String value) {
-            this.value = value;
+            this.values = value == null ? Lists.newArrayList() : Lists.newArrayList(value);
+        }
+
+        public void addValue(final String value) {
+            if (value != null) this.values.add(value);
         }
 
         @Override
         public String[] get() {
-            if (this.getValue() == null) {
-                return new String[] {this.prefix + this.getKey()};
+            if (values.size() == 0) {
+                return new String[] {this.prefix + this.key};
             }
+
             if (this.split) {
-                return new String[] {this.prefix + this.getKey(), this.getValue()};
+                return values
+                    .stream()
+                    .flatMap(value -> Lists.newArrayList(this.prefix + this.key, value).stream())
+                    .toArray(String[]::new);
             }
-            return new String[] {this.prefix + getKey() + '=' + this.getValue()};
+
+            return values
+                .stream()
+                .map(value -> this.prefix + this.key + '=' + value)
+                .toArray(String[]::new);
         }
 
         @Override

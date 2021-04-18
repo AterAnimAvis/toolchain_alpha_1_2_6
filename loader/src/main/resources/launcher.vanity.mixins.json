@@ -1,0 +1,12 @@
+{
+  "required": true,
+  "package": "com.github.ateranimavis.vanity",
+  "compatibilityLevel": "JAVA_8",
+  "client": [
+    "MainMenuMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "minVersion": "0.8"
+}
