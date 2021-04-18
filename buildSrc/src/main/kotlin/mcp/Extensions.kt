@@ -7,9 +7,9 @@ import org.gradle.jvm.tasks.Jar
 import org.gradle.kotlin.dsl.getByName
 import task.ApplySpecialSource
 
-fun Project.reobfFinalized(task: Jar) = task.finalizedBy(reobf(task.name))
+fun Project.reobfFinalized(task: Jar) = task.finalizedBy(reobf(task))
 
 fun Project.reobf(task: Jar) = reobf(task.name)
 
 @Throws(InvalidUserDataException::class)
-fun Project.reobf(name: String) = extensions.getByName<NamedDomainObjectContainer<ApplySpecialSource>>("reobf").create("jar")
+fun Project.reobf(name: String) = extensions.getByName<NamedDomainObjectContainer<ApplySpecialSource>>("reobf").create(name)
