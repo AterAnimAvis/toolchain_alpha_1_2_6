@@ -7,7 +7,7 @@ import org.gradle.jvm.tasks.Jar
 import org.gradle.kotlin.dsl.getByName
 import task.ApplySpecialSource
 
-fun Project.reobfFinalized(task: Jar) = task.finalizedBy(reobf(task))
+fun Project.reobfFinalized(task: Jar) = reobf(task).also { task.finalizedBy(it) }
 
 fun Project.reobf(task: Jar) = reobf(task.name)
 
