@@ -32,12 +32,17 @@ import org.gradle.api.Task
 import org.gradle.api.tasks.SourceSet
 import java.io.File
 
-open class MixinExtensionBase(project: Project) {
-
+open class MixinExtensionBase(
     /**
      * Cached reference to containing project
      */
-    internal val project : Project
+    internal val project: Project
+) {
+
+    /**
+     * Detected gradle major version, used in compatibility checks
+     */
+    internal val majorGradleVersion : Int = Utils.detectGradleMajorVersion(project)
 
     /**
      * mcp-plugin has one major type of project currently
@@ -45,15 +50,7 @@ open class MixinExtensionBase(project: Project) {
      */
     internal val projectType: String
 
-    /**
-     * Detected gradle major version, used in compatibility checks
-     */
-    internal val majorGradleVersion : Int
-
     init {
-        this.project = project
-        this.majorGradleVersion = Utils.detectGradleVersion(project)
-
         when {
             project.plugins.findPlugin("mcp-plugin") != null -> {
                 this.projectType = "mcp-plugin"
@@ -175,6 +172,12 @@ open class MixinExtensionBase(project: Project) {
      * file by setting this argument
      */
     var reobfSrgFile : Any? = null
+
+    /**
+     * Instruction for the annotation processor to suppress informational
+     * messages such as the AP version, etc.
+     */
+    var quiet = false
 
     /**
      * Additional TSRG mapping files to supply to the annotation processor. LTP.
@@ -306,6 +309,13 @@ open class MixinExtensionBase(project: Project) {
      */
     fun disableAnnotationProcessorCheck() {
         this.disableAnnotationProcessorCheck = true
+    }
+
+    /**
+     * Directive version of {@link #quiet}
+     */
+    fun quiet() {
+        quiet = true
     }
 
     /**

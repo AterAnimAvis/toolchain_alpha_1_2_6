@@ -24,38 +24,14 @@
  */
 package mixin.tasks
 
-import org.gradle.api.DefaultTask
-import org.gradle.api.tasks.TaskAction
-import org.gradle.jvm.tasks.Jar
+import java.io.File
 
-import mixin.Utils.refMaps
-import org.gradle.api.tasks.Input
-import org.gradle.api.tasks.Internal
+class ArtifactSpecificRefMap(parent: File, refMap: String) : File(parent, refMap) {
 
-open class AddRefMapToJarTask : DefaultTask() {
+    /**
+     * Preserve original refmap path as-specified so that we can use the
+     * correct relative path inside the jar
+     */
+    val refMap: File = File(refMap)
 
-    @Input
-    lateinit var remappedJar: Jar
-
-    @Input
-    var reobfTasks = mutableSetOf<ReobfTask>()
-
-    @Internal
-    var jarRefMaps = mutableSetOf<ArtifactSpecificRefMap>()
-
-    @TaskAction
-    fun run() {
-        // Add the refmap to all reobf'd jars
-        this.reobfTasks.forEach { reobfTask ->
-            reobfTask.handle.dependsOn.filter { it == remappedJar }.map { it as Jar }.forEach { jar ->
-                jarRefMaps.forEach { artefactSpecificRefMap ->
-                    project.logger.info("Contributing refmap ({}) to {} in {}", artefactSpecificRefMap.refMap, jar.archiveFileName, reobfTask.project)
-                    jar.refMaps.from(artefactSpecificRefMap)
-                    jar.from(artefactSpecificRefMap) {
-                        into(artefactSpecificRefMap.refMap.parent)
-                    }
-                }
-            }
-        }
-    }
 }

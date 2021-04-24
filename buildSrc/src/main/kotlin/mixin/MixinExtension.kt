@@ -36,8 +36,9 @@ import mixin.Utils.asArg
 import mixin.Utils.refMap
 import mixin.Utils.refMapFile
 import mixin.Utils.outNotchSrgFile
-import mixin.Utils.findMissingAnnotationProcessors
+import mixin.Utils.checkForAnnotationProcessors
 import mixin.meta.Imports
+import mixin.tasks.ArtifactSpecificRefMap
 import mixin.tasks.AddRefMapToJarTask
 import mixin.tasks.ReobfTask
 import org.gradle.api.InvalidUserDataException
@@ -51,13 +52,13 @@ import java.io.File
 import java.io.PrintWriter
 import java.nio.file.Files
 
+/**
+ * ctor
+ *
+ * @param project reference to the containing project
+ */
 open class MixinExtension(project: Project) : MixinExtensionBase(project) {
 
-    /**
-     * ctor
-     *
-     * @param project reference to the containing project
-     */
     init {
         if (!this.disableEclipseAddon) {
             @Suppress("LeakingThis")
@@ -96,28 +97,6 @@ open class MixinExtension(project: Project) : MixinExtensionBase(project) {
             }
 
             applyDefault()
-
-            if (!disableAnnotationProcessorCheck && (majorGradleVersion > 4 || majorGradleVersion == 0)) {
-
-                val missingAPs = this@MixinExtension.findMissingAnnotationProcessors(project)
-                if (missingAPs.isNotEmpty()) {
-                    val missingAPNames = missingAPs.map { it.annotationProcessorConfigurationName }
-                    val message = (if (majorGradleVersion > 4) "Gradle $majorGradleVersion " else "An unrecognised gradle version ") + "was " +
-                            "detected but the mixin dependency was missing from one or more Annotation Processor configurations: $missingAPNames. To " +
-                            "enable the Mixin AP please include the mixin processor artefact in each Annotation Processor configuration. For example " +
-                            "if you are using mixin dependency 'org.spongepowered:mixin:1.2.3-SNAPSHOT' you should specify the dependency " +
-                            "'org.spongepowered:mixin:1.2.3-SNAPSHOT:processor'. If you believe you are seeing this message in error, you can disable " +
-                            "this check via the disableAnnotationProcessorCheck directive."
-
-                    // Only promote the error message to an actual error if we're sure there's a gradle version mismatch
-                    if (majorGradleVersion > 4) {
-                        addRefMapToJarTasks.forEach { it.apErrorMessage = message }
-                    }
-
-                    // Always log it to the console though
-                    project.logger.error(message)
-                }
-            }
         }
     }
 
@@ -267,7 +246,7 @@ open class MixinExtension(project: Project) : MixinExtensionBase(project) {
         // name ready for inclusion into target jar. We can't use rename in the
         // jar spec because there may be multiple refmaps with the same source
         // name
-        val taskSpecificRefMap = File(refMapFile.parentFile, compileTask.refMap)
+        val taskSpecificRefMap = ArtifactSpecificRefMap(refMapFile.parentFile, compileTask.refMap)
 
         // Closure to rename generated refMap to artefact-specific refmap when
         // compile task is completed
@@ -277,6 +256,7 @@ open class MixinExtension(project: Project) : MixinExtensionBase(project) {
 
             // Copy the new one if it was successfully generated
             if (refMapFile.exists()) {
+                taskSpecificRefMap.parentFile.mkdirs()
                 Files.copy(refMapFile.toPath(), taskSpecificRefMap.toPath())
             }
         }
@@ -288,6 +268,10 @@ open class MixinExtension(project: Project) : MixinExtensionBase(project) {
         // can handle the heavy lifting of figuring out what to contribute
         project.tasks.withType(Jar::class.java) {
             addRefMapToJarTasks.add(project.tasks.maybeCreate("addRefMapTo${name.capitalize()}", AddRefMapToJarTask::class.java).apply {
+                doFirst {
+                    checkForAnnotationProcessors()
+                }
+
                 dependsOn(compileTask)
 
                 remappedJar = this@withType
@@ -364,6 +348,10 @@ open class MixinExtension(project: Project) : MixinExtensionBase(project) {
         if (importsFile != null) {
             compileTask.options.compilerArgs.add("-AdependencyTargetsFile=${importsFile.canonicalPath}")
         }
+
+        if (this.quiet) {
+            compileTask.options.compilerArgs.add("-Aquiet=true")
+        }
     }
 
     /**
@@ -392,7 +380,7 @@ open class MixinExtension(project: Project) : MixinExtensionBase(project) {
         }
 
         importsFile.outputStream().use { stream ->
-            val writer = PrintWriter(stream);
+            val writer = PrintWriter(stream)
             libs.forEach { Imports[it].appendTo(writer) }
             writer.flush()
         }
