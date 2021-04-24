@@ -1,5 +1,5 @@
-import java.text.SimpleDateFormat
-import java.util.Date
+import java.time.Instant
+import java.time.format.DateTimeFormatter
 import mcp.reobfFinalized
 
 plugins {
@@ -94,12 +94,11 @@ tasks.withType<Jar> {
             "Implementation-Title" to modName,
             "Implementation-Version" to project.version,
             "Implementation-Vendor" to vendor,
-            "Implementation-Timestamp" to Date().format("yyyy-MM-dd'T'HH:mm:ssZ"),
-            "Implementation-Timestamp" to Date().format("yyyy-MM-dd'T'HH:mm:ssZ"),
+            "Implementation-Timestamp" to Instant.now().iso8601(),
             "MixinConfigs" to configs("$modId.mixins.json", "$modId.vanity.mixins.json")
         )
     }
 }
 
 fun configs(vararg configs: String) = configs.joinToString(",")
-fun Date.format(format: String) = SimpleDateFormat(format).format(this)
+fun Instant.iso8601() = DateTimeFormatter.ISO_INSTANT.format(this)
