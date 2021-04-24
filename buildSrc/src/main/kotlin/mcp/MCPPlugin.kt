@@ -20,7 +20,7 @@ class MCPPlugin : Plugin<Project> {
             project.repositories.mavenCentral()
 
         project.repositories.maybeDeclare(MINECRAFT_FORGE_MAVEN) {
-            url = URI("http://files.minecraftforge.net/maven/")
+            url = URI("http://maven.minecraftforge.net/")
         }
 
         project.repositories.maybeDeclare(MINECRAFT_MAVEN) {

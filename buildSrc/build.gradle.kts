@@ -7,7 +7,7 @@ repositories {
     mavenCentral()
     maven {
         name = "MinecraftForge Maven"
-        url = uri("http://files.minecraftforge.net/maven/")
+        url = uri("http://maven.minecraftforge.net/")
     }
 }
 
