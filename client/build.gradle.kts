@@ -1,6 +1,5 @@
 plugins {
     `java-library`
-    id("uk.jamierocks.propatcher") version "1.3.2" apply false
 }
 
 apply(plugin = "mcp-plugin")
@@ -76,14 +75,6 @@ val filterJar by tasks.creating(task.FilterZip::class) {
     filter = { entry -> entry.name.contains("net/minecraft/") }
 }
 
-val extractJar by tasks.creating(task.ExtractZip::class) {
-    group = "mcp"
-    dependsOn(filterJar)
-
-    input = filterJar.output
-    output = clientSource
-}
-
 val extractResources by tasks.creating(task.ExtractZip::class) {
     group = "mcp"
 
@@ -92,10 +83,11 @@ val extractResources by tasks.creating(task.ExtractZip::class) {
     blacklist { it.name.contains(".class") || it.name.contains(".java") || it.name == "null" || it.name.contains("META-INF") }
 }
 
-val applyMCPPatches by tasks.creating(uk.jamierocks.propatcher.task.ApplyPatchesTask::class) {
+val applyMCPPatches by tasks.creating(task.patch.ApplyPatches::class) {
     group = "mcp"
-    dependsOn(extractJar)
+    dependsOn(filterJar)
 
+    source  = filterJar.output
     target  = clientSource
     patches = clientPatches
 }
@@ -131,10 +123,10 @@ val extractS2S by tasks.creating(task.ExtractZip::class) {
     output = clientSource
 }
 
-val makeMCPPatches by tasks.creating(uk.jamierocks.propatcher.task.MakePatchesTask::class) {
+val makeMCPPatches by tasks.creating(task.patch.MakePatches::class) {
     group = "mcp"
 
-    root    = filterJar.output
+    source  = filterJar.output
     target  = clientSource
     patches = clientPatches
 }

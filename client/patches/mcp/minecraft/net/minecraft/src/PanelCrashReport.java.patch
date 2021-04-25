@@ -6,6 +6,6 @@
        TextArea textarea = new TextArea(s3, 0, 0, 1);
 -      textarea.setFont(new Font("Monospaced", 0, 12));
 +      textarea.setFont(new Font("Monospaced", Font.PLAIN, 12));
-       this.add(new CanvasMajongLogo(), "North");
+       this.add(new CanvasMojangLogo(), "North");
        this.add(new CanvasCrashReport(80), "East");
        this.add(new CanvasCrashReport(80), "West");
