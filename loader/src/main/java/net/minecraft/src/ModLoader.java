@@ -13,8 +13,8 @@ import java.util.Objects;
 import java.util.Random;
 import javax.imageio.ImageIO;
 
-import com.github.ateranimavis.modloader.Loader;
-import com.github.ateranimavis.util.Pair;
+import com.github.ateranimavis.toploader.loader.Loader;
+import com.github.ateranimavis.toploader.util.Pair;
 import org.apache.logging.log4j.LogManager;
 import org.lwjgl.BufferUtils;
 import org.lwjgl.opengl.GL11;

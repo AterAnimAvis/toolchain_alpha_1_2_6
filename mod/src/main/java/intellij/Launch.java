@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.util.Arrays;
 import java.util.stream.Stream;
 
-import com.github.ateranimavis.modlauncher.launch.MainClientDev;
+import com.github.ateranimavis.toploader.modlauncher.launch.MainClientDev;
 
 @SuppressWarnings({"MismatchedReadAndWriteOfArray", "RedundantSuppression", "ConstantConditions", "RedundantOperationOnEmptyContainer"})
 public class Launch {
@@ -29,7 +29,7 @@ public class Launch {
 
     public static String[] injectAdditionalArgs(String[] args) {
         if (INJECTED_ARGS.length == 0 && MIXIN_CONFIGS.length == 0) return args;
-        
+
         Stream<String> mixin_config_args = Arrays.stream(MIXIN_CONFIGS).flatMap(it -> Stream.of("--mixin.config", it));
         String[] injected_args = Stream.concat(Arrays.stream(INJECTED_ARGS), mixin_config_args).toArray(String[]::new);
 

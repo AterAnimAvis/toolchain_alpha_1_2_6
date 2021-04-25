@@ -1,9 +1,9 @@
-Alpha 1.2.6 Modding Toolchain (Client Side Only)
+TopLoader - An Alpha 1.2.6 Modding Toolchain (Client Side Only)
 ---
 
 ## Why?
 
-> Powered by Why not? &trade;
+> Powered by Why not?&trade;
 
 ## How do I use it?
 

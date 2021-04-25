@@ -1,0 +1,13 @@
+{
+  "required": true,
+  "package": "com.github.ateranimavis.toploader.vanity",
+  "compatibilityLevel": "JAVA_8",
+  "refmap": "launcher.refmap.json",
+  "client": [
+    "MainMenuMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "minVersion": "0.8"
+}

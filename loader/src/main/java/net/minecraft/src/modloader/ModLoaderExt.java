@@ -1,6 +1,6 @@
 package net.minecraft.src.modloader;
 
-import com.github.ateranimavis.modloader.Loader;
+import com.github.ateranimavis.toploader.loader.Loader;
 import net.minecraft.client.Minecraft;
 import net.minecraft.src.EntityPlayerSP;
 import net.minecraft.src.GuiScreen;
