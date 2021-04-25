@@ -1,6 +1,6 @@
 --- a/net/minecraft/src/EntityLiving.java
 +++ b/net/minecraft/src/EntityLiving.java
-@@ -189,8 +189,8 @@
+@@ -189,8 +_,8 @@
        this.field_9323_Z = p_378_1_;
        this.field_9356_aa = p_378_3_;
        this.field_9354_ab = p_378_5_;
@@ -11,7 +11,7 @@
        this.field_9324_Y = p_378_9_;
     }
  
-@@ -390,10 +390,10 @@
+@@ -390,10 +_,10 @@
        this.field_607_ao /= 2.0D;
        this.field_606_ap /= 2.0D;
        this.field_608_an -= p_434_3_ / (double)f * (double)f1;
@@ -24,7 +24,7 @@
        }
  
     }
-@@ -423,7 +423,7 @@
+@@ -423,7 +_,7 @@
     }
  
     protected void func_400_c(float p_400_1_) {
@@ -33,7 +33,7 @@
        if (i > 0) {
           this.func_396_a((Entity)null, i);
           int j = this.field_615_ag.func_600_a(MathHelper.func_1108_b(this.field_611_ak), MathHelper.func_1108_b(this.field_610_al - (double)0.2F - (double)this.field_9292_aO), MathHelper.func_1108_b(this.field_609_am));
-@@ -440,12 +440,12 @@
+@@ -440,12 +_,12 @@
           double d0 = this.field_610_al;
           this.func_351_a(p_435_1_, p_435_2_, 0.02F);
           this.func_349_c(this.field_608_an, this.field_607_ao, this.field_606_ap);
@@ -50,7 +50,7 @@
           }
        } else if (this.func_359_G()) {
           double d1 = this.field_610_al;
-@@ -456,7 +456,7 @@
+@@ -456,7 +_,7 @@
           this.field_606_ap *= 0.5D;
           this.field_607_ao -= 0.02D;
           if (this.field_9297_aI && this.func_403_b(this.field_608_an, this.field_607_ao + (double)0.6F - this.field_610_al + d1, this.field_606_ap)) {
@@ -59,7 +59,7 @@
           }
        } else {
           float f1 = 0.91F;
-@@ -492,9 +492,9 @@
+@@ -492,9 +_,9 @@
           }
  
           this.field_607_ao -= 0.08D;
@@ -72,7 +72,7 @@
        }
  
        this.field_705_Q = this.field_704_R;
-@@ -572,9 +572,9 @@
+@@ -572,9 +_,9 @@
        boolean flag = this.func_359_G();
        if (this.field_9336_ak) {
           if (flag1) {
@@ -84,7 +84,7 @@
           } else if (this.field_9298_aH) {
              this.func_424_C();
           }
-@@ -584,10 +584,9 @@
+@@ -584,10 +_,9 @@
        this.field_9340_ai *= 0.98F;
        this.field_9338_aj *= 0.9F;
        this.func_435_b(this.field_9342_ah, this.field_9340_ai);
@@ -97,7 +97,7 @@
              if (entity.func_385_d_()) {
                 entity.func_380_f(this);
              }
-@@ -597,7 +596,7 @@
+@@ -597,7 +_,7 @@
     }
  
     protected void func_424_C() {
@@ -106,7 +106,7 @@
     }
  
     protected void func_418_b_() {
-@@ -625,7 +624,7 @@
+@@ -625,7 +_,7 @@
        this.field_9340_ai = 0.0F;
        float f = 8.0F;
        if (this.field_9312_bd.nextFloat() < 0.02F) {
@@ -115,7 +115,7 @@
           if (entityplayer != null) {
              this.field_4120_b = entityplayer;
              this.field_4127_c = 10 + this.field_9312_bd.nextInt(20);
-@@ -667,7 +666,7 @@
+@@ -667,7 +_,7 @@
           d1 = (p_426_1_.field_601_au.field_1697_b + p_426_1_.field_601_au.field_1702_e) / 2.0D - (this.field_610_al + (double)this.func_373_s());
        }
  
@@ -124,7 +124,7 @@
        float f = (float)(Math.atan2(d2, d0) * 180.0D / (double)(float)Math.PI) - 90.0F;
        float f1 = (float)(Math.atan2(d1, d3) * 180.0D / (double)(float)Math.PI);
        this.field_604_ar = -this.func_417_b(this.field_604_ar, f1, p_426_2_);
-@@ -735,7 +734,7 @@
+@@ -735,7 +_,7 @@
           float f7 = MathHelper.func_1106_a(-this.field_605_aq * ((float)Math.PI / 180F) - (float)Math.PI);
           float f8 = -MathHelper.func_1114_b(-this.field_604_ar * ((float)Math.PI / 180F));
           float f9 = MathHelper.func_1106_a(-this.field_604_ar * ((float)Math.PI / 180F));
@@ -133,7 +133,7 @@
        } else {
           float f = this.field_602_at + (this.field_604_ar - this.field_602_at) * p_430_1_;
           float f1 = this.field_603_as + (this.field_605_aq - this.field_603_as) * p_430_1_;
-@@ -743,7 +742,7 @@
+@@ -743,7 +_,7 @@
           float f3 = MathHelper.func_1106_a(-f1 * ((float)Math.PI / 180F) - (float)Math.PI);
           float f4 = -MathHelper.func_1114_b(-f * ((float)Math.PI / 180F));
           float f5 = MathHelper.func_1106_a(-f * ((float)Math.PI / 180F));

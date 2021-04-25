@@ -1,6 +1,6 @@
 --- a/net/minecraft/src/EntitySpider.java
 +++ b/net/minecraft/src/EntitySpider.java
-@@ -46,7 +46,7 @@
+@@ -46,7 +_,7 @@
                 float f1 = MathHelper.func_1109_a(d0 * d0 + d1 * d1);
                 this.field_608_an = d0 / (double)f1 * 0.5D * (double)0.8F + this.field_608_an * (double)0.2F;
                 this.field_606_ap = d1 / (double)f1 * 0.5D * (double)0.8F + this.field_606_ap * (double)0.2F;

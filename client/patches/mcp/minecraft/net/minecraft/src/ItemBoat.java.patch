@@ -1,6 +1,6 @@
 --- a/net/minecraft/src/ItemBoat.java
 +++ b/net/minecraft/src/ItemBoat.java
-@@ -23,21 +23,19 @@
+@@ -23,21 +_,19 @@
        double d3 = 5.0D;
        Vec3D vec3d1 = vec3d.func_1257_c((double)f7 * d3, (double)f6 * d3, (double)f8 * d3);
        MovingObjectPosition movingobjectposition = p_193_2_.func_642_a(vec3d, vec3d1, true);

@@ -1,6 +1,6 @@
 --- a/net/minecraft/src/EntityPlayer.java
 +++ b/net/minecraft/src/EntityPlayer.java
-@@ -18,7 +18,7 @@
+@@ -18,7 +_,7 @@
     public EntityPlayer(World p_i83_1_) {
        super(p_i83_1_);
        this.field_9292_aO = 1.62F;
@@ -9,7 +9,7 @@
        this.field_9337_J = 20;
        this.field_9351_C = "humanoid";
        this.field_9353_B = 180.0F;
-@@ -79,10 +79,10 @@
+@@ -79,10 +_,10 @@
        this.field_774_f += (f - this.field_774_f) * 0.4F;
        this.field_9328_R += (f1 - this.field_9328_R) * 0.8F;
        if (this.field_9337_J > 0) {
@@ -23,7 +23,7 @@
              }
           }
        }
-@@ -101,15 +101,15 @@
+@@ -101,15 +_,15 @@
        super.func_419_b(p_419_1_);
        this.func_371_a(0.2F, 0.2F);
        this.func_347_a(this.field_611_ak, this.field_610_al, this.field_609_am);
@@ -42,7 +42,7 @@
        } else {
           this.field_608_an = this.field_606_ap = 0.0D;
        }
-@@ -133,20 +133,20 @@
+@@ -133,20 +_,20 @@
           if (p_444_2_) {
              float f1 = this.field_9312_bd.nextFloat() * 0.5F;
              float f2 = this.field_9312_bd.nextFloat() * (float)Math.PI * 2.0F;
@@ -72,7 +72,7 @@
           }
  
           this.func_446_a(entityitem);
-@@ -251,7 +251,7 @@
+@@ -251,7 +_,7 @@
     }
  
     public double func_388_v() {

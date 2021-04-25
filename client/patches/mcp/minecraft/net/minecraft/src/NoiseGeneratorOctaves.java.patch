@@ -1,13 +1,13 @@
 --- a/net/minecraft/src/NoiseGeneratorOctaves.java
 +++ b/net/minecraft/src/NoiseGeneratorOctaves.java
-@@ -1,5 +1,6 @@
+@@ -1,5 +_,6 @@
  package net.minecraft.src;
  
 +import java.util.Arrays;
  import java.util.Random;
  
  public class NoiseGeneratorOctaves extends NoiseGenerator {
-@@ -32,10 +33,8 @@
+@@ -32,10 +_,8 @@
        if (p_807_1_ == null) {
           p_807_1_ = new double[p_807_8_ * p_807_9_ * p_807_10_];
        } else {
@@ -19,7 +19,7 @@
  
        double d0 = 1.0D;
  
-@@ -48,6 +47,6 @@
+@@ -48,6 +_,6 @@
     }
  
     public double[] func_4109_a(double[] p_4109_1_, int p_4109_2_, int p_4109_3_, int p_4109_4_, int p_4109_5_, double p_4109_6_, double p_4109_8_, double p_4109_10_) {

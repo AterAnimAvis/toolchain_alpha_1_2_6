@@ -1,6 +1,6 @@
 --- a/net/minecraft/src/ItemBucket.java
 +++ b/net/minecraft/src/ItemBucket.java
-@@ -27,9 +27,7 @@
+@@ -27,9 +_,7 @@
        double d3 = 5.0D;
        Vec3D vec3d1 = vec3d.func_1257_c((double)f7 * d3, (double)f6 * d3, (double)f8 * d3);
        MovingObjectPosition movingobjectposition = p_193_2_.func_642_a(vec3d, vec3d1, this.field_331_a == 0);
@@ -11,7 +11,7 @@
           if (movingobjectposition.field_1167_a == 0) {
              int i = movingobjectposition.field_1166_b;
              int j = movingobjectposition.field_1172_c;
-@@ -81,8 +79,8 @@
+@@ -81,8 +_,8 @@
                    if (p_193_2_.field_4209_q.field_6479_d && this.field_331_a == Block.field_401_B.field_376_bc) {
                       p_193_2_.func_684_a(d0 + 0.5D, d1 + 0.5D, d2 + 0.5D, "random.fizz", 0.5F, 2.6F + (p_193_2_.field_1037_n.nextFloat() - p_193_2_.field_1037_n.nextFloat()) * 0.8F);
  
@@ -22,7 +22,7 @@
                       }
                    } else {
                       p_193_2_.func_688_b(i, j, k, this.field_331_a, 0);
-@@ -95,7 +93,7 @@
+@@ -95,7 +_,7 @@
              return new ItemStack(Item.field_305_aE);
           }
  

@@ -1,6 +1,6 @@
 --- a/net/minecraft/src/ItemFishingRod.java
 +++ b/net/minecraft/src/ItemFishingRod.java
-@@ -18,15 +18,14 @@
+@@ -18,15 +_,14 @@
        if (p_193_3_.field_4128_n != null) {
           int i = p_193_3_.field_4128_n.func_4043_i();
           p_193_1_.func_1101_b(i);

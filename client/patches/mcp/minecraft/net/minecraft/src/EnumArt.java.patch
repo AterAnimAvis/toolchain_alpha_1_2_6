@@ -1,6 +1,6 @@
 --- a/net/minecraft/src/EnumArt.java
 +++ b/net/minecraft/src/EnumArt.java
-@@ -32,7 +32,7 @@
+@@ -32,7 +_,7 @@
     public final int field_1634_B;
     public final int field_1632_C;
  

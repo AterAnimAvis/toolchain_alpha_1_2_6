@@ -1,6 +1,6 @@
 --- a/net/minecraft/src/GuiEditSign.java
 +++ b/net/minecraft/src/GuiEditSign.java
-@@ -68,7 +68,6 @@
+@@ -68,7 +_,6 @@
        if (block == Block.field_443_aE) {
           float f1 = (float)(this.field_1002_h.func_479_f() * 360) / 16.0F;
           GL11.glRotatef(f1, 0.0F, 1.0F, 0.0F);
@@ -8,7 +8,7 @@
        } else {
           int i = this.field_1002_h.func_479_f();
           float f2 = 0.0F;
-@@ -85,8 +84,8 @@
+@@ -85,8 +_,8 @@
           }
  
           GL11.glRotatef(f2, 0.0F, 1.0F, 0.0F);

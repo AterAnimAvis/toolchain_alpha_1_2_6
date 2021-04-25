@@ -1,6 +1,6 @@
 --- a/net/minecraft/src/EnumOS2.java
 +++ b/net/minecraft/src/EnumOS2.java
-@@ -5,5 +5,5 @@
+@@ -5,5 +_,5 @@
     solaris,
     windows,
     macos,

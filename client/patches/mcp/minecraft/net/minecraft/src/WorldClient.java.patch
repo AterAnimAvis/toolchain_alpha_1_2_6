@@ -1,6 +1,6 @@
 --- a/net/minecraft/src/WorldClient.java
 +++ b/net/minecraft/src/WorldClient.java
-@@ -6,13 +6,13 @@
+@@ -6,13 +_,13 @@
  import java.util.Set;
  
  public class WorldClient extends World {
@@ -17,7 +17,7 @@
  
     public WorldClient(NetClientHandler p_i158_1_, long p_i158_2_, int p_i158_4_) {
        super("MpServer", WorldProvider.func_4101_a(p_i158_4_), p_i158_2_);
-@@ -28,13 +28,13 @@
+@@ -28,13 +_,13 @@
        if (i != this.field_1046_e) {
           this.field_1046_e = i;
  
@@ -34,7 +34,7 @@
           if (!this.field_1050_a.contains(entity)) {
              this.func_674_a(entity);
           }
-@@ -43,7 +43,7 @@
+@@ -43,7 +_,7 @@
        this.field_1052_A.func_848_a();
  
        for(int l = 0; l < this.field_1057_z.size(); ++l) {
@@ -43,7 +43,7 @@
           if (--worldblockpositiontype.field_1206_d == 0) {
              super.func_643_a(worldblockpositiontype.field_1202_a, worldblockpositiontype.field_1201_b, worldblockpositiontype.field_1207_c, worldblockpositiontype.field_1205_e, worldblockpositiontype.field_1204_f);
              super.func_665_h(worldblockpositiontype.field_1202_a, worldblockpositiontype.field_1201_b, worldblockpositiontype.field_1207_c);
-@@ -55,7 +55,7 @@
+@@ -55,7 +_,7 @@
  
     public void func_711_c(int p_711_1_, int p_711_2_, int p_711_3_, int p_711_4_, int p_711_5_, int p_711_6_) {
        for(int i = 0; i < this.field_1057_z.size(); ++i) {

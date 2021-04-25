@@ -1,6 +1,6 @@
 --- a/net/minecraft/src/Packet5PlayerInventory.java
 +++ b/net/minecraft/src/Packet5PlayerInventory.java
-@@ -41,13 +41,13 @@
+@@ -41,13 +_,13 @@
        p_322_1_.writeInt(this.field_571_a);
        p_322_1_.writeShort(this.field_570_b.length);
  

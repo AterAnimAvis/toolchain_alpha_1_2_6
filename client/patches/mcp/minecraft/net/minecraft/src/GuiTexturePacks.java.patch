@@ -1,6 +1,6 @@
 --- a/net/minecraft/src/GuiTexturePacks.java
 +++ b/net/minecraft/src/GuiTexturePacks.java
-@@ -61,14 +61,14 @@
+@@ -61,14 +_,14 @@
           this.field_6454_o += 20;
        }
  
@@ -17,7 +17,7 @@
                    this.field_945_b.field_6315_n.func_1065_b();
                 }
  
-@@ -108,14 +108,14 @@
+@@ -108,14 +_,14 @@
        float f = 32.0F;
        tessellator.func_977_b();
        tessellator.func_990_b(2105376);
@@ -37,7 +37,7 @@
           int i1 = this.field_951_c / 2 - 92 - 16;
           int j1 = 36 + l * 36 - this.field_6460_h;
           byte b0 = 32;
-@@ -127,15 +127,15 @@
+@@ -127,15 +_,15 @@
              GL11.glDisable(3553);
              tessellator.func_977_b();
              tessellator.func_990_b(8421504);
@@ -61,7 +61,7 @@
              tessellator.func_982_a();
              GL11.glEnable(3553);
           }
-@@ -144,10 +144,10 @@
+@@ -144,10 +_,10 @@
           GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
           tessellator.func_977_b();
           tessellator.func_990_b(16777215);
@@ -76,7 +76,7 @@
           tessellator.func_982_a();
           this.func_547_b(this.field_6451_g, texturepackbase.field_6487_a, i1 + b1 + 2, j1 + 1, 16777215);
           this.func_547_b(this.field_6451_g, texturepackbase.field_6486_b, i1 + b1 + 2, j1 + 12, 8421504);
-@@ -164,19 +164,19 @@
+@@ -164,19 +_,19 @@
        GL11.glDisable(3553);
        tessellator.func_977_b();
        tessellator.func_6513_a(0, 0);
@@ -104,7 +104,7 @@
        tessellator.func_982_a();
        GL11.glEnable(3553);
        GL11.glShadeModel(7424);
-@@ -199,11 +199,11 @@
+@@ -199,11 +_,11 @@
        float f = 32.0F;
        tessellator.func_977_b();
        tessellator.func_6513_a(4210752, p_6452_4_);

@@ -1,6 +1,6 @@
 --- a/net/minecraft/src/Render.java
 +++ b/net/minecraft/src/Render.java
-@@ -2,14 +2,14 @@
+@@ -2,14 +_,14 @@
  
  import org.lwjgl.opengl.GL11;
  
@@ -17,7 +17,7 @@
  
     protected void func_151_a(String p_151_1_) {
        RenderEngine renderengine = this.field_191_a.field_1229_e;
-@@ -46,10 +46,10 @@
+@@ -46,10 +_,10 @@
        tessellator.func_977_b();
  
        while(f8 > 0.0F) {
@@ -32,7 +32,7 @@
           --f8;
           --f7;
           f5 *= 0.9F;
-@@ -124,10 +124,10 @@
+@@ -124,10 +_,10 @@
              float f1 = (float)((p_145_2_ - d2) / 2.0D / (double)p_145_12_ + 0.5D);
              float f2 = (float)((p_145_6_ - d4) / 2.0D / (double)p_145_12_ + 0.5D);
              float f3 = (float)((p_145_6_ - d5) / 2.0D / (double)p_145_12_ + 0.5D);
@@ -47,7 +47,7 @@
           }
        }
     }
-@@ -207,7 +207,7 @@
+@@ -207,7 +_,7 @@
        this.field_191_a = p_4009_1_;
     }
  

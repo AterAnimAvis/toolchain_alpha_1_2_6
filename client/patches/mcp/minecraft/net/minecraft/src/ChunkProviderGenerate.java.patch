@@ -1,6 +1,6 @@
 --- a/net/minecraft/src/ChunkProviderGenerate.java
 +++ b/net/minecraft/src/ChunkProviderGenerate.java
-@@ -69,7 +69,7 @@
+@@ -69,7 +_,7 @@
                    double d13 = (d4 - d2) * d9;
  
                    for(int k1 = 0; k1 < 4; ++k1) {
@@ -9,7 +9,7 @@
                       short short1 = 128;
                       double d14 = 0.25D;
                       double d15 = d10;
-@@ -113,9 +113,9 @@
+@@ -113,9 +_,9 @@
     public void func_4062_a(int p_4062_1_, int p_4062_2_, byte[] p_4062_3_, MobSpawnerBase[] p_4062_4_) {
        byte b0 = 64;
        double d0 = 0.03125D;
@@ -22,7 +22,7 @@
  
        for(int i = 0; i < 16; ++i) {
           for(int j = 0; j < 16; ++j) {
-@@ -129,7 +129,7 @@
+@@ -129,7 +_,7 @@
  
              for(int i1 = 127; i1 >= 0; --i1) {
                 int j1 = (i * 16 + j) * 128 + i1;
@@ -31,7 +31,7 @@
                    p_4062_3_[j1] = (byte)Block.field_403_A.field_376_bc;
                 } else {
                    byte b3 = p_4062_3_[j1];
-@@ -206,9 +206,9 @@
+@@ -206,9 +_,9 @@
        double[] adouble1 = this.field_907_p.func_4075_a().field_4197_b;
        this.field_4182_g = this.field_922_a.func_4109_a(this.field_4182_g, p_4061_2_, p_4061_4_, p_4061_5_, p_4061_7_, 1.121D, 1.121D, 0.5D);
        this.field_4181_h = this.field_921_b.func_4109_a(this.field_4181_h, p_4061_2_, p_4061_4_, p_4061_5_, p_4061_7_, 200.0D, 200.0D, 0.5D);
@@ -44,7 +44,7 @@
        int i = 0;
        int j = 0;
        int k = 16 / p_4061_5_;
-@@ -282,7 +282,7 @@
+@@ -282,7 +_,7 @@
  
                 d8 = d8 - d9;
                 if (l1 > p_4061_6_ - 4) {
@@ -53,7 +53,7 @@
                    d8 = d8 * (1.0D - d13) + -10.0D * d13;
                 }
  
-@@ -423,7 +423,7 @@
+@@ -423,7 +_,7 @@
           k8 -= 20;
        }
  
@@ -62,7 +62,7 @@
        if (this.field_913_j.nextInt(10) == 0) {
           object = new WorldGenBigTree();
        }
-@@ -435,8 +435,8 @@
+@@ -435,8 +_,8 @@
        for(int j13 = 0; j13 < k8; ++j13) {
           int i2 = i + this.field_913_j.nextInt(16) + 8;
           int j2 = j + this.field_913_j.nextInt(16) + 8;

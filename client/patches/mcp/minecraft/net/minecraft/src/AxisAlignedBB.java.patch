@@ -1,6 +1,6 @@
 --- a/net/minecraft/src/AxisAlignedBB.java
 +++ b/net/minecraft/src/AxisAlignedBB.java
-@@ -4,7 +4,7 @@
+@@ -4,7 +_,7 @@
  import java.util.List;
  
  public class AxisAlignedBB {
@@ -9,7 +9,7 @@
     private static int field_1699_h = 0;
     public double field_1698_a;
     public double field_1697_b;
-@@ -26,7 +26,7 @@
+@@ -26,7 +_,7 @@
           field_1700_g.add(func_1168_a(0.0D, 0.0D, 0.0D, 0.0D, 0.0D, 0.0D));
        }
  

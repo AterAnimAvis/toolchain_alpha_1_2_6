@@ -1,6 +1,6 @@
 --- a/net/minecraft/src/PanelCrashReport.java
 +++ b/net/minecraft/src/PanelCrashReport.java
-@@ -75,7 +75,7 @@
+@@ -75,7 +_,7 @@
        s3 = s3 + "\n";
        s3 = s3 + "\n";
        TextArea textarea = new TextArea(s3, 0, 0, 1);

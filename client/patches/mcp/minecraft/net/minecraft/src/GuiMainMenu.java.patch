@@ -1,6 +1,6 @@
 --- a/net/minecraft/src/GuiMainMenu.java
 +++ b/net/minecraft/src/GuiMainMenu.java
-@@ -18,7 +18,7 @@
+@@ -18,7 +_,7 @@
  
     public GuiMainMenu() {
        try {
@@ -9,7 +9,7 @@
           BufferedReader bufferedreader = new BufferedReader(new InputStreamReader(GuiMainMenu.class.getResourceAsStream("/title/splashes.txt")));
           String s = "";
  
-@@ -29,7 +29,7 @@
+@@ -29,7 +_,7 @@
              }
           }
  
@@ -18,7 +18,7 @@
        } catch (Exception exception) {
        }
  
-@@ -38,9 +38,9 @@
+@@ -38,9 +_,9 @@
     public void func_570_g() {
        ++this.field_989_j;
        if (this.field_990_i != null) {
@@ -31,7 +31,7 @@
              }
           }
        }
-@@ -68,7 +68,7 @@
+@@ -68,7 +_,7 @@
        this.field_949_e.add(new GuiButton(3, this.field_951_c / 2 - 100, this.field_950_d / 4 + 96, "Mods and Texture Packs"));
        this.field_949_e.add(new GuiButton(0, this.field_951_c / 2 - 100, this.field_950_d / 4 + 120 + 12, "Options..."));
        if (this.field_945_b.field_6320_i == null) {

@@ -1,6 +1,6 @@
 --- a/net/minecraft/src/RenderPlayer.java
 +++ b/net/minecraft/src/RenderPlayer.java
-@@ -52,7 +52,7 @@
+@@ -52,7 +_,7 @@
        float f2 = p_188_1_.func_379_d(this.field_191_a.field_1226_h);
        float f3 = p_188_1_.func_381_o() ? 32.0F : 64.0F;
        if (f2 < f3) {
@@ -9,7 +9,7 @@
           FontRenderer fontrenderer = this.func_6329_a();
           GL11.glPushMatrix();
           GL11.glTranslatef((float)p_188_2_ + 0.0F, (float)p_188_4_ + 2.3F, (float)p_188_6_);
-@@ -72,20 +72,16 @@
+@@ -72,20 +_,16 @@
              tessellator.func_977_b();
              int i = fontrenderer.func_871_a(s) / 2;
              tessellator.func_986_a(0.0F, 0.0F, 0.0F, 0.25F);
@@ -34,7 +34,7 @@
           } else {
              GL11.glTranslatef(0.0F, 0.25F / f1, 0.0F);
              GL11.glDepthMask(false);
-@@ -96,20 +92,20 @@
+@@ -96,20 +_,20 @@
              tessellator1.func_977_b();
              int j = fontrenderer.func_871_a(s) / 2;
              tessellator1.func_986_a(0.0F, 0.0F, 0.0F, 0.25F);

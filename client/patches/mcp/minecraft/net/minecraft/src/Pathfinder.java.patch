@@ -1,6 +1,6 @@
 --- a/net/minecraft/src/Pathfinder.java
 +++ b/net/minecraft/src/Pathfinder.java
-@@ -15,7 +15,7 @@
+@@ -15,7 +_,7 @@
     }
  
     public PathEntity func_1131_a(Entity p_1131_1_, int p_1131_2_, int p_1131_3_, int p_1131_4_, float p_1131_5_) {

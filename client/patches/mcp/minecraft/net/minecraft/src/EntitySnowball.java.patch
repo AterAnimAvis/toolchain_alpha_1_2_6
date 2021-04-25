@@ -1,6 +1,6 @@
 --- a/net/minecraft/src/EntitySnowball.java
 +++ b/net/minecraft/src/EntitySnowball.java
-@@ -29,15 +29,15 @@
+@@ -29,15 +_,15 @@
        this.field_811_g = p_i16_2_;
        this.func_371_a(0.25F, 0.25F);
        this.func_365_c(p_i16_2_.field_611_ak, p_i16_2_.field_610_al + (double)p_i16_2_.func_373_s(), p_i16_2_.field_609_am, p_i16_2_.field_605_aq, p_i16_2_.field_604_ar);
@@ -22,7 +22,7 @@
        this.func_467_a(this.field_608_an, this.field_607_ao, this.field_606_ap, 1.5F, 1.0F);
     }
  
-@@ -65,7 +65,7 @@
+@@ -65,7 +_,7 @@
        this.field_606_ap = p_467_5_;
        float f1 = MathHelper.func_1109_a(p_467_1_ * p_467_1_ + p_467_5_ * p_467_5_);
        this.field_603_as = this.field_605_aq = (float)(Math.atan2(p_467_1_, p_467_5_) * 180.0D / (double)(float)Math.PI);
@@ -31,7 +31,7 @@
        this.field_810_h = 0;
     }
  
-@@ -76,7 +76,7 @@
+@@ -76,7 +_,7 @@
        if (this.field_602_at == 0.0F && this.field_603_as == 0.0F) {
           float f = MathHelper.func_1109_a(p_6375_1_ * p_6375_1_ + p_6375_5_ * p_6375_5_);
           this.field_603_as = this.field_605_aq = (float)(Math.atan2(p_6375_1_, p_6375_5_) * 180.0D / (double)(float)Math.PI);
@@ -40,7 +40,7 @@
        }
  
     }
-@@ -102,9 +102,9 @@
+@@ -102,9 +_,9 @@
           }
  
           this.field_812_f = false;
@@ -53,7 +53,7 @@
           this.field_810_h = 0;
           this.field_809_i = 0;
        } else {
-@@ -122,14 +122,13 @@
+@@ -122,14 +_,13 @@
  
        if (!this.field_615_ag.field_1026_y) {
           Entity entity = null;
@@ -71,7 +71,7 @@
                 MovingObjectPosition movingobjectposition1 = axisalignedbb.func_1169_a(vec3d1, vec3d);
                 if (movingobjectposition1 != null) {
                    double d1 = vec3d1.func_1251_c(movingobjectposition1.field_1169_f);
-@@ -163,7 +162,7 @@
+@@ -163,7 +_,7 @@
        float f1 = MathHelper.func_1109_a(this.field_608_an * this.field_608_an + this.field_606_ap * this.field_606_ap);
        this.field_605_aq = (float)(Math.atan2(this.field_608_an, this.field_606_ap) * 180.0D / (double)(float)Math.PI);
  
@@ -80,7 +80,7 @@
        }
  
        while(this.field_604_ar - this.field_602_at >= 180.0F) {
-@@ -191,10 +190,10 @@
+@@ -191,10 +_,10 @@
           f2 = 0.8F;
        }
  

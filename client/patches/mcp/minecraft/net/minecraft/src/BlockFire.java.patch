@@ -1,6 +1,6 @@
 --- a/net/minecraft/src/BlockFire.java
 +++ b/net/minecraft/src/BlockFire.java
-@@ -149,7 +149,7 @@
+@@ -149,7 +_,7 @@
  
     public int func_265_g(World p_265_1_, int p_265_2_, int p_265_3_, int p_265_4_, int p_265_5_) {
        int i = this.field_449_a[p_265_1_.func_600_a(p_265_2_, p_265_3_, p_265_4_)];
@@ -9,7 +9,7 @@
     }
  
     public boolean func_243_a(World p_243_1_, int p_243_2_, int p_243_3_, int p_243_4_) {
-@@ -174,7 +174,7 @@
+@@ -174,7 +_,7 @@
  
     public void func_247_b(World p_247_1_, int p_247_2_, int p_247_3_, int p_247_4_, Random p_247_5_) {
        if (p_247_5_.nextInt(24) == 0) {
@@ -18,7 +18,7 @@
        }
  
        if (!p_247_1_.func_601_g(p_247_2_, p_247_3_ - 1, p_247_4_) && !Block.field_402_as.func_261_b(p_247_1_, p_247_2_, p_247_3_ - 1, p_247_4_)) {
-@@ -183,7 +183,7 @@
+@@ -183,7 +_,7 @@
                 float f3 = (float)p_247_2_ + p_247_5_.nextFloat() * 0.1F;
                 float f8 = (float)p_247_3_ + p_247_5_.nextFloat();
                 float f13 = (float)p_247_4_ + p_247_5_.nextFloat();
@@ -27,7 +27,7 @@
              }
           }
  
-@@ -192,7 +192,7 @@
+@@ -192,7 +_,7 @@
                 float f4 = (float)(p_247_2_ + 1) - p_247_5_.nextFloat() * 0.1F;
                 float f9 = (float)p_247_3_ + p_247_5_.nextFloat();
                 float f14 = (float)p_247_4_ + p_247_5_.nextFloat();
@@ -36,7 +36,7 @@
              }
           }
  
-@@ -201,7 +201,7 @@
+@@ -201,7 +_,7 @@
                 float f5 = (float)p_247_2_ + p_247_5_.nextFloat();
                 float f10 = (float)p_247_3_ + p_247_5_.nextFloat();
                 float f15 = (float)p_247_4_ + p_247_5_.nextFloat() * 0.1F;
@@ -45,7 +45,7 @@
              }
           }
  
-@@ -210,7 +210,7 @@
+@@ -210,7 +_,7 @@
                 float f6 = (float)p_247_2_ + p_247_5_.nextFloat();
                 float f11 = (float)p_247_3_ + p_247_5_.nextFloat();
                 float f16 = (float)(p_247_4_ + 1) - p_247_5_.nextFloat() * 0.1F;
@@ -54,7 +54,7 @@
              }
           }
  
-@@ -219,7 +219,7 @@
+@@ -219,7 +_,7 @@
                 float f7 = (float)p_247_2_ + p_247_5_.nextFloat();
                 float f12 = (float)(p_247_3_ + 1) - p_247_5_.nextFloat() * 0.1F;
                 float f17 = (float)p_247_4_ + p_247_5_.nextFloat();
@@ -63,7 +63,7 @@
              }
           }
        } else {
-@@ -227,7 +227,7 @@
+@@ -227,7 +_,7 @@
              float f = (float)p_247_2_ + p_247_5_.nextFloat();
              float f1 = (float)p_247_3_ + p_247_5_.nextFloat() * 0.5F + 0.5F;
              float f2 = (float)p_247_4_ + p_247_5_.nextFloat();

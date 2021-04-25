@@ -1,6 +1,6 @@
 --- a/net/minecraft/src/BlockCrops.java
 +++ b/net/minecraft/src/BlockCrops.java
-@@ -91,7 +91,7 @@
+@@ -91,7 +_,7 @@
                 float f1 = p_252_1_.field_1037_n.nextFloat() * f + (1.0F - f) * 0.5F;
                 float f2 = p_252_1_.field_1037_n.nextFloat() * f + (1.0F - f) * 0.5F;
                 float f3 = p_252_1_.field_1037_n.nextFloat() * f + (1.0F - f) * 0.5F;

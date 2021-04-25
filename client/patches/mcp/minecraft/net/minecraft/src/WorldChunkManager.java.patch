@@ -1,6 +1,6 @@
 --- a/net/minecraft/src/WorldChunkManager.java
 +++ b/net/minecraft/src/WorldChunkManager.java
-@@ -29,7 +29,7 @@
+@@ -29,7 +_,7 @@
     }
  
     public double func_4072_b(int p_4072_1_, int p_4072_2_) {
@@ -9,7 +9,7 @@
        return this.field_4198_a[0];
     }
  
-@@ -43,8 +43,8 @@
+@@ -43,8 +_,8 @@
           p_4071_1_ = new double[p_4071_4_ * p_4071_5_];
        }
  
@@ -20,7 +20,7 @@
        int i = 0;
  
        for(int j = 0; j < p_4071_4_; ++j) {
-@@ -75,9 +75,9 @@
+@@ -75,9 +_,9 @@
           p_4070_1_ = new MobSpawnerBase[p_4070_4_ * p_4070_5_];
        }
  

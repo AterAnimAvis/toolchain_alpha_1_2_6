@@ -1,6 +1,6 @@
 --- a/net/minecraft/src/TileEntity.java
 +++ b/net/minecraft/src/TileEntity.java
-@@ -4,14 +4,14 @@
+@@ -4,14 +_,14 @@
  import java.util.Map;
  
  public class TileEntity {
@@ -18,7 +18,7 @@
        if (field_819_b.containsKey(p_476_1_)) {
           throw new IllegalArgumentException("Duplicate id: " + p_476_1_);
        } else {
-@@ -27,7 +27,7 @@
+@@ -27,7 +_,7 @@
     }
  
     public void func_481_b(NBTTagCompound p_481_1_) {
@@ -27,7 +27,7 @@
        if (s == null) {
           throw new RuntimeException(this.getClass() + " is missing a mapping! This is a bug!");
        } else {
-@@ -45,7 +45,7 @@
+@@ -45,7 +_,7 @@
        TileEntity tileentity = null;
  
        try {

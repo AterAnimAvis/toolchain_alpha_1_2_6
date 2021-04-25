@@ -1,6 +1,6 @@
 --- a/net/minecraft/src/Entity.java
 +++ b/net/minecraft/src/Entity.java
-@@ -174,13 +174,13 @@
+@@ -174,13 +_,13 @@
              for(int i = 0; (float)i < 1.0F + this.field_644_aC * 20.0F; ++i) {
                 float f2 = (this.field_9312_bd.nextFloat() * 2.0F - 1.0F) * this.field_644_aC;
                 float f3 = (this.field_9312_bd.nextFloat() * 2.0F - 1.0F) * this.field_644_aC;
@@ -16,7 +16,7 @@
              }
           }
  
-@@ -233,7 +233,7 @@
+@@ -233,7 +_,7 @@
  
     public boolean func_403_b(double p_403_1_, double p_403_3_, double p_403_5_) {
        AxisAlignedBB axisalignedbb = this.field_601_au.func_1166_c(p_403_1_, p_403_3_, p_403_5_);
@@ -25,7 +25,7 @@
        if (list.size() > 0) {
           return false;
        } else {
-@@ -278,10 +278,10 @@
+@@ -278,10 +_,10 @@
              }
           }
  
@@ -39,7 +39,7 @@
           }
  
           this.field_601_au.func_1174_d(0.0D, p_349_3_, 0.0D);
-@@ -293,8 +293,8 @@
+@@ -293,8 +_,8 @@
  
           boolean flag1 = this.field_9298_aH || d3 != p_349_3_ && d3 < 0.0D;
  
@@ -50,7 +50,7 @@
           }
  
           this.field_601_au.func_1174_d(p_349_1_, 0.0D, 0.0D);
-@@ -304,8 +304,8 @@
+@@ -304,8 +_,8 @@
              p_349_1_ = 0.0D;
           }
  
@@ -61,7 +61,7 @@
           }
  
           this.field_601_au.func_1174_d(0.0D, 0.0D, p_349_5_);
-@@ -320,14 +320,14 @@
+@@ -320,14 +_,14 @@
              double d6 = p_349_3_;
              double d7 = p_349_5_;
              p_349_1_ = d2;
@@ -79,7 +79,7 @@
              }
  
              this.field_601_au.func_1174_d(0.0D, p_349_3_, 0.0D);
-@@ -337,8 +337,8 @@
+@@ -337,8 +_,8 @@
                 p_349_1_ = 0.0D;
              }
  
@@ -90,7 +90,7 @@
              }
  
              this.field_601_au.func_1174_d(p_349_1_, 0.0D, 0.0D);
-@@ -348,8 +348,8 @@
+@@ -348,8 +_,8 @@
                 p_349_1_ = 0.0D;
              }
  
@@ -101,7 +101,7 @@
              }
  
              this.field_601_au.func_1174_d(0.0D, 0.0D, p_349_5_);
-@@ -430,10 +430,10 @@
+@@ -430,10 +_,10 @@
           }
  
           this.field_9287_aY *= 0.4F;
@@ -114,7 +114,7 @@
                 ++this.field_9309_bg;
                 if (this.field_9309_bg == 0) {
                    this.field_9309_bg = 300;
-@@ -443,7 +443,7 @@
+@@ -443,7 +_,7 @@
              this.field_9309_bg = -this.field_9310_bf;
           }
  
@@ -123,7 +123,7 @@
              this.field_615_ag.func_623_a(this, "random.fizz", 0.7F, 1.6F + (this.field_9312_bd.nextFloat() - this.field_9312_bd.nextFloat()) * 0.4F);
              this.field_9309_bg = -this.field_9310_bf;
           }
-@@ -482,7 +482,7 @@
+@@ -482,7 +_,7 @@
     }
  
     public boolean func_397_g_() {
@@ -132,7 +132,7 @@
     }
  
     public boolean func_393_a(Material p_393_1_) {
-@@ -505,7 +505,7 @@
+@@ -505,7 +_,7 @@
     }
  
     public boolean func_359_G() {
@@ -141,7 +141,7 @@
     }
  
     public void func_351_a(float p_351_1_, float p_351_2_, float p_351_3_) {
-@@ -520,8 +520,8 @@
+@@ -520,8 +_,8 @@
           p_351_2_ = p_351_2_ * f;
           float f1 = MathHelper.func_1106_a(this.field_605_aq * (float)Math.PI / 180.0F);
           float f2 = MathHelper.func_1114_b(this.field_605_aq * (float)Math.PI / 180.0F);
@@ -152,7 +152,7 @@
        }
     }
  
-@@ -544,7 +544,7 @@
+@@ -544,7 +_,7 @@
        this.field_603_as = this.field_605_aq = p_399_7_;
        this.field_602_at = this.field_604_ar = p_399_8_;
        this.field_9287_aY = 0.0F;
@@ -161,7 +161,7 @@
        if (d0 < -180.0D) {
           this.field_603_as += 360.0F;
        }
-@@ -584,7 +584,7 @@
+@@ -584,7 +_,7 @@
        double d0 = this.field_611_ak - p_361_1_;
        double d1 = this.field_610_al - p_361_3_;
        double d2 = this.field_609_am - p_361_5_;
@@ -170,7 +170,7 @@
     }
  
     public double func_387_e(Entity p_387_1_) {
-@@ -603,7 +603,7 @@
+@@ -603,7 +_,7 @@
           double d1 = p_380_1_.field_609_am - this.field_609_am;
           double d2 = MathHelper.func_1107_a(d0, d1);
           if (d2 >= (double)0.01F) {
@@ -179,7 +179,7 @@
              d0 = d0 / d2;
              d1 = d1 / d2;
              double d3 = 1.0D / d2;
-@@ -782,9 +782,9 @@
+@@ -782,9 +_,9 @@
           this.field_606_ap = 0.0D;
           this.func_370_e_();
           this.field_616_af.func_366_i_();
@@ -191,7 +191,7 @@
           }
  
           while(this.field_667_e < -180.0D) {
-@@ -803,19 +803,19 @@
+@@ -803,19 +_,19 @@
           double d1 = this.field_861_d * 0.5D;
           float f = 10.0F;
           if (d0 > (double)f) {
@@ -215,7 +215,7 @@
           }
  
           this.field_667_e -= d0;
-@@ -830,7 +830,7 @@
+@@ -830,7 +_,7 @@
     }
  
     public double func_388_v() {

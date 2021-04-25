@@ -1,6 +1,6 @@
 --- a/net/minecraft/src/EntityDiggingFX.java
 +++ b/net/minecraft/src/EntityDiggingFX.java
-@@ -13,16 +13,14 @@
+@@ -13,16 +_,14 @@
     }
  
     public EntityDiggingFX func_4041_a(int p_4041_1_, int p_4041_2_, int p_4041_3_) {
@@ -22,7 +22,7 @@
  
     public int func_404_c() {
        return 1;
-@@ -39,9 +37,9 @@
+@@ -39,9 +_,9 @@
        float f7 = (float)(this.field_9283_av + (this.field_609_am - this.field_9283_av) * (double)p_406_2_ - field_658_n);
        float f8 = this.func_382_a(p_406_2_);
        p_406_1_.func_987_a(f8 * this.field_663_i, f8 * this.field_662_j, f8 * this.field_661_k);

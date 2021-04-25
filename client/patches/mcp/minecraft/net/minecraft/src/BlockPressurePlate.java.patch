@@ -1,6 +1,6 @@
 --- a/net/minecraft/src/BlockPressurePlate.java
 +++ b/net/minecraft/src/BlockPressurePlate.java
-@@ -70,17 +70,17 @@
+@@ -70,17 +_,17 @@
        boolean flag = p_318_1_.func_602_e(p_318_2_, p_318_3_, p_318_4_) == 1;
        boolean flag1 = false;
        float f = 0.125F;

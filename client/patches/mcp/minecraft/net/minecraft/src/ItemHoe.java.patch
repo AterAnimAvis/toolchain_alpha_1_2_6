@@ -1,6 +1,6 @@
 --- a/net/minecraft/src/ItemHoe.java
 +++ b/net/minecraft/src/ItemHoe.java
-@@ -14,30 +14,28 @@
+@@ -14,30 +_,28 @@
           return false;
        } else {
           Block block = Block.field_446_aB;

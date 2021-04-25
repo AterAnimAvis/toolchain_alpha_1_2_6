@@ -1,6 +1,6 @@
 --- a/net/minecraft/src/WorldProviderHell.java
 +++ b/net/minecraft/src/WorldProviderHell.java
-@@ -12,7 +12,7 @@
+@@ -12,7 +_,7 @@
     }
  
     public Vec3D func_4096_a(float p_4096_1_, float p_4096_2_) {

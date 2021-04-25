@@ -1,6 +1,6 @@
 --- a/net/minecraft/src/EntityClientPlayerMP.java
 +++ b/net/minecraft/src/EntityClientPlayerMP.java
-@@ -59,8 +59,8 @@
+@@ -59,8 +_,8 @@
        double d1 = this.field_601_au.field_1697_b - this.field_9378_bz;
        double d2 = this.field_610_al - this.field_9377_bA;
        double d3 = this.field_609_am - this.field_9376_bB;

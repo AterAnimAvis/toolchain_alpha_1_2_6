@@ -1,6 +1,6 @@
 --- a/net/minecraft/src/ModelCreeper.java
 +++ b/net/minecraft/src/ModelCreeper.java
-@@ -14,13 +14,13 @@
+@@ -14,13 +_,13 @@
        byte b0 = 4;
        this.field_1271_a = new ModelRenderer(0, 0);
        this.field_1271_a.func_923_a(-4.0F, -8.0F, -4.0F, 8, 8, 8, f);

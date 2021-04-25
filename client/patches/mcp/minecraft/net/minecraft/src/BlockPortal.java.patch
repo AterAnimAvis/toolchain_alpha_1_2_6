@@ -1,6 +1,6 @@
 --- a/net/minecraft/src/BlockPortal.java
 +++ b/net/minecraft/src/BlockPortal.java
-@@ -138,9 +138,9 @@
+@@ -138,9 +_,9 @@
        }
  
        for(int i = 0; i < 4; ++i) {
@@ -13,7 +13,7 @@
           double d3 = 0.0D;
           double d4 = 0.0D;
           double d5 = 0.0D;
-@@ -150,10 +150,10 @@
+@@ -150,10 +_,10 @@
           d5 = ((double)p_247_5_.nextFloat() - 0.5D) * 0.5D;
           if (p_247_1_.func_600_a(p_247_2_ - 1, p_247_3_, p_247_4_) != this.field_376_bc && p_247_1_.func_600_a(p_247_2_ + 1, p_247_3_, p_247_4_) != this.field_376_bc) {
              d0 = (double)p_247_2_ + 0.5D + 0.25D * (double)j;

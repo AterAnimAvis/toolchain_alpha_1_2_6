@@ -1,6 +1,6 @@
 --- a/net/minecraft/client/Minecraft.java
 +++ b/net/minecraft/client/Minecraft.java
-@@ -262,7 +262,7 @@
+@@ -262,7 +_,7 @@
        GL11.glClear(16640);
        GL11.glMatrixMode(5889);
        GL11.glLoadIdentity();
@@ -9,7 +9,7 @@
        GL11.glMatrixMode(5888);
        GL11.glLoadIdentity();
        GL11.glTranslatef(0.0F, 0.0F, -2000.0F);
-@@ -275,9 +275,9 @@
+@@ -275,9 +_,9 @@
        GL11.glBindTexture(3553, this.field_6315_n.func_1070_a("/title/mojang.png"));
        tessellator.func_977_b();
        tessellator.func_990_b(16777215);
@@ -22,7 +22,7 @@
        tessellator.func_983_a(0.0D, 0.0D, 0.0D, 0.0D, 0.0D);
        tessellator.func_982_a();
        short short1 = 256;
-@@ -297,10 +297,10 @@
+@@ -297,10 +_,10 @@
        float f1 = 0.00390625F;
        Tessellator tessellator = Tessellator.field_1512_a;
        tessellator.func_977_b();
@@ -37,7 +37,7 @@
        tessellator.func_982_a();
     }
  
-@@ -586,7 +586,7 @@
+@@ -586,7 +_,7 @@
        GL11.glClear(256);
        GL11.glMatrixMode(5889);
        GL11.glLoadIdentity();
@@ -46,7 +46,7 @@
        GL11.glMatrixMode(5888);
        GL11.glLoadIdentity();
        GL11.glTranslatef(0.0F, 0.0F, -2000.0F);
-@@ -596,29 +596,29 @@
+@@ -596,29 +_,29 @@
        tessellator.func_992_a(7);
        int k = (int)(i / 200000L);
        tessellator.func_990_b(536870912);
@@ -90,7 +90,7 @@
        tessellator.func_982_a();
        tessellator.func_992_a(1);
  
-@@ -636,11 +636,11 @@
+@@ -636,11 +_,11 @@
  
           long j2 = field_9240_E[j1] / 200000L;
           long k2 = field_9239_F[j1] / 200000L;
@@ -106,7 +106,7 @@
        }
  
        tessellator.func_982_a();
-@@ -1148,9 +1148,31 @@
+@@ -1148,8 +_,30 @@
        this.field_6287_N = 0L;
     }
  
@@ -125,7 +125,7 @@
 +         if (this.field_6322_g != null) {
 +            j = (int)this.field_6322_g.field_611_ak;
 +            k = (int)this.field_6322_g.field_609_am;
-    }
++   }
 +         for (int c = -c1; c <= c1; c += '\020') {
 +            this.field_6312_q.func_593_a(b++ * 100 / i);
 +            this.field_6324_e.func_600_a(j + c2, 64, k + c);
@@ -136,7 +136,6 @@
 +      }
 +      this.field_6312_q.func_595_d("Simulating world for a bit");
 +      this.field_6324_e.func_656_j();
-+   }
+    }
  
     public void func_6268_a(String p_6268_1_, File p_6268_2_) {
-       int i = p_6268_1_.indexOf("/");

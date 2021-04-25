@@ -1,6 +1,6 @@
 --- a/net/minecraft/src/ItemBlock.java
 +++ b/net/minecraft/src/ItemBlock.java
-@@ -46,7 +46,7 @@
+@@ -46,7 +_,7 @@
              if (p_192_3_.func_690_d(p_192_4_, p_192_5_, p_192_6_, this.field_330_a)) {
                 Block.field_345_n[this.field_330_a].func_258_d(p_192_3_, p_192_4_, p_192_5_, p_192_6_, p_192_7_);
                 Block.field_345_n[this.field_330_a].func_4026_a(p_192_3_, p_192_4_, p_192_5_, p_192_6_, p_192_2_);

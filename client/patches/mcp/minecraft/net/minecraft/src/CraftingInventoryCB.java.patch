@@ -1,6 +1,6 @@
 --- a/net/minecraft/src/CraftingInventoryCB.java
 +++ b/net/minecraft/src/CraftingInventoryCB.java
-@@ -4,7 +4,7 @@
+@@ -4,7 +_,7 @@
  import java.util.List;
  
  public class CraftingInventoryCB {

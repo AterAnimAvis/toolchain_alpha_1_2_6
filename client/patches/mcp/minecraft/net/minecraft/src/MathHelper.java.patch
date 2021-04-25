@@ -1,6 +1,6 @@
 --- a/net/minecraft/src/MathHelper.java
 +++ b/net/minecraft/src/MathHelper.java
-@@ -3,19 +3,19 @@
+@@ -3,19 +_,19 @@
  public class MathHelper {
     private static float[] field_1653_a = new float[65536];
  
@@ -25,7 +25,7 @@
        return (float)Math.sqrt(p_1109_0_);
     }
  
-@@ -42,7 +42,7 @@
+@@ -42,7 +_,7 @@
           p_1107_2_ = -p_1107_2_;
        }
  

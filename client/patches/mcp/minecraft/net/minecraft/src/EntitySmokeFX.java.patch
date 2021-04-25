@@ -1,6 +1,6 @@
 --- a/net/minecraft/src/EntitySmokeFX.java
 +++ b/net/minecraft/src/EntitySmokeFX.java
-@@ -9,9 +9,9 @@
+@@ -9,9 +_,9 @@
  
     public EntitySmokeFX(World p_i310_1_, double p_i310_2_, double p_i310_4_, double p_i310_6_, float p_i310_8_) {
        super(p_i310_1_, p_i310_2_, p_i310_4_, p_i310_6_, 0.0D, 0.0D, 0.0D);
@@ -13,7 +13,7 @@
        this.field_663_i = this.field_662_j = this.field_661_k = (float)(Math.random() * (double)0.3F);
        this.field_665_g *= 0.75F;
        this.field_665_g *= p_i310_8_;
-@@ -51,12 +51,12 @@
+@@ -51,12 +_,12 @@
           this.field_606_ap *= 1.1D;
        }
  

@@ -1,6 +1,6 @@
 --- a/net/minecraft/src/GuiGameOver.java
 +++ b/net/minecraft/src/GuiGameOver.java
-@@ -8,7 +8,7 @@
+@@ -8,7 +_,7 @@
        this.field_949_e.add(new GuiButton(1, this.field_951_c / 2 - 100, this.field_950_d / 4 + 72, "Respawn"));
        this.field_949_e.add(new GuiButton(2, this.field_951_c / 2 - 100, this.field_950_d / 4 + 96, "Title menu"));
        if (this.field_945_b.field_6320_i == null) {

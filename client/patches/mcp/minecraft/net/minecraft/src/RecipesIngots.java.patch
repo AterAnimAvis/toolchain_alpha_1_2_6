@@ -1,6 +1,6 @@
 --- a/net/minecraft/src/RecipesIngots.java
 +++ b/net/minecraft/src/RecipesIngots.java
-@@ -4,9 +4,9 @@
+@@ -4,9 +_,9 @@
     private Object[][] field_1198_a = new Object[][]{{Block.field_413_ai, Item.field_222_n}, {Block.field_412_aj, Item.field_223_m}, {Block.field_389_ay, Item.field_224_l}};
  
     public void func_810_a(CraftingManager p_810_1_) {

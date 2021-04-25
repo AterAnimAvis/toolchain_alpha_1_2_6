@@ -1,6 +1,6 @@
 --- a/net/minecraft/src/NextTickListEntry.java
 +++ b/net/minecraft/src/NextTickListEntry.java
-@@ -1,13 +1,13 @@
+@@ -1,13 +_,13 @@
  package net.minecraft.src;
  
 -public class NextTickListEntry implements Comparable {
@@ -16,7 +16,7 @@
  
     public NextTickListEntry(int p_i215_1_, int p_i215_2_, int p_i215_3_, int p_i215_4_) {
        this.field_1361_a = p_i215_1_;
-@@ -34,7 +34,7 @@
+@@ -34,7 +_,7 @@
        return this;
     }
  

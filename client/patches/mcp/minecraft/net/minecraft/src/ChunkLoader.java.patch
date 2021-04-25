@@ -1,6 +1,6 @@
 --- a/net/minecraft/src/ChunkLoader.java
 +++ b/net/minecraft/src/ChunkLoader.java
-@@ -100,9 +100,36 @@
+@@ -100,8 +_,35 @@
  
     }
  
@@ -25,7 +25,7 @@
 +            NBTTagCompound nBTTagCompound = new NBTTagCompound();
 +            if (entity.func_358_c(nBTTagCompound))
 +               nBTTagList1.func_742_a(nBTTagCompound);
-    }
++   }
 +      }
 +      p_818_3_.func_762_a("Entities", nBTTagList1);
 +      NBTTagList nBTTagList2 = new NBTTagList();
@@ -35,7 +35,6 @@
 +         nBTTagList2.func_742_a(nBTTagCompound);
 +      }
 +      p_818_3_.func_762_a("TileEntities", nBTTagList2);
-+   }
+    }
  
     public static Chunk func_816_a(World p_816_0_, NBTTagCompound p_816_1_) {
-       int i = p_816_1_.func_756_e("xPos");

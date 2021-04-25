@@ -1,6 +1,6 @@
 --- a/net/minecraft/src/ItemTool.java
 +++ b/net/minecraft/src/ItemTool.java
-@@ -21,8 +21,8 @@
+@@ -21,8 +_,8 @@
     }
  
     public float func_204_a(ItemStack p_204_1_, Block p_204_2_) {

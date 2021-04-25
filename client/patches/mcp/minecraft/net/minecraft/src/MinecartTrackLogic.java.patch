@@ -1,6 +1,6 @@
 --- a/net/minecraft/src/MinecartTrackLogic.java
 +++ b/net/minecraft/src/MinecartTrackLogic.java
-@@ -9,13 +9,13 @@
+@@ -9,13 +_,13 @@
     private int field_1164_d;
     private int field_1163_e;
     private int field_1162_f;
@@ -16,7 +16,7 @@
        this.field_1159_b = p_i282_2_;
        this.field_1165_c = p_i282_3_;
        this.field_1164_d = p_i282_4_;
-@@ -62,7 +62,7 @@
+@@ -62,7 +_,7 @@
  
     private void func_785_b() {
        for(int i = 0; i < this.field_1161_g.size(); ++i) {
@@ -25,7 +25,7 @@
           if (minecarttracklogic != null && minecarttracklogic.func_793_b(this)) {
              this.field_1161_g.set(i, new ChunkPosition(minecarttracklogic.field_1165_c, minecarttracklogic.field_1164_d, minecarttracklogic.field_1163_e));
           } else {
-@@ -93,8 +93,7 @@
+@@ -93,8 +_,7 @@
     }
  
     private boolean func_793_b(MinecartTrackLogic p_793_1_) {
@@ -35,7 +35,7 @@
           if (chunkposition.field_1111_a == p_793_1_.field_1165_c && chunkposition.field_1112_c == p_793_1_.field_1163_e) {
              return true;
           }
-@@ -104,8 +103,7 @@
+@@ -104,8 +_,7 @@
     }
  
     private boolean func_794_b(int p_794_1_, int p_794_2_, int p_794_3_) {
@@ -45,7 +45,7 @@
           if (chunkposition.field_1111_a == p_794_1_ && chunkposition.field_1112_c == p_794_3_) {
              return true;
           }
-@@ -143,7 +141,7 @@
+@@ -143,7 +_,7 @@
        } else if (this.field_1161_g.size() == 0) {
           return true;
        } else {
@@ -54,7 +54,7 @@
           return p_787_1_.field_1164_d == this.field_1164_d && chunkposition.field_1110_b == this.field_1164_d ? true : true;
        }
     }
-@@ -318,8 +316,8 @@
+@@ -318,8 +_,8 @@
        this.func_789_a();
        this.field_1159_b.func_691_b(this.field_1165_c, this.field_1164_d, this.field_1163_e, b0);
  

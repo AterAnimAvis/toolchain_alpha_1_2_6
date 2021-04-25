@@ -1,6 +1,6 @@
 --- a/net/minecraft/src/TileEntityMobSpawner.java
 +++ b/net/minecraft/src/TileEntityMobSpawner.java
-@@ -18,13 +18,13 @@
+@@ -18,13 +_,13 @@
     public void func_475_b() {
        this.field_830_d = this.field_831_c;
        if (this.func_484_a()) {
@@ -18,7 +18,7 @@
              this.field_831_c -= 360.0D;
           }
  
-@@ -43,7 +43,7 @@
+@@ -43,7 +_,7 @@
                    return;
                 }
  
@@ -27,7 +27,7 @@
                 if (j >= 6) {
                    this.func_483_c();
                    return;
-@@ -51,7 +51,7 @@
+@@ -51,7 +_,7 @@
  
                 if (entityliving != null) {
                    double d3 = (double)this.field_823_f + (this.field_824_e.field_1037_n.nextDouble() - this.field_824_e.field_1037_n.nextDouble()) * 4.0D;

@@ -1,6 +1,6 @@
 --- a/net/minecraft/src/TileEntityRenderer.java
 +++ b/net/minecraft/src/TileEntityRenderer.java
-@@ -1,10 +1,11 @@
+@@ -1,10 +_,11 @@
  package net.minecraft.src;
  
 +import java.util.HashMap;
@@ -13,7 +13,7 @@
     public static TileEntityRenderer field_1554_a = new TileEntityRenderer();
     private FontRenderer field_1541_n;
     public static double field_1553_b;
-@@ -20,11 +21,14 @@
+@@ -20,11 +_,14 @@
     public double field_1543_l;
  
     private TileEntityRenderer() {
@@ -31,7 +31,7 @@
        if (tileentityspecialrenderer == null && p_4144_1_ != TileEntity.class) {
           tileentityspecialrenderer = this.func_4144_a(p_4144_1_.getSuperclass());
           this.field_6517_m.put(p_4144_1_, tileentityspecialrenderer);
-@@ -37,8 +41,9 @@
+@@ -37,8 +_,9 @@
        return this.func_1031_b(p_1028_1_) != null;
     }
  
@@ -43,7 +43,7 @@
     }
  
     public void func_1026_a(World p_1026_1_, RenderEngine p_1026_2_, FontRenderer p_1026_3_, EntityPlayer p_1026_4_, float p_1026_5_) {
-@@ -62,12 +67,11 @@
+@@ -62,12 +_,11 @@
  
     }
  

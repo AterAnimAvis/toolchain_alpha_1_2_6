@@ -1,6 +1,6 @@
 --- a/net/minecraft/src/GuiContainer.java
 +++ b/net/minecraft/src/GuiContainer.java
-@@ -8,7 +8,7 @@
+@@ -8,7 +_,7 @@
     private static RenderItem field_972_j = new RenderItem();
     protected int field_971_a = 176;
     protected int field_974_h = 166;
@@ -9,7 +9,7 @@
  
     public void func_571_a(int p_571_1_, int p_571_2_, float p_571_3_) {
        this.func_578_i();
-@@ -24,8 +24,7 @@
+@@ -24,8 +_,7 @@
        GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
        GL11.glEnable(32826);
  
@@ -19,7 +19,7 @@
           this.func_590_a(slotinventory);
           if (slotinventory.func_781_a(p_571_1_, p_571_2_)) {
              GL11.glDisable(2896);
-@@ -82,10 +81,9 @@
+@@ -82,10 +_,9 @@
     }
  
     private Slot func_588_a(int p_588_1_, int p_588_2_) {

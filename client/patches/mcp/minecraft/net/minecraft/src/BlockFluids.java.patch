@@ -1,6 +1,6 @@
 --- a/net/minecraft/src/BlockFluids.java
 +++ b/net/minecraft/src/BlockFluids.java
-@@ -108,18 +108,18 @@
+@@ -108,18 +_,18 @@
                 i1 = this.func_289_b(p_291_1_, k, p_291_3_ - 1, l);
                 if (i1 >= 0) {
                    int j1 = i1 - (i - 8);
@@ -22,7 +22,7 @@
              flag = true;
           }
  
-@@ -177,7 +177,7 @@
+@@ -177,7 +_,7 @@
     public float func_241_c(IBlockAccess p_241_1_, int p_241_2_, int p_241_3_, int p_241_4_) {
        float f = p_241_1_.func_598_c(p_241_2_, p_241_3_, p_241_4_);
        float f1 = p_241_1_.func_598_c(p_241_2_, p_241_3_ + 1, p_241_4_);
@@ -31,7 +31,7 @@
     }
  
     public void func_208_a(World p_208_1_, int p_208_2_, int p_208_3_, int p_208_4_, Random p_208_5_) {
-@@ -192,14 +192,14 @@
+@@ -192,14 +_,14 @@
        if (this.field_356_bn == Material.field_1332_f && p_247_5_.nextInt(64) == 0) {
           int i = p_247_1_.func_602_e(p_247_2_, p_247_3_, p_247_4_);
           if (i > 0 && i < 8) {
@@ -49,7 +49,7 @@
           p_247_1_.func_694_a("lava", d2, d0, d1, 0.0D, 0.0D, 0.0D);
        }
  
-@@ -230,7 +230,7 @@
+@@ -230,7 +_,7 @@
        if (p_287_1_.func_600_a(p_287_2_, p_287_3_, p_287_4_) == this.field_376_bc) {
           if (this.field_356_bn == Material.field_1331_g) {
              boolean flag = false;
@@ -58,7 +58,7 @@
                 flag = true;
              }
  
-@@ -266,7 +266,7 @@
+@@ -266,7 +_,7 @@
     }
  
     protected void func_292_i(World p_292_1_, int p_292_2_, int p_292_3_, int p_292_4_) {

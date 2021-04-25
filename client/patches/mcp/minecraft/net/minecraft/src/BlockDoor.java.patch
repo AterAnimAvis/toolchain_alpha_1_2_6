@@ -1,6 +1,6 @@
 --- a/net/minecraft/src/BlockDoor.java
 +++ b/net/minecraft/src/BlockDoor.java
-@@ -87,16 +87,13 @@
+@@ -87,16 +_,13 @@
     }
  
     public boolean func_250_a(World p_250_1_, int p_250_2_, int p_250_3_, int p_250_4_, EntityPlayer p_250_5_) {
@@ -18,7 +18,7 @@
           } else {
              if (p_250_1_.func_600_a(p_250_2_, p_250_3_ + 1, p_250_4_) == this.field_376_bc) {
                 p_250_1_.func_691_b(p_250_2_, p_250_3_ + 1, p_250_4_, (i ^ 4) + 8);
-@@ -105,14 +102,14 @@
+@@ -105,14 +_,14 @@
              p_250_1_.func_691_b(p_250_2_, p_250_3_, p_250_4_, i ^ 4);
              p_250_1_.func_701_b(p_250_2_, p_250_3_ - 1, p_250_4_, p_250_2_, p_250_3_, p_250_4_);
              if (Math.random() < 0.5D) {

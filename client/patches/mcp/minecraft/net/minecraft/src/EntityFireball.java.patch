@@ -1,6 +1,6 @@
 --- a/net/minecraft/src/EntityFireball.java
 +++ b/net/minecraft/src/EntityFireball.java
-@@ -38,7 +38,7 @@
+@@ -38,7 +_,7 @@
        p_i22_3_ = p_i22_3_ + this.field_9312_bd.nextGaussian() * 0.4D;
        p_i22_5_ = p_i22_5_ + this.field_9312_bd.nextGaussian() * 0.4D;
        p_i22_7_ = p_i22_7_ + this.field_9312_bd.nextGaussian() * 0.4D;
@@ -9,7 +9,7 @@
        this.field_9405_b = p_i22_3_ / d0 * 0.1D;
        this.field_9404_c = p_i22_5_ / d0 * 0.1D;
        this.field_9403_d = p_i22_7_ / d0 * 0.1D;
-@@ -63,9 +63,9 @@
+@@ -63,9 +_,9 @@
           }
  
           this.field_9398_i = false;
@@ -22,7 +22,7 @@
           this.field_9396_k = 0;
           this.field_9395_l = 0;
        } else {
-@@ -82,14 +82,13 @@
+@@ -82,14 +_,13 @@
        }
  
        Entity entity = null;
@@ -40,7 +40,7 @@
              MovingObjectPosition movingobjectposition1 = axisalignedbb.func_1169_a(vec3d1, vec3d);
              if (movingobjectposition1 != null) {
                 double d1 = vec3d1.func_1251_c(movingobjectposition1.field_1169_f);
-@@ -119,7 +118,7 @@
+@@ -119,7 +_,7 @@
        float f1 = MathHelper.func_1109_a(this.field_608_an * this.field_608_an + this.field_606_ap * this.field_606_ap);
        this.field_605_aq = (float)(Math.atan2(this.field_608_an, this.field_606_ap) * 180.0D / (double)(float)Math.PI);
  
@@ -49,7 +49,7 @@
        }
  
        while(this.field_604_ar - this.field_602_at >= 180.0F) {
-@@ -149,9 +148,9 @@
+@@ -149,9 +_,9 @@
        this.field_608_an += this.field_9405_b;
        this.field_607_ao += this.field_9404_c;
        this.field_606_ap += this.field_9403_d;

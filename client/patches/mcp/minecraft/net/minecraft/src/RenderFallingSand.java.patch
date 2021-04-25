@@ -1,6 +1,6 @@
 --- a/net/minecraft/src/RenderFallingSand.java
 +++ b/net/minecraft/src/RenderFallingSand.java
-@@ -2,13 +2,18 @@
+@@ -2,11 +_,16 @@
  
  import org.lwjgl.opengl.GL11;
  
@@ -10,13 +10,11 @@
  
     public RenderFallingSand() {
        this.field_9246_c = 0.5F;
-    }
- 
++   }
++
 +   @Override
 +   public void func_147_a(EntityFallingSand p_147_1_, double p_147_2_, double p_147_4_, double p_147_6_, float p_147_8_, float p_147_9_) {
 +      func_156_a(p_147_1_, p_147_2_, p_147_4_, p_147_6_, p_147_8_, p_147_9_);
-+   }
-+
+    }
+ 
     public void func_156_a(EntityFallingSand p_156_1_, double p_156_2_, double p_156_4_, double p_156_6_, float p_156_8_, float p_156_9_) {
-       GL11.glPushMatrix();
-       GL11.glTranslatef((float)p_156_2_, (float)p_156_4_, (float)p_156_6_);

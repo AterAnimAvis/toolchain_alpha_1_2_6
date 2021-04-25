@@ -1,6 +1,6 @@
 --- a/net/minecraft/src/EntityPainting.java
 +++ b/net/minecraft/src/EntityPainting.java
-@@ -22,18 +22,18 @@
+@@ -22,18 +_,18 @@
        this.field_9322_d = p_i214_2_;
        this.field_9321_e = p_i214_3_;
        this.field_9320_f = p_i214_4_;
@@ -24,7 +24,7 @@
        }
  
        this.func_412_b(p_i214_5_);
-@@ -91,9 +91,9 @@
+@@ -91,9 +_,9 @@
        }
  
        f4 = f4 + this.func_411_c(this.field_690_b.field_1636_A);
@@ -36,7 +36,7 @@
     }
  
     private float func_411_c(int p_411_1_) {
-@@ -155,10 +155,10 @@
+@@ -155,10 +_,10 @@
              }
           }
  
@@ -50,7 +50,7 @@
                 return false;
              }
           }
-@@ -193,9 +193,9 @@
+@@ -193,9 +_,9 @@
        this.field_9320_f = p_357_1_.func_756_e("TileZ");
        String s = p_357_1_.func_755_i("Motive");
  

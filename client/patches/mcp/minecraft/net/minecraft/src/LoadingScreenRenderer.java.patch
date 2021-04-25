@@ -1,6 +1,6 @@
 --- a/net/minecraft/src/LoadingScreenRenderer.java
 +++ b/net/minecraft/src/LoadingScreenRenderer.java
-@@ -38,7 +38,7 @@
+@@ -38,7 +_,7 @@
           GL11.glClear(256);
           GL11.glMatrixMode(5889);
           GL11.glLoadIdentity();
@@ -9,7 +9,7 @@
           GL11.glMatrixMode(5888);
           GL11.glLoadIdentity();
           GL11.glTranslatef(0.0F, 0.0F, -200.0F);
-@@ -73,7 +73,7 @@
+@@ -73,7 +_,7 @@
              GL11.glClear(256);
              GL11.glMatrixMode(5889);
              GL11.glLoadIdentity();
@@ -18,7 +18,7 @@
              GL11.glMatrixMode(5888);
              GL11.glLoadIdentity();
              GL11.glTranslatef(0.0F, 0.0F, -200.0F);
-@@ -84,9 +84,9 @@
+@@ -84,9 +_,9 @@
              float f = 32.0F;
              tessellator.func_977_b();
              tessellator.func_990_b(4210752);
@@ -31,7 +31,7 @@
              tessellator.func_983_a(0.0D, 0.0D, 0.0D, 0.0D, 0.0D);
              tessellator.func_982_a();
              if (p_593_1_ >= 0) {
-@@ -97,15 +97,15 @@
+@@ -97,15 +_,15 @@
                 GL11.glDisable(3553);
                 tessellator.func_977_b();
                 tessellator.func_990_b(8421504);

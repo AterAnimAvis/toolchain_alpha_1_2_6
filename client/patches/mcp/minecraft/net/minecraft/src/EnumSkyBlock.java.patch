@@ -1,6 +1,6 @@
 --- a/net/minecraft/src/EnumSkyBlock.java
 +++ b/net/minecraft/src/EnumSkyBlock.java
-@@ -6,7 +6,7 @@
+@@ -6,7 +_,7 @@
  
     public final int field_1722_c;
  

@@ -1,6 +1,6 @@
 --- a/net/minecraft/src/ItemMinecart.java
 +++ b/net/minecraft/src/ItemMinecart.java
-@@ -13,7 +13,7 @@
+@@ -13,7 +_,7 @@
        int i = p_192_3_.func_600_a(p_192_4_, p_192_5_, p_192_6_);
        if (i == Block.field_440_aH.field_376_bc) {
           if (!p_192_3_.field_1026_y) {

@@ -1,6 +1,6 @@
 --- a/net/minecraft/src/TexturePackCustom.java
 +++ b/net/minecraft/src/TexturePackCustom.java
-@@ -31,47 +31,24 @@
+@@ -31,46 +_,23 @@
     }
  
     public void func_6485_a(Minecraft p_6485_1_) {
@@ -30,9 +30,7 @@
              this.field_6494_g = ImageIO.read(inputstream);
 -            inputstream.close();
 -         } catch (Exception exception2) {
-+         } catch (Exception exception) {
-+            exception.printStackTrace();
-          }
+-         }
 -
 -         zipfile.close();
 -      } catch (Exception exception4) {
@@ -45,18 +43,22 @@
 -
 -         try {
 -            zipfile.close();
-          } catch (Exception exception) {
+-         } catch (Exception exception) {
+-         }
+-
++         } catch (Exception exception) {
++            exception.printStackTrace();
++         }
++         } catch (Exception exception) {
 +         exception.printStackTrace();
-          }
--
++         }
        }
- 
--   }
 -
+-   }
+ 
     public void func_6484_b(Minecraft p_6484_1_) {
        if (this.field_6494_g != null) {
-          p_6484_1_.field_6315_n.func_1078_a(this.field_6495_f);
-@@ -96,7 +73,7 @@
+@@ -96,7 +_,7 @@
     public void func_6482_a() {
        try {
           this.field_6496_e = new ZipFile(this.field_6493_h);
@@ -65,7 +67,7 @@
        }
  
     }
-@@ -104,7 +81,7 @@
+@@ -104,7 +_,7 @@
     public void func_6480_b() {
        try {
           this.field_6496_e.close();
@@ -74,7 +76,7 @@
        }
  
        this.field_6496_e = null;
-@@ -116,7 +93,7 @@
+@@ -116,7 +_,7 @@
           if (zipentry != null) {
              return this.field_6496_e.getInputStream(zipentry);
           }

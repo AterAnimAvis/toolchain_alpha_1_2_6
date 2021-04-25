@@ -1,6 +1,6 @@
 --- a/net/minecraft/src/EntityPigZombie.java
 +++ b/net/minecraft/src/EntityPigZombie.java
-@@ -48,12 +48,11 @@
+@@ -48,12 +_,11 @@
  
     public boolean func_396_a(Entity p_396_1_, int p_396_2_) {
        if (p_396_1_ instanceof EntityPlayer) {

@@ -1,6 +1,6 @@
 --- a/net/minecraft/src/BlockRedstoneOre.java
 +++ b/net/minecraft/src/BlockRedstoneOre.java
-@@ -68,9 +68,9 @@
+@@ -68,9 +_,9 @@
        double d0 = 0.0625D;
  
        for(int i = 0; i < 6; ++i) {

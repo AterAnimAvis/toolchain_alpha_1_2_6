@@ -1,6 +1,6 @@
 --- a/net/minecraft/src/WorldGenBigTree.java
 +++ b/net/minecraft/src/WorldGenBigTree.java
-@@ -44,25 +44,22 @@
+@@ -44,25 +_,22 @@
        while(i1 >= 0) {
           int j1 = 0;
           float f = this.func_528_a(i1);
@@ -35,7 +35,7 @@
                    }
  
                    if (this.func_524_a(aint3, aint1) == -1) {
-@@ -75,10 +72,10 @@
+@@ -75,10 +_,10 @@
                 }
              }
  
@@ -47,7 +47,7 @@
  
        this.field_868_o = new int[k][4];
        System.arraycopy(aint, 0, this.field_868_o, 0, k);
-@@ -99,18 +96,14 @@
+@@ -99,18 +_,14 @@
  
           while(k <= i) {
              double d0 = Math.sqrt(Math.pow((double)Math.abs(j) + 0.5D, 2.0D) + Math.pow((double)Math.abs(k) + 0.5D, 2.0D));
@@ -69,7 +69,7 @@
           }
        }
  
-@@ -128,7 +121,7 @@
+@@ -128,7 +_,7 @@
           } else if (Math.abs(f1) >= f) {
              f2 = 0.0F;
           } else {

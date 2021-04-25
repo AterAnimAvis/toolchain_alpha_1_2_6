@@ -1,6 +1,6 @@
 --- a/net/minecraft/src/NetClientHandler.java
 +++ b/net/minecraft/src/NetClientHandler.java
-@@ -58,47 +58,47 @@
+@@ -58,47 +_,47 @@
        double d0 = (double)p_835_1_.field_499_b / 32.0D;
        double d1 = (double)p_835_1_.field_503_c / 32.0D;
        double d2 = (double)p_835_1_.field_502_d / 32.0D;
@@ -65,7 +65,7 @@
        }
  
     }
-@@ -256,14 +256,14 @@
+@@ -256,14 +_,14 @@
  
     public void func_834_a(Packet22Collect p_834_1_) {
        Entity entity = this.func_12246_a(p_834_1_.field_581_a);
@@ -84,7 +84,7 @@
           this.field_1211_f.func_710_c(p_834_1_.field_581_a);
        }
  
-@@ -332,7 +332,7 @@
+@@ -332,7 +_,7 @@
              }
           } catch (Exception exception) {
              exception.printStackTrace();
@@ -93,7 +93,7 @@
           }
        }
  
-@@ -405,14 +405,14 @@
+@@ -405,14 +_,14 @@
     }
  
     public void func_6497_a(Packet39 p_6497_1_) {
@@ -113,7 +113,7 @@
        }
     }
  
-@@ -425,7 +425,7 @@
+@@ -425,7 +_,7 @@
     }
  
     private Entity func_12246_a(int p_12246_1_) {
@@ -122,7 +122,7 @@
     }
  
     public void func_9446_a(Packet8 p_9446_1_) {
-@@ -437,7 +437,7 @@
+@@ -437,7 +_,7 @@
     }
  
     public void func_12245_a(Packet60 p_12245_1_) {

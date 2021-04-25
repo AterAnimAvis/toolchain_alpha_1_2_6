@@ -1,6 +1,6 @@
 --- a/net/minecraft/src/GLAllocation.java
 +++ b/net/minecraft/src/GLAllocation.java
-@@ -9,8 +9,8 @@
+@@ -9,8 +_,8 @@
  import org.lwjgl.opengl.GL11;
  
  public class GLAllocation {
@@ -11,7 +11,7 @@
  
     public static synchronized int func_1124_a(int p_1124_0_) {
        int i = GL11.glGenLists(p_1124_0_);
-@@ -29,7 +29,17 @@
+@@ -29,7 +_,17 @@
     }
  
     public static synchronized void func_1126_a() {

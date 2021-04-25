@@ -1,6 +1,6 @@
 --- a/net/minecraft/src/EntityGhast.java
 +++ b/net/minecraft/src/EntityGhast.java
-@@ -26,7 +26,7 @@
+@@ -26,7 +_,7 @@
        double d0 = this.field_4120_b - this.field_611_ak;
        double d1 = this.field_4127_c - this.field_610_al;
        double d2 = this.field_4126_d - this.field_609_am;

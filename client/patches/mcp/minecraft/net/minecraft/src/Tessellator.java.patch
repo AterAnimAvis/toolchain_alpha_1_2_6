@@ -1,6 +1,6 @@
 --- a/net/minecraft/src/Tessellator.java
 +++ b/net/minecraft/src/Tessellator.java
-@@ -58,10 +58,10 @@
+@@ -58,10 +_,10 @@
        } else {
           this.field_1488_w = false;
           if (this.field_1505_h > 0) {
@@ -14,7 +14,7 @@
              if (this.field_1487_x) {
                 this.field_1485_z = (this.field_1485_z + 1) % this.field_1496_A;
                 ARBVertexBufferObject.glBindBufferARB(34962, this.field_1486_y.get(this.field_1485_z));
-@@ -72,7 +72,7 @@
+@@ -72,7 +_,7 @@
                 if (this.field_1487_x) {
                    GL11.glTexCoordPointer(2, 5126, 32, 12L);
                 } else {
@@ -23,7 +23,7 @@
                    GL11.glTexCoordPointer(2, 32, this.field_1507_f);
                 }
  
-@@ -83,7 +83,7 @@
+@@ -83,7 +_,7 @@
                 if (this.field_1487_x) {
                    GL11.glColorPointer(4, 5121, 32, 20L);
                 } else {
@@ -32,7 +32,7 @@
                    GL11.glColorPointer(4, true, 32, this.field_1509_d);
                 }
  
-@@ -94,7 +94,7 @@
+@@ -94,7 +_,7 @@
                 if (this.field_1487_x) {
                    GL11.glNormalPointer(5120, 32, 24L);
                 } else {
@@ -41,7 +41,7 @@
                    GL11.glNormalPointer(32, this.field_1509_d);
                 }
  
-@@ -104,7 +104,7 @@
+@@ -104,7 +_,7 @@
              if (this.field_1487_x) {
                 GL11.glVertexPointer(3, 5126, 32, 0L);
              } else {
@@ -50,7 +50,7 @@
                 GL11.glVertexPointer(3, 32, this.field_1507_f);
              }
  
-@@ -135,7 +135,7 @@
+@@ -135,7 +_,7 @@
  
     private void func_985_d() {
        this.field_1505_h = 0;
@@ -59,7 +59,7 @@
        this.field_1498_o = 0;
        this.field_1497_p = 0;
     }
-@@ -304,8 +304,8 @@
+@@ -304,8 +_,8 @@
     }
  
     public void func_988_c(float p_988_1_, float p_988_2_, float p_988_3_) {

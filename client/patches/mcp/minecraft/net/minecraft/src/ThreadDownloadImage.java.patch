@@ -1,6 +1,6 @@
 --- a/net/minecraft/src/ThreadDownloadImage.java
 +++ b/net/minecraft/src/ThreadDownloadImage.java
-@@ -33,12 +33,9 @@
+@@ -33,12 +_,9 @@
              } else {
                 this.field_1217_c.field_1706_a = this.field_1215_b.func_883_a(ImageIO.read(httpurlconnection.getInputStream()));
              }

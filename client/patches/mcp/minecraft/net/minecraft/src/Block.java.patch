@@ -1,6 +1,6 @@
 --- a/net/minecraft/src/Block.java
 +++ b/net/minecraft/src/Block.java
-@@ -20,26 +20,26 @@
+@@ -20,26 +_,26 @@
     public static final int[] field_341_r = new int[256];
     public static final boolean[] field_340_s = new boolean[256];
     public static final int[] field_339_t = new int[256];
@@ -47,7 +47,7 @@
     public static final Block field_9267_N = null;
     public static final Block field_9266_O = null;
     public static final Block field_9265_P = null;
-@@ -54,63 +54,63 @@
+@@ -54,63 +_,63 @@
     public static final Block field_9256_Y = null;
     public static final Block field_9255_Z = null;
     public static final Block field_9269_aa = null;
@@ -162,7 +162,7 @@
     public int field_378_bb;
     public final int field_376_bc;
     protected float field_374_bd;
-@@ -192,12 +192,12 @@
+@@ -192,12 +_,12 @@
     }
  
     public void func_213_a(float p_213_1_, float p_213_2_, float p_213_3_, float p_213_4_, float p_213_5_, float p_213_6_) {
@@ -181,7 +181,7 @@
     }
  
     public float func_241_c(IBlockAccess p_241_1_, int p_241_2_, int p_241_3_, int p_241_4_) {
-@@ -238,7 +238,7 @@
+@@ -238,7 +_,7 @@
        return AxisAlignedBB.func_1161_b((double)p_246_2_ + this.field_370_bf, (double)p_246_3_ + this.field_368_bg, (double)p_246_4_ + this.field_366_bh, (double)p_246_2_ + this.field_364_bi, (double)p_246_3_ + this.field_362_bj, (double)p_246_4_ + this.field_360_bk);
     }
  
@@ -190,7 +190,7 @@
        AxisAlignedBB axisalignedbb = this.func_221_d(p_230_1_, p_230_2_, p_230_3_, p_230_4_);
        if (axisalignedbb != null && p_230_5_.func_1178_a(axisalignedbb)) {
           p_230_6_.add(axisalignedbb);
-@@ -332,8 +332,8 @@
+@@ -332,8 +_,8 @@
  
     public MovingObjectPosition func_255_a(World p_255_1_, int p_255_2_, int p_255_3_, int p_255_4_, Vec3D p_255_5_, Vec3D p_255_6_) {
        this.func_238_a(p_255_1_, p_255_2_, p_255_3_, p_255_4_);
@@ -201,7 +201,7 @@
        Vec3D vec3d = p_255_5_.func_1247_a(p_255_6_, this.field_370_bf);
        Vec3D vec3d1 = p_255_5_.func_1247_a(p_255_6_, this.field_364_bi);
        Vec3D vec3d2 = p_255_5_.func_1250_b(p_255_6_, this.field_368_bg);
-@@ -365,7 +365,7 @@
+@@ -365,7 +_,7 @@
        }
  
        Vec3D vec3d6 = null;
@@ -210,7 +210,7 @@
           vec3d6 = vec3d;
        }
  
-@@ -417,7 +417,7 @@
+@@ -417,7 +_,7 @@
              b0 = 3;
           }
  
@@ -219,7 +219,7 @@
        }
     }
  
-@@ -510,9 +510,9 @@
+@@ -510,9 +_,9 @@
     }
  
     static {

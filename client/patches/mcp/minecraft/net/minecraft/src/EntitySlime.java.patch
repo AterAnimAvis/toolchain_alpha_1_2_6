@@ -1,6 +1,6 @@
 --- a/net/minecraft/src/EntitySlime.java
 +++ b/net/minecraft/src/EntitySlime.java
-@@ -74,7 +74,7 @@
+@@ -74,7 +_,7 @@
  
           this.field_768_a = 1.0F;
           this.field_9342_ah = 1.0F - this.field_9312_bd.nextFloat() * 2.0F;

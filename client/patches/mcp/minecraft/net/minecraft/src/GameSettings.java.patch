@@ -1,6 +1,6 @@
 --- a/net/minecraft/src/GameSettings.java
 +++ b/net/minecraft/src/GameSettings.java
-@@ -167,6 +167,9 @@
+@@ -167,6 +_,9 @@
  
           while((s = bufferedreader.readLine()) != null) {
              String[] astring = s.split(":");
@@ -10,7 +10,7 @@
              if (astring[0].equals("music")) {
                 this.field_1584_a = this.func_1050_a(astring[1]);
              }
-@@ -215,9 +218,9 @@
+@@ -215,9 +_,9 @@
                 this.field_12259_z = astring[1];
              }
  
@@ -23,7 +23,7 @@
                 }
              }
           }
-@@ -254,8 +257,8 @@
+@@ -254,8 +_,8 @@
           printwriter.println("skin:" + this.field_6524_j);
           printwriter.println("lastServer:" + this.field_12259_z);
  

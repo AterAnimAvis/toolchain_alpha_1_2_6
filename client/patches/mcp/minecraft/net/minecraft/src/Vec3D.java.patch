@@ -1,6 +1,6 @@
 --- a/net/minecraft/src/Vec3D.java
 +++ b/net/minecraft/src/Vec3D.java
-@@ -4,7 +4,7 @@
+@@ -4,7 +_,7 @@
  import java.util.List;
  
  public class Vec3D {
@@ -9,7 +9,7 @@
     private static int field_1777_e = 0;
     public double field_1776_a;
     public double field_1775_b;
-@@ -23,7 +23,7 @@
+@@ -23,7 +_,7 @@
           field_1778_d.add(func_1260_a(0.0D, 0.0D, 0.0D));
        }
  
@@ -18,7 +18,7 @@
     }
  
     private Vec3D(double p_i11_1_, double p_i11_3_, double p_i11_5_) {
-@@ -56,7 +56,7 @@
+@@ -56,7 +_,7 @@
     }
  
     public Vec3D func_1252_b() {
@@ -27,7 +27,7 @@
        return d0 < 1.0E-4D ? func_1248_b(0.0D, 0.0D, 0.0D) : func_1248_b(this.field_1776_a / d0, this.field_1775_b / d0, this.field_1779_c / d0);
     }
  
-@@ -72,7 +72,7 @@
+@@ -72,7 +_,7 @@
        double d0 = p_1251_1_.field_1776_a - this.field_1776_a;
        double d1 = p_1251_1_.field_1775_b - this.field_1775_b;
        double d2 = p_1251_1_.field_1779_c - this.field_1779_c;
@@ -36,7 +36,7 @@
     }
  
     public double func_1261_d(Vec3D p_1261_1_) {
-@@ -90,7 +90,7 @@
+@@ -90,7 +_,7 @@
     }
  
     public double func_1253_c() {

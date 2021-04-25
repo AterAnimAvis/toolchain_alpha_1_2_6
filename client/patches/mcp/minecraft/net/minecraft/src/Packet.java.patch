@@ -1,6 +1,6 @@
 --- a/net/minecraft/src/Packet.java
 +++ b/net/minecraft/src/Packet.java
-@@ -7,11 +7,11 @@
+@@ -7,11 +_,11 @@
  import java.util.Map;
  
  public abstract class Packet {
@@ -15,7 +15,7 @@
        if (field_471_a.containsKey(p_321_0_)) {
           throw new IllegalArgumentException("Duplicate packet id:" + p_321_0_);
        } else if (field_470_b.containsKey(p_321_1_)) {
-@@ -24,8 +24,8 @@
+@@ -24,8 +_,8 @@
  
     public static Packet func_325_a(int p_325_0_) {
        try {

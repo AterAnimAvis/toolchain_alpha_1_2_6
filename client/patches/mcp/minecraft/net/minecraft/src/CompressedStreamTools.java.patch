@@ -1,6 +1,6 @@
 --- a/net/minecraft/src/CompressedStreamTools.java
 +++ b/net/minecraft/src/CompressedStreamTools.java
-@@ -27,12 +27,9 @@
+@@ -27,12 +_,9 @@
     }
  
     public static void func_1143_a(NBTTagCompound p_1143_0_, OutputStream p_1143_1_) throws IOException {
@@ -14,7 +14,7 @@
        }
  
     }
-@@ -52,12 +49,9 @@
+@@ -52,12 +_,9 @@
  
     public static byte[] func_1142_a(NBTTagCompound p_1142_0_) throws IOException {
        ByteArrayOutputStream bytearrayoutputstream = new ByteArrayOutputStream();

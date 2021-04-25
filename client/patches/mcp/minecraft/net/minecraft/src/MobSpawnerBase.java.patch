@@ -1,6 +1,6 @@
 --- a/net/minecraft/src/MobSpawnerBase.java
 +++ b/net/minecraft/src/MobSpawnerBase.java
-@@ -3,18 +3,18 @@
+@@ -3,18 +_,18 @@
  import java.awt.Color;
  
  public class MobSpawnerBase {
@@ -31,7 +31,7 @@
     public String field_6504_m;
     public int field_6503_n;
     public byte field_4242_o = (byte)Block.field_337_v.field_376_bc;
-@@ -96,7 +96,7 @@
+@@ -96,7 +_,7 @@
        return Color.getHSBColor(0.62222224F - p_4126_1_ * 0.05F, 0.5F + p_4126_1_ * 0.1F, 1.0F).getRGB();
     }
  

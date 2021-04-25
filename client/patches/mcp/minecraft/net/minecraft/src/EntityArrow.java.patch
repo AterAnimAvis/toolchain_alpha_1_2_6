@@ -1,6 +1,6 @@
 --- a/net/minecraft/src/EntityArrow.java
 +++ b/net/minecraft/src/EntityArrow.java
-@@ -30,14 +30,14 @@
+@@ -30,14 +_,14 @@
        this.field_682_g = p_i239_2_;
        this.func_371_a(0.5F, 0.5F);
        this.func_365_c(p_i239_2_.field_611_ak, p_i239_2_.field_610_al + (double)p_i239_2_.func_373_s(), p_i239_2_.field_609_am, p_i239_2_.field_605_aq, p_i239_2_.field_604_ar);
@@ -21,7 +21,7 @@
        this.func_408_a(this.field_608_an, this.field_607_ao, this.field_606_ap, 1.5F, 1.0F);
     }
  
-@@ -57,7 +57,7 @@
+@@ -57,7 +_,7 @@
        this.field_606_ap = p_408_5_;
        float f1 = MathHelper.func_1109_a(p_408_1_ * p_408_1_ + p_408_5_ * p_408_5_);
        this.field_603_as = this.field_605_aq = (float)(Math.atan2(p_408_1_, p_408_5_) * 180.0D / (double)(float)Math.PI);
@@ -30,7 +30,7 @@
        this.field_681_h = 0;
     }
  
-@@ -68,7 +68,7 @@
+@@ -68,7 +_,7 @@
        if (this.field_602_at == 0.0F && this.field_603_as == 0.0F) {
           float f = MathHelper.func_1109_a(p_6375_1_ * p_6375_1_ + p_6375_5_ * p_6375_5_);
           this.field_603_as = this.field_605_aq = (float)(Math.atan2(p_6375_1_, p_6375_5_) * 180.0D / (double)(float)Math.PI);
@@ -39,7 +39,7 @@
        }
  
     }
-@@ -78,7 +78,7 @@
+@@ -78,7 +_,7 @@
        if (this.field_602_at == 0.0F && this.field_603_as == 0.0F) {
           float f = MathHelper.func_1109_a(this.field_608_an * this.field_608_an + this.field_606_ap * this.field_606_ap);
           this.field_603_as = this.field_605_aq = (float)(Math.atan2(this.field_608_an, this.field_606_ap) * 180.0D / (double)(float)Math.PI);
@@ -48,7 +48,7 @@
        }
  
        if (this.field_688_a > 0) {
-@@ -97,9 +97,9 @@
+@@ -97,9 +_,9 @@
           }
  
           this.field_9315_g = false;
@@ -61,7 +61,7 @@
           this.field_681_h = 0;
           this.field_680_i = 0;
        } else {
-@@ -116,14 +116,13 @@
+@@ -116,14 +_,13 @@
        }
  
        Entity entity = null;
@@ -79,7 +79,7 @@
              MovingObjectPosition movingobjectposition1 = axisalignedbb.func_1169_a(vec3d1, vec3d);
              if (movingobjectposition1 != null) {
                 double d1 = vec3d1.func_1251_c(movingobjectposition1.field_1169_f);
-@@ -145,9 +144,9 @@
+@@ -145,9 +_,9 @@
                 this.field_615_ag.func_623_a(this, "random.drr", 1.0F, 1.2F / (this.field_9312_bd.nextFloat() * 0.2F + 0.9F));
                 this.func_395_F();
              } else {
@@ -92,7 +92,7 @@
                 this.field_605_aq += 180.0F;
                 this.field_603_as += 180.0F;
                 this.field_680_i = 0;
-@@ -157,9 +156,9 @@
+@@ -157,9 +_,9 @@
              this.field_9318_d = movingobjectposition.field_1172_c;
              this.field_9317_e = movingobjectposition.field_1171_d;
              this.field_9316_f = this.field_615_ag.func_600_a(this.field_9319_c, this.field_9318_d, this.field_9317_e);
@@ -105,7 +105,7 @@
              float f2 = MathHelper.func_1109_a(this.field_608_an * this.field_608_an + this.field_607_ao * this.field_607_ao + this.field_606_ap * this.field_606_ap);
              this.field_611_ak -= this.field_608_an / (double)f2 * (double)0.05F;
              this.field_610_al -= this.field_607_ao / (double)f2 * (double)0.05F;
-@@ -176,7 +175,7 @@
+@@ -176,7 +_,7 @@
        float f3 = MathHelper.func_1109_a(this.field_608_an * this.field_608_an + this.field_606_ap * this.field_606_ap);
        this.field_605_aq = (float)(Math.atan2(this.field_608_an, this.field_606_ap) * 180.0D / (double)(float)Math.PI);
  
@@ -114,7 +114,7 @@
        }
  
        while(this.field_604_ar - this.field_602_at >= 180.0F) {
-@@ -204,10 +203,10 @@
+@@ -204,10 +_,10 @@
           f4 = 0.8F;
        }
  

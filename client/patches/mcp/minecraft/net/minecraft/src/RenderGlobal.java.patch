@@ -1,6 +1,6 @@
 --- a/net/minecraft/src/RenderGlobal.java
 +++ b/net/minecraft/src/RenderGlobal.java
-@@ -1,10 +1,8 @@
+@@ -1,10 +_,8 @@
  package net.minecraft.src;
  
 -import java.nio.Buffer;
@@ -11,7 +11,7 @@
  import java.util.List;
  import java.util.Random;
  import net.minecraft.client.Minecraft;
-@@ -12,24 +10,24 @@
+@@ -12,24 +_,24 @@
  import org.lwjgl.opengl.GL11;
  
  public class RenderGlobal implements IWorldAccess {
@@ -44,7 +44,7 @@
     private int field_1431_B;
     private int field_1430_C;
     private int field_1429_D;
-@@ -48,8 +46,8 @@
+@@ -48,8 +_,8 @@
     private int field_1418_O;
     private int field_1417_P;
     private int field_1416_Q;
@@ -55,7 +55,7 @@
     int field_1455_d = 0;
     int field_1454_e = GLAllocation.func_1124_a(1);
     double field_1453_f = -9999.0D;
-@@ -65,11 +63,11 @@
+@@ -65,11 +_,11 @@
        this.field_1440_s = GLAllocation.func_1124_a(b0 * b0 * b0 * 3);
        this.field_1436_w = p_i101_1_.func_6251_l().func_1213_a();
        if (this.field_1436_w) {
@@ -71,7 +71,7 @@
           ARBOcclusionQuery.glGenQueriesARB(this.field_1437_v);
        }
  
-@@ -89,10 +87,10 @@
+@@ -89,10 +_,10 @@
        for(int j = -b1 * i; j <= b1 * i; j += b1) {
           for(int k = -b1 * i; k <= b1 * i; k += b1) {
              tessellator.func_977_b();
@@ -86,7 +86,7 @@
              tessellator.func_982_a();
           }
        }
-@@ -105,10 +103,10 @@
+@@ -105,10 +_,10 @@
  
        for(int l = -b1 * i; l <= b1 * i; l += b1) {
           for(int i1 = -b1 * i; i1 <= b1 * i; i1 += b1) {
@@ -101,7 +101,7 @@
           }
        }
  
-@@ -122,10 +120,10 @@
+@@ -122,10 +_,10 @@
        tessellator.func_977_b();
  
        for(int i = 0; i < 1500; ++i) {
@@ -116,7 +116,7 @@
           double d4 = d0 * d0 + d1 * d1 + d2 * d2;
           if (d4 < 1.0D && d4 > 0.01D) {
              d4 = 1.0D / Math.sqrt(d4);
-@@ -185,8 +183,8 @@
+@@ -185,8 +_,8 @@
        Block.field_384_L.func_310_a(this.field_1439_t.field_6304_y.field_1576_i);
        this.field_1425_H = this.field_1439_t.field_6304_y.field_1580_e;
        if (this.field_1444_o != null) {
@@ -127,7 +127,7 @@
           }
        }
  
-@@ -209,8 +207,8 @@
+@@ -209,8 +_,8 @@
        this.field_1427_F = this.field_1442_q;
        this.field_1426_G = this.field_1441_r;
  
@@ -138,7 +138,7 @@
        }
  
        this.field_1446_m.clear();
-@@ -261,19 +259,18 @@
+@@ -261,19 +_,18 @@
           TileEntityRenderer.field_1553_b = entityplayersp.field_638_aI + (entityplayersp.field_611_ak - entityplayersp.field_638_aI) * (double)p_951_3_;
           TileEntityRenderer.field_1552_c = entityplayersp.field_637_aJ + (entityplayersp.field_610_al - entityplayersp.field_637_aJ) * (double)p_951_3_;
           TileEntityRenderer.field_1551_d = entityplayersp.field_636_aK + (entityplayersp.field_609_am - entityplayersp.field_636_aK) * (double)p_951_3_;
@@ -162,7 +162,7 @@
           }
  
        }
-@@ -467,11 +464,11 @@
+@@ -467,11 +_,11 @@
     private void func_962_a(int p_962_1_, int p_962_2_) {
        for(int i = p_962_1_; i < p_962_2_; ++i) {
           if (this.field_1445_n[i].field_1733_y) {
@@ -176,7 +176,7 @@
                 ARBOcclusionQuery.glGetQueryObjectuARB(this.field_1445_n[i].field_1732_z, 34918, this.field_1456_c);
                 this.field_1445_n[i].field_1734_x = this.field_1456_c.get(0) != 0;
              }
-@@ -513,15 +510,14 @@
+@@ -513,15 +_,14 @@
        double d1 = entityplayersp.field_636_aK + (entityplayersp.field_609_am - entityplayersp.field_636_aK) * p_952_4_;
        int l = 0;
  
@@ -196,7 +196,7 @@
              if (this.field_1414_S[k1].func_862_a(worldrenderer.field_1755_i, worldrenderer.field_1754_j, worldrenderer.field_1753_k)) {
                 j1 = k1;
              }
-@@ -540,8 +536,8 @@
+@@ -540,8 +_,8 @@
     }
  
     public void func_944_a(int p_944_1_, double p_944_2_) {
@@ -207,7 +207,7 @@
        }
  
     }
-@@ -594,7 +590,7 @@
+@@ -594,7 +_,7 @@
                 float f6 = (float)i * (float)Math.PI * 2.0F / (float)b0;
                 float f7 = MathHelper.func_1106_a(f6);
                 float f8 = MathHelper.func_1114_b(f6);
@@ -216,7 +216,7 @@
              }
  
              tessellator.func_982_a();
-@@ -615,18 +611,18 @@
+@@ -615,18 +_,18 @@
           float f13 = 30.0F;
           GL11.glBindTexture(3553, this.field_1447_l.func_1070_a("/terrain/sun.png"));
           tessellator.func_977_b();
@@ -243,7 +243,7 @@
           tessellator.func_982_a();
           GL11.glDisable(3553);
           float f14 = this.field_1448_k.func_679_f(p_4142_1_);
-@@ -689,10 +685,10 @@
+@@ -689,10 +_,10 @@
  
              for(int l = -b0 * i; l < b0 * i; l += b0) {
                 for(int i1 = -b0 * i; i1 < b0 * i; i1 += b0) {
@@ -258,7 +258,7 @@
                 }
              }
  
-@@ -762,19 +758,19 @@
+@@ -762,19 +_,19 @@
                 if (f3 > -f2 - 1.0F) {
                    tessellator.func_986_a(f4 * 0.7F, f5 * 0.7F, f6 * 0.7F, 0.8F);
                    tessellator.func_980_b(0.0F, -1.0F, 0.0F);
@@ -286,7 +286,7 @@
                 }
  
                 tessellator.func_986_a(f4 * 0.9F, f5 * 0.9F, f6 * 0.9F, 0.8F);
-@@ -782,10 +778,10 @@
+@@ -782,10 +_,10 @@
                    tessellator.func_980_b(-1.0F, 0.0F, 0.0F);
  
                    for(int j1 = 0; j1 < b0; ++j1) {
@@ -301,7 +301,7 @@
                    }
                 }
  
-@@ -793,10 +789,10 @@
+@@ -793,10 +_,10 @@
                    tessellator.func_980_b(1.0F, 0.0F, 0.0F);
  
                    for(int k1 = 0; k1 < b0; ++k1) {
@@ -316,7 +316,7 @@
                    }
                 }
  
-@@ -805,10 +801,10 @@
+@@ -805,10 +_,10 @@
                    tessellator.func_980_b(0.0F, 0.0F, -1.0F);
  
                    for(int l1 = 0; l1 < b0; ++l1) {
@@ -331,7 +331,7 @@
                    }
                 }
  
-@@ -816,10 +812,10 @@
+@@ -816,10 +_,10 @@
                    tessellator.func_980_b(0.0F, 0.0F, 1.0F);
  
                    for(int i2 = 0; i2 < b0; ++i2) {
@@ -346,7 +346,7 @@
                    }
                 }
  
-@@ -834,12 +830,12 @@
+@@ -834,12 +_,12 @@
     }
  
     public boolean func_948_a(EntityPlayer p_948_1_, boolean p_948_2_) {
@@ -361,7 +361,7 @@
           if (!p_948_2_) {
              if (worldrenderer.func_1202_a(p_948_1_) > 1024.0F) {
                 if (worldrenderer.field_1749_o) {
-@@ -952,7 +948,7 @@
+@@ -952,7 +_,7 @@
              double d0 = p_955_1_.field_638_aI + (p_955_1_.field_611_ak - p_955_1_.field_638_aI) * (double)p_955_5_;
              double d1 = p_955_1_.field_637_aJ + (p_955_1_.field_610_al - p_955_1_.field_637_aJ) * (double)p_955_5_;
              double d2 = p_955_1_.field_636_aK + (p_955_1_.field_609_am - p_955_1_.field_636_aK) * (double)p_955_5_;
@@ -370,7 +370,7 @@
           }
  
           GL11.glDepthMask(true);
-@@ -1072,28 +1068,40 @@
+@@ -1072,28 +_,40 @@
        double d1 = this.field_1439_t.field_6322_g.field_610_al - p_939_4_;
        double d2 = this.field_1439_t.field_6322_g.field_609_am - p_939_6_;
        if (!(d0 * d0 + d1 * d1 + d2 * d2 > 256.0D)) {
@@ -422,7 +422,7 @@
           }
  
        }
-@@ -1114,13 +1122,13 @@
+@@ -1114,13 +_,13 @@
     }
  
     public void func_936_e() {

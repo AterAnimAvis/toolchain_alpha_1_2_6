@@ -1,6 +1,6 @@
 --- a/net/minecraft/src/InventoryPlayer.java
 +++ b/net/minecraft/src/InventoryPlayer.java
-@@ -78,37 +78,30 @@
+@@ -78,37 +_,30 @@
           i = this.func_499_j();
        }
  
@@ -45,7 +45,7 @@
           }
        }
  
-@@ -298,14 +291,14 @@
+@@ -298,14 +_,14 @@
        int j = 0;
        int k = 0;
  

@@ -1,6 +1,6 @@
 --- a/net/minecraft/src/SoundPool.java
 +++ b/net/minecraft/src/SoundPool.java
-@@ -10,13 +10,14 @@
+@@ -10,13 +_,14 @@
  
  public class SoundPool {
     private Random field_1661_c = new Random();
@@ -17,7 +17,7 @@
           p_1117_1_ = p_1117_1_.substring(0, p_1117_1_.indexOf("."));
           if (this.field_1657_b) {
              while(Character.isDigit(p_1117_1_.charAt(p_1117_1_.length() - 1))) {
-@@ -26,11 +27,11 @@
+@@ -26,11 +_,11 @@
  
           p_1117_1_ = p_1117_1_.replaceAll("/", ".");
           if (!this.field_1660_d.containsKey(p_1117_1_)) {
@@ -32,7 +32,7 @@
           this.field_1659_e.add(soundpoolentry);
           ++this.field_1658_a;
           return soundpoolentry;
-@@ -41,11 +42,11 @@
+@@ -41,11 +_,11 @@
     }
  
     public SoundPoolEntry func_1118_a(String p_1118_1_) {

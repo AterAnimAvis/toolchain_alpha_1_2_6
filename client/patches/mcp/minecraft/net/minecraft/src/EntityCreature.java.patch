@@ -1,6 +1,6 @@
 --- a/net/minecraft/src/EntityCreature.java
 +++ b/net/minecraft/src/EntityCreature.java
-@@ -62,7 +62,7 @@
+@@ -62,7 +_,7 @@
        this.field_604_ar = 0.0F;
        if (this.field_749_a != null && this.field_9312_bd.nextInt(100) != 0) {
           Vec3D vec3d = this.field_749_a.func_1205_a(this);

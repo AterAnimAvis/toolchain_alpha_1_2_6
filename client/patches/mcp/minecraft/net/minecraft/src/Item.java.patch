@@ -1,6 +1,6 @@
 --- a/net/minecraft/src/Item.java
 +++ b/net/minecraft/src/Item.java
-@@ -5,103 +5,103 @@
+@@ -5,103 +_,103 @@
  public class Item {
     protected static Random field_4015_b = new Random();
     public static Item[] field_233_c = new Item[32000];

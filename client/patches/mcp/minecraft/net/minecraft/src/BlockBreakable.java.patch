@@ -1,6 +1,6 @@
 --- a/net/minecraft/src/BlockBreakable.java
 +++ b/net/minecraft/src/BlockBreakable.java
-@@ -14,6 +14,6 @@
+@@ -14,6 +_,6 @@
  
     public boolean func_260_c(IBlockAccess p_260_1_, int p_260_2_, int p_260_3_, int p_260_4_, int p_260_5_) {
        int i = p_260_1_.func_600_a(p_260_2_, p_260_3_, p_260_4_);

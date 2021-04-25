@@ -1,6 +1,6 @@
 --- a/net/minecraft/src/Material.java
 +++ b/net/minecraft/src/Material.java
-@@ -3,20 +3,20 @@
+@@ -3,20 +_,20 @@
  public class Material {
     public static final Material field_1337_a = new MaterialTransparent();
     public static final Material field_1336_b = new Material();

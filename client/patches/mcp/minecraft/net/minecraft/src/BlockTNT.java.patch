@@ -1,6 +1,6 @@
 --- a/net/minecraft/src/BlockTNT.java
 +++ b/net/minecraft/src/BlockTNT.java
-@@ -28,14 +28,14 @@
+@@ -28,14 +_,14 @@
     }
  
     public void func_4027_c(World p_4027_1_, int p_4027_2_, int p_4027_3_, int p_4027_4_) {

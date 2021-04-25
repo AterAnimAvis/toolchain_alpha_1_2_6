@@ -1,6 +1,6 @@
 --- a/net/minecraft/src/BlockSlowSand.java
 +++ b/net/minecraft/src/BlockSlowSand.java
-@@ -7,7 +7,7 @@
+@@ -7,7 +_,7 @@
  
     public AxisAlignedBB func_221_d(World p_221_1_, int p_221_2_, int p_221_3_, int p_221_4_) {
        float f = 0.125F;

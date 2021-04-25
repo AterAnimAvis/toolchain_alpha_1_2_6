@@ -1,6 +1,6 @@
 --- a/net/minecraft/src/ChunkProviderLoadOrGenerate.java
 +++ b/net/minecraft/src/ChunkProviderLoadOrGenerate.java
-@@ -142,8 +142,8 @@
+@@ -142,8 +_,8 @@
        int i = 0;
        int j = 0;
        if (p_535_2_ != null) {
@@ -11,7 +11,7 @@
                 ++j;
              }
           }
-@@ -151,15 +151,15 @@
+@@ -151,15 +_,15 @@
  
        int i1 = 0;
  

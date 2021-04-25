@@ -1,6 +1,6 @@
 --- a/net/minecraft/src/ItemReed.java
 +++ b/net/minecraft/src/ItemReed.java
-@@ -44,7 +44,7 @@
+@@ -44,7 +_,7 @@
              Block block = Block.field_345_n[this.field_320_a];
              if (p_192_3_.func_690_d(p_192_4_, p_192_5_, p_192_6_, this.field_320_a)) {
                 Block.field_345_n[this.field_320_a].func_258_d(p_192_3_, p_192_4_, p_192_5_, p_192_6_, p_192_7_);

@@ -1,6 +1,6 @@
 --- a/net/minecraft/src/WorldGenClay.java
 +++ b/net/minecraft/src/WorldGenClay.java
-@@ -15,12 +15,12 @@
+@@ -15,12 +_,12 @@
           return false;
        } else {
           float f = p_516_2_.nextFloat() * (float)Math.PI;

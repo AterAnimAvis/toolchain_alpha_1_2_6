@@ -1,6 +1,6 @@
 --- a/net/minecraft/src/FontRenderer.java
 +++ b/net/minecraft/src/FontRenderer.java
-@@ -2,7 +2,6 @@
+@@ -2,7 +_,6 @@
  
  import java.awt.image.BufferedImage;
  import java.io.IOException;
@@ -8,7 +8,7 @@
  import java.nio.IntBuffer;
  import javax.imageio.ImageIO;
  import org.lwjgl.opengl.GL11;
-@@ -35,11 +34,12 @@
+@@ -35,11 +_,12 @@
              int k1 = l * 8 + j1;
              boolean flag = true;
  
@@ -22,7 +22,7 @@
                 }
              }
  
-@@ -67,10 +67,10 @@
+@@ -67,10 +_,10 @@
           float f = 7.99F;
           float f1 = 0.0F;
           float f2 = 0.0F;
@@ -37,7 +37,7 @@
           tessellator.func_982_a();
           GL11.glTranslatef((float)this.field_1307_b[l2], 0.0F, 0.0F);
           GL11.glEndList();
-@@ -135,7 +135,7 @@
+@@ -135,7 +_,7 @@
           }
  
           GL11.glColor4f(f3, f, f1, f2);
@@ -46,7 +46,7 @@
           GL11.glPushMatrix();
           GL11.glTranslatef((float)p_872_2_, (float)p_872_3_, 0.0F);
  
-@@ -148,9 +148,9 @@
+@@ -148,9 +_,9 @@
  
                 this.field_1309_d.put(this.field_1310_c + 256 + k + (p_872_5_ ? 16 : 0));
                 if (this.field_1309_d.remaining() == 0) {
@@ -58,7 +58,7 @@
                 }
              }
  
-@@ -160,13 +160,13 @@
+@@ -160,13 +_,13 @@
              }
  
              if (this.field_1309_d.remaining() == 0) {

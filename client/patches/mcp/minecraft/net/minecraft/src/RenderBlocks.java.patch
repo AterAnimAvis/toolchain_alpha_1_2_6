@@ -1,6 +1,6 @@
 --- a/net/minecraft/src/RenderBlocks.java
 +++ b/net/minecraft/src/RenderBlocks.java
-@@ -6,7 +6,7 @@
+@@ -6,7 +_,7 @@
     private IBlockAccess field_1772_a;
     private int field_1771_b = -1;
     private boolean field_1774_c = false;
@@ -9,7 +9,7 @@
  
     public RenderBlocks(IBlockAccess p_i30_1_) {
        this.field_1772_a = p_i30_1_;
-@@ -51,7 +51,7 @@
+@@ -51,7 +_,7 @@
        } else if (i == 11) {
           return this.func_1240_m(p_1234_1_, p_1234_2_, p_1234_3_, p_1234_4_);
        } else {
@@ -18,7 +18,7 @@
        }
     }
  
-@@ -64,19 +64,19 @@
+@@ -64,19 +_,19 @@
        }
  
        tessellator.func_987_a(f, f, f);
@@ -45,7 +45,7 @@
        }
  
        return true;
-@@ -135,14 +135,14 @@
+@@ -135,14 +_,14 @@
        float f8 = 0.0625F;
        float f9 = 0.0625F;
        float f10 = 0.625F;
@@ -68,7 +68,7 @@
  
        for(int j1 = 0; j1 < 8; ++j1) {
           if (flag) {
-@@ -177,14 +177,13 @@
+@@ -177,14 +_,13 @@
              }
  
              avec3d[j1].field_1776_a += (double)p_1229_2_ + 0.5D;
@@ -86,7 +86,7 @@
  
        Vec3D vec3d3 = null;
        Vec3D vec3d = null;
-@@ -236,10 +235,10 @@
+@@ -236,10 +_,10 @@
              vec3d2 = avec3d[4];
           }
  
@@ -101,7 +101,7 @@
        }
  
        return true;
-@@ -256,19 +255,19 @@
+@@ -256,19 +_,19 @@
        tessellator.func_987_a(f, f, f);
        int j = (i & 15) << 4;
        int k = i & 240;
@@ -129,7 +129,7 @@
           }
  
           if ((p_1235_2_ / 2 + p_1235_3_ / 2 + p_1235_4_ / 2 & 1) == 1) {
-@@ -278,47 +277,47 @@
+@@ -278,47 +_,47 @@
           }
  
           if (Block.field_402_as.func_261_b(this.field_1772_a, p_1235_2_ - 1, p_1235_3_, p_1235_4_)) {
@@ -209,7 +209,7 @@
           }
  
           if (Block.field_402_as.func_261_b(this.field_1772_a, p_1235_2_, p_1235_3_ + 1, p_1235_4_)) {
-@@ -330,38 +329,38 @@
+@@ -330,38 +_,38 @@
              double d19 = (double)p_1235_2_ + 0.5D + 0.5D;
              double d20 = (double)p_1235_4_ + 0.5D - 0.5D;
              double d12 = (double)p_1235_4_ + 0.5D + 0.5D;
@@ -276,7 +276,7 @@
              }
           }
        } else {
-@@ -373,26 +372,26 @@
+@@ -373,26 +_,26 @@
           double d9 = (double)p_1235_2_ + 0.5D + 0.3D;
           double d10 = (double)p_1235_4_ + 0.5D - 0.3D;
           double d11 = (double)p_1235_4_ + 0.5D + 0.3D;
@@ -323,7 +323,7 @@
           d4 = (double)p_1235_2_ + 0.5D - 0.5D;
           d5 = (double)p_1235_2_ + 0.5D + 0.5D;
           d6 = (double)p_1235_4_ + 0.5D - 0.5D;
-@@ -401,26 +400,26 @@
+@@ -401,26 +_,26 @@
           d9 = (double)p_1235_2_ + 0.5D + 0.4D;
           d10 = (double)p_1235_4_ + 0.5D - 0.4D;
           d11 = (double)p_1235_4_ + 0.5D + 0.4D;
@@ -370,7 +370,7 @@
        }
  
        return true;
-@@ -437,10 +436,10 @@
+@@ -437,10 +_,10 @@
        tessellator.func_987_a(f, f, f);
        int j = (i & 15) << 4;
        int k = i & 240;
@@ -385,7 +385,7 @@
        float f1 = 0.0F;
        float f2 = 0.03125F;
        boolean flag = BlockRedstoneWire.func_279_b(this.field_1772_a, p_1242_2_ - 1, p_1242_3_, p_1242_4_) || !this.field_1772_a.func_601_g(p_1242_2_ - 1, p_1242_3_, p_1242_4_) && BlockRedstoneWire.func_279_b(this.field_1772_a, p_1242_2_ - 1, p_1242_3_ - 1, p_1242_4_);
-@@ -480,10 +479,10 @@
+@@ -480,10 +_,10 @@
        }
  
        if (b0 != 0) {
@@ -400,7 +400,7 @@
        }
  
        if (b0 == 0) {
-@@ -493,7 +492,7 @@
+@@ -493,7 +_,7 @@
              }
  
              if (!flag) {
@@ -409,7 +409,7 @@
              }
  
              if (!flag1) {
-@@ -501,7 +500,7 @@
+@@ -501,7 +_,7 @@
              }
  
              if (!flag1) {
@@ -418,7 +418,7 @@
              }
  
              if (!flag2) {
-@@ -509,7 +508,7 @@
+@@ -509,7 +_,7 @@
              }
  
              if (!flag2) {
@@ -427,7 +427,7 @@
              }
  
              if (!flag3) {
-@@ -517,61 +516,61 @@
+@@ -517,61 +_,61 @@
              }
  
              if (!flag3) {
@@ -522,7 +522,7 @@
           }
        }
  
-@@ -590,10 +589,10 @@
+@@ -590,10 +_,10 @@
        tessellator.func_987_a(f, f, f);
        int k = (j & 15) << 4;
        int l = j & 240;
@@ -537,7 +537,7 @@
        float f1 = 0.0625F;
        float f2 = (float)(p_1216_2_ + 1);
        float f3 = (float)(p_1216_2_ + 1);
-@@ -636,14 +635,14 @@
+@@ -636,14 +_,14 @@
           ++f13;
        }
  
@@ -560,7 +560,7 @@
        return true;
     }
  
-@@ -658,39 +657,39 @@
+@@ -658,39 +_,39 @@
        tessellator.func_987_a(f, f, f);
        int j = (i & 15) << 4;
        int k = i & 240;
@@ -620,7 +620,7 @@
        }
  
        return true;
-@@ -700,7 +699,7 @@
+@@ -700,7 +_,7 @@
        Tessellator tessellator = Tessellator.field_1512_a;
        float f = p_1226_1_.func_241_c(this.field_1772_a, p_1226_2_, p_1226_3_, p_1226_4_);
        tessellator.func_987_a(f, f, f);
@@ -629,7 +629,7 @@
        return true;
     }
  
-@@ -708,7 +707,7 @@
+@@ -708,7 +_,7 @@
        Tessellator tessellator = Tessellator.field_1512_a;
        float f = p_1232_1_.func_241_c(this.field_1772_a, p_1232_2_, p_1232_3_, p_1232_4_);
        tessellator.func_987_a(f, f, f);
@@ -638,7 +638,7 @@
        return true;
     }
  
-@@ -741,22 +740,22 @@
+@@ -741,22 +_,22 @@
        tessellator.func_983_a(p_1237_2_ + p_1237_8_ * (1.0D - d9) - d8, p_1237_4_ + d9, p_1237_6_ + p_1237_10_ * (1.0D - d9) + d8, d0, d3);
        tessellator.func_983_a(p_1237_2_ + p_1237_8_ * (1.0D - d9) + d8, p_1237_4_ + d9, p_1237_6_ + p_1237_10_ * (1.0D - d9) + d8, d2, d3);
        tessellator.func_983_a(p_1237_2_ + p_1237_8_ * (1.0D - d9) + d8, p_1237_4_ + d9, p_1237_6_ + p_1237_10_ * (1.0D - d9) - d8, d2, d1);
@@ -677,7 +677,7 @@
     }
  
     public void func_1239_a(Block p_1239_1_, int p_1239_2_, double p_1239_3_, double p_1239_5_, double p_1239_7_) {
-@@ -768,10 +767,10 @@
+@@ -768,10 +_,10 @@
  
        int j = (i & 15) << 4;
        int k = i & 240;
@@ -692,7 +692,7 @@
        double d4 = p_1239_3_ + 0.5D - (double)0.45F;
        double d5 = p_1239_3_ + 0.5D + (double)0.45F;
        double d6 = p_1239_7_ + 0.5D - (double)0.45F;
-@@ -803,10 +802,10 @@
+@@ -803,10 +_,10 @@
  
        int j = (i & 15) << 4;
        int k = i & 240;
@@ -707,7 +707,7 @@
        double d4 = p_1245_3_ + 0.5D - 0.25D;
        double d5 = p_1245_3_ + 0.5D + 0.25D;
        double d6 = p_1245_7_ + 0.5D - 0.5D;
-@@ -885,24 +884,24 @@
+@@ -885,24 +_,24 @@
              if (f8 < -999.0F) {
                 f8 = 0.0F;
              } else {
@@ -739,7 +739,7 @@
              flag2 = true;
           }
  
-@@ -966,10 +965,10 @@
+@@ -966,10 +_,10 @@
                 }
  
                 flag2 = true;
@@ -753,7 +753,7 @@
                 double d8 = ((double)(j2 + 16) - 0.01D) / 256.0D;
                 float f15 = p_1222_1_.func_241_c(this.field_1772_a, k1, p_1222_3_, l1);
                 if (j1 < 2) {
-@@ -979,10 +978,10 @@
+@@ -979,10 +_,10 @@
                 }
  
                 tessellator.func_987_a(f1 * f15, f1 * f15, f1 * f15);
@@ -768,7 +768,7 @@
              }
           }
  
-@@ -1114,7 +1113,7 @@
+@@ -1114,7 +_,7 @@
        if (this.field_1773_d || p_4152_1_.func_260_c(this.field_1772_a, p_4152_2_, p_4152_3_ - 1, p_4152_4_, 0)) {
           float f17 = p_4152_1_.func_241_c(this.field_1772_a, p_4152_2_, p_4152_3_ - 1, p_4152_4_);
           tessellator.func_987_a(f7 * f17, f10 * f17, f13 * f17);
@@ -777,7 +777,7 @@
           flag = true;
        }
  
-@@ -1125,7 +1124,7 @@
+@@ -1125,7 +_,7 @@
           }
  
           tessellator.func_987_a(f4 * f18, f5 * f18, f6 * f18);
@@ -786,7 +786,7 @@
           flag = true;
        }
  
-@@ -1136,7 +1135,7 @@
+@@ -1136,7 +_,7 @@
           }
  
           tessellator.func_987_a(f8 * f19, f11 * f19, f14 * f19);
@@ -795,7 +795,7 @@
           flag = true;
        }
  
-@@ -1147,7 +1146,7 @@
+@@ -1147,7 +_,7 @@
           }
  
           tessellator.func_987_a(f8 * f20, f11 * f20, f14 * f20);
@@ -804,7 +804,7 @@
           flag = true;
        }
  
-@@ -1158,7 +1157,7 @@
+@@ -1158,7 +_,7 @@
           }
  
           tessellator.func_987_a(f9 * f21, f12 * f21, f15 * f21);
@@ -813,7 +813,7 @@
           flag = true;
        }
  
-@@ -1169,7 +1168,7 @@
+@@ -1169,7 +_,7 @@
           }
  
           tessellator.func_987_a(f9 * f22, f12 * f22, f15 * f22);
@@ -822,7 +822,7 @@
           flag = true;
        }
  
-@@ -1208,7 +1207,7 @@
+@@ -1208,7 +_,7 @@
        if (this.field_1773_d || p_1230_1_.func_260_c(this.field_1772_a, p_1230_2_, p_1230_3_ - 1, p_1230_4_, 0)) {
           float f18 = p_1230_1_.func_241_c(this.field_1772_a, p_1230_2_, p_1230_3_ - 1, p_1230_4_);
           tessellator.func_987_a(f4 * f18, f8 * f18, f12 * f18);
@@ -831,7 +831,7 @@
           flag = true;
        }
  
-@@ -1219,7 +1218,7 @@
+@@ -1219,7 +_,7 @@
           }
  
           tessellator.func_987_a(f5 * f19, f9 * f19, f13 * f19);
@@ -840,7 +840,7 @@
           flag = true;
        }
  
-@@ -1231,7 +1230,7 @@
+@@ -1231,7 +_,7 @@
  
           tessellator.func_987_a(f6 * f20, f10 * f20, f14 * f20);
           tessellator.func_988_c(0.0F, 0.0F, f16);
@@ -849,7 +849,7 @@
           tessellator.func_988_c(0.0F, 0.0F, -f16);
           flag = true;
        }
-@@ -1244,7 +1243,7 @@
+@@ -1244,7 +_,7 @@
  
           tessellator.func_987_a(f6 * f21, f10 * f21, f14 * f21);
           tessellator.func_988_c(0.0F, 0.0F, -f16);
@@ -858,7 +858,7 @@
           tessellator.func_988_c(0.0F, 0.0F, f16);
           flag = true;
        }
-@@ -1257,7 +1256,7 @@
+@@ -1257,7 +_,7 @@
  
           tessellator.func_987_a(f7 * f22, f11 * f22, f15 * f22);
           tessellator.func_988_c(f16, 0.0F, 0.0F);
@@ -867,7 +867,7 @@
           tessellator.func_988_c(-f16, 0.0F, 0.0F);
           flag = true;
        }
-@@ -1270,7 +1269,7 @@
+@@ -1270,7 +_,7 @@
  
           tessellator.func_987_a(f7 * f23, f11 * f23, f15 * f23);
           tessellator.func_988_c(-f16, 0.0F, 0.0F);
@@ -876,7 +876,7 @@
           tessellator.func_988_c(f16, 0.0F, 0.0F);
           flag = true;
        }
-@@ -1384,7 +1383,7 @@
+@@ -1384,7 +_,7 @@
        }
  
        tessellator.func_987_a(f * f5, f * f5, f * f5);
@@ -885,7 +885,7 @@
        flag = true;
        f5 = p_1218_1_.func_241_c(this.field_1772_a, p_1218_2_, p_1218_3_ + 1, p_1218_4_);
        if (blockdoor.field_362_bj < 1.0D) {
-@@ -1396,7 +1395,7 @@
+@@ -1396,7 +_,7 @@
        }
  
        tessellator.func_987_a(f1 * f5, f1 * f5, f1 * f5);
@@ -894,7 +894,7 @@
        flag = true;
        f5 = p_1218_1_.func_241_c(this.field_1772_a, p_1218_2_, p_1218_3_, p_1218_4_ - 1);
        if (blockdoor.field_366_bh > 0.0D) {
-@@ -1414,7 +1413,7 @@
+@@ -1414,7 +_,7 @@
           i = -i;
        }
  
@@ -903,7 +903,7 @@
        flag = true;
        this.field_1774_c = false;
        f5 = p_1218_1_.func_241_c(this.field_1772_a, p_1218_2_, p_1218_3_, p_1218_4_ + 1);
-@@ -1433,7 +1432,7 @@
+@@ -1433,7 +_,7 @@
           i = -i;
        }
  
@@ -912,7 +912,7 @@
        flag = true;
        this.field_1774_c = false;
        f5 = p_1218_1_.func_241_c(this.field_1772_a, p_1218_2_ - 1, p_1218_3_, p_1218_4_);
-@@ -1452,7 +1451,7 @@
+@@ -1452,7 +_,7 @@
           i = -i;
        }
  
@@ -921,7 +921,7 @@
        flag = true;
        this.field_1774_c = false;
        f5 = p_1218_1_.func_241_c(this.field_1772_a, p_1218_2_ + 1, p_1218_3_, p_1218_4_);
-@@ -1471,7 +1470,7 @@
+@@ -1471,7 +_,7 @@
           i = -i;
        }
  
@@ -930,7 +930,7 @@
        flag = true;
        this.field_1774_c = false;
        return flag;
-@@ -1490,13 +1489,13 @@
+@@ -1490,13 +_,13 @@
        double d2 = ((double)j + p_1244_1_.field_366_bh * 16.0D) / 256.0D;
        double d3 = ((double)j + p_1244_1_.field_360_bk * 16.0D - 0.01D) / 256.0D;
        if (p_1244_1_.field_370_bf < 0.0D || p_1244_1_.field_364_bi > 1.0D) {
@@ -948,7 +948,7 @@
        }
  
        double d4 = p_1244_2_ + p_1244_1_.field_370_bf;
-@@ -1523,13 +1522,13 @@
+@@ -1523,13 +_,13 @@
        double d2 = ((double)j + p_1217_1_.field_366_bh * 16.0D) / 256.0D;
        double d3 = ((double)j + p_1217_1_.field_360_bk * 16.0D - 0.01D) / 256.0D;
        if (p_1217_1_.field_370_bf < 0.0D || p_1217_1_.field_364_bi > 1.0D) {
@@ -966,7 +966,7 @@
        }
  
        double d4 = p_1217_2_ + p_1217_1_.field_370_bf;
-@@ -1562,13 +1561,13 @@
+@@ -1562,13 +_,13 @@
        }
  
        if (p_1220_1_.field_370_bf < 0.0D || p_1220_1_.field_364_bi > 1.0D) {
@@ -984,7 +984,7 @@
        }
  
        double d9 = p_1220_2_ + p_1220_1_.field_370_bf;
-@@ -1601,13 +1600,13 @@
+@@ -1601,13 +_,13 @@
        }
  
        if (p_1225_1_.field_370_bf < 0.0D || p_1225_1_.field_364_bi > 1.0D) {
@@ -1002,7 +1002,7 @@
        }
  
        double d9 = p_1225_2_ + p_1225_1_.field_370_bf;
-@@ -1640,13 +1639,13 @@
+@@ -1640,13 +_,13 @@
        }
  
        if (p_1231_1_.field_366_bh < 0.0D || p_1231_1_.field_360_bk > 1.0D) {
@@ -1020,7 +1020,7 @@
        }
  
        double d9 = p_1231_2_ + p_1231_1_.field_370_bf;
-@@ -1679,13 +1678,13 @@
+@@ -1679,13 +_,13 @@
        }
  
        if (p_1236_1_.field_366_bh < 0.0D || p_1236_1_.field_360_bk > 1.0D) {

@@ -1,13 +1,13 @@
 --- a/net/minecraft/src/NoiseGeneratorOctaves2.java
 +++ b/net/minecraft/src/NoiseGeneratorOctaves2.java
-@@ -1,5 +1,6 @@
+@@ -1,5 +_,6 @@
  package net.minecraft.src;
  
 +import java.util.Arrays;
  import java.util.Random;
  
  public class NoiseGeneratorOctaves2 extends NoiseGenerator {
-@@ -24,9 +25,7 @@
+@@ -24,9 +_,7 @@
        p_4111_8_ = p_4111_8_ / 1.5D;
        p_4111_10_ = p_4111_10_ / 1.5D;
        if (p_4111_1_ != null && p_4111_1_.length >= p_4111_6_ * p_4111_7_) {

@@ -1,6 +1,6 @@
 --- a/net/minecraft/src/EntityPickupFX.java
 +++ b/net/minecraft/src/EntityPickupFX.java
-@@ -37,7 +37,7 @@
+@@ -37,7 +_,7 @@
        d7 = d7 - field_659_m;
        d8 = d8 - field_658_n;
        GL11.glColor4f(f1, f1, f1, 1.0F);

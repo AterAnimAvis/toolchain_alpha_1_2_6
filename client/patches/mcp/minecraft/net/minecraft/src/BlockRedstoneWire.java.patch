@@ -1,6 +1,6 @@
 --- a/net/minecraft/src/BlockRedstoneWire.java
 +++ b/net/minecraft/src/BlockRedstoneWire.java
-@@ -223,7 +223,7 @@
+@@ -223,7 +_,7 @@
           return p_281_5_;
        } else {
           int i = p_281_1_.func_602_e(p_281_2_, p_281_3_, p_281_4_);
@@ -9,7 +9,7 @@
        }
     }
  
-@@ -301,7 +301,7 @@
+@@ -301,7 +_,7 @@
     public void func_247_b(World p_247_1_, int p_247_2_, int p_247_3_, int p_247_4_, Random p_247_5_) {
        if (p_247_1_.func_602_e(p_247_2_, p_247_3_, p_247_4_) > 0) {
           double d0 = (double)p_247_2_ + 0.5D + ((double)p_247_5_.nextFloat() - 0.5D) * 0.2D;

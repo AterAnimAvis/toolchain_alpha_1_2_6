@@ -1,6 +1,6 @@
 --- a/net/minecraft/src/EntitySheep.java
 +++ b/net/minecraft/src/EntitySheep.java
-@@ -16,9 +16,9 @@
+@@ -16,9 +_,9 @@
  
           for(int j = 0; j < i; ++j) {
              EntityItem entityitem = this.func_394_a(Block.field_419_ac.field_376_bc, 1, 1.0F);

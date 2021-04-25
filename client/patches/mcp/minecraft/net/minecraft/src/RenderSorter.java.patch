@@ -1,6 +1,6 @@
 --- a/net/minecraft/src/RenderSorter.java
 +++ b/net/minecraft/src/RenderSorter.java
-@@ -2,14 +2,14 @@
+@@ -2,14 +_,14 @@
  
  import java.util.Comparator;
  
@@ -17,7 +17,7 @@
        boolean flag = p_993_1_.field_1749_o;
        boolean flag1 = p_993_2_.field_1749_o;
        if (flag && !flag1) {
-@@ -17,8 +17,8 @@
+@@ -17,8 +_,8 @@
        } else if (flag1 && !flag) {
           return -1;
        } else {

@@ -1,6 +1,6 @@
 --- a/net/minecraft/src/TexturePackList.java
 +++ b/net/minecraft/src/TexturePackList.java
-@@ -1,6 +1,7 @@
+@@ -1,6 +_,7 @@
  package net.minecraft.src;
  
  import java.io.File;
@@ -8,7 +8,7 @@
  import java.util.ArrayList;
  import java.util.HashMap;
  import java.util.List;
-@@ -8,10 +9,10 @@
+@@ -8,10 +_,10 @@
  import net.minecraft.client.Minecraft;
  
  public class TexturePackList {
@@ -21,7 +21,7 @@
     private Minecraft field_6537_e;
     private File field_6536_f;
     private String field_6535_g;
-@@ -43,10 +44,38 @@
+@@ -43,10 +_,38 @@
     }
  
     public void func_6532_a() {
@@ -39,7 +39,7 @@
 +                  texturePackCustom.field_6488_d = str;
 +                  this.field_6538_d.put(str, texturePackCustom);
 +                  texturePackCustom.func_6485_a(this.field_6537_e);
-    }
++   }
 +               TexturePackBase texturePackBase = this.field_6538_d.get(str);
 +               if (texturePackBase.field_6487_a.equals(this.field_6535_g))
 +                  this.field_6534_a = texturePackBase;
@@ -55,7 +55,7 @@
 +         this.field_6538_d.remove(texturePackBase.field_6488_d);
 +      }
 +      this.field_6533_b = arrayList;
-+   }
+    }
  
 -   public List func_6530_b() {
 -      return new ArrayList(this.field_6533_b);

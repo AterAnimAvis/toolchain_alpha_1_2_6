@@ -1,6 +1,6 @@
 --- a/net/minecraft/src/NBTTagCompound.java
 +++ b/net/minecraft/src/NBTTagCompound.java
-@@ -7,11 +7,11 @@
+@@ -7,11 +_,11 @@
  import java.util.Map;
  
  public class NBTTagCompound extends NBTBase {

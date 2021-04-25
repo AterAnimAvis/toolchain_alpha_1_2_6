@@ -1,6 +1,6 @@
 --- a/net/minecraft/src/EntityList.java
 +++ b/net/minecraft/src/EntityList.java
-@@ -4,12 +4,12 @@
+@@ -4,12 +_,12 @@
  import java.util.Map;
  
  public class EntityList {
@@ -18,7 +18,7 @@
        field_1611_a.put(p_1080_1_, p_1080_0_);
        field_1610_b.put(p_1080_0_, p_1080_1_);
        field_1613_c.put(p_1080_2_, p_1080_0_);
-@@ -20,9 +20,9 @@
+@@ -20,9 +_,9 @@
        Entity entity = null;
  
        try {
@@ -30,7 +30,7 @@
           }
        } catch (Exception exception) {
           exception.printStackTrace();
-@@ -35,9 +35,9 @@
+@@ -35,9 +_,9 @@
        Entity entity = null;
  
        try {
@@ -42,7 +42,7 @@
           }
        } catch (Exception exception) {
           exception.printStackTrace();
-@@ -56,9 +56,9 @@
+@@ -56,9 +_,9 @@
        Entity entity = null;
  
        try {
@@ -54,7 +54,7 @@
           }
        } catch (Exception exception) {
           exception.printStackTrace();
-@@ -76,7 +76,7 @@
+@@ -76,7 +_,7 @@
     }
  
     public static String func_1083_b(Entity p_1083_0_) {

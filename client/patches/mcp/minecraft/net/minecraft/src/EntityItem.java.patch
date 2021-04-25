@@ -1,6 +1,6 @@
 --- a/net/minecraft/src/EntityItem.java
 +++ b/net/minecraft/src/EntityItem.java
-@@ -15,9 +15,9 @@
+@@ -15,9 +_,9 @@
        this.func_347_a(p_i91_2_, p_i91_4_, p_i91_6_);
        this.field_801_a = p_i91_8_;
        this.field_605_aq = (float)(Math.random() * 360.0D);
@@ -13,7 +13,7 @@
        this.field_9289_aT = false;
     }
  
-@@ -36,11 +36,11 @@
+@@ -36,11 +_,11 @@
        this.field_9285_at = this.field_611_ak;
        this.field_9284_au = this.field_610_al;
        this.field_9283_av = this.field_609_am;
@@ -29,7 +29,7 @@
           this.field_615_ag.func_623_a(this, "random.fizz", 0.4F, 2.0F + this.field_9312_bd.nextFloat() * 0.4F);
        }
  
-@@ -56,9 +56,9 @@
+@@ -56,9 +_,9 @@
           }
        }
  
@@ -42,7 +42,7 @@
        if (this.field_9298_aH) {
           this.field_607_ao *= -0.5D;
        }
-@@ -123,27 +123,27 @@
+@@ -123,27 +_,27 @@
  
           float f = this.field_9312_bd.nextFloat() * 0.2F + 0.1F;
           if (b0 == 0) {
@@ -76,7 +76,7 @@
           }
        }
  
-@@ -165,7 +165,7 @@
+@@ -165,7 +_,7 @@
     }
  
     public void func_352_a(NBTTagCompound p_352_1_) {

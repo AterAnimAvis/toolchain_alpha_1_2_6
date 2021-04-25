@@ -1,13 +1,13 @@
 --- a/net/minecraft/src/RenderList.java
 +++ b/net/minecraft/src/RenderList.java
-@@ -1,6 +1,5 @@
+@@ -1,6 +_,5 @@
  package net.minecraft.src;
  
 -import java.nio.Buffer;
  import java.nio.IntBuffer;
  import org.lwjgl.opengl.GL11;
  
-@@ -17,7 +16,7 @@
+@@ -17,7 +_,7 @@
  
     public void func_861_a(int p_861_1_, int p_861_2_, int p_861_3_, double p_861_4_, double p_861_6_, double p_861_8_) {
        this.field_1235_h = true;
@@ -16,7 +16,7 @@
        this.field_1242_a = p_861_1_;
        this.field_1241_b = p_861_2_;
        this.field_1240_c = p_861_3_;
-@@ -45,7 +44,7 @@
+@@ -45,7 +_,7 @@
     public void func_860_a() {
        if (this.field_1235_h) {
           if (!this.field_1234_i) {

@@ -1,6 +1,6 @@
 --- a/net/minecraft/src/ChunkProviderClient.java
 +++ b/net/minecraft/src/ChunkProviderClient.java
-@@ -8,8 +8,8 @@
+@@ -8,8 +_,8 @@
  
  public class ChunkProviderClient implements IChunkProvider {
     private Chunk field_887_a;
@@ -11,7 +11,7 @@
     private World field_888_d;
  
     public ChunkProviderClient(World p_i270_1_) {
-@@ -46,7 +46,7 @@
+@@ -46,7 +_,7 @@
  
     public Chunk func_533_b(int p_533_1_, int p_533_2_) {
        ChunkCoordinates chunkcoordinates = new ChunkCoordinates(p_533_1_, p_533_2_);

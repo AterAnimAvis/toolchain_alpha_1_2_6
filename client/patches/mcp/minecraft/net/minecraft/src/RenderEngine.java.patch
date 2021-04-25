@@ -1,6 +1,6 @@
 --- a/net/minecraft/src/RenderEngine.java
 +++ b/net/minecraft/src/RenderEngine.java
-@@ -5,7 +5,6 @@
+@@ -5,7 +_,6 @@
  import java.awt.image.ImageObserver;
  import java.io.IOException;
  import java.io.InputStream;
@@ -8,7 +8,7 @@
  import java.nio.ByteBuffer;
  import java.nio.IntBuffer;
  import java.util.ArrayList;
-@@ -17,12 +16,12 @@
+@@ -17,12 +_,12 @@
  
  public class RenderEngine {
     public static boolean field_1609_a = false;
@@ -25,7 +25,7 @@
     private GameSettings field_1602_h;
     private boolean field_4281_i = false;
     private boolean field_4280_j = false;
-@@ -35,12 +34,12 @@
+@@ -35,12 +_,12 @@
  
     public int func_1070_a(String p_1070_1_) {
        TexturePackBase texturepackbase = this.field_6527_k.field_6534_a;
@@ -40,7 +40,7 @@
              GLAllocation.func_1128_a(this.field_1606_d);
              int i = this.field_1606_d.get(0);
              if (p_1070_1_.startsWith("##")) {
-@@ -79,7 +78,7 @@
+@@ -79,7 +_,7 @@
     }
  
     public int func_1074_a(BufferedImage p_1074_1_) {
@@ -49,7 +49,7 @@
        GLAllocation.func_1128_a(this.field_1606_d);
        int i = this.field_1606_d.get(0);
        this.func_1068_a(p_1074_1_, i);
-@@ -136,9 +135,9 @@
+@@ -136,9 +_,9 @@
           abyte[k * 4 + 3] = (byte)l;
        }
  
@@ -61,7 +61,7 @@
        GL11.glTexImage2D(3553, 0, 6408, i, j, 0, 6408, 5121, this.field_1605_e);
        if (field_1609_a) {
           for(int j3 = 1; j3 <= 4; ++j3) {
-@@ -165,14 +164,14 @@
+@@ -165,14 +_,14 @@
  
     public void func_1078_a(int p_1078_1_) {
        this.field_1607_c.remove(p_1078_1_);
@@ -79,7 +79,7 @@
        if (threaddownloadimagedata != null && threaddownloadimagedata.field_1706_a != null && !threaddownloadimagedata.field_1707_d) {
           if (threaddownloadimagedata.field_1708_c < 0) {
              threaddownloadimagedata.field_1708_c = this.func_1074_a(threaddownloadimagedata.field_1706_a);
-@@ -187,7 +186,7 @@
+@@ -187,7 +_,7 @@
     }
  
     public ThreadDownloadImageData func_1075_a(String p_1075_1_, ImageBuffer p_1075_2_) {
@@ -88,7 +88,7 @@
        if (threaddownloadimagedata == null) {
           this.field_1603_g.put(p_1075_1_, new ThreadDownloadImageData(p_1075_1_, p_1075_2_));
        } else {
-@@ -198,7 +197,7 @@
+@@ -198,7 +_,7 @@
     }
  
     public void func_1073_b(String p_1073_1_) {
@@ -97,7 +97,7 @@
        if (threaddownloadimagedata != null) {
           --threaddownloadimagedata.field_1705_b;
           if (threaddownloadimagedata.field_1705_b == 0) {
-@@ -218,25 +217,24 @@
+@@ -218,25 +_,24 @@
     }
  
     public void func_1067_a() {
@@ -131,7 +131,7 @@
                             int i2 = this.field_1605_e.getInt((k1 * 2 + 0 + (l1 * 2 + 0) * i1) * 4);
                             int j2 = this.field_1605_e.getInt((k1 * 2 + 1 + (l1 * 2 + 0) * i1) * 4);
                             int k2 = this.field_1605_e.getInt((k1 * 2 + 1 + (l1 * 2 + 1) * i1) * 4);
-@@ -253,21 +251,20 @@
+@@ -253,21 +_,20 @@
           }
        }
  
@@ -159,7 +159,7 @@
                          int l4 = this.field_1605_e.getInt((j4 * 2 + 0 + (k4 * 2 + 0) * l3) * 4);
                          int i5 = this.field_1605_e.getInt((j4 * 2 + 1 + (k4 * 2 + 0) * l3) * 4);
                          int j5 = this.field_1605_e.getInt((j4 * 2 + 1 + (k4 * 2 + 1) * l3) * 4);
-@@ -314,8 +311,36 @@
+@@ -314,7 +_,35 @@
     }
  
     public void func_1065_b() {
@@ -168,7 +168,7 @@
 +      for (int i : this.field_1607_c.keySet()) {
 +         BufferedImage bufferedImage = this.field_1607_c.get(i);
 +         func_1068_a(bufferedImage, i);
-    }
++   }
 +      for (ThreadDownloadImageData threadDownloadImageData : this.field_1603_g.values())
 +         threadDownloadImageData.field_1707_d = false;
 +      for (String str : this.field_6528_b.keySet()) {
@@ -193,7 +193,6 @@
 +            iOException.printStackTrace();
 +         }
 +      }
-+   }
+    }
  
     private BufferedImage func_6526_a(InputStream p_6526_1_) throws IOException {
-       BufferedImage bufferedimage = ImageIO.read(p_6526_1_);

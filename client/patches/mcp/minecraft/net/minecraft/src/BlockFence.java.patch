@@ -1,6 +1,6 @@
 --- a/net/minecraft/src/BlockFence.java
 +++ b/net/minecraft/src/BlockFence.java
-@@ -7,8 +7,8 @@
+@@ -7,8 +_,8 @@
        super(p_i127_1_, p_i127_2_, Material.field_1335_c);
     }
  

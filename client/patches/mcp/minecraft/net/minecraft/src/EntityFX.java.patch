@@ -1,6 +1,6 @@
 --- a/net/minecraft/src/EntityFX.java
 +++ b/net/minecraft/src/EntityFX.java
-@@ -38,9 +38,9 @@
+@@ -38,9 +_,9 @@
     }
  
     public EntityFX func_407_b(float p_407_1_) {
@@ -12,7 +12,7 @@
        return this;
     }
  
-@@ -60,12 +60,12 @@
+@@ -60,12 +_,12 @@
  
        this.field_607_ao -= 0.04D * (double)this.field_664_h;
        this.func_349_c(this.field_608_an, this.field_607_ao, this.field_606_ap);
@@ -30,7 +30,7 @@
        }
  
     }
-@@ -81,10 +81,10 @@
+@@ -81,10 +_,10 @@
        float f7 = (float)(this.field_9283_av + (this.field_609_am - this.field_9283_av) * (double)p_406_2_ - field_658_n);
        float f8 = this.func_382_a(p_406_2_);
        p_406_1_.func_987_a(this.field_663_i * f8, this.field_662_j * f8, this.field_661_k * f8);

@@ -1,6 +1,6 @@
 --- a/net/minecraft/src/EntitySorter.java
 +++ b/net/minecraft/src/EntitySorter.java
-@@ -2,14 +2,14 @@
+@@ -2,14 +_,14 @@
  
  import java.util.Comparator;
  

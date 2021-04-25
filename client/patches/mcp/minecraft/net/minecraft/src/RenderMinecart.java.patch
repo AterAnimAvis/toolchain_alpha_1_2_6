@@ -1,6 +1,6 @@
 --- a/net/minecraft/src/RenderMinecart.java
 +++ b/net/minecraft/src/RenderMinecart.java
-@@ -2,7 +2,7 @@
+@@ -2,7 +_,7 @@
  
  import org.lwjgl.opengl.GL11;
  
@@ -9,7 +9,7 @@
     protected ModelBase field_195_d;
  
     public RenderMinecart() {
-@@ -10,12 +10,17 @@
+@@ -10,12 +_,17 @@
        this.field_195_d = new ModelMinecart();
     }
  

@@ -1,6 +1,6 @@
 --- a/net/minecraft/src/SpawnerAnimals.java
 +++ b/net/minecraft/src/SpawnerAnimals.java
-@@ -4,7 +4,7 @@
+@@ -4,7 +_,7 @@
  import java.util.Set;
  
  public final class SpawnerAnimals {
@@ -9,7 +9,7 @@
  
     protected static ChunkPosition func_4153_a(World p_4153_0_, int p_4153_1_, int p_4153_2_) {
        int i = p_4153_1_ + p_4153_0_.field_1037_n.nextInt(16);
-@@ -13,11 +13,11 @@
+@@ -13,11 +_,11 @@
        return new ChunkPosition(i, j, k);
     }
  
@@ -23,7 +23,7 @@
           int j = MathHelper.func_1108_b(entityplayer.field_611_ak / 16.0D);
           int k = MathHelper.func_1108_b(entityplayer.field_609_am / 16.0D);
           byte b0 = 8;
-@@ -35,13 +35,13 @@
+@@ -35,13 +_,13 @@
           EnumCreatureType enumcreaturetype = EnumCreatureType.values()[i4];
           if (p_4154_0_.func_621_b(enumcreaturetype.field_4278_c) <= enumcreaturetype.field_4277_d * field_6544_a.size() / 256) {
              label110:
@@ -40,7 +40,7 @@
                       int k1 = chunkposition.field_1111_a;
                       int l1 = chunkposition.field_1110_b;
                       int i2 = chunkposition.field_1112_c;
-@@ -62,12 +62,13 @@
+@@ -62,12 +_,13 @@
                                   float f = (float)l2 + 0.5F;
                                   float f1 = (float)i3;
                                   float f2 = (float)j3 + 0.5F;
@@ -55,7 +55,7 @@
                                         try {
                                            entityliving = (EntityLiving)aclass[j1].getConstructor(World.class).newInstance(p_4154_0_);
                                         } catch (Exception exception) {
-@@ -75,13 +76,13 @@
+@@ -75,13 +_,13 @@
                                            return l3;
                                         }
  

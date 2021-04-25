@@ -1,6 +1,6 @@
 --- a/net/minecraft/src/WorldGenMinable.java
 +++ b/net/minecraft/src/WorldGenMinable.java
-@@ -13,12 +13,12 @@
+@@ -13,12 +_,12 @@
  
     public boolean func_516_a(World p_516_1_, Random p_516_2_, int p_516_3_, int p_516_4_, int p_516_5_) {
        float f = p_516_2_.nextFloat() * (float)Math.PI;

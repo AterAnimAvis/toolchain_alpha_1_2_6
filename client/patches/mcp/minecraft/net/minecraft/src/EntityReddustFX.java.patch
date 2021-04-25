@@ -1,6 +1,6 @@
 --- a/net/minecraft/src/EntityReddustFX.java
 +++ b/net/minecraft/src/EntityReddustFX.java
-@@ -9,9 +9,9 @@
+@@ -9,9 +_,9 @@
  
     public EntityReddustFX(World p_i106_1_, double p_i106_2_, double p_i106_4_, double p_i106_6_, float p_i106_8_) {
        super(p_i106_1_, p_i106_2_, p_i106_4_, p_i106_6_, 0.0D, 0.0D, 0.0D);
@@ -13,7 +13,7 @@
        this.field_663_i = (float)(Math.random() * (double)0.3F) + 0.7F;
        this.field_662_j = this.field_661_k = (float)(Math.random() * (double)0.1F);
        this.field_665_g *= 0.75F;
-@@ -51,12 +51,12 @@
+@@ -51,12 +_,12 @@
           this.field_606_ap *= 1.1D;
        }
  

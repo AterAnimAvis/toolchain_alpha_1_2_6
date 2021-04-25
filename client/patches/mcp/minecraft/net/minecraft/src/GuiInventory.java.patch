@@ -1,6 +1,6 @@
 --- a/net/minecraft/src/GuiInventory.java
 +++ b/net/minecraft/src/GuiInventory.java
-@@ -66,10 +66,10 @@
+@@ -66,10 +_,10 @@
        GL11.glRotatef(135.0F, 0.0F, 1.0F, 0.0F);
        RenderHelper.func_1158_b();
        GL11.glRotatef(-135.0F, 0.0F, 1.0F, 0.0F);

@@ -1,6 +1,6 @@
 --- a/net/minecraft/src/Explosion.java
 +++ b/net/minecraft/src/Explosion.java
-@@ -15,7 +15,7 @@
+@@ -15,7 +_,7 @@
     public double field_12254_d;
     public Entity field_12253_e;
     public float field_12252_f;
@@ -9,7 +9,7 @@
  
     public Explosion(World p_i218_1_, Entity p_i218_2_, double p_i218_3_, double p_i218_5_, double p_i218_7_, float p_i218_9_) {
        this.field_12249_i = p_i218_1_;
-@@ -34,9 +34,9 @@
+@@ -34,9 +_,9 @@
           for(int j = 0; j < b0; ++j) {
              for(int k = 0; k < b0; ++k) {
                 if (i == 0 || i == b0 - 1 || j == 0 || j == b0 - 1 || k == 0 || k == b0 - 1) {
@@ -22,7 +22,7 @@
                    double d3 = Math.sqrt(d0 * d0 + d1 * d1 + d2 * d2);
                    d0 = d0 / d3;
                    d1 = d1 / d3;
-@@ -75,23 +75,22 @@
+@@ -75,23 +_,22 @@
        int k3 = MathHelper.func_1108_b(this.field_12255_c + (double)this.field_12252_f + 1.0D);
        int l = MathHelper.func_1108_b(this.field_12254_d - (double)this.field_12252_f - 1.0D);
        int l3 = MathHelper.func_1108_b(this.field_12254_d + (double)this.field_12252_f + 1.0D);
@@ -52,7 +52,7 @@
              entity.field_608_an += d8 * d13;
              entity.field_607_ao += d9 * d13;
              entity.field_606_ap += d10 * d13;
-@@ -99,11 +98,10 @@
+@@ -99,11 +_,10 @@
        }
  
        this.field_12252_f = f;
@@ -66,7 +66,7 @@
              int j4 = chunkposition.field_1111_a;
              int k4 = chunkposition.field_1110_b;
              int j1 = chunkposition.field_1112_c;
-@@ -119,24 +117,23 @@
+@@ -119,24 +_,23 @@
  
     public void func_12247_b() {
        this.field_12249_i.func_684_a(this.field_12256_b, this.field_12255_c, this.field_12254_d, "random.explode", 4.0F, (1.0F + (this.field_12249_i.field_1037_n.nextFloat() - this.field_12249_i.field_1037_n.nextFloat()) * 0.2F) * 0.7F);
@@ -97,7 +97,7 @@
              d3 = d3 / d6;
              d4 = d4 / d6;
              d5 = d5 / d6;
-@@ -145,7 +142,7 @@
+@@ -145,7 +_,7 @@
              d3 = d3 * d7;
              d4 = d4 * d7;
              d5 = d5 * d7;

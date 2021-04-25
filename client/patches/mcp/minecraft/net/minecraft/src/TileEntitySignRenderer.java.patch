@@ -1,6 +1,6 @@
 --- a/net/minecraft/src/TileEntitySignRenderer.java
 +++ b/net/minecraft/src/TileEntitySignRenderer.java
-@@ -2,9 +2,14 @@
+@@ -2,9 +_,14 @@
  
  import org.lwjgl.opengl.GL11;
  
@@ -16,16 +16,18 @@
     public void func_932_a(TileEntitySign p_932_1_, double p_932_2_, double p_932_4_, double p_932_6_, float p_932_8_) {
        Block block = p_932_1_.func_478_g();
        GL11.glPushMatrix();
-@@ -52,11 +57,9 @@
+@@ -52,11 +_,9 @@
           String s = p_932_1_.field_826_a[i];
           if (i == p_932_1_.field_825_b) {
              s = "> " + s + " <";
-+         }
-             fontrenderer.func_873_b(s, -fontrenderer.func_871_a(s) / 2, i * 10 - p_932_1_.field_826_a.length * 5, b0);
+-            fontrenderer.func_873_b(s, -fontrenderer.func_871_a(s) / 2, i * 10 - p_932_1_.field_826_a.length * 5, b0);
 -         } else {
 -            fontrenderer.func_873_b(s, -fontrenderer.func_871_a(s) / 2, i * 10 - p_932_1_.field_826_a.length * 5, b0);
-          }
+-         }
 -      }
++         }
++            fontrenderer.func_873_b(s, -fontrenderer.func_871_a(s) / 2, i * 10 - p_932_1_.field_826_a.length * 5, b0);
++         }
  
        GL11.glDepthMask(true);
        GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);

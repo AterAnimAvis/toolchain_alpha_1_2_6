@@ -1,6 +1,6 @@
 --- a/net/minecraft/src/BlockFurnace.java
 +++ b/net/minecraft/src/BlockFurnace.java
-@@ -69,17 +69,17 @@
+@@ -69,17 +_,17 @@
           float f3 = 0.52F;
           float f4 = p_247_5_.nextFloat() * 0.6F - 0.3F;
           if (i == 4) {
@@ -26,7 +26,7 @@
           }
  
        }
-@@ -119,7 +119,7 @@
+@@ -119,7 +_,7 @@
     }
  
     public void func_4026_a(World p_4026_1_, int p_4026_2_, int p_4026_3_, int p_4026_4_, EntityLiving p_4026_5_) {

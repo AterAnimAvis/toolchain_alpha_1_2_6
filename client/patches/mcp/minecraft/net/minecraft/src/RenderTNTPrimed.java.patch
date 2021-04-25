@@ -1,6 +1,6 @@
 --- a/net/minecraft/src/RenderTNTPrimed.java
 +++ b/net/minecraft/src/RenderTNTPrimed.java
-@@ -2,13 +2,18 @@
+@@ -2,11 +_,16 @@
  
  import org.lwjgl.opengl.GL11;
  
@@ -10,13 +10,11 @@
  
     public RenderTNTPrimed() {
        this.field_9246_c = 0.5F;
-    }
- 
++   }
++
 +   @Override
 +   public void func_147_a(EntityTNTPrimed p_147_1_, double p_147_2_, double p_147_4_, double p_147_6_, float p_147_8_, float p_147_9_) {
 +      func_153_a(p_147_1_, p_147_2_, p_147_4_, p_147_6_, p_147_8_, p_147_9_);
-+   }
-+
+    }
+ 
     public void func_153_a(EntityTNTPrimed p_153_1_, double p_153_2_, double p_153_4_, double p_153_6_, float p_153_8_, float p_153_9_) {
-       GL11.glPushMatrix();
-       GL11.glTranslatef((float)p_153_2_, (float)p_153_4_, (float)p_153_6_);

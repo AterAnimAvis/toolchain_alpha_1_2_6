@@ -1,6 +1,6 @@
 --- a/net/minecraft/src/CanvasIsomPreview.java
 +++ b/net/minecraft/src/CanvasIsomPreview.java
-@@ -26,7 +26,7 @@
+@@ -26,7 +_,7 @@
     private World field_1790_d;
     private File field_1789_e;
     private boolean field_1788_f = true;
@@ -9,7 +9,7 @@
     private IsoImageBuffer[][] field_1786_h = new IsoImageBuffer[64][64];
     private int field_1785_i;
     private int field_1784_j;
-@@ -41,9 +41,32 @@
+@@ -41,8 +_,31 @@
        return this.field_1789_e;
     }
  
@@ -27,7 +27,7 @@
 +            if (str2 != null) {
 +               file = new File(str2, "." + param1 + '/');
 +               break;
-    }
++   }
 +            file = new File(str1, '.' + param1 + '/');
 +            break;
 +         case 4:
@@ -40,11 +40,10 @@
 +      if (!file.exists() && !file.mkdirs())
 +         throw new RuntimeException("The working directory could not be created: " + file);
 +      return file;
-+   }
+    }
  
     private static EnumOS1 func_1269_e() {
-       String s = System.getProperty("os.name").toLowerCase();
-@@ -189,7 +212,7 @@
+@@ -189,7 +_,7 @@
        p_1268_1_.setClip(0, 0, this.getWidth(), this.getHeight());
        p_1268_1_.setRenderingHint(RenderingHints.KEY_INTERPOLATION, RenderingHints.VALUE_INTERPOLATION_NEAREST_NEIGHBOR);
        p_1268_1_.translate(this.getWidth() / 2, this.getHeight() / 2);

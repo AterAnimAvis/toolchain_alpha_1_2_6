@@ -1,6 +1,6 @@
 --- a/net/minecraft/src/TexturePortalFX.java
 +++ b/net/minecraft/src/TexturePortalFX.java
-@@ -37,7 +37,7 @@
+@@ -37,7 +_,7 @@
                    }
  
                    float f5 = f3 * f3 + f4 * f4;

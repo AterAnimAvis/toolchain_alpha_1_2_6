@@ -1,6 +1,6 @@
 --- a/net/minecraft/src/PositionTexureVertex.java
 +++ b/net/minecraft/src/PositionTexureVertex.java
-@@ -6,7 +6,7 @@
+@@ -6,7 +_,7 @@
     public float field_1656_c;
  
     public PositionTexureVertex(float p_i97_1_, float p_i97_2_, float p_i97_3_, float p_i97_4_, float p_i97_5_) {

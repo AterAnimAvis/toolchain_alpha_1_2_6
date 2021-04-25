@@ -1,6 +1,6 @@
 --- a/net/minecraft/src/BlockTorch.java
 +++ b/net/minecraft/src/BlockTorch.java
-@@ -150,11 +150,11 @@
+@@ -150,11 +_,11 @@
  
     public void func_247_b(World p_247_1_, int p_247_2_, int p_247_3_, int p_247_4_, Random p_247_5_) {
        int i = p_247_1_.func_602_e(p_247_2_, p_247_3_, p_247_4_);

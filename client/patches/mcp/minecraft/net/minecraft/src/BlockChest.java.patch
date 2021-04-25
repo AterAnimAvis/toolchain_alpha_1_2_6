@@ -1,6 +1,6 @@
 --- a/net/minecraft/src/BlockChest.java
 +++ b/net/minecraft/src/BlockChest.java
-@@ -165,11 +165,11 @@
+@@ -165,11 +_,11 @@
                 }
  
                 itemstack.field_1615_a -= j;
@@ -16,7 +16,7 @@
                 p_214_1_.func_674_a(entityitem);
              }
           }
-@@ -179,7 +179,7 @@
+@@ -179,7 +_,7 @@
     }
  
     public boolean func_250_a(World p_250_1_, int p_250_2_, int p_250_3_, int p_250_4_, EntityPlayer p_250_5_) {
@@ -25,7 +25,7 @@
        if (p_250_1_.func_601_g(p_250_2_, p_250_3_ + 1, p_250_4_)) {
           return true;
        } else if (p_250_1_.func_600_a(p_250_2_ - 1, p_250_3_, p_250_4_) == this.field_376_bc && p_250_1_.func_601_g(p_250_2_ - 1, p_250_3_ + 1, p_250_4_)) {
-@@ -192,22 +192,22 @@
+@@ -192,22 +_,22 @@
           return true;
        } else {
           if (p_250_1_.func_600_a(p_250_2_ - 1, p_250_3_, p_250_4_) == this.field_376_bc) {

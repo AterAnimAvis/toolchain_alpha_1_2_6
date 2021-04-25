@@ -1,15 +1,16 @@
 --- a/net/minecraft/src/EntityMobs.java
 +++ b/net/minecraft/src/EntityMobs.java
-@@ -37,11 +37,9 @@
+@@ -37,11 +_,9 @@
                 this.field_751_f = p_396_1_;
              }
  
-+         }
-             return true;
-          } else {
 -            return true;
--         }
+-         } else {
+-            return true;
+          }
 -      } else {
++            return true;
++         } else {
           return false;
        }
     }

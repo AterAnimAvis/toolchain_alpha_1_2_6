@@ -1,6 +1,6 @@
 --- a/net/minecraft/src/EnumCreatureType.java
 +++ b/net/minecraft/src/EnumCreatureType.java
-@@ -7,7 +7,7 @@
+@@ -7,7 +_,7 @@
     public final Class field_4278_c;
     public final int field_4277_d;
  

@@ -1,6 +1,6 @@
 --- a/net/minecraft/src/MapGenCavesHell.java
 +++ b/net/minecraft/src/MapGenCavesHell.java
-@@ -8,8 +8,8 @@
+@@ -8,8 +_,8 @@
     }
  
     protected void func_4128_a(int p_4128_1_, int p_4128_2_, byte[] p_4128_3_, double p_4128_4_, double p_4128_6_, double p_4128_8_, float p_4128_10_, float p_4128_11_, float p_4128_12_, int p_4128_13_, int p_4128_14_, double p_4128_15_) {
@@ -11,7 +11,7 @@
        float f = 0.0F;
        float f1 = 0.0F;
        Random random = new Random(this.field_1305_b.nextLong());
-@@ -31,9 +31,9 @@
+@@ -31,9 +_,9 @@
           double d3 = d2 * p_4128_15_;
           float f2 = MathHelper.func_1114_b(p_4128_12_);
           float f3 = MathHelper.func_1106_a(p_4128_12_);
@@ -24,7 +24,7 @@
           if (flag) {
              p_4128_12_ = p_4128_12_ * 0.92F;
           } else {
-@@ -55,8 +55,8 @@
+@@ -55,8 +_,8 @@
           if (flag1 || random.nextInt(4) != 0) {
              double d4 = p_4128_4_ - d0;
              double d5 = p_4128_8_ - d1;
@@ -35,7 +35,7 @@
              if (d4 * d4 + d5 * d5 - d6 * d6 > d7 * d7) {
                 return;
              }
-@@ -150,9 +150,9 @@
+@@ -150,9 +_,9 @@
        }
  
        for(int j = 0; j < i; ++j) {

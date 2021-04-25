@@ -1,6 +1,6 @@
 --- a/net/minecraft/src/RenderBoat.java
 +++ b/net/minecraft/src/RenderBoat.java
-@@ -2,7 +2,7 @@
+@@ -2,12 +_,17 @@
  
  import org.lwjgl.opengl.GL11;
  
@@ -9,15 +9,13 @@
     protected ModelBase field_198_d;
  
     public RenderBoat() {
-@@ -10,6 +10,11 @@
+       this.field_9246_c = 0.5F;
        this.field_198_d = new ModelBoat();
-    }
- 
++   }
++
 +   @Override
 +   public void func_147_a(EntityBoat p_147_1_, double p_147_2_, double p_147_4_, double p_147_6_, float p_147_8_, float p_147_9_) {
 +      func_157_a(p_147_1_, p_147_2_, p_147_4_, p_147_6_, p_147_8_, p_147_9_);
-+   }
-+
+    }
+ 
     public void func_157_a(EntityBoat p_157_1_, double p_157_2_, double p_157_4_, double p_157_6_, float p_157_8_, float p_157_9_) {
-       GL11.glPushMatrix();
-       GL11.glTranslatef((float)p_157_2_, (float)p_157_4_, (float)p_157_6_);

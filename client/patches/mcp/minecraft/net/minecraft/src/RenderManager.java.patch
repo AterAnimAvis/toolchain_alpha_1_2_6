@@ -1,6 +1,6 @@
 --- a/net/minecraft/src/RenderManager.java
 +++ b/net/minecraft/src/RenderManager.java
-@@ -1,10 +1,11 @@
+@@ -1,10 +_,11 @@
  package net.minecraft.src;
  
 +import java.util.HashMap;
@@ -13,7 +13,7 @@
     public static RenderManager field_1233_a = new RenderManager();
     private FontRenderer field_1218_p;
     public static double field_1232_b;
-@@ -22,11 +23,36 @@
+@@ -22,11 +_,36 @@
     public double field_1220_n;
  
     private RenderManager() {
@@ -53,7 +53,7 @@
        if (render == null && p_4117_1_ != Entity.class) {
           render = this.func_4117_a(p_4117_1_.getSuperclass());
           this.field_6501_o.put(p_4117_1_, render);
-@@ -35,8 +61,9 @@
+@@ -35,8 +_,9 @@
        return render;
     }
  
@@ -65,7 +65,7 @@
     }
  
     public void func_857_a(World p_857_1_, RenderEngine p_857_2_, FontRenderer p_857_3_, EntityPlayer p_857_4_, GameSettings p_857_5_, float p_857_6_) {
-@@ -62,8 +89,8 @@
+@@ -62,8 +_,8 @@
        this.func_853_a(p_854_1_, d0 - field_1232_b, d1 - field_1231_c, d2 - field_1230_d, f, p_854_2_);
     }
  

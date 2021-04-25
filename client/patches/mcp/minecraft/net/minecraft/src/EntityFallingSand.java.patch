@@ -1,6 +1,6 @@
 --- a/net/minecraft/src/EntityFallingSand.java
 +++ b/net/minecraft/src/EntityFallingSand.java
-@@ -14,14 +14,14 @@
+@@ -14,14 +_,14 @@
        this.field_618_ad = true;
        this.func_371_a(0.98F, 0.98F);
        this.field_9292_aO = this.field_643_aD / 2.0F;
@@ -19,7 +19,7 @@
     }
  
     public boolean func_401_c_() {
-@@ -36,11 +36,11 @@
+@@ -36,11 +_,11 @@
           this.field_9284_au = this.field_610_al;
           this.field_9283_av = this.field_609_am;
           ++this.field_798_b;
@@ -35,7 +35,7 @@
           int i = MathHelper.func_1108_b(this.field_611_ak);
           int j = MathHelper.func_1108_b(this.field_610_al);
           int k = MathHelper.func_1108_b(this.field_609_am);
-@@ -49,8 +49,8 @@
+@@ -49,8 +_,8 @@
           }
  
           if (this.field_9298_aH) {

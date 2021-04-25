@@ -1,6 +1,6 @@
 --- a/net/minecraft/src/EntityTNTPrimed.java
 +++ b/net/minecraft/src/EntityTNTPrimed.java
-@@ -14,9 +14,9 @@
+@@ -14,9 +_,9 @@
        this(p_i217_1_);
        this.func_347_a(p_i217_2_, p_i217_4_, p_i217_6_);
        float f = (float)(Math.random() * (double)(float)Math.PI * 2.0D);
@@ -13,7 +13,7 @@
        this.field_9289_aT = false;
        this.field_689_a = 80;
        this.field_9285_at = p_i217_2_;
-@@ -32,14 +32,14 @@
+@@ -32,14 +_,14 @@
        this.field_9285_at = this.field_611_ak;
        this.field_9284_au = this.field_610_al;
        this.field_9283_av = this.field_609_am;

@@ -1,6 +1,6 @@
 --- a/net/minecraft/src/WorldRenderer.java
 +++ b/net/minecraft/src/WorldRenderer.java
-@@ -36,10 +36,10 @@
+@@ -36,10 +_,10 @@
     public int field_1732_z;
     public boolean field_1747_A;
     private boolean field_1739_E = false;
@@ -14,7 +14,7 @@
        this.field_1763_a = p_i37_1_;
        this.field_1737_F = p_i37_2_;
        this.field_1758_f = this.field_1757_g = this.field_1756_h = p_i37_6_;
-@@ -66,9 +66,9 @@
+@@ -66,9 +_,9 @@
           this.field_1754_j = p_1197_2_ - this.field_1751_m;
           this.field_1753_k = p_1197_3_ - this.field_1750_n;
           float f = 2.0F;
@@ -26,7 +26,7 @@
           GL11.glEndList();
           this.func_1194_f();
        }
-@@ -93,8 +93,7 @@
+@@ -93,8 +_,7 @@
           }
  
           Chunk.field_1540_a = false;
@@ -36,7 +36,7 @@
           this.field_1745_B.clear();
           byte b0 = 1;
           ChunkCache chunkcache = new ChunkCache(this.field_1763_a, i - b0, j - b0, k - b0, l + b0, i1 + b0, j1 + b0);
-@@ -120,7 +119,7 @@
+@@ -120,7 +_,7 @@
                             GL11.glScalef(f, f, f);
                             GL11.glTranslatef((float)this.field_1756_h / 2.0F, (float)this.field_1757_g / 2.0F, (float)this.field_1756_h / 2.0F);
                             field_1742_D.func_977_b();
@@ -45,7 +45,7 @@
                          }
  
                          if (l1 == 0 && Block.field_342_q[l2]) {
-@@ -160,8 +159,7 @@
+@@ -160,8 +_,7 @@
              }
           }
  

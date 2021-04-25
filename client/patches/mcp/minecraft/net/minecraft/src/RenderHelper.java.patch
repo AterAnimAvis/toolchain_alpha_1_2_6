@@ -1,13 +1,13 @@
 --- a/net/minecraft/src/RenderHelper.java
 +++ b/net/minecraft/src/RenderHelper.java
-@@ -1,6 +1,5 @@
+@@ -1,6 +_,5 @@
  package net.minecraft.src;
  
 -import java.nio.Buffer;
  import java.nio.FloatBuffer;
  import org.lwjgl.opengl.GL11;
  
-@@ -23,12 +22,12 @@
+@@ -23,12 +_,12 @@
        float f = 0.4F;
        float f1 = 0.6F;
        float f2 = 0.0F;
@@ -22,7 +22,7 @@
        GL11.glLight(16385, 4611, func_1157_a(vec3d.field_1776_a, vec3d.field_1775_b, vec3d.field_1779_c, 0.0D));
        GL11.glLight(16385, 4609, func_1156_a(f1, f1, f1, 1.0F));
        GL11.glLight(16385, 4608, func_1156_a(0.0F, 0.0F, 0.0F, 1.0F));
-@@ -42,9 +41,9 @@
+@@ -42,9 +_,9 @@
     }
  
     private static FloatBuffer func_1156_a(float p_1156_0_, float p_1156_1_, float p_1156_2_, float p_1156_3_) {
