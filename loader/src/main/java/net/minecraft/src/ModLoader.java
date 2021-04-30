@@ -2,6 +2,7 @@ package net.minecraft.src;
 
 import java.awt.image.BufferedImage;
 import java.io.InputStream;
+import java.lang.reflect.Field;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.nio.IntBuffer;
@@ -21,6 +22,7 @@ import org.lwjgl.opengl.GL11;
 import org.lwjgl.opengl.GL12;
 import net.minecraft.client.Minecraft;
 import net.minecraft.src.modloader.ModLoaderExt;
+import net.minecraft.src.modloader.ReflectionHelper;
 import net.minecraft.src.modloader.SpriteHandler;
 
 public abstract class ModLoader {
@@ -118,7 +120,12 @@ public abstract class ModLoader {
      * @throws NoSuchFieldException if field does not exist.
      */
     public static <T> T getPrivateValue(Object instance, int fieldindex) throws SecurityException, NoSuchFieldException {
-        throw new UnsupportedOperationException();
+        try {
+            //noinspection unchecked
+            return (T) ReflectionHelper.getFieldByIndex(instance.getClass(), fieldindex).get(instance);
+        } catch (IllegalAccessException | IllegalArgumentException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     /**
@@ -132,7 +139,31 @@ public abstract class ModLoader {
      * @throws NoSuchFieldException if field does not exist.
      */
     public static <T> T getPrivateValue(Object instance, String field) throws SecurityException, NoSuchFieldException {
-        throw new UnsupportedOperationException();
+        try {
+            //noinspection unchecked
+            return (T) ReflectionHelper.getField(instance.getClass(), field).get(instance);
+        } catch (IllegalAccessException | IllegalArgumentException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    /**
+     * Used for setting value of private fields.
+     *
+     * @param instance   Object to get private field from.
+     * @param fieldindex Name of the field.
+     * @param value      Value to set.
+     * @param <T>        Return type.
+     * @throws SecurityException    if the thread is not allowed to access field.
+     * @throws NoSuchFieldException if field does not exist.
+     */
+    public static <T> void setPrivateValue(Object instance, int fieldindex, T value) throws SecurityException, NoSuchFieldException {
+        try {
+            Field f = ReflectionHelper.getFieldByIndex(instance.getClass(), fieldindex);
+            f.set(instance, value);
+        } catch (IllegalAccessException | IllegalArgumentException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     /**
@@ -146,7 +177,12 @@ public abstract class ModLoader {
      * @throws NoSuchFieldException if field does not exist.
      */
     public static <T> void setPrivateValue(Object instance, String field, T value) throws SecurityException, NoSuchFieldException {
-        throw new UnsupportedOperationException();
+        try {
+            Field f = ReflectionHelper.getField(instance.getClass(), field);
+            f.set(instance, value);
+        } catch (IllegalAccessException | IllegalArgumentException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     /**
@@ -234,6 +270,8 @@ public abstract class ModLoader {
      * @see BaseMod#RegisterTextureOverrides()
      */
     public static void RegisterAllTextureOverrides(RenderEngine texCache) {
+        if (texturesOverridden) return;
+
         texturesOverridden = true;
 
         Loader.forEach(BaseMod::RegisterTextureOverrides);
