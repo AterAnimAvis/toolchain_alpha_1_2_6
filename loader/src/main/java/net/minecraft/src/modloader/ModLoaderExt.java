@@ -1,6 +1,7 @@
 package net.minecraft.src.modloader;
 
 import com.github.ateranimavis.toploader.loader.Loader;
+import com.github.ateranimavis.toploader.loader.mixin.compat.EntityPlayerSPMixin;
 import net.minecraft.client.Minecraft;
 import net.minecraft.src.EntityPlayerSP;
 import net.minecraft.src.GuiScreen;
@@ -15,24 +16,20 @@ public abstract class ModLoaderExt {
     private static Minecraft minecraft;
 
     /**
-     * TODO: Implement this on EntityPlayerSP somehow which makes older mods compatible
-     *
      * @param instance - context object
-     * @see EntityPlayerSP#openModGUI(Object)
+     * @see EntityPlayerSPMixin#openModGUI(Object)
      */
-    public void openModGui(EntityPlayerSP player, Object instance) {
+    public static void openModGui(EntityPlayerSP player, Object instance) {
         GuiScreen gui = ModLoader.OpenModGUI(player, instance);
         if (gui != null)
             minecraft.displayGuiScreen(gui);
     }
 
     /**
-     * TODO: Implement this on EntityPlayerSP somehow which makes older mods compatible
-     *
-     * @param gui - TODO:
-     * @see EntityPlayerSP#openModGUI(Object)
+     * @param gui - The class the current open gui should extends or null
+     * @see EntityPlayerSPMixin#isGUIOpen(Class)
      */
-    public boolean isGUIOpen(Class<? extends GuiScreen> gui) {
+    public static boolean isGUIOpen(Class<? extends GuiScreen> gui) {
         if (gui == null) return minecraft.currentScreen == null;
 
         if (minecraft.currentScreen == null) return false;

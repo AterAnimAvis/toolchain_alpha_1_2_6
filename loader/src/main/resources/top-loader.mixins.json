@@ -4,6 +4,7 @@
   "compatibilityLevel": "JAVA_8",
   "refmap": "launcher.refmap.json",
   "client": [
+    "compat.EntityPlayerSPMixin",
     "loader.MinecraftInstanceMixin",
     "recipe.FuelMixin",
     "recipe.SmeltingMixin",
