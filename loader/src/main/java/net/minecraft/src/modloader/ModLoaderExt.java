@@ -15,6 +15,8 @@ public abstract class ModLoaderExt {
 
     private static Minecraft minecraft;
 
+    public static boolean doEarlyTextureLoad = true;
+
     /**
      * @param instance - context object
      * @see EntityPlayerSPMixin#openModGUI(Object)
