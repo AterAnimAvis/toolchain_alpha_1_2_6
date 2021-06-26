@@ -53,6 +53,7 @@ dependencies {
 
     api(group = "org.apache.logging.log4j", name = "log4j-api", version = "2.11.2")
     runtimeOnly(group = "org.apache.logging.log4j", name = "log4j-core", version = "2.11.2")
+    implementation(group = "org.apache.logging.log4j", name = "log4j-jul", version = "2.11.2")
 
     //------------------------------------------------------------------------------------------------------------------
     // Launcher Implementation
@@ -67,6 +68,9 @@ dependencies {
     runtimeOnly(group = "org.ow2.asm", name = "asm-commons", version = "7.2")
     runtimeOnly(group = "org.ow2.asm", name = "asm-tree", version = "7.2")
     runtimeOnly(group = "org.ow2.asm", name = "asm-util", version = "7.2")
+
+    runtimeOnly(group = "net.minecrell", name = "terminalconsoleappender", version = "1.2.0")
+    runtimeOnly(group = "org.jline", name = "jline-terminal-jansi", version = "3.12.1")
 
     //------------------------------------------------------------------------------------------------------------------
     // Mixins

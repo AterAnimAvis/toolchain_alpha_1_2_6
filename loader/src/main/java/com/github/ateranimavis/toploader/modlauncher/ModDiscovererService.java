@@ -8,6 +8,8 @@ import java.util.Set;
 
 import com.github.ateranimavis.toploader.modlauncher.urlhandler.ModLocatorURL;
 import com.github.ateranimavis.toploader.util.JarVersionLookupHandler;
+import com.github.ateranimavis.toploader.util.logging.JULLogging;
+import com.github.ateranimavis.toploader.util.logging.TracingPrintStream;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.Maps;
 import org.apache.logging.log4j.LogManager;
@@ -58,6 +60,15 @@ public final class ModDiscovererService implements ITransformationService {
     @Override
     public void onLoad(final @NotNull IEnvironment env, final @NotNull Set<String> otherServices) {
         LOGGER.info("TopLoader Version {} Loading", JarVersionLookupHandler.getImplementationVersion(ModDiscovererService.class).orElse("NONE"));
+
+        LOGGER.info("Injecting Tracing Print Streams");
+        TracingPrintStream.inject();
+
+        if (System.getProperty("java.util.logging.manager", null) == null) { //TODO: Disable in production
+            JULLogging.setProperty(); // Note: In Development this occurs to late do to Gradle using JUL.
+            JULLogging.forceLog4J();  // So we force it...
+        }
+
         topLoader.discoverServices();
         topLoader.getServices().forEach((k, v) -> LOGGER.info("ModLocator '{}' found.", k));
     }

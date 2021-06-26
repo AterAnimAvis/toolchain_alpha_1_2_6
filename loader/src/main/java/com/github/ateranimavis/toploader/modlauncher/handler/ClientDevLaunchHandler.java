@@ -20,10 +20,12 @@ public class ClientDevLaunchHandler implements ILaunchHandlerService {
 
     private static final List<String> EXCLUSIONS = Arrays.asList(
         "com.github.ateranimavis.toploader.modlauncher.",
-        "org.objectweb.asm.",
-        "org.spongepowered.asm.",
+        "com.github.ateranimavis.toploader.util.",
+        "joptsimple.",
+        "org.apache.logging.",
         "org.lwjgl.",
-        "joptsimple."
+        "org.objectweb.asm.",
+        "org.spongepowered.asm."
     );
 
     @Override

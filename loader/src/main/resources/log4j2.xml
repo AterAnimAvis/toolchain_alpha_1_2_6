@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="warn" packages="net.minecrell.terminalconsole,net.minecrell.terminalconsole.util,cpw.mods.modlauncher.log" shutdownHook="disable">
+    <filters>
+        <MarkerFilter marker="NETWORK_PACKETS" onMatch="DENY" onMismatch="NEUTRAL"/>
+        <MarkerFilter marker="CLASSLOADING" onMatch="DENY" onMismatch="NEUTRAL"/>
+        <MarkerFilter marker="LAUNCHPLUGIN" onMatch="DENY" onMismatch="NEUTRAL"/>
+        <MarkerFilter marker="CLASSDUMP" onMatch="${sys:modlauncher.logging.marker.classdump:-DENY}" onMismatch="NEUTRAL"/>
+    </filters>
+    <Appenders>
+        <!-- System out	-->
+        <TerminalConsole name="Console">
+            <PatternLayout>
+                <LoggerNamePatternSelector defaultPattern="%style{[%d{HH:mm:ss}]}{blue} %highlight{[%t/%level]}{FATAL=red, ERROR=red, WARN=yellow, INFO=green, DEBUG=green, TRACE=blue} %style{(%logger{1})}{cyan} %highlight{%msg%n}{FATAL=red, ERROR=red, WARN=normal, INFO=normal, DEBUG=normal, TRACE=normal}" disableAnsi="${sys:log.disableAnsi:-false}">
+                    <!-- Dont show the logger name for minecraft classes -->
+                    <PatternMatch key="net.minecraft.,com.mojang." pattern="%style{[%d{HH:mm:ss}]}{blue} %highlight{[%t/%level]}{FATAL=red, ERROR=red, WARN=yellow, INFO=green, DEBUG=green, TRACE=blue} %style{(Minecraft)}{cyan} %highlight{%msg%n}{FATAL=red, ERROR=red, WARN=normal, INFO=normal, DEBUG=normal, TRACE=normal}"/>
+                </LoggerNamePatternSelector>
+            </PatternLayout>
+        </TerminalConsole>
+    </Appenders>
+    <Loggers>
+        <Logger level="${sys:log.level:-info}" name="net.minecraft"/>
+        <Logger level="${sys:forge.logging.classtransformer.level:-info}" name="cpw.mods.modlauncher.ClassTransformer"/>
+        <Root level="all">
+            <AppenderRef ref="Console" level="${sys:log.level:-info}"/>
+        </Root>
+    </Loggers>
+</Configuration>

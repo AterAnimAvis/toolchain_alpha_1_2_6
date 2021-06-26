@@ -16,13 +16,13 @@ import javax.imageio.ImageIO;
 
 import com.github.ateranimavis.toploader.loader.Loader;
 import com.github.ateranimavis.toploader.util.Pair;
+import com.github.ateranimavis.toploader.util.ReflectionHelper;
 import org.apache.logging.log4j.LogManager;
 import org.lwjgl.BufferUtils;
 import org.lwjgl.opengl.GL11;
 import org.lwjgl.opengl.GL12;
 import net.minecraft.client.Minecraft;
 import net.minecraft.src.modloader.ModLoaderExt;
-import net.minecraft.src.modloader.ReflectionHelper;
 import net.minecraft.src.modloader.SpriteHandler;
 
 public abstract class ModLoader {
