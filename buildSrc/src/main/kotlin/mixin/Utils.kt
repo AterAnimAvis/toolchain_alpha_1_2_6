@@ -80,14 +80,21 @@ object Utils {
     fun MixinExtensionBase.findMissingAnnotationProcessors() : Set<SourceSet> {
         val missingAPs = mutableSetOf<SourceSet>()
         sourceSets.filter { sourceSet ->
-            sourceSet.mixinDependency =
-                findMixinDependency(sourceSet.compileConfigurationName) ?:
+            sourceSet.mixinDependency = if (majorGradleVersion >= 7)
                 findMixinDependency(sourceSet.implementationConfigurationName)
+            else
+                throw IllegalStateException("Un supported Gradle Version")
+            // TODO:
+//                findMixinDependency(sourceSet.compileConfigurationName) ?:
+//                findMixinDependency(sourceSet.implementationConfigurationName)
 
             if (sourceSet.mixinDependency != null) {
+                val mainVersion = getDependencyVersion(sourceSet.mixinDependency!!)
+                val mixinVersion = mixinVersionForErrors
+                if (mixinVersion == null || mainVersion > mixinVersion) this.mixinVersionForErrors = mainVersion
+
                 sourceSet.apDependency = findMixinDependency(sourceSet.annotationProcessorConfigurationName)
                 if (sourceSet.apDependency != null) {
-                    val mainVersion = getDependencyVersion(sourceSet.mixinDependency!!)
                     val apVersion = getDependencyVersion(sourceSet.apDependency!!)
                     if (mainVersion > apVersion) {
                         project.logger.warn("Mixin AP version ($apVersion) in configuration '${sourceSet.annotationProcessorConfigurationName}' is older than compile version ($mainVersion)")
@@ -159,13 +166,18 @@ object Utils {
 
         val missingAPs = this.findMissingAnnotationProcessors()
         if (missingAPs.isNotEmpty()) {
+            val gradleVersion  = if (this.majorGradleVersion > 4) "Gradle ${this.majorGradleVersion}" else "An unrecognised gradle version"
             val missingAPNames = missingAPs.map { it.annotationProcessorConfigurationName }
-            val message = (if (this.majorGradleVersion > 4) "Gradle ${this.majorGradleVersion} " else "An unrecognised gradle version ") + "was " +
-            "detected but the mixin dependency was missing from one or more Annotation Processor configurations: $missingAPNames. To " +
-                    "enable the Mixin AP please include the mixin processor artefact in each Annotation Processor configuration. For example " +
-                    "if you are using mixin dependency 'org.spongepowered:mixin:0.1.2-SNAPSHOT' you should specify the dependency " +
-                    "'org.spongepowered:mixin:0.1.2-SNAPSHOT:processor'. If you believe you are seeing this message in error, you can disable " +
-                    "this check via the disableAnnotationProcessorCheck() directive."
+            val apName         = if (missingAPNames.size > 1)  "<configurationName>" else missingAPNames[0]
+            val eachOfThese    = if (missingAPNames.size > 1)  " where <configurationName> is each of $missingAPNames." else ""
+            val mixinVersion   = mixinVersionForErrors ?: "0.1.2-SNAPSHOT"
+
+            val message = "$gradleVersion was detected but the mixin dependency was missing from one or more Annotation Processor " +
+                    "configurations: $missingAPNames. To enable the Mixin AP please include the mixin processor artifact in each " +
+                    "Annotation Processor configuration. For example if you are using mixin dependency " +
+                    "'org.spongepowered:mixin:$mixinVersion' you should specify: dependencies { $apName " +
+                    "'org.spongepowered:mixin:$mixinVersion:processor' }$eachOfThese. If you believe you are seeing this message in " +
+                    "error, you can disable this check via the disableAnnotationProcessorCheck() to your mixin { } block."
 
             // Only promote the error message to an actual error if we're sure there's a gradle version mismatch
             if (this.majorGradleVersion >= 5) {

@@ -7,7 +7,9 @@ import org.gradle.api.artifacts.UnknownRepositoryException
 import org.gradle.api.artifacts.dsl.RepositoryHandler
 import org.gradle.api.artifacts.repositories.MavenArtifactRepository
 import org.gradle.api.plugins.JavaPluginConvention
+import org.gradle.api.plugins.JavaPluginExtension
 import org.gradle.jvm.tasks.Jar
+import org.gradle.jvm.toolchain.JavaLanguageVersion
 import org.gradle.kotlin.dsl.the
 import task.ApplySpecialSource
 import java.net.URI
@@ -20,7 +22,7 @@ class MCPPlugin : Plugin<Project> {
             project.repositories.mavenCentral()
 
         project.repositories.maybeDeclare(MINECRAFT_FORGE_MAVEN) {
-            url = URI("http://maven.minecraftforge.net/")
+            url = URI("https://maven.minecraftforge.net/")
         }
 
         project.repositories.maybeDeclare(MINECRAFT_MAVEN) {
@@ -36,6 +38,9 @@ class MCPPlugin : Plugin<Project> {
                 includeGroup("org.spongepowered")
             }
         }
+
+
+        project.the<JavaPluginExtension>().toolchain.languageVersion.set(JavaLanguageVersion.of(8))
 
         val container = project.container(ApplySpecialSource::class.java) { jarName ->
             val name = jarName.capitalize()

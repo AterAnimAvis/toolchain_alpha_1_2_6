@@ -30,6 +30,7 @@ import org.gradle.api.InvalidUserDataException
 import org.gradle.api.Project
 import org.gradle.api.Task
 import org.gradle.api.tasks.SourceSet
+import org.gradle.util.VersionNumber
 import java.io.File
 
 open class MixinExtensionBase(
@@ -43,6 +44,12 @@ open class MixinExtensionBase(
      * Detected gradle major version, used in compatibility checks
      */
     internal val majorGradleVersion : Int = Utils.detectGradleMajorVersion(project)
+
+    /**
+     * Version number to include in error message when complaining about missing
+     * annotation processor
+     */
+    internal var mixinVersionForErrors : VersionNumber? = null
 
     /**
      * mcp-plugin has one major type of project currently

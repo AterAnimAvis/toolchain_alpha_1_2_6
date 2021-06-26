@@ -87,7 +87,7 @@ open class MixinExtension(project: Project) : MixinExtensionBase(project) {
             }
 
             // Search for upstream projects and add our jars to their target set
-            project.configurations["compile"].allDependencies.withType(ProjectDependency::class.java) {
+            project.configurations[if (majorGradleVersion >= 7) "implementation" else "compile"].allDependencies.withType(ProjectDependency::class.java) {
                 val mixinExt = dependencyProject.extensions.findByName("mixin") as MixinExtensionBase?
                 if (mixinExt != null) {
                     project.reobf.forEach { reobfTaskWrapper ->
