@@ -648,5 +648,5 @@ ThreadRunIsoClient,*,field_1197_a,*,*,*,canvas,""
 NetClientHandler,*,field_1209_a,*,*,*,unused_string,""
 NetClientHandler,*,field_1210_g,*,*,*,initialized,""
 EntityOtherPlayerMP,*,field_12240_bw,*,*,*,isSneaking,""
-ChunkProviderHell,*,field_4162_p,*,*,*,soulSandNoise
-EntityClientPlayerMP,*,field_12242_bI,*,*,*,timeSinceMoved
+ChunkProviderHell,*,field_4162_p,*,*,*,soulSandNoise,""
+EntityClientPlayerMP,*,field_12242_bI,*,*,*,timeSinceMoved,""
